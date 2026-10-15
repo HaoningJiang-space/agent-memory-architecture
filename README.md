@@ -25,6 +25,7 @@
 | `workload_accounting.py` / `accounting_unittest.py` | 从冻结真实请求计算逻辑 FLOPs、指定数据流下的字节数；检查 GQA 和首 token 口径 |
 | `protocol_ablation.py` | 冻结状态上的原生、合法 ID、delta 输出对照；不修改数据库 |
 | `operations/start_phase2.py` | 等待隔离服务就绪并执行完整原生 32B 对照，保留后台运行状态 |
+| `phase2_snapshot.py` / `operations/finish_phase2.py` | 固定运行中的观察前缀；两个后台实验结束后汇总、冻结并释放准确匹配的服务进程 |
 
 在远端已经准备好的环境中，可用新 run 名复查：
 

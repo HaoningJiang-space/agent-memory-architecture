@@ -83,4 +83,19 @@ T_D\approx \frac{2PD}{B\,W},\quad
 
 参数化架构模型先做守恒和上界检查：没有物理效率差异时，允许灵活调度的理想统一资源池可以模拟资源分区，静态异构划分不会凭空增加资源。新硬件必须通过可论证的单位面积带宽、能耗、容量或数据流效率改变约束。HB/3D/thermal 只有在这个环节出现实际因果作用时才进入主线。
 
+FGDRAM 还提供了一个重要提醒：不必只追求吞吐倍率。其增强后的等带宽基线已消除了大部分性能差距，但数据移动与激活能耗仍可构成物理机制的价值。因此，我们可以接受“相同性能与质量下更低生命周期能耗”的目标；前提是有可信的能耗模型，不能把两张 A800 的粗粒度板卡读数直接外推成新芯片能耗。
+
+**后台运行的第一份固定观察快照**
+
+[overview_observation_01.json](evidence/phase2/overview_observation_01.json) 固定了当时读到的文件前缀长度与哈希，后续追加不会改变该观察的定义。原生 32B Mem0 当时完成 20/88 个构建片段，尚未进入 QA，整体 validity 仍为 pending：
+
+- 已完成片段累计 1,023.11 秒；174 次 search、169 次 insert、12 次 update、2 次 delete 合计约 1.612 秒，占 0.1575%。在这个串行前缀上将这些索引操作的时间全部清零，上界只有 1.00158×。这不能推广到更大索引，但足以否定“当前已测规模下索引硬件是主瓶颈”。
+- Extraction 的首 token 之后时间约 119.12/152.67 秒；update 约 847.88/854.78 秒。换成 32B 后仍出现同样的阶段时间结构，不能只用“8B 输出失败”解释此前全部现象。
+- 输出协议对照正在后台进行。早期成对请求中，更严格的合法 ID schema 输出相同操作，却明显增加服务耗时。尚未定位是何种结构化解码实现开销；不能只凭更少 token 推断更低时延，更不能归因于 DRAM。
+- GPU0 上的 protocol 与 embedding 可能重叠；GPU1 执行 32B。当前运行用于功能、调用结构及软件对照观察，不用于不受干扰的端到端时延或能耗排名。
+
+[MemoryArena 数据清单](evidence/phase2/memoryarena_dataset.json) 固定了镜像下载版本与哈希：20 个物理推理任务、86 个会话，每个任务 2–12 个会话。只是数据检查，不是已运行的 MemoryArena 实验。
+
+后台 `operations/finish_phase2.py` 会在两个已注册实验结束后导出完成快照、计算适用的词法指标、冻结本轮原始文件哈希，并核对准确 PID 后释放本轮模型服务。其 completion 仅表示这些实验的收尾状态，**不表示研究 motivation 已完成**。
+
 进一步阅读的当前版本：[Agent Memory characterization v2](https://arxiv.org/html/2606.06448v2)、[MemExplorer](https://arxiv.org/html/2604.16007v1)、[KEEP](https://arxiv.org/abs/2602.23592)、[TokenCake](https://arxiv.org/abs/2510.18586)。版本不可混用：characterization v2 已增加 multi-tenant co-scheduling 论述，旧版的 embedding 请求规模也不能直接当作当前 artifact 的实测值。

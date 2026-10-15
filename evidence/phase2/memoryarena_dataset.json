@@ -1,0 +1,38 @@
+{
+  "revision": "da1a37c8b19280e18627ca01cf368195a5e1d92e",
+  "source": "https://hf-mirror.com/datasets/ZexueHe/memoryarena/raw/da1a37c8b19280e18627ca01cf368195a5e1d92e/formal_reasoning_phys/data.jsonl",
+  "sha256": "580862006af2ff2bfc8c5d2d2b9a60bf33a46cbb64f27d60a2bfe039aec61cf6",
+  "bytes": 87070,
+  "tasks": 20,
+  "sessions": 86,
+  "session_counts": [
+    3,
+    12,
+    8,
+    3,
+    4,
+    3,
+    3,
+    2,
+    5,
+    4,
+    4,
+    3,
+    4,
+    9,
+    3,
+    3,
+    2,
+    4,
+    4,
+    3
+  ],
+  "columns": [
+    "id",
+    "paper_name",
+    "questions",
+    "answers",
+    "backgrounds"
+  ],
+  "scope": "Dataset inspection only; no agent execution or arrival-time measurements"
+}
