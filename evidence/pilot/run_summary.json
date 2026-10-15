@@ -1,0 +1,137 @@
+{
+  "scope": "native measured calls; no architecture performance predictions",
+  "runs": [
+    {
+      "run": "mem0_full_01",
+      "status": "failed",
+      "validity": "invalid",
+      "source_commit": "30a157b7b49f732ee4b961cb19d7f877cf475f81",
+      "dataset_sha256": "97fd80207f3419fc57c3684db824334224546d6bdd62c17ef52cd116eec9ffc8",
+      "total_chunks": 88,
+      "total_queries": 60,
+      "logged_errors": [
+        "Error in new_memories_with_actions: '31'",
+        "Error in new_memories_with_actions: '39'",
+        "Error in new_memories_with_actions: '40'"
+      ],
+      "phases": {
+        "construction": {
+          "completed_steps": 9,
+          "step_seconds": 180.37430453300476,
+          "chat_calls": 18,
+          "embedding_calls": 88,
+          "prompt_tokens": 61415,
+          "completion_tokens": 7586,
+          "output_token_fraction": 0.1099404356458602,
+          "chat_interval_union_seconds": 172.48812413215637,
+          "embedding_interval_union_seconds": 6.360706806182861,
+          "chat_sum_seconds": 172.48812413215637,
+          "embedding_api_batch_histogram": {
+            "1": 88
+          },
+          "first_token_timed_calls": 18,
+          "first_token_wait_sum_seconds": 5.64830470085144,
+          "after_first_token_sum_seconds": 166.83981943130493,
+          "perfect_first_token_wait_and_embedding_removal_speedup_ceiling": 1.071327120282337,
+          "ceiling_scope": "Sequential measured prefix only; TTFT includes queue/network/first decode. Removes MORE than prefill; not a new-engine speedup prediction."
+        }
+      },
+      "measurement_subset": "First 9 chunks only, before invalid references in chunk 10; no completed quality result",
+      "stored_state_bytes": 856615
+    },
+    {
+      "run": "graph_full_01",
+      "status": "aborted",
+      "validity": "incomplete",
+      "source_commit": "30a157b7b49f732ee4b961cb19d7f877cf475f81",
+      "dataset_sha256": "97fd80207f3419fc57c3684db824334224546d6bdd62c17ef52cd116eec9ffc8",
+      "total_chunks": 88,
+      "total_queries": 60,
+      "logged_errors": [],
+      "phases": {
+        "construction": {
+          "completed_steps": 88,
+          "step_seconds": 0.08416986465454102,
+          "chat_calls": 0,
+          "embedding_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "output_token_fraction": null,
+          "chat_interval_union_seconds": 0,
+          "embedding_interval_union_seconds": 0,
+          "chat_sum_seconds": 0,
+          "embedding_api_batch_histogram": {},
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0
+        },
+        "index_finalize": {
+          "completed_steps": 0,
+          "step_seconds": 0,
+          "chat_calls": 74,
+          "embedding_calls": 2,
+          "prompt_tokens": 58332,
+          "completion_tokens": 9313,
+          "output_token_fraction": 0.13767462487988766,
+          "chat_interval_union_seconds": 110.34312629699707,
+          "embedding_interval_union_seconds": 23.344624757766724,
+          "chat_sum_seconds": 237.56324815750122,
+          "embedding_api_batch_histogram": {
+            "617": 2
+          },
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0
+        }
+      },
+      "stored_state_bytes": 0
+    },
+    {
+      "run": "graph_full_02",
+      "status": "running",
+      "validity": "pending",
+      "source_commit": "30a157b7b49f732ee4b961cb19d7f877cf475f81",
+      "dataset_sha256": "97fd80207f3419fc57c3684db824334224546d6bdd62c17ef52cd116eec9ffc8",
+      "total_chunks": 88,
+      "total_queries": 60,
+      "logged_errors": [],
+      "phases": {
+        "construction": {
+          "completed_steps": 88,
+          "step_seconds": 0.07656049728393555,
+          "chat_calls": 0,
+          "embedding_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "output_token_fraction": null,
+          "chat_interval_union_seconds": 0,
+          "embedding_interval_union_seconds": 0,
+          "chat_sum_seconds": 0,
+          "embedding_api_batch_histogram": {},
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0
+        },
+        "index_finalize": {
+          "completed_steps": 0,
+          "step_seconds": 0,
+          "chat_calls": 9,
+          "embedding_calls": 2,
+          "prompt_tokens": 434,
+          "completion_tokens": 190,
+          "output_token_fraction": 0.30448717948717946,
+          "chat_interval_union_seconds": 1.8531055450439453,
+          "embedding_interval_union_seconds": 23.104790210723877,
+          "chat_sum_seconds": 4.973362922668457,
+          "embedding_api_batch_histogram": {
+            "617": 2
+          },
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0
+        }
+      },
+      "stored_state_bytes": 0
+    }
+  ]
+}

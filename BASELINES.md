@@ -14,6 +14,7 @@ The purpose of this matrix is to prevent a familiar software mechanism from bein
 Pinned code:
 
 - Characterization artifact: `Tambe-Lab/agent-memory-profiling@30a157b7b49f732ee4b961cb19d7f877cf475f81`. Its vendored Mem0 makes extraction and update LLM calls, with per-fact embedding/search between them. Current upstream Mem0 main implements a different path, so its name alone is not provenance.
+- Current Mem0: `mem0ai/mem0@0724291bd864cf807e88ee8981c8226644e8fb42`, `mem0/memory/main.py:919–1006` already retrieves existing context before a single extraction call, then calls `embed_batch` for extracted facts. This is source evidence, not a measured end-to-end comparison. The old artifact's serial loop is not representative of every Mem0 release. In the artifact loop itself, all fact searches precede memory mutations, so independent fact encodings may be batched while preserving fact order; numerical/retrieval parity still needs checking.
 - KEEP: `PKU-SEC-Lab/KEEP_Embodied_Memory@493388b11e9cbbe0b323a4eb770e2b9bd0a25ed7`. `KEEP_transformers/modeling_qwen2_14b.py` implements module recomputation selection. The repository provides separate accuracy and vLLM latency implementations.
 - TokenCake: `pku-lemonade/TokenCake@1901ebf31fdf63590148e61d5c2f65e9fb7ec010`. `vllm/tokencake/scheduling.py`, `offload_policy.py`, `offloading.py`, `lifecycle.py` implement scheduling and preservation; `config.py` explicitly requires native KV offloading capacity for the offload arm. A scheduling-score-only test cannot reproduce transfer or end-to-end gains.
 

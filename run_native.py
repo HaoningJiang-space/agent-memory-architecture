@@ -29,7 +29,9 @@ os.environ.update(OPENAI_API_KEY='EMPTY', OPENAI_BASE_URL='http://127.0.0.1:8030
                   HF_HUB_OFFLINE='1', HF_HOME=str(ROOT/'hf'), MEM0_TELEMETRY='False',
                   MEM0_DIR=str(out/'mem0_home'), NLTK_DATA=str(ROOT/'nltk_data'),
                   TIKTOKEN_CACHE_DIR=str(ROOT/'tiktoken-cache'), VLLM_GUIDED_DECODING='1',
-                  MAB_RAG_CACHE_DIR=str(out/'rag_cache'), TOKENIZERS_PARALLELISM='false')
+                  MAB_RAG_CACHE_DIR=str(out/'rag_cache'), TOKENIZERS_PARALLELISM='false',
+                  OMP_NUM_THREADS='1', MKL_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1',
+                  NUMEXPR_NUM_THREADS='1')
 for key in ['OPENROUTER_API_KEY', 'AZURE_OPENAI_API_KEY', 'QWEN_EMBED_BACKEND']:
     os.environ.pop(key, None)
 sys.path.insert(0, str(ROOT/'external/agent-memory-profiling'))
@@ -51,6 +53,8 @@ if args.algorithm == 'graphrag':
 from agent import AgentWrapper
 from conversation_creator import ConversationCreator
 from profiler.memory_tracker import ScopedTracker
+import torch
+torch.set_num_threads(1)
 
 def write(path, obj):
     tmp = path.with_suffix(path.suffix+'.tmp')
@@ -81,6 +85,7 @@ data_cfg = dict(dataset='Accurate_Retrieval', sub_dataset='longmemeval_s*',
 manifest = dict(args=vars(args), agent_config=cfg, dataset_config=data_cfg,
                 dataset_sha256=hashlib.sha256((ROOT/args.dataset).read_bytes()).hexdigest(),
                 source_commit='30a157b7b49f732ee4b961cb19d7f877cf475f81',
+                cpu_runtime=dict(OMP_NUM_THREADS=1,MKL_NUM_THREADS=1,OPENBLAS_NUM_THREADS=1,torch_num_threads=1),
                 models=json.loads((ROOT/'models.json').read_text()), start=time.time(),
                 status='running', validity='pending')
 write(out/f'{args.stage}_manifest.json', manifest)
