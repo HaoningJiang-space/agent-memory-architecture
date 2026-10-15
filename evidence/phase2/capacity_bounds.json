@@ -1,0 +1,71 @@
+{
+  "scope": "Capacity upper bound only, not a latency or iso-cost comparison. Assumed 20,480-token 32B requests; no construction KV, workspace or fragmentation.",
+  "assumed_prompt_tokens": 20480,
+  "kv_bytes_per_token": 262144,
+  "cases": [
+    {
+      "configuration": "Shared 32B + embed",
+      "capacity_GiB": 80,
+      "weight_GiB": 62.13393020629883,
+      "free_GiB": 17.866069793701172,
+      "max_32b_kv_tokens": 73179,
+      "max_assumed_requests": 3
+    },
+    {
+      "configuration": "Shared 32B + embed",
+      "capacity_GiB": 96,
+      "weight_GiB": 62.13393020629883,
+      "free_GiB": 33.86606979370117,
+      "max_32b_kv_tokens": 138715,
+      "max_assumed_requests": 6
+    },
+    {
+      "configuration": "Shared 32B + embed",
+      "capacity_GiB": 128,
+      "weight_GiB": 62.13393020629883,
+      "free_GiB": 65.86606979370117,
+      "max_32b_kv_tokens": 269787,
+      "max_assumed_requests": 13
+    },
+    {
+      "configuration": "Shared 32B + embed",
+      "capacity_GiB": 160,
+      "weight_GiB": 62.13393020629883,
+      "free_GiB": 97.86606979370117,
+      "max_32b_kv_tokens": 400859,
+      "max_assumed_requests": 19
+    },
+    {
+      "configuration": "8B + 32B + embed",
+      "capacity_GiB": 80,
+      "weight_GiB": 77.3903636932373,
+      "free_GiB": 2.6096363067626953,
+      "max_32b_kv_tokens": 10689,
+      "max_assumed_requests": 0
+    },
+    {
+      "configuration": "8B + 32B + embed",
+      "capacity_GiB": 96,
+      "weight_GiB": 77.3903636932373,
+      "free_GiB": 18.609636306762695,
+      "max_32b_kv_tokens": 76225,
+      "max_assumed_requests": 3
+    },
+    {
+      "configuration": "8B + 32B + embed",
+      "capacity_GiB": 128,
+      "weight_GiB": 77.3903636932373,
+      "free_GiB": 50.609636306762695,
+      "max_32b_kv_tokens": 207297,
+      "max_assumed_requests": 10
+    },
+    {
+      "configuration": "8B + 32B + embed",
+      "capacity_GiB": 160,
+      "weight_GiB": 77.3903636932373,
+      "free_GiB": 82.6096363067627,
+      "max_32b_kv_tokens": 338369,
+      "max_assumed_requests": 16
+    }
+  ]
+}

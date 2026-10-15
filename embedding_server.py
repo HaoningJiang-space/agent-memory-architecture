@@ -1,6 +1,7 @@
 """Pinned HF last-token embedding endpoint with explicit kernel batches."""
 import base64
 import json
+import os
 from pathlib import Path
 import threading
 import time
@@ -11,6 +12,8 @@ import torch
 from transformers import AutoModel, AutoTokenizer
 
 ROOT = Path(__file__).resolve().parent
+TRACE_DIR = Path(os.environ.get('AGENT_MEMORY_TRACE', ROOT/'outputs/api_trace.jsonl')).parent
+TRACE_DIR.mkdir(parents=True, exist_ok=True)
 MODEL = 'Qwen/Qwen3-Embedding-0.6B'
 info = json.loads((ROOT / 'models.json').read_text())[MODEL]
 torch.set_num_threads(4)
@@ -50,7 +53,7 @@ def embed(body: dict):
             row = {'start': start, 'end': time.time(), 'batch': len(sub), 'lengths': lengths,
                    'padded_length': tensors['input_ids'].shape[1],
                    'cuda_seconds': a.elapsed_time(b)/1000, 'api_count': len(texts), 'offset': offset}
-            with (ROOT/'outputs'/'embedding_kernels.jsonl').open('a') as f:
+            with (TRACE_DIR/'embedding_kernels.jsonl').open('a') as f:
                 f.write(json.dumps(row)+'\n')
             token_count += sum(lengths)
     data = []

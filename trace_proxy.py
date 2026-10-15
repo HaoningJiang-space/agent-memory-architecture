@@ -1,5 +1,6 @@
 """Local-only OpenAI router and raw request trace; no external inference APIs."""
 import json
+import os
 from pathlib import Path
 import time
 import uuid
@@ -9,17 +10,19 @@ from fastapi import FastAPI, Request
 from fastapi.responses import Response, StreamingResponse
 
 ROOT = Path(__file__).resolve().parent
+TRACE = Path(os.environ.get('AGENT_MEMORY_TRACE', ROOT / 'outputs' / 'api_trace.jsonl'))
+TRACE.parent.mkdir(parents=True, exist_ok=True)
 app = FastAPI()
 PORTS = {'Qwen/Qwen3-8B': 8031, 'Qwen/Qwen3-32B': 8032,
          'Qwen/Qwen3-Embedding-0.6B': 8033}
 
 def save(row):
-    with (ROOT / 'outputs' / 'api_trace.jsonl').open('a') as f:
+    with TRACE.open('a') as f:
         f.write(json.dumps(row) + '\n')
 
 @app.get('/health')
 def health():
-    return {'router': 'ready'}
+    return {'router': 'ready', 'trace_path': str(TRACE.resolve())}
 
 @app.post('/v1/{path:path}')
 async def route(path: str, request: Request):

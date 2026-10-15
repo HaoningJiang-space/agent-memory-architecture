@@ -24,7 +24,11 @@ parser.add_argument('--answer-max-tokens', type=int, default=256)
 parser.add_argument('--construction-model', choices=['Qwen/Qwen3-8B', 'Qwen/Qwen3-32B'], default='Qwen/Qwen3-8B')
 parser.add_argument('--wait-for-qa', action='store_true', help='Keep native in-memory index alive until QA server is ready')
 parser.add_argument('--precompute-ner', action='store_true', help='Software control: batch spaCy before concurrent concept LLM calls')
+parser.add_argument('--trace-file', default='outputs/api_trace.jsonl')
 args = parser.parse_args()
+router_health = json.load(urllib.request.urlopen('http://127.0.0.1:8030/health', timeout=5))
+if router_health.get('trace_path') != str((ROOT/args.trace_file).resolve()):
+    raise RuntimeError('Router trace destination does not match --trace-file')
 out = ROOT/'outputs'/args.run
 out.mkdir(parents=True, exist_ok=True)
 if (out/f'{args.stage}_manifest.json').exists():
@@ -150,7 +154,7 @@ def measured(fn, phase, index):
     begin = time.time()
     count = len(errors.messages)
     calls = len(tracker.call_log)
-    trace_path = ROOT/'outputs/api_trace.jsonl'
+    trace_path = ROOT/args.trace_file
     offset = trace_path.stat().st_size if trace_path.exists() else 0
     value = fn()
     append('steps.jsonl', dict(**context, start=begin, end=time.time(), result=value))

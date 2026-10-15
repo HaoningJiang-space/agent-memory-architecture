@@ -1,0 +1,32 @@
+{
+  "local_pdfs": [
+    {
+      "path": "HybridSpec_Exploiting_Hybrid-Bonding_Memory_to_Accelerate_LLM_Serving_Through_Heterogeneous_Architecture_and_Speculative_Decoding.pdf",
+      "sha256": "4145d3628d83992745e5e83c769bce47ab4de3106c27f05e689e7efe9c95db92"
+    },
+    {
+      "path": "thermal/data/literature/r22/Splitwise-ISCA24.pdf",
+      "sha256": "e22b6534854fd86e892a6184c2e55f7de06eb04f6e6c466cc59f8c960cd38013"
+    },
+    {
+      "path": "asy/asymmetric_llm_3d/cooling/deep_review/papers/architecture/h2_llm_isca2025.pdf",
+      "sha256": "1958e22da94e12eeb225ca5c4694d341416e1567135e2ef53c92f0382217e7f4"
+    },
+    {
+      "path": "thermal/data/literature/r22/Sarathi-OSDI24.pdf",
+      "sha256": "2416e51f584230107739783e5995d3dea3efad93f189e2c3119434d62a31412c"
+    },
+    {
+      "path": "thermal/data/literature/dram-boundaries-20261003/FGDRAM-MICRO2017.pdf",
+      "sha256": "b2c8b93b879fe85c44ec5f890331478cc64ffda79a4fa21130bf78fca21b247c"
+    },
+    {
+      "path": "thermal/data/literature/r23/TETRIS-ASPLOS17.pdf",
+      "sha256": "70f3d061f0e12a2ef4e0ecfe7df1623a42dde10038a1ea5836f9e7e629b694fd"
+    }
+  ],
+  "memoryarena_code_commit": "6cd9de14b71915e39ac742a20dc33785e14b6aab",
+  "memoryarena_download": "https://ghfast.top/https://github.com/ZexueHe/MemoryArena.git",
+  "memoryarena_execution": "not yet run",
+  "accounting_scope": "Measured API timings plus logical work and capacity bounds; no architecture speedup claim"
+}
