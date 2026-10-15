@@ -7,7 +7,7 @@ import sys
 
 r=Path(__file__).resolve().parent
 sys.path.insert(0,str(r/'external/agent-memory-profiling'))
-from utils.eval_other_utils import calculate_metrics
+from utils.eval_other_utils import calculate_metrics, post_process
 
 def union(intervals):
     merged=[]
@@ -32,7 +32,13 @@ for run in ['mem0_full_01','graph_full_01','graph_full_02','graph_full_03','embe
         total_chunks=m.get('total_chunks'),total_queries=m.get('total_queries'),
         logged_error_count=len(m.get('logged_errors',[])),
         manifest_wall_seconds=m.get('end',m['start'])-m['start'],
-        runner_sha256=m.get('runner_sha256'),phases={})
+        runner_sha256=m.get('runner_sha256'),
+        answer_max_tokens=m.get('dataset_config',{}).get('generation_max_length'),
+        retrieval_top_k=m.get('agent_config',{}).get('retrieve_num'),phases={})
+    sidecar=folder/'runner_sha256.json'
+    if row['runner_sha256'] is None and sidecar.exists():
+        row['runner_sha256']=json.loads(sidecar.read_text())['sha256']
+        row['runner_hash_source']='separate preserved snapshot; absent from original manifest'
     gpu_files=list(folder.glob('*_gpu.jsonl'))
     if gpu_files:
         samples=[json.loads(line) for p in gpu_files for line in p.read_text().splitlines()]
@@ -60,7 +66,7 @@ for run in ['mem0_full_01','graph_full_01','graph_full_02','graph_full_03','embe
         prompt=sum((x.get('usage') or {}).get('prompt_tokens',0) for x in chat)
         completion=sum((x.get('usage') or {}).get('completion_tokens',0) for x in chat)
         first=[x for x in chat if x.get('first_token')]
-        phase_row=dict(completed_steps=len(ss),step_seconds=sum(x['end']-x['start'] for x in ss),
+        phase_row=dict(recorded_steps=len(ss),step_seconds=sum(x['end']-x['start'] for x in ss),
             chat_calls=len(chat),embedding_calls=len(embed),prompt_tokens=prompt,completion_tokens=completion,
             output_token_fraction=completion/(prompt+completion) if prompt+completion else None,
             chat_interval_union_seconds=union([(x['start'],x['end']) for x in chat]),
@@ -90,12 +96,16 @@ for run in ['mem0_full_01','graph_full_01','graph_full_02','graph_full_03','embe
     answers=folder/'answers.jsonl'
     if answers.exists():
         metrics=[]
+        raw_metrics=[]
         for line in answers.read_text().splitlines():
             a=json.loads(line)
             answer=a['answer'] if isinstance(a['answer'],list) else [a['answer']]
-            metrics.append(calculate_metrics(a['response']['output'],answer))
-        row['answer_metrics']=dict(count=len(metrics),metric_definition='pinned artifact lexical metrics; no independent semantic judge',
-            means={k:statistics.mean(x[k] for x in metrics) for k in metrics[0]} if metrics else {})
+            raw_metrics.append(calculate_metrics(a['response']['output'],answer))
+            processed,_=post_process(a['response'],answer,m['dataset_config'])
+            metrics.append(processed)
+        row['answer_metrics']=dict(count=len(metrics),metric_definition='pinned artifact LongMemEval post_process: per-metric max of raw and parsed output; lexical only, no semantic judge',
+            means={k:statistics.mean(x[k] for x in metrics) for k in metrics[0]} if metrics else {},
+            raw_output_means={k:statistics.mean(x[k] for x in raw_metrics) for k in raw_metrics[0]} if raw_metrics else {})
     row['stored_state_bytes']=sum(p.stat().st_size for p in (folder/'state').rglob('*') if p.is_file()) if (folder/'state').exists() else 0
     row['stored_cache_bytes']=sum(p.stat().st_size for p in (folder/'rag_cache').rglob('*') if p.is_file()) if (folder/'rag_cache').exists() else 0
     row['state_size_scope']='Serialized files only, not peak CPU working set or accelerator memory; partial failed states are not full-corpus sizes.'

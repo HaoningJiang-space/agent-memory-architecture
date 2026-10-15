@@ -35,7 +35,8 @@ for row in rows:
     failures=bad,scope='output truncation invalidates full construction; no QA run'),indent=2)+'\n')
 files=['run_summary.json','calibration_analysis.json','model_capacity.json','environment_conditions.json',
        'spacy_batch_check.json','pipeline.json','requirements-runtime.lock.txt',
-       'package_versions.json','validation.json','completion_pipeline.json','power_measurement_audit.json']
+       'package_versions.json','validation.json','completion_pipeline.json','power_measurement_audit.json',
+       'raw_artifact_sha256.json']
 for name in files:
     p=r/'outputs'/name
     if p.exists():(out/name).write_bytes(p.read_bytes())
