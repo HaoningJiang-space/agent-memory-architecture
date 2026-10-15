@@ -37,12 +37,16 @@ with torch.inference_mode():
     for batch,length in [(1,32),(1,128),(1,512),(1,2048),(8,128),(32,128),(8,512),(32,512)]:
         ids = torch.randint(100,10000,(batch,length),device='cuda')
         mask = torch.ones_like(ids)
-        # Unpadded sequences need no padding mask. Keep SDPA's native causal
-        # dispatch and verify equivalence against the ordinary all-ones mask.
-        positions = torch.arange(length,device='cuda').unsqueeze(0)
-        def forward():
-            return model(input_ids=ids,attention_mask=None,position_ids=positions,use_cache=False).last_hidden_state[:,-1]
+        captured = {}
+        def remember_mask(module, positional, keyword):
+            captured['mask'] = keyword.get('attention_mask')
+        hook = model.layers[0].register_forward_pre_hook(remember_mask, with_kwargs=True)
         normal = model(input_ids=ids,attention_mask=mask,use_cache=False).last_hidden_state[:,-1].clone()
+        hook.remove()
+        # Reuse the exact mask created by native HF, without rebuilding it
+        # inside graph capture or changing SDPA's dispatch.
+        def forward():
+            return model(input_ids=ids,attention_mask={'full_attention':captured['mask']},use_cache=False).last_hidden_state[:,-1]
         explicit = forward().clone()
         torch.testing.assert_close(explicit,normal,rtol=0.02,atol=0.02)
         stream = torch.cuda.Stream()
