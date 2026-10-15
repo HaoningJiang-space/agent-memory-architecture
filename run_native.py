@@ -10,6 +10,7 @@ import subprocess
 import sys
 import time
 import traceback
+import urllib.request
 
 ROOT = Path(__file__).resolve().parent
 parser = argparse.ArgumentParser()
@@ -19,6 +20,8 @@ parser.add_argument('--stage', choices=['construction', 'query', 'both'], defaul
 parser.add_argument('--dataset', default='longmemeval.json')
 parser.add_argument('--max-chunks', type=int, default=0, help='Diagnostic subset only; 0 means all')
 parser.add_argument('--max-queries', type=int, default=0)
+parser.add_argument('--construction-model', choices=['Qwen/Qwen3-8B', 'Qwen/Qwen3-32B'], default='Qwen/Qwen3-8B')
+parser.add_argument('--wait-for-qa', action='store_true', help='Keep native in-memory index alive until QA server is ready')
 args = parser.parse_args()
 out = ROOT/'outputs'/args.run
 out.mkdir(parents=True, exist_ok=True)
@@ -62,7 +65,7 @@ names = {'mem0':'Structure_rag_mem0', 'embedrag':'Structure_rag_qwen3_embedding_
          'graphrag':'Structure_rag_graph_rag', 'bm25':'Structure_rag_bm25'}
 base = 'http://127.0.0.1:8030/v1'
 cfg = dict(agent_name=names[args.algorithm], model='Qwen/Qwen3-32B',
-           memory_construction_llm='Qwen/Qwen3-8B', qa_generation_llm='Qwen/Qwen3-32B',
+           memory_construction_llm=args.construction_model, qa_generation_llm='Qwen/Qwen3-32B',
            openai_base_url=base, qa_openai_base_url=base, api_key='EMPTY',
            temperature=0.0, input_length_limit=32000, buffer_length=1000,
            retrieve_num=10, output_dir=str(out), embedding_model='Qwen/Qwen3-Embedding-0.6B',
@@ -70,7 +73,7 @@ cfg = dict(agent_name=names[args.algorithm], model='Qwen/Qwen3-32B',
            graph_rag_max_tokens=1024, graph_rag_llm_context_window=32000)
 if args.algorithm == 'mem0':
     cfg['agent_chunk_size'] = 4096
-    cfg['mem0_llm'] = dict(provider='openai', config=dict(model='Qwen/Qwen3-8B',
+    cfg['mem0_llm'] = dict(provider='openai', config=dict(model=args.construction_model,
                            temperature=0.0, max_tokens=4096, openai_base_url=base, api_key='EMPTY'))
 data_cfg = dict(dataset='Accurate_Retrieval', sub_dataset='longmemeval_s*',
                 context_max_length=400000, max_test_samples=1, chunk_size=4096,
@@ -90,6 +93,14 @@ class ErrorCapture(logging.Handler):
         self.messages.append(record.getMessage())
 errors = ErrorCapture()
 logging.getLogger().addHandler(errors)
+class CheckedStdout:
+    def write(self, value):
+        if 'Error extracting concepts:' in value:
+            errors.messages.append(value)
+        return sys.__stdout__.write(value)
+    def flush(self):
+        sys.__stdout__.flush()
+sys.stdout = CheckedStdout()
 tracker = ScopedTracker()
 monitor = subprocess.Popen([sys.executable, str(ROOT/'watch_gpu.py'), str(out/f'{args.stage}_gpu.jsonl')],
                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -162,6 +173,19 @@ try:
             measured(lambda: agent.finalize_memory_construction(context_id=0), 'index_finalize', -1)
             agent.save_agent()
         if args.stage in ['query', 'both']:
+            if args.wait_for_qa:
+                deadline = time.monotonic()+7200
+                while True:
+                    try:
+                        urllib.request.urlopen('http://127.0.0.1:8032/health', timeout=3).read()
+                        break
+                    except (OSError, urllib.error.URLError):
+                        if time.monotonic()>deadline:
+                            raise RuntimeError('QA server readiness deadline exceeded')
+                        manifest['waiting_for_qa'] = True
+                        write(out/f'{args.stage}_manifest.json', manifest)
+                        time.sleep(10)
+                manifest['waiting_for_qa'] = False
             for i, (query, answer, qid) in enumerate(questions[:args.max_queries or None]):
                 response = measured(lambda: agent.send_message(query, memorizing=False, query_id=i, context_id=0), 'query', i)
                 append('answers.jsonl', dict(index=i, qa_id=qid, query=query, answer=answer, response=response))

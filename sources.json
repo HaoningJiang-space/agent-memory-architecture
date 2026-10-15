@@ -42,6 +42,30 @@
       "commit_date": "2026-03-05T06:33:11-05:00",
       "status": "cloned",
       "worktree_status": ""
+    },
+    {
+      "name": "agent-memory-profiling",
+      "url": "https://github.com/Tambe-Lab/agent-memory-profiling.git",
+      "path": "/home/abc/jhn/agent-memory-architecture/external/agent-memory-profiling",
+      "commit": "30a157b7b49f732ee4b961cb19d7f877cf475f81",
+      "status": "cloned via mirror",
+      "worktree_status": ""
+    },
+    {
+      "name": "KEEP",
+      "url": "https://github.com/PKU-SEC-Lab/KEEP_Embodied_Memory.git",
+      "path": "/home/abc/jhn/agent-memory-architecture/external/KEEP",
+      "commit": "493388b11e9cbbe0b323a4eb770e2b9bd0a25ed7",
+      "status": "cloned via mirror",
+      "worktree_status": ""
+    },
+    {
+      "name": "TokenCake",
+      "url": "https://github.com/pku-lemonade/TokenCake.git",
+      "path": "/home/abc/jhn/agent-memory-architecture/external/TokenCake",
+      "commit": "1901ebf31fdf63590148e61d5c2f65e9fb7ec010",
+      "status": "cloned via mirror",
+      "worktree_status": ""
     }
   ]
 }

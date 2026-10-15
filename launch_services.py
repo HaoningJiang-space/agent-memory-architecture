@@ -37,7 +37,7 @@ for name in sys.argv[1:]:
         args = [python, '-m', 'vllm.entrypoints.openai.api_server', '--model', models[m]['path'],
                 '--served-model-name', m, '--host', '127.0.0.1', '--port', '8031' if name == 'construction' else '8032',
                 '--dtype', 'bfloat16', '--max-model-len', '32768', '--max-num-seqs', '16',
-                '--max-num-batched-tokens', '8192', '--gpu-memory-utilization', '0.60' if name == 'construction' else '0.90',
+                '--max-num-batched-tokens', '8192', '--gpu-memory-utilization', '0.60' if name == 'construction' else '0.95',
                 '--generation-config', 'vllm', '--no-enable-prefix-caching', '--disable-log-requests']
     log = (ROOT/'logs'/f'{name}.log').open('ab')
     p = subprocess.Popen(args, cwd=ROOT, env=env, stdin=subprocess.DEVNULL,
