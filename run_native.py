@@ -1,0 +1,178 @@
+"""Execute pinned upstream algorithms; keep all raw traces and states remote."""
+import argparse
+import functools
+import hashlib
+import json
+import logging
+import os
+from pathlib import Path
+import subprocess
+import sys
+import time
+import traceback
+
+ROOT = Path(__file__).resolve().parent
+parser = argparse.ArgumentParser()
+parser.add_argument('--algorithm', choices=['mem0', 'embedrag', 'graphrag', 'bm25'], required=True)
+parser.add_argument('--run', required=True)
+parser.add_argument('--stage', choices=['construction', 'query', 'both'], default='both')
+parser.add_argument('--dataset', default='longmemeval.json')
+parser.add_argument('--max-chunks', type=int, default=0, help='Diagnostic subset only; 0 means all')
+parser.add_argument('--max-queries', type=int, default=0)
+args = parser.parse_args()
+out = ROOT/'outputs'/args.run
+out.mkdir(parents=True, exist_ok=True)
+os.environ.update(OPENAI_API_KEY='EMPTY', OPENAI_BASE_URL='http://127.0.0.1:8030/v1',
+                  HF_HUB_OFFLINE='1', HF_HOME=str(ROOT/'hf'), MEM0_TELEMETRY='False',
+                  MEM0_DIR=str(out/'mem0_home'), NLTK_DATA=str(ROOT/'nltk_data'),
+                  TIKTOKEN_CACHE_DIR=str(ROOT/'tiktoken-cache'), VLLM_GUIDED_DECODING='1',
+                  MAB_RAG_CACHE_DIR=str(out/'rag_cache'), TOKENIZERS_PARALLELISM='false')
+for key in ['OPENROUTER_API_KEY', 'AZURE_OPENAI_API_KEY', 'QWEN_EMBED_BACKEND']:
+    os.environ.pop(key, None)
+sys.path.insert(0, str(ROOT/'external/agent-memory-profiling'))
+import nltk
+def offline_nltk(name, *a, **kw):
+    kind = 'tokenizers' if name in ['punkt', 'punkt_tab'] else 'corpora'
+    assert (ROOT/'nltk_data'/kind/name).exists(), f'Missing mirrored NLTK resource {name}'
+    return True
+nltk.download = offline_nltk
+if args.algorithm == 'graphrag':
+    import spacy
+    original_load = spacy.load
+    def local_spacy(name, **kw):
+        if name == 'en_core_web_sm':
+            name = json.loads((ROOT/'spacy_model.json').read_text())['path']
+        return original_load(name, **kw)
+    spacy.load = local_spacy
+
+from agent import AgentWrapper
+from conversation_creator import ConversationCreator
+from profiler.memory_tracker import ScopedTracker
+
+def write(path, obj):
+    tmp = path.with_suffix(path.suffix+'.tmp')
+    tmp.write_text(json.dumps(obj, indent=2, default=str)+'\n')
+    tmp.replace(path)
+
+def append(name, obj):
+    with (out/name).open('a') as f:
+        f.write(json.dumps(obj, default=str)+'\n')
+
+names = {'mem0':'Structure_rag_mem0', 'embedrag':'Structure_rag_qwen3_embedding_0_6b',
+         'graphrag':'Structure_rag_graph_rag', 'bm25':'Structure_rag_bm25'}
+base = 'http://127.0.0.1:8030/v1'
+cfg = dict(agent_name=names[args.algorithm], model='Qwen/Qwen3-32B',
+           memory_construction_llm='Qwen/Qwen3-8B', qa_generation_llm='Qwen/Qwen3-32B',
+           openai_base_url=base, qa_openai_base_url=base, api_key='EMPTY',
+           temperature=0.0, input_length_limit=32000, buffer_length=1000,
+           retrieve_num=10, output_dir=str(out), embedding_model='Qwen/Qwen3-Embedding-0.6B',
+           embedding_base_url=base, embedding_api_key_env='OPENAI_API_KEY', embedding_dim=1024,
+           graph_rag_max_tokens=1024, graph_rag_llm_context_window=32000)
+if args.algorithm == 'mem0':
+    cfg['agent_chunk_size'] = 4096
+    cfg['mem0_llm'] = dict(provider='openai', config=dict(model='Qwen/Qwen3-8B',
+                           temperature=0.0, max_tokens=4096, openai_base_url=base, api_key='EMPTY'))
+data_cfg = dict(dataset='Accurate_Retrieval', sub_dataset='longmemeval_s*',
+                context_max_length=400000, max_test_samples=1, chunk_size=4096,
+                generation_max_length=256, local_json=str(ROOT/args.dataset), random_seed=42, seed=42)
+manifest = dict(args=vars(args), agent_config=cfg, dataset_config=data_cfg,
+                dataset_sha256=hashlib.sha256((ROOT/args.dataset).read_bytes()).hexdigest(),
+                source_commit='30a157b7b49f732ee4b961cb19d7f877cf475f81',
+                models=json.loads((ROOT/'models.json').read_text()), start=time.time(),
+                status='running', validity='pending')
+write(out/f'{args.stage}_manifest.json', manifest)
+
+class ErrorCapture(logging.Handler):
+    def __init__(self):
+        super().__init__(logging.ERROR)
+        self.messages = []
+    def emit(self, record):
+        self.messages.append(record.getMessage())
+errors = ErrorCapture()
+logging.getLogger().addHandler(errors)
+tracker = ScopedTracker()
+monitor = subprocess.Popen([sys.executable, str(ROOT/'watch_gpu.py'), str(out/f'{args.stage}_gpu.jsonl')],
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+def mark(phase, index):
+    context = dict(run=args.run, algorithm=args.algorithm, phase=phase, index=index)
+    tracker.current_context = context
+    write(ROOT/'run_context.json', context)
+    return context
+
+def measured(fn, phase, index):
+    context = mark(phase, index)
+    begin = time.time()
+    count = len(errors.messages)
+    calls = len(tracker.call_log)
+    trace_path = ROOT/'outputs/api_trace.jsonl'
+    offset = trace_path.stat().st_size if trace_path.exists() else 0
+    value = fn()
+    append('steps.jsonl', dict(**context, start=begin, end=time.time(), result=value))
+    for row in tracker.call_log[calls:]:
+        append('calls.jsonl', row)
+    if len(errors.messages) > count:
+        raise RuntimeError('Upstream logged errors: '+repr(errors.messages[count:]))
+    if trace_path.exists():
+        with trace_path.open() as f:
+            f.seek(offset)
+            for line in f:
+                row = json.loads(line)
+                if row.get('context') != context:
+                    continue
+                reasons = [row.get('finish_reason')]
+                reasons += [c.get('finish_reason') for c in row.get('response', {}).get('choices', [])]
+                if 'length' in reasons:
+                    raise RuntimeError('Generation truncated at token cap; run is invalid')
+                if row.get('error') or row.get('status', 200) != 200:
+                    raise RuntimeError('Inference request failed; inspect raw API trace')
+    return value
+
+try:
+    creator = ConversationCreator(cfg, data_cfg)
+    chunks, questions = creator.get_chunks()[0], creator.get_query_and_answers()[0]
+    manifest.update(total_chunks=len(chunks), total_queries=len(questions),
+                    context_chars=len(creator.contexts[0]))
+    write(out/f'{args.stage}_manifest.json', manifest)
+    if args.stage == 'query':
+        assert args.algorithm == 'mem0', 'Other native agents lack state reload; use stage both'
+        prior = json.loads((out/'construction_manifest.json').read_text())
+        assert prior['status'] == 'complete' and prior['validity'] == 'valid'
+    elif (out/'state').exists():
+        raise RuntimeError('Existing state: choose a new run name to avoid duplicate ingestion')
+    with tracker:
+        mark('initialization', -1)
+        agent = AgentWrapper(cfg, data_cfg, str(out/'state'), force_rerun=False)
+        if args.algorithm == 'mem0':
+            # Observe real index operations without changing order or issuing extra queries.
+            for name in ['search', 'insert', 'update', 'delete']:
+                original = getattr(agent.memory.vector_store, name)
+                def traced(*a, _fn=original, _name=name, **kw):
+                    start = time.time()
+                    value = _fn(*a, **kw)
+                    append('index.jsonl', dict(operation=_name, start=start, end=time.time(),
+                           context=dict(tracker.current_context),
+                           result_count=len(value) if hasattr(value, '__len__') else None))
+                    return value
+                setattr(agent.memory.vector_store, name, traced)
+        if args.stage in ['construction', 'both']:
+            for i, chunk in enumerate(chunks[:args.max_chunks or None]):
+                measured(lambda c=chunk: agent.send_message(c, memorizing=True, context_id=0), 'construction', i)
+                print(json.dumps(dict(progress='chunk', completed=i+1, total=len(chunks))), flush=True)
+            measured(lambda: agent.finalize_memory_construction(context_id=0), 'index_finalize', -1)
+            agent.save_agent()
+        if args.stage in ['query', 'both']:
+            for i, (query, answer, qid) in enumerate(questions[:args.max_queries or None]):
+                response = measured(lambda: agent.send_message(query, memorizing=False, query_id=i, context_id=0), 'query', i)
+                append('answers.jsonl', dict(index=i, qa_id=qid, query=query, answer=answer, response=response))
+                print(json.dumps(dict(progress='query', completed=i+1, total=len(questions))), flush=True)
+    manifest.update(status='complete', validity='diagnostic_subset' if args.max_chunks or args.max_queries or 'tiny' in args.dataset else 'valid')
+except BaseException as exc:
+    manifest.update(status='failed', validity='invalid', error=repr(exc), traceback=traceback.format_exc())
+    raise
+finally:
+    monitor.terminate()
+    monitor.wait(timeout=10)
+    manifest.update(end=time.time(), logged_errors=errors.messages,
+                    totals={k:getattr(tracker,k) for k in ['chat_calls','embedding_calls','prompt_tokens','completion_tokens','total_llm_latency','retrieval_latency','generation_latency']})
+    write(out/f'{args.stage}_manifest.json', manifest)

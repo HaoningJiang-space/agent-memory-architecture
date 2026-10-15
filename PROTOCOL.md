@@ -4,6 +4,10 @@
 
 固定源码：Tambe-Lab/agent-memory-profiling，commit `30a157b7b49f732ee4b961cb19d7f877cf475f81`。其 GraphRAG 是仓库内 NetworkX/LangChain 实现，不是 Microsoft GraphRAG。上游缺少原始 fork SHA，不能把当前 Mem0 main 当作论文版本。
 
+用户追加的硬约束：从真实算法出发；不预设 Hybrid Bonding、PIM 或 HBF 有收益；刻画结果不是架构贡献；A800 是校准平台；成熟软件优化必须作为强基线；所有假设必须可被推翻；热因素必须通过功率分布到温度再到性能的因果链改变结论才有资格进入贡献。
+
+基线覆盖必须包括 [MemExplorer](https://arxiv.org/abs/2604.16007)、[KEEP](https://arxiv.org/abs/2602.23592) 与 [TokenCake](https://arxiv.org/abs/2510.18586)。KEEP 的动态 memory 更新、KV 失效与重算已构成直接重叠；TokenCake 的关键路径缓存保护和工具等待期间 offload/prefetch 已覆盖部分生命周期调度问题。不能把这些已知机制改名后算作新贡献。原生复现、等价机制控制、理想上界三类证据必须分开标注；不能用自写简化版本冒充完整基线。
+
 固定模型及镜像下载记录见 `operations/download_models.py`。A800 仅作实测和校准。BF16 权重，非原论文 H100 FP8 配置，不直接复现其绝对耗时。禁用 thinking 并记录完整服务配置。不同精度或软件栈不能混用校准结果。
 
 数据：MemoryAgentBench `7ea066982b140a19337e17e60d45d4076e042faf` 的 Accurate_Retrieval split。正式 pilot 使用第一个完整 `longmemeval_s*` record；其中包含 60 个问题。tiny fixture 仅用于连通性检查，不作为准确率证据。任何截短、子集或失败均独立标注。
