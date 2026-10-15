@@ -10,11 +10,20 @@ from qdrant_client import QdrantClient
 
 r=Path(__file__).resolve().parent
 groups=collections.defaultdict(list)
-for line in (r/'outputs/api_trace.jsonl').read_text().splitlines():
-    row=json.loads(line)
+rows=[json.loads(line) for line in (r/'outputs/api_trace.jsonl').read_text().splitlines()]
+windows={}
+for index in range(9):
+    calls=sorted([x for x in rows if x.get('context',{}).get('run')=='mem0_full_01'
+                 and x['context'].get('index')==index and x['path']=='chat/completions'],key=lambda x:x['start'])
+    assert len(calls)==2
+    windows[index]=(calls[0]['end'],calls[1]['start'])
+for row in rows:
     c=row.get('context',{})
     if c.get('run')!='mem0_full_01' or c.get('index',100)>=9 or row['path']!='embeddings':
         continue
+    begin,end=windows[c['index']]
+    if not (row['start']>=begin and row['end']<=end):
+        continue  # Post-update fallback embeddings have a different dependency.
     text=row['request']['input']
     if isinstance(text,str):text=[text]
     assert len(text)==1
@@ -33,6 +42,7 @@ def top5(v):
     return [str(x.id) for x in db.query_points('mem0',query=v.tolist(),limit=5).points]
 
 report=dict(scope='same actual texts; independent encoding control, not an end-to-end patched Mem0 run',
+            selection='only embeddings between fact extraction and update LLM; excludes post-update writes',
             retrieval_scope='read-only frozen index after the failed run; numerical ranking check, not answer quality',
             source_run='mem0_full_01',groups=[])
 embed(['warmup'])

@@ -1,0 +1,43 @@
+{
+  "models": [
+    {
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "weight_bytes": 1191553024,
+      "weight_GiB": 1.109720230102539,
+      "KV_bytes_per_token_BF16": 114688,
+      "KV_GiB_at_32768": 3.5,
+      "note": "embedding does not retain generation KV"
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "weight_bytes": 16381470720,
+      "weight_GiB": 15.256433486938477,
+      "KV_bytes_per_token_BF16": 147456,
+      "KV_GiB_at_32768": 4.5,
+      "note": "KV formula excludes allocator/workspace"
+    },
+    {
+      "model": "Qwen/Qwen3-32B",
+      "revision": "9216db5781bf21249d130ec9da846c4624c16137",
+      "weight_bytes": 65524246528,
+      "weight_GiB": 61.02420997619629,
+      "KV_bytes_per_token_BF16": 262144,
+      "KV_GiB_at_32768": 8.0,
+      "note": "KV formula excludes allocator/workspace"
+    }
+  ],
+  "gpus": [
+    {
+      "index": 0,
+      "total_bytes": 85899345920
+    },
+    {
+      "index": 1,
+      "total_bytes": 85899345920
+    }
+  ],
+  "all_model_weight_bytes": 83097270272,
+  "scope": "weights and config-derived KV only; no measured DRAM traffic or fitting claim"
+}

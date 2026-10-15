@@ -22,6 +22,7 @@ parser.add_argument('--max-chunks', type=int, default=0, help='Diagnostic subset
 parser.add_argument('--max-queries', type=int, default=0)
 parser.add_argument('--construction-model', choices=['Qwen/Qwen3-8B', 'Qwen/Qwen3-32B'], default='Qwen/Qwen3-8B')
 parser.add_argument('--wait-for-qa', action='store_true', help='Keep native in-memory index alive until QA server is ready')
+parser.add_argument('--precompute-ner', action='store_true', help='Software control: batch spaCy before concurrent concept LLM calls')
 args = parser.parse_args()
 out = ROOT/'outputs'/args.run
 out.mkdir(parents=True, exist_ok=True)
@@ -65,14 +66,14 @@ def append(name, obj):
     with (out/name).open('a') as f:
         f.write(json.dumps(obj, default=str)+'\n')
 
-names = {'mem0':'Structure_rag_mem0', 'embedrag':'Structure_rag_qwen3_embedding_0_6b',
-         'graphrag':'Structure_rag_graph_rag', 'bm25':'Structure_rag_bm25'}
+names = {'mem0':'Structure_rag_mem0', 'embedrag':'Embedding_rag_qwen3_embedding_0_6b',
+         'graphrag':'Structure_rag_graph_rag', 'bm25':'rag_bm25'}
 base = 'http://127.0.0.1:8030/v1'
 cfg = dict(agent_name=names[args.algorithm], model='Qwen/Qwen3-32B',
            memory_construction_llm=args.construction_model, qa_generation_llm='Qwen/Qwen3-32B',
            openai_base_url=base, qa_openai_base_url=base, api_key='EMPTY',
            temperature=0.0, input_length_limit=32000, buffer_length=1000,
-           retrieve_num=10, output_dir=str(out), embedding_model='Qwen/Qwen3-Embedding-0.6B',
+           retrieve_num=10 if args.algorithm in ['mem0','graphrag'] else 5, output_dir=str(out), embedding_model='Qwen/Qwen3-Embedding-0.6B',
            embedding_base_url=base, embedding_api_key_env='OPENAI_API_KEY', embedding_dim=1024,
            graph_rag_max_tokens=1024, graph_rag_llm_context_window=32000)
 if args.algorithm == 'mem0':
@@ -83,6 +84,7 @@ data_cfg = dict(dataset='Accurate_Retrieval', sub_dataset='longmemeval_s*',
                 context_max_length=400000, max_test_samples=1, chunk_size=4096,
                 generation_max_length=256, local_json=str(ROOT/args.dataset), random_seed=42, seed=42)
 manifest = dict(args=vars(args), agent_config=cfg, dataset_config=data_cfg,
+                runner_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                 dataset_sha256=hashlib.sha256((ROOT/args.dataset).read_bytes()).hexdigest(),
                 source_commit='30a157b7b49f732ee4b961cb19d7f877cf475f81',
                 cpu_runtime=dict(OMP_NUM_THREADS=1,MKL_NUM_THREADS=1,OPENBLAS_NUM_THREADS=1,torch_num_threads=1),
@@ -107,6 +109,29 @@ class CheckedStdout:
         sys.__stdout__.flush()
 sys.stdout = CheckedStdout()
 tracker = ScopedTracker()
+if args.algorithm == 'graphrag' and args.precompute_ner:
+    from methods.graph_rag import KnowledgeGraph
+    native_extract = KnowledgeGraph._extract_concepts
+    def batched_ner_extract(graph, splits, llm):
+        begin = time.time()
+        texts = [s.page_content for s in splits]
+        nlp = graph.nlp
+        docs = list(nlp.pipe(texts, batch_size=32, n_process=1))
+        def entities(doc):
+            return [(e.start_char,e.end_char,e.label_,e.text) for e in doc.ents]
+        # A bounded semantic parity control; all documents still run through
+        # the full native spaCy pipeline. No pipeline component is disabled.
+        for i in range(min(16,len(docs))):
+            assert entities(nlp(texts[i])) == entities(docs[i]), 'NER batch parity failed'
+        by_text = dict(zip(texts,docs))
+        append('ner_batch.jsonl',dict(start=begin,end=time.time(),documents=len(docs),
+                                     parity_checked=min(16,len(docs)),parity_passed=True))
+        graph.nlp = lambda text: by_text[text]
+        try:
+            return native_extract(graph,splits,llm)
+        finally:
+            graph.nlp = nlp
+    KnowledgeGraph._extract_concepts = batched_ner_extract
 monitor = subprocess.Popen([sys.executable, str(ROOT/'watch_gpu.py'), str(out/f'{args.stage}_gpu.jsonl')],
                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 

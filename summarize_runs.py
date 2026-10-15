@@ -18,7 +18,7 @@ def union(intervals):
 
 api=[json.loads(x) for x in (r/'outputs/api_trace.jsonl').read_text().splitlines()]
 result=dict(scope='native measured calls; no architecture performance predictions',runs=[])
-for run in ['mem0_full_01','graph_full_01','graph_full_02','embed_full_01','bm25_full_01']:
+for run in ['mem0_full_01','graph_full_01','graph_full_02','graph_full_03','embed_full_01','bm25_full_01']:
     folder=r/'outputs'/run
     if not folder.exists():continue
     manifests=[json.loads(p.read_text()) for p in folder.glob('*_manifest.json')]
