@@ -2,7 +2,7 @@
 
 本仓库从真实算法检验架构动机。A800 用于运行与校准；没有预设 Hybrid Bonding、PIM、HBF 或热优化的优势。
 
-第一轮实测与反证见 [RESULTS.md](RESULTS.md)。实验口径与否决条件见 [PROTOCOL.md](PROTOCOL.md)，成熟基线覆盖见 [BASELINES.md](BASELINES.md)，版本适配与测量限制见 [COMPATIBILITY.md](COMPATIBILITY.md)。最终结果由原始 API 响应与执行记录汇总，原生 profiler 的计数另行核对。
+第一轮实测与反证见 [RESULTS.md](RESULTS.md)，进一步的失败与性能原因分析见 [CAUSES.md](CAUSES.md)。实验口径与否决条件见 [PROTOCOL.md](PROTOCOL.md)，成熟基线覆盖见 [BASELINES.md](BASELINES.md)，版本适配与测量限制见 [COMPATIBILITY.md](COMPATIBILITY.md)。最终结果由原始 API 响应与执行记录汇总，原生 profiler 的计数另行核对。
 
 代码与原始实验位于 `moe-server:/data/ziheng/agent-memory-architecture`。原始历史、请求、响应、数据库和 GPU 采样只保留在远端。本地 `evidence/` 只保存清理回执、汇总和图。Git 里不保存模型、环境或数据集；当前推送目标是该服务器上的独立 bare repository。
 

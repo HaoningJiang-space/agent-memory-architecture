@@ -1,0 +1,275 @@
+{
+  "scope": "Read-only analysis of frozen requests and outputs; no new model inference",
+  "mem0": {
+    "prefix_stage_totals": {
+      "extraction": {
+        "calls": 9,
+        "prompt_tokens": 44493,
+        "completion_tokens": 963,
+        "seconds": 25.34328317642212,
+        "first_token_wait_seconds": 4.006408214569092
+      },
+      "update": {
+        "calls": 9,
+        "prompt_tokens": 16922,
+        "completion_tokens": 6623,
+        "seconds": 147.14484095573425,
+        "first_token_wait_seconds": 1.6418964862823486
+      }
+    },
+    "update_event_counts": {
+      "ADD": 66,
+      "NONE": 101,
+      "UPDATE": 10,
+      "DELETE": 2
+    },
+    "none_record_character_fraction": 0.5346897367976103,
+    "character_fraction_scope": "Serialized individual records; descriptive proxy, not generated token fraction",
+    "failed_request": {
+      "existing_count": 25,
+      "operation_count": 41,
+      "all_ids_equal_output_positions": true,
+      "event_counts": {
+        "UPDATE": 1,
+        "NONE": 24,
+        "ADD": 13,
+        "DELETE": 3
+      },
+      "duplicate_ids": {},
+      "suspicious_bindings": [
+        {
+          "output_position": 31,
+          "id": "31",
+          "event": "DELETE",
+          "id_in_old_set": false,
+          "exact_text_old_ids": [
+            "0"
+          ],
+          "exact_text_new_fact_positions": [
+            6
+          ]
+        },
+        {
+          "output_position": 39,
+          "id": "39",
+          "event": "DELETE",
+          "id_in_old_set": false,
+          "exact_text_old_ids": [],
+          "exact_text_new_fact_positions": [
+            14
+          ]
+        },
+        {
+          "output_position": 40,
+          "id": "40",
+          "event": "DELETE",
+          "id_in_old_set": false,
+          "exact_text_old_ids": [],
+          "exact_text_new_fact_positions": [
+            15
+          ]
+        }
+      ],
+      "scope": "Exact text/ID matches only; UPDATE text may legitimately change. Not a semantic memory judge."
+    },
+    "replay_bindings": [
+      {
+        "model": "Qwen/Qwen3-8B",
+        "repeat": 0,
+        "existing_count": 25,
+        "operation_count": 41,
+        "all_ids_equal_output_positions": true,
+        "event_counts": {
+          "UPDATE": 1,
+          "NONE": 24,
+          "ADD": 13,
+          "DELETE": 3
+        },
+        "duplicate_ids": {},
+        "suspicious_bindings": [
+          {
+            "output_position": 31,
+            "id": "31",
+            "event": "DELETE",
+            "id_in_old_set": false,
+            "exact_text_old_ids": [
+              "0"
+            ],
+            "exact_text_new_fact_positions": [
+              6
+            ]
+          },
+          {
+            "output_position": 39,
+            "id": "39",
+            "event": "DELETE",
+            "id_in_old_set": false,
+            "exact_text_old_ids": [],
+            "exact_text_new_fact_positions": [
+              14
+            ]
+          },
+          {
+            "output_position": 40,
+            "id": "40",
+            "event": "DELETE",
+            "id_in_old_set": false,
+            "exact_text_old_ids": [],
+            "exact_text_new_fact_positions": [
+              15
+            ]
+          }
+        ],
+        "scope": "Exact text/ID matches only; UPDATE text may legitimately change. Not a semantic memory judge."
+      },
+      {
+        "model": "Qwen/Qwen3-8B",
+        "repeat": 1,
+        "existing_count": 25,
+        "operation_count": 41,
+        "all_ids_equal_output_positions": true,
+        "event_counts": {
+          "UPDATE": 1,
+          "NONE": 24,
+          "ADD": 13,
+          "DELETE": 3
+        },
+        "duplicate_ids": {},
+        "suspicious_bindings": [
+          {
+            "output_position": 31,
+            "id": "31",
+            "event": "DELETE",
+            "id_in_old_set": false,
+            "exact_text_old_ids": [
+              "0"
+            ],
+            "exact_text_new_fact_positions": [
+              6
+            ]
+          },
+          {
+            "output_position": 39,
+            "id": "39",
+            "event": "DELETE",
+            "id_in_old_set": false,
+            "exact_text_old_ids": [],
+            "exact_text_new_fact_positions": [
+              14
+            ]
+          },
+          {
+            "output_position": 40,
+            "id": "40",
+            "event": "DELETE",
+            "id_in_old_set": false,
+            "exact_text_old_ids": [],
+            "exact_text_new_fact_positions": [
+              15
+            ]
+          }
+        ],
+        "scope": "Exact text/ID matches only; UPDATE text may legitimately change. Not a semantic memory judge."
+      },
+      {
+        "model": "Qwen/Qwen3-32B",
+        "repeat": 0,
+        "existing_count": 25,
+        "operation_count": 40,
+        "all_ids_equal_output_positions": true,
+        "event_counts": {
+          "NONE": 25,
+          "ADD": 15
+        },
+        "duplicate_ids": {},
+        "suspicious_bindings": [],
+        "scope": "Exact text/ID matches only; UPDATE text may legitimately change. Not a semantic memory judge."
+      },
+      {
+        "model": "Qwen/Qwen3-32B",
+        "repeat": 1,
+        "existing_count": 25,
+        "operation_count": 40,
+        "all_ids_equal_output_positions": true,
+        "event_counts": {
+          "NONE": 25,
+          "ADD": 15
+        },
+        "duplicate_ids": {},
+        "suspicious_bindings": [],
+        "scope": "Exact text/ID matches only; UPDATE text may legitimately change. Not a semantic memory judge."
+      }
+    ]
+  },
+  "source_sha256": {
+    "outputs/api_trace.jsonl": "6b540a5e46354aebb00971eeb34b7acaa5f858fc6ef63c7e439edbf7bb0cb379",
+    "outputs/failed_update_replay.json": "1ae882ed835156401e27dcdc5f6231064bc0158a6dc9976aca852921127ccd59"
+  },
+  "graph": {
+    "calls": 450,
+    "completion_tokens_median": 137.0,
+    "completion_tokens_p95": 316,
+    "truncated_outputs": [
+      {
+        "trace_id": "2a2a6655-6c3d-4849-bc45-1a334e170967",
+        "prompt_tokens": 908,
+        "completion_tokens": 1024,
+        "complete_string_items": 193,
+        "unique_string_items": 189,
+        "maximum_item_repetitions": 2,
+        "longest_consecutive_repeat": 1,
+        "response_sha256": "5c25232612cf0d644af403b99ac49060b91fabe0bc4a53f1abdd8abd99e70e2c"
+      },
+      {
+        "trace_id": "60ca4973-4046-4951-9182-1e9f0828202a",
+        "prompt_tokens": 916,
+        "completion_tokens": 1024,
+        "complete_string_items": 144,
+        "unique_string_items": 48,
+        "maximum_item_repetitions": 21,
+        "longest_consecutive_repeat": 1,
+        "response_sha256": "0ea84f8e88727ca37d3313b078ba085fae086eba3ae02a934370e7e065975604"
+      },
+      {
+        "trace_id": "9ff6c10d-0e4d-4c32-b1e4-99ee307fc755",
+        "prompt_tokens": 982,
+        "completion_tokens": 1024,
+        "complete_string_items": 157,
+        "unique_string_items": 157,
+        "maximum_item_repetitions": 1,
+        "longest_consecutive_repeat": 1,
+        "response_sha256": "2d566bb2d69af166f030f4918abbe5457c329108525e1eac89912febbd88f9e4"
+      },
+      {
+        "trace_id": "61ffb62e-0dc1-44fc-898f-4fbfcca16228",
+        "prompt_tokens": 965,
+        "completion_tokens": 1024,
+        "complete_string_items": 194,
+        "unique_string_items": 146,
+        "maximum_item_repetitions": 3,
+        "longest_consecutive_repeat": 1,
+        "response_sha256": "6898b2072fe3db3d69079f8eac586a3886e3e3f57c0fea1d72aade7f35ddf052"
+      },
+      {
+        "trace_id": "c3809c48-d6c4-4a17-9754-e928b6e294ff",
+        "prompt_tokens": 955,
+        "completion_tokens": 1024,
+        "complete_string_items": 248,
+        "unique_string_items": 52,
+        "maximum_item_repetitions": 196,
+        "longest_consecutive_repeat": 196,
+        "response_sha256": "f1214c8694b0bd0645e57fe1f42eda0a15a0b9409b6030410cdc08a64b2e9dbe"
+      },
+      {
+        "trace_id": "44ddf135-82a0-4cbd-ad30-357490c82b86",
+        "prompt_tokens": 953,
+        "completion_tokens": 1024,
+        "complete_string_items": 198,
+        "unique_string_items": 54,
+        "maximum_item_repetitions": 12,
+        "longest_consecutive_repeat": 1,
+        "response_sha256": "1e4a77b1edb001f90f405c65e03811cdbc7a1353e1f5a1d988267b6d22d5d0d1"
+      }
+    ]
+  }
+}

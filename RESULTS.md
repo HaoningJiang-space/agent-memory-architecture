@@ -2,6 +2,8 @@
 
 **当前证据不支持把“Construction 输入多、Embedding 模型小”直接转化为新异构硬件的动机。** 本轮得到可复现的模型有效性失败、执行方式对照和时间占比反证。它们只约束这里的模型、版本和样本，不是所有 Agent Memory 场景的结论。
 
+后续只读诊断进一步定位了更新调用中的 NONE 重述、输出位置与记忆 ID 混淆，以及 GraphRAG 的重复生成；见 [原因分析](CAUSES.md)。
+
 实验遵循算法→计算/访存/容量/依赖→瓶颈→架构的顺序。尚未报告新的 NPU/HB/PIM/HBF 性能排名，也没有加入热优化。相同预算 DSE、成熟架构基线和温度反馈尚未完成，不能从以下刻画结果直接宣称 architecture contribution。
 
 **固定对象与证据范围。** 使用 `Tambe-Lab/agent-memory-profiling@30a157b7b49f732ee4b961cb19d7f877cf475f81` 的真实实现。Mem0 是其 vendored 版本；GraphRAG 是该仓库的 NetworkX/LangChain 实现。模型为 Qwen3-8B Construction、Qwen3-Embedding-0.6B、Qwen3-32B Answering，均固定 checkpoint revision、BF16、关闭 thinking。数据是 MemoryAgentBench 固定 revision 的第一个完整 LongMemEval record：约 160 万字符、88 个外层构建片段、60 个问题。tiny fixture 仅用于连通性检查。
