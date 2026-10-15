@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
 
 r=Path(__file__).resolve().parent
 summary=json.loads((r/'outputs/run_summary.json').read_text())
@@ -41,6 +42,11 @@ ax.set_ylabel('Median forward time (ms)');ax.set_title('Same A800 and weights; s
 ax.legend(frameon=False)
 for i,c in enumerate(cases):ax.text(i,c['eager_ms']+4,f"{c['speedup']:.1f}×",ha='center',fontsize=9)
 fig.tight_layout(rect=[0,0.12,1,1])
+fig.legend(handles=[Patch(color=c,label=l) for c,l in zip(
+    ['#9ecae1','#e78a72','#74c6a5','#d9d9d9'],
+    ['First-token wait','After first token','Embedding','Other'])],
+    loc='lower left',bbox_to_anchor=(.15,.055),ncol=4,frameon=False,fontsize=7,
+    title='Construction time',title_fontsize=7)
 fig.text(.16,.015,'First-token wait includes queue / network. After-first-token time is not a GPU kernel counter.',fontsize=8)
 out=r/'outputs/figures';out.mkdir(exist_ok=True)
 fig.savefig(out/'motivation_falsification.pdf');fig.savefig(out/'motivation_falsification.png',dpi=180)

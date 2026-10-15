@@ -36,7 +36,7 @@ for row in rows:
 files=['run_summary.json','calibration_analysis.json','model_capacity.json','environment_conditions.json',
        'spacy_batch_check.json','pipeline.json','requirements-runtime.lock.txt',
        'package_versions.json','validation.json','completion_pipeline.json','power_measurement_audit.json',
-       'raw_artifact_sha256.json']
+       'raw_artifact_sha256.json','service_configuration.json','service_shutdown.json']
 for name in files:
     p=r/'outputs'/name
     if p.exists():(out/name).write_bytes(p.read_bytes())

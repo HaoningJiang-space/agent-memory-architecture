@@ -12,6 +12,13 @@ output = root / 'outputs'
 api = [json.loads(s) for s in (output / 'api_trace.jsonl').read_text().splitlines()]
 assert len({row['id'] for row in api}) == len(api), 'Duplicate trace IDs'
 summary = json.loads((output / 'run_summary.json').read_text())
+model_info = json.loads((root/'models.json').read_text())['Qwen/Qwen3-Embedding-0.6B']
+model_path = Path(model_info['path'])
+embedding_config = json.loads((model_path/'config_sentence_transformers.json').read_text())
+pooling = json.loads((model_path/'1_Pooling/config.json').read_text())
+tokenizer = json.loads((model_path/'tokenizer.json').read_text())
+assert pooling['pooling_mode_lasttoken']
+assert '<|endoftext|>' in json.dumps(tokenizer['post_processor'])
 results = []
 for name in ['embed_full_01', 'bm25_full_02']:
     folder = output / name
@@ -36,6 +43,7 @@ for name in ['embed_full_01', 'bm25_full_02']:
         assert call.get('usage')
         if call['path'] == 'chat/completions':
             assert call['model'] == 'Qwen/Qwen3-32B'
+            assert call['request']['chat_template_kwargs']['enable_thinking'] is False
             assert call['context']['phase'] == 'query'
             reason = call.get('finish_reason')
             if reason is None:
@@ -44,6 +52,10 @@ for name in ['embed_full_01', 'bm25_full_02']:
         else:
             assert call['path'] == 'embeddings' and call['model'] == 'Qwen/Qwen3-Embedding-0.6B'
             assert call['embedding_count'] > 0
+            if call['context']['phase']=='query':
+                texts = call['request']['input']
+                texts = texts if isinstance(texts,list) else [texts]
+                assert all(t.startswith(embedding_config['prompts']['query']) for t in texts)
     query_calls = [c for c in calls if c['path'] == 'chat/completions']
     assert len(query_calls) == 60
     assert sorted(c['context']['index'] for c in query_calls) == list(range(60))
@@ -60,6 +72,8 @@ assert next(x for x in summary['runs'] if x['run']=='mem0_full_01')['validity']=
 assert next(x for x in summary['runs'] if x['run']=='graph_full_03')['validity']=='invalid'
 assert next(x for x in summary['runs'] if x['run']=='bm25_full_01')['validity']=='invalid'
 report = dict(scope='Independent artifact integrity and completion checks, not semantic evaluation',
-              checks_passed=True, runs=results)
+              checks_passed=True, runs=results,
+              embedding_contract=dict(revision=model_info['revision'],last_token_pooling=True,
+                  tokenizer_has_endoftext_postprocessor=True,query_instruction_verified_in_actual_requests=True))
 (output / 'validation.json').write_text(json.dumps(report, indent=2) + '\n')
 print(json.dumps(report))
