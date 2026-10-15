@@ -1,0 +1,74 @@
+{
+  "capped_answer_replay_summary.json": {
+    "bytes": 394,
+    "sha256": "e31b6c73ca0327f08d3e5f9a2c134bd6b115eab62ab15ca67272f4c8b6c7f752"
+  },
+  "validation.json": {
+    "bytes": 808,
+    "sha256": "cd9270b56f99743456a63b87c9bb18cdc1acfdea0c697b2d8df754b2b8a5a68b"
+  },
+  "raw_artifact_sha256.json": {
+    "bytes": 52118,
+    "sha256": "db40cac8f695b586fb51fe804bd11dd4d1b14536b3a1c51ab7b0cf661569b658"
+  },
+  "package_versions.json": {
+    "bytes": 8781,
+    "sha256": "c0b2ae575874489fdeeb960f49b5ab34d686f643fd441d410d0b481b97392091"
+  },
+  "spacy_batch_check.json": {
+    "bytes": 403,
+    "sha256": "c040229986c78de4c6359ac94503afb2cf7886a65b07754c416ec4a4d21db142"
+  },
+  "fact_batching_summary.json": {
+    "bytes": 4781,
+    "sha256": "1b68e47502795475681e41393bfa88b9cf1c774cb7b3e8a88ccabf85b27f6ced"
+  },
+  "run_summary.json": {
+    "bytes": 27716,
+    "sha256": "c77218d413f697d5c2ba94c5b33100a7b35b7bde1df4aba7d8fe1c55c99126f6"
+  },
+  "service_configuration.json": {
+    "bytes": 3435,
+    "sha256": "eff6608fffdcee0017bba2d189a24d508c03067a17b7179783024562b69944c2"
+  },
+  "pipeline.json": {
+    "bytes": 912,
+    "sha256": "648624b6e5c7b32688499c3d410fbc0eb6cdf2cd92ded55a3c5d39604fa5cf54"
+  },
+  "calibration_analysis.json": {
+    "bytes": 3570,
+    "sha256": "816bd89c05d3ed68a6ef1b90fe179c9ccd93c75443139930633c71000237dc09"
+  },
+  "service_shutdown.json": {
+    "bytes": 481,
+    "sha256": "1c6efc88ee83b24bd66017a67fcad3363e80a37e6122e644c2b0f9ed3dbfff38"
+  },
+  "power_measurement_audit.json": {
+    "bytes": 2545,
+    "sha256": "beb8edbe6e65bf3eb97d96c0b14035337849e2aac107eec3ca1c02d4f798fd3b"
+  },
+  "environment_conditions.json": {
+    "bytes": 296,
+    "sha256": "b1f1268cd8bae68c1262b9b1b693260caaac98948940b8468e955d9a83656d90"
+  },
+  "requirements-runtime.lock.txt": {
+    "bytes": 657,
+    "sha256": "a9b248d3d288dbe9fdaf6ae3497ee6b6dea8306e56ce4b34d3924b8a81069949"
+  },
+  "model_capacity.json": {
+    "bytes": 1235,
+    "sha256": "93790515461648349a7de12ce785f835068c0e1ca1f2bf4b898008bd2aafa442"
+  },
+  "graph_failures.json": {
+    "bytes": 1744,
+    "sha256": "7c9d5728c062b1f4dd192419d748a8a626c8ed75b00486eef857a14d24fcba72"
+  },
+  "completion_pipeline.json": {
+    "bytes": 697,
+    "sha256": "3296991b36d03bb4a5b2b160c4e637190517f0355343409cca30f2d4c8bac562"
+  },
+  "failed_update_replay_summary.json": {
+    "bytes": 2220,
+    "sha256": "7b299e4e77dfe525664dc49b31f218f8d002a9b498f8fbd297ed71a0a7b1cac4"
+  }
+}

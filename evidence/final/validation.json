@@ -1,0 +1,30 @@
+{
+  "scope": "Independent artifact integrity and completion checks, not semantic evaluation",
+  "checks_passed": true,
+  "runs": [
+    {
+      "run": "embed_full_01",
+      "valid": true,
+      "chunks": 88,
+      "answers": 60,
+      "api_calls": 121,
+      "failure_count": 0,
+      "semantic_quality": "Not validated by this integrity check"
+    },
+    {
+      "run": "bm25_full_02",
+      "valid": true,
+      "chunks": 88,
+      "answers": 60,
+      "api_calls": 60,
+      "failure_count": 0,
+      "semantic_quality": "Not validated by this integrity check"
+    }
+  ],
+  "embedding_contract": {
+    "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "last_token_pooling": true,
+    "tokenizer_has_endoftext_postprocessor": true,
+    "query_instruction_verified_in_actual_requests": true
+  }
+}

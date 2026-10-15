@@ -1,0 +1,43 @@
+{
+  "start": 1792078648.0988762,
+  "stages": [
+    {
+      "name": "fact_batching_control",
+      "start": 1792078648.0991044,
+      "end": 1792078672.27492,
+      "returncode": 0
+    },
+    {
+      "name": "failed_update_replay",
+      "start": 1792078672.2752428,
+      "end": 1792078884.6237035,
+      "returncode": 0
+    },
+    {
+      "name": "embed_full_01",
+      "start": 1792078884.6240592,
+      "end": 1792079552.7327526,
+      "returncode": 0
+    },
+    {
+      "name": "bm25_full_01",
+      "start": 1792079552.7332628,
+      "end": 1792079946.7369666,
+      "returncode": 1
+    },
+    {
+      "name": "summarize",
+      "start": 1792079946.7374928,
+      "end": 1792079947.6242642,
+      "returncode": 1
+    },
+    {
+      "name": "plot",
+      "start": 1792079947.6248748,
+      "end": 1792079951.1290967,
+      "returncode": 0
+    }
+  ],
+  "graph_status": "failed",
+  "end": 1792079951.1296165
+}

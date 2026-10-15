@@ -1,0 +1,109 @@
+{
+  "model": "nonnegative launch + dense FLOP + attention FLOP shape fit",
+  "purpose": "within-A800 calibration only; no new-hardware prediction",
+  "validation": "leave-one-shape-out; 8 shapes, deterministic synthetic inputs",
+  "gate": {
+    "median_relative_error_limit": 0.2,
+    "max_relative_error_limit": 0.35,
+    "median_relative_error": 0.024002802895723548,
+    "max_relative_error": 0.16228364557701708,
+    "passed": true
+  },
+  "coefficients": {
+    "overhead_s": 0.004350747223655723,
+    "dense_s_per_TFLOP": 0.012163285006581061,
+    "attention_s_per_TFLOP": 0.002772662593961529
+  },
+  "logical_linear_weight_bytes": 880803840,
+  "parameters": 595776512,
+  "cases": [
+    {
+      "batch": 1,
+      "length": 32,
+      "eager_ms": 71.04870223999023,
+      "graph_ms": 5.405695915222168,
+      "speedup": 13.143303536538314,
+      "heldout_prediction_ms": 4.528439875219125,
+      "heldout_relative_error": 0.16228364557701708,
+      "logical_dense_flops": 28185722880.0,
+      "logical_attention_flops": 121110528.0
+    },
+    {
+      "batch": 1,
+      "length": 128,
+      "eager_ms": 70.18854522705078,
+      "graph_ms": 6.050303936004639,
+      "speedup": 11.600829639213183,
+      "heldout_prediction_ms": 5.653185146014666,
+      "heldout_relative_error": 0.06563617203208028,
+      "logical_dense_flops": 112742891520.0,
+      "logical_attention_flops": 1893728256.0
+    },
+    {
+      "batch": 1,
+      "length": 512,
+      "eager_ms": 89.40265655517578,
+      "graph_ms": 9.886703968048097,
+      "speedup": 9.04271604005822,
+      "heldout_prediction_ms": 9.926420001010865,
+      "heldout_relative_error": 0.004017115622266311,
+      "logical_dense_flops": 450971566080.0,
+      "logical_attention_flops": 30123491328.0
+    },
+    {
+      "batch": 1,
+      "length": 2048,
+      "eager_ms": 92.31366348266602,
+      "graph_ms": 27.47628784179688,
+      "speedup": 3.3597574757620148,
+      "heldout_prediction_ms": 28.521725611711336,
+      "heldout_relative_error": 0.03804872681251142,
+      "logical_dense_flops": 1803886264320.0,
+      "logical_attention_flops": 481271218176.0
+    },
+    {
+      "batch": 8,
+      "length": 128,
+      "eager_ms": 91.91275405883789,
+      "graph_ms": 14.095119953155518,
+      "speedup": 6.520891937373055,
+      "heldout_prediction_ms": 15.648286934023439,
+      "heldout_relative_error": 0.1101918242646959,
+      "logical_dense_flops": 901943132160.0,
+      "logical_attention_flops": 15149826048.0
+    },
+    {
+      "batch": 32,
+      "length": 128,
+      "eager_ms": 94.25342559814453,
+      "graph_ms": 48.40105628967285,
+      "speedup": 1.9473423272841883,
+      "heldout_prediction_ms": 48.40117833070201,
+      "heldout_relative_error": 2.521453838260774e-06,
+      "logical_dense_flops": 3607772528640.0,
+      "logical_attention_flops": 60599304192.0
+    },
+    {
+      "batch": 8,
+      "length": 512,
+      "eager_ms": 89.42862319946289,
+      "graph_ms": 49.32967948913574,
+      "speedup": 1.8128766317883427,
+      "heldout_prediction_ms": 48.83850984039273,
+      "heldout_relative_error": 0.009956878978935681,
+      "logical_dense_flops": 3607772528640.0,
+      "logical_attention_flops": 240987930624.0
+    },
+    {
+      "batch": 32,
+      "length": 512,
+      "eager_ms": 185.84420776367188,
+      "graph_ms": 182.54097747802734,
+      "speedup": 1.0180958288450175,
+      "heldout_prediction_ms": 182.69478421002756,
+      "heldout_relative_error": 0.0008425874240688267,
+      "logical_dense_flops": 14431090114560.0,
+      "logical_attention_flops": 963951722496.0
+    }
+  ]
+}

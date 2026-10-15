@@ -1,0 +1,70 @@
+{
+  "calls": 450,
+  "finish_reasons": {
+    "stop": 444,
+    "length": 6
+  },
+  "failures": [
+    {
+      "trace_id": "2a2a6655-6c3d-4849-bc45-1a334e170967",
+      "usage": {
+        "prompt_tokens": 908,
+        "total_tokens": 1932,
+        "completion_tokens": 1024,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "length"
+    },
+    {
+      "trace_id": "60ca4973-4046-4951-9182-1e9f0828202a",
+      "usage": {
+        "prompt_tokens": 916,
+        "total_tokens": 1940,
+        "completion_tokens": 1024,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "length"
+    },
+    {
+      "trace_id": "9ff6c10d-0e4d-4c32-b1e4-99ee307fc755",
+      "usage": {
+        "prompt_tokens": 982,
+        "total_tokens": 2006,
+        "completion_tokens": 1024,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "length"
+    },
+    {
+      "trace_id": "61ffb62e-0dc1-44fc-898f-4fbfcca16228",
+      "usage": {
+        "prompt_tokens": 965,
+        "total_tokens": 1989,
+        "completion_tokens": 1024,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "length"
+    },
+    {
+      "trace_id": "c3809c48-d6c4-4a17-9754-e928b6e294ff",
+      "usage": {
+        "prompt_tokens": 955,
+        "total_tokens": 1979,
+        "completion_tokens": 1024,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "length"
+    },
+    {
+      "trace_id": "44ddf135-82a0-4cbd-ad30-357490c82b86",
+      "usage": {
+        "prompt_tokens": 953,
+        "total_tokens": 1977,
+        "completion_tokens": 1024,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "length"
+    }
+  ],
+  "scope": "output truncation invalidates full construction; no QA run"
+}

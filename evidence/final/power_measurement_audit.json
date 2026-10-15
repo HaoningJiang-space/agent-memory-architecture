@@ -1,0 +1,66 @@
+{
+  "scope": "Gross device telemetry sanity checks; excludes CPU/DRAM, idle subtraction, spatial power and thermal calibration",
+  "runs": [
+    {
+      "run": "embed_full_01",
+      "gpu": 0,
+      "configured_limit_w": 300.0,
+      "samples": 5540,
+      "sample_interval_median_s": 0.10635089874267578,
+      "sample_interval_max_s": 0.5415899753570557,
+      "seconds": 646.2918477058411,
+      "counter_gross_j": 45697.17699999997,
+      "sampled_integral_gross_j": 45796.4023816728,
+      "integral_vs_counter_relative_difference": 0.0021713678653023476,
+      "counter_average_w": 70.70672044249424,
+      "sampled_maximum_w": 365.844,
+      "samples_above_configured_limit": 25
+    },
+    {
+      "run": "embed_full_01",
+      "gpu": 1,
+      "configured_limit_w": 300.0,
+      "samples": 5540,
+      "sample_interval_median_s": 0.1063539981842041,
+      "sample_interval_max_s": 0.5415356159210205,
+      "seconds": 646.2861573696136,
+      "counter_gross_j": 183050.135,
+      "sampled_integral_gross_j": 183502.78904048385,
+      "integral_vs_counter_relative_difference": 0.002472841882819945,
+      "counter_average_w": 283.2338785423079,
+      "sampled_maximum_w": 453.597,
+      "samples_above_configured_limit": 2604
+    },
+    {
+      "run": "bm25_full_02",
+      "gpu": 0,
+      "configured_limit_w": 300.0,
+      "samples": 5550,
+      "sample_interval_median_s": 0.10638260841369629,
+      "sample_interval_max_s": 0.5725483894348145,
+      "seconds": 648.4133491516113,
+      "counter_gross_j": 43064.74399999995,
+      "sampled_integral_gross_j": 43150.595603529335,
+      "integral_vs_counter_relative_difference": 0.001993547286137055,
+      "counter_average_w": 66.41557280760208,
+      "sampled_maximum_w": 73.808,
+      "samples_above_configured_limit": 0
+    },
+    {
+      "run": "bm25_full_02",
+      "gpu": 1,
+      "configured_limit_w": 300.0,
+      "samples": 5550,
+      "sample_interval_median_s": 0.10638165473937988,
+      "sample_interval_max_s": 0.572573184967041,
+      "seconds": 648.407666683197,
+      "counter_gross_j": 187904.61199999996,
+      "sampled_integral_gross_j": 187746.6678973078,
+      "integral_vs_counter_relative_difference": 0.0008405546889511999,
+      "counter_average_w": 289.7939392993136,
+      "sampled_maximum_w": 461.782,
+      "samples_above_configured_limit": 2619
+    }
+  ],
+  "interpretation": "Above-limit instantaneous samples are retained and flagged; no assumption about their cause. These readings are not a validated per-operation energy model or a 3D power map."
+}

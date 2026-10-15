@@ -1,0 +1,14 @@
+{
+  "time": 1792078405.9990625,
+  "cpu_count": 104,
+  "loadavg": [
+    106.35,
+    107.69,
+    107.9
+  ],
+  "ps_lifetime_cpu_percent_by_group": {
+    "other_users": 10394.1,
+    "current_user": 111.5
+  },
+  "scope": "Shared CPU host; ps %CPU is lifetime average, not instantaneous utilization"
+}

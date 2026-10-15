@@ -1,0 +1,14 @@
+{
+  "source_trace_id": "9e2886f4-d9cb-4840-8857-8127b222c920",
+  "original_cap": 256,
+  "replay_cap": 1024,
+  "request_sha256": "e3902d482c02d6d417d39cbffe3b77780a094da4ff6f79b847b22abd1f6727db",
+  "seconds": 23.704411029815674,
+  "usage": {
+    "prompt_tokens": 21228,
+    "total_tokens": 21498,
+    "completion_tokens": 270,
+    "prompt_tokens_details": null
+  },
+  "finish_reason": "stop"
+}

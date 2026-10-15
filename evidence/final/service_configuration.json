@@ -1,0 +1,120 @@
+{
+  "proxy": {
+    "pid": 175512,
+    "argv": [
+      "/data/ziheng/agent-memory-architecture/.venv/bin/python",
+      "-m",
+      "uvicorn",
+      "trace_proxy:app",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8030"
+    ],
+    "environment": {
+      "HF_HOME": "/data/ziheng/agent-memory-architecture/hf",
+      "TMPDIR": "/data/ziheng/agent-memory-architecture/tmp",
+      "VLLM_CACHE_ROOT": "/data/ziheng/agent-memory-architecture/vllm-cache",
+      "CUDA_HOME": "/usr/local/cuda-12.8",
+      "VLLM_USE_FLASHINFER_SAMPLER": "0",
+      "VLLM_ATTENTION_BACKEND": "FLASH_ATTN"
+    }
+  },
+  "embedding": {
+    "pid": 169274,
+    "argv": [
+      "/data/ziheng/agent-memory-architecture/.venv/bin/python",
+      "-m",
+      "uvicorn",
+      "embedding_server:app",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8033"
+    ],
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "0",
+      "HF_HOME": "/data/ziheng/agent-memory-architecture/hf",
+      "TMPDIR": "/data/ziheng/agent-memory-architecture/tmp",
+      "VLLM_CACHE_ROOT": "/data/ziheng/agent-memory-architecture/vllm-cache"
+    }
+  },
+  "construction": {
+    "pid": 172084,
+    "argv": [
+      "/data/ziheng/agent-memory-architecture/.venv/bin/python",
+      "-m",
+      "vllm.entrypoints.openai.api_server",
+      "--model",
+      "/data/ziheng/agent-memory-architecture/hf/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218",
+      "--served-model-name",
+      "Qwen/Qwen3-8B",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8031",
+      "--dtype",
+      "bfloat16",
+      "--max-model-len",
+      "32768",
+      "--max-num-seqs",
+      "16",
+      "--max-num-batched-tokens",
+      "8192",
+      "--gpu-memory-utilization",
+      "0.60",
+      "--generation-config",
+      "vllm",
+      "--no-enable-prefix-caching",
+      "--disable-log-requests"
+    ],
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "0",
+      "HF_HOME": "/data/ziheng/agent-memory-architecture/hf",
+      "TMPDIR": "/data/ziheng/agent-memory-architecture/tmp",
+      "VLLM_CACHE_ROOT": "/data/ziheng/agent-memory-architecture/vllm-cache",
+      "CUDA_HOME": "/usr/local/cuda-12.8",
+      "VLLM_USE_FLASHINFER_SAMPLER": "0",
+      "VLLM_ATTENTION_BACKEND": "FLASH_ATTN"
+    }
+  },
+  "reasoning": {
+    "pid": 182253,
+    "argv": [
+      "/data/ziheng/agent-memory-architecture/.venv/bin/python",
+      "-m",
+      "vllm.entrypoints.openai.api_server",
+      "--model",
+      "/data/ziheng/agent-memory-architecture/hf/hub/models--Qwen--Qwen3-32B/snapshots/9216db5781bf21249d130ec9da846c4624c16137",
+      "--served-model-name",
+      "Qwen/Qwen3-32B",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8032",
+      "--dtype",
+      "bfloat16",
+      "--max-model-len",
+      "32768",
+      "--max-num-seqs",
+      "16",
+      "--max-num-batched-tokens",
+      "8192",
+      "--gpu-memory-utilization",
+      "0.95",
+      "--generation-config",
+      "vllm",
+      "--no-enable-prefix-caching",
+      "--disable-log-requests"
+    ],
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "1",
+      "HF_HOME": "/data/ziheng/agent-memory-architecture/hf",
+      "TMPDIR": "/data/ziheng/agent-memory-architecture/tmp",
+      "VLLM_CACHE_ROOT": "/data/ziheng/agent-memory-architecture/vllm-cache",
+      "CUDA_HOME": "/usr/local/cuda-12.8",
+      "VLLM_USE_FLASHINFER_SAMPLER": "0",
+      "VLLM_ATTENTION_BACKEND": "FLASH_ATTN"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "start": 1792080444.0782652,
+  "reason": "BM25 answer 34 reached the original 256-token cap",
+  "stages": [
+    {
+      "name": "bm25_full_02",
+      "start": 1792080444.078336,
+      "end": 1792081114.3454545,
+      "returncode": 0
+    },
+    {
+      "name": "final_summary",
+      "start": 1792081114.3459234,
+      "end": 1792081121.2270536,
+      "returncode": 0
+    },
+    {
+      "name": "validation",
+      "start": 1792081121.2274015,
+      "end": 1792081122.797572,
+      "returncode": 0
+    },
+    {
+      "name": "final_plot",
+      "start": 1792081122.7978857,
+      "end": 1792081126.1805534,
+      "returncode": 0
+    }
+  ],
+  "status": "complete",
+  "end": 1792081126.1809657
+}

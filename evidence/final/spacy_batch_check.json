@@ -1,0 +1,25 @@
+{
+  "actual_texts": 16,
+  "characters": [
+    122,
+    4073,
+    4094,
+    4095,
+    4095,
+    2490,
+    85,
+    122,
+    4091,
+    4089,
+    4095,
+    4093,
+    2846,
+    85,
+    122,
+    4094
+  ],
+  "scope": "16 real GraphRAG fragments; CPU contention present, use timings diagnostically",
+  "serial_seconds": 6.540070661925711,
+  "batch_seconds": 5.6000476609915495,
+  "exact_entities_equal": true
+}

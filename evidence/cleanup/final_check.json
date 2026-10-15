@@ -1,0 +1,12 @@
+{
+  "time": 1792079137.02364,
+  "explicit_targets": {
+    "/data/ziheng/bsf-worktrees": false,
+    "/data/ziheng/jhn/detailedrouter": false,
+    "/data/ziheng/jhn/detailedrouter_out_tracked_backup": false
+  },
+  "remaining": "/data/ziheng/ecc-olmoe-pilot-Dkz9Dq/__pycache__",
+  "free_bytes": 515683487744,
+  "remaining_exists": true,
+  "remaining_owner_uid": 0
+}

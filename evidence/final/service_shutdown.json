@@ -1,0 +1,27 @@
+{
+  "start": 1792081148.2131915,
+  "services": [
+    {
+      "name": "proxy",
+      "pid": 175512,
+      "status": "SIGTERM_sent"
+    },
+    {
+      "name": "embedding",
+      "pid": 169274,
+      "status": "SIGTERM_sent"
+    },
+    {
+      "name": "construction",
+      "pid": 172084,
+      "status": "SIGTERM_sent"
+    },
+    {
+      "name": "reasoning",
+      "pid": 182253,
+      "status": "SIGTERM_sent"
+    }
+  ],
+  "end": 1792081151.2180753,
+  "remaining_parent_pids": []
+}

@@ -1,0 +1,100 @@
+{
+  "source_trace_id": "bcabd788-960a-41e7-88b6-ea2db565d679",
+  "input_sha256": "6702a9f222a7e61edd8a1e0d5c55de2068333acb37d5b6f3751d4e1e775ba48a",
+  "existing_id_count": 25,
+  "original_invalid_references": [
+    {
+      "id": "31",
+      "event": "DELETE"
+    },
+    {
+      "id": "39",
+      "event": "DELETE"
+    },
+    {
+      "id": "40",
+      "event": "DELETE"
+    }
+  ],
+  "scope": "single fixed failed request; reference validity only, not full memory quality",
+  "trials": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "repeat": 0,
+      "seconds": 30.969437837600708,
+      "usage": {
+        "prompt_tokens": 2228,
+        "total_tokens": 3671,
+        "completion_tokens": 1443,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop",
+      "invalid_references": [
+        {
+          "id": "31",
+          "event": "DELETE"
+        },
+        {
+          "id": "39",
+          "event": "DELETE"
+        },
+        {
+          "id": "40",
+          "event": "DELETE"
+        }
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "repeat": 1,
+      "seconds": 30.646602392196655,
+      "usage": {
+        "prompt_tokens": 2228,
+        "total_tokens": 3671,
+        "completion_tokens": 1443,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop",
+      "invalid_references": [
+        {
+          "id": "31",
+          "event": "DELETE"
+        },
+        {
+          "id": "39",
+          "event": "DELETE"
+        },
+        {
+          "id": "40",
+          "event": "DELETE"
+        }
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3-32B",
+      "repeat": 0,
+      "seconds": 76.8070318698883,
+      "usage": {
+        "prompt_tokens": 2228,
+        "total_tokens": 3625,
+        "completion_tokens": 1397,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop",
+      "invalid_references": []
+    },
+    {
+      "model": "Qwen/Qwen3-32B",
+      "repeat": 1,
+      "seconds": 73.42933917045593,
+      "usage": {
+        "prompt_tokens": 2228,
+        "total_tokens": 3625,
+        "completion_tokens": 1397,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop",
+      "invalid_references": []
+    }
+  ]
+}

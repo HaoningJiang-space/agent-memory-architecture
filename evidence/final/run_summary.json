@@ -1,0 +1,691 @@
+{
+  "scope": "native measured calls; no architecture performance predictions",
+  "runs": [
+    {
+      "run": "mem0_full_01",
+      "status": "failed",
+      "validity": "invalid",
+      "source_commit": "30a157b7b49f732ee4b961cb19d7f877cf475f81",
+      "dataset_sha256": "97fd80207f3419fc57c3684db824334224546d6bdd62c17ef52cd116eec9ffc8",
+      "total_chunks": 88,
+      "total_queries": 60,
+      "logged_error_count": 3,
+      "manifest_wall_seconds": 228.01251077651978,
+      "runner_sha256": null,
+      "answer_max_tokens": 256,
+      "retrieval_top_k": 10,
+      "phases": {
+        "construction": {
+          "recorded_steps": 9,
+          "step_seconds": 180.37430453300476,
+          "chat_calls": 18,
+          "embedding_calls": 88,
+          "prompt_tokens": 61415,
+          "completion_tokens": 7586,
+          "output_token_fraction": 0.1099404356458602,
+          "chat_interval_union_seconds": 172.48812413215637,
+          "embedding_interval_union_seconds": 6.360706806182861,
+          "chat_sum_seconds": 172.48812413215637,
+          "embedding_api_batch_histogram": {
+            "1": 88
+          },
+          "first_token_timed_calls": 18,
+          "first_token_wait_sum_seconds": 5.64830470085144,
+          "after_first_token_sum_seconds": 166.83981943130493,
+          "embedding_kernel_measurements": {
+            "matching": "Kernel timestamp interval contained in a traced embedding request",
+            "forwards": 88,
+            "cuda_seconds_sum": 4.868641780853272,
+            "actual_batch_histogram": {
+              "1": 88
+            },
+            "sequences": 88,
+            "unpadded_tokens": 984,
+            "padded_tokens": 984,
+            "minimum_sequence_length": 3,
+            "maximum_sequence_length": 35
+          },
+          "perfect_first_token_wait_and_embedding_removal_speedup_ceiling": 1.071327120282337,
+          "ceiling_scope": "Sequential measured prefix only; TTFT includes queue/network/first decode. Removes MORE than prefill; not a new-engine speedup prediction."
+        }
+      },
+      "gpu_energy_scope": "Gross NVML device energy over monitor interval, including idle resident services; excludes CPU, DRAM and wall-plug power. Not workload-attributed or thermal evidence.",
+      "gpu_measurements": {
+        "0": {
+          "samples": 1945,
+          "observed_seconds": 227.35911583900452,
+          "counter_interval_seconds": 227.35911583900452,
+          "gross_counter_energy_j": 43359.641,
+          "sampled_peak_power_w": 384.337,
+          "sampled_peak_device_memory_bytes": 54539190272
+        },
+        "1": {
+          "samples": 1945,
+          "observed_seconds": 227.35353779792786,
+          "counter_interval_seconds": 227.35353779792786,
+          "gross_counter_energy_j": 14733.914999999994,
+          "sampled_peak_power_w": 331.2,
+          "sampled_peak_device_memory_bytes": 4245749760
+        }
+      },
+      "measurement_subset": "First 9 chunks only, before invalid references in chunk 10; no completed quality result",
+      "stored_state_bytes": 856615,
+      "stored_cache_bytes": 0,
+      "state_size_scope": "Serialized files only, not peak CPU working set or accelerator memory; partial failed states are not full-corpus sizes."
+    },
+    {
+      "run": "graph_full_01",
+      "status": "aborted",
+      "validity": "incomplete",
+      "source_commit": "30a157b7b49f732ee4b961cb19d7f877cf475f81",
+      "dataset_sha256": "97fd80207f3419fc57c3684db824334224546d6bdd62c17ef52cd116eec9ffc8",
+      "total_chunks": 88,
+      "total_queries": 60,
+      "logged_error_count": 0,
+      "manifest_wall_seconds": 337.45005536079407,
+      "runner_sha256": null,
+      "answer_max_tokens": 256,
+      "retrieval_top_k": 10,
+      "phases": {
+        "construction": {
+          "recorded_steps": 88,
+          "step_seconds": 0.08416986465454102,
+          "chat_calls": 0,
+          "embedding_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "output_token_fraction": null,
+          "chat_interval_union_seconds": 0,
+          "embedding_interval_union_seconds": 0,
+          "chat_sum_seconds": 0,
+          "embedding_api_batch_histogram": {},
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0
+        },
+        "index_finalize": {
+          "recorded_steps": 0,
+          "step_seconds": 0,
+          "chat_calls": 74,
+          "embedding_calls": 2,
+          "prompt_tokens": 58332,
+          "completion_tokens": 9313,
+          "output_token_fraction": 0.13767462487988766,
+          "chat_interval_union_seconds": 110.34312629699707,
+          "embedding_interval_union_seconds": 23.344624757766724,
+          "chat_sum_seconds": 237.56324815750122,
+          "embedding_api_batch_histogram": {
+            "617": 2
+          },
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0,
+          "embedding_kernel_measurements": {
+            "matching": "Kernel timestamp interval contained in a traced embedding request",
+            "forwards": 40,
+            "cuda_seconds_sum": 19.269382675170903,
+            "actual_batch_histogram": {
+              "32": 38,
+              "9": 2
+            },
+            "sequences": 1234,
+            "unpadded_tokens": 769306,
+            "padded_tokens": 1302284,
+            "minimum_sequence_length": 19,
+            "maximum_sequence_length": 1255
+          }
+        }
+      },
+      "gpu_energy_scope": "Gross NVML device energy over monitor interval, including idle resident services; excludes CPU, DRAM and wall-plug power. Not workload-attributed or thermal evidence.",
+      "gpu_measurements": {
+        "0": {
+          "samples": 2899,
+          "observed_seconds": 334.2013523578644,
+          "counter_interval_seconds": 334.2013523578644,
+          "gross_counter_energy_j": 40703.13600000003,
+          "sampled_peak_power_w": 374.689,
+          "sampled_peak_device_memory_bytes": 57905119232
+        },
+        "1": {
+          "samples": 2899,
+          "observed_seconds": 334.1987998485565,
+          "counter_interval_seconds": 334.1987998485565,
+          "gross_counter_energy_j": 16627.733000000007,
+          "sampled_peak_power_w": 71.665,
+          "sampled_peak_device_memory_bytes": 806879232
+        }
+      },
+      "stored_state_bytes": 0,
+      "stored_cache_bytes": 0,
+      "state_size_scope": "Serialized files only, not peak CPU working set or accelerator memory; partial failed states are not full-corpus sizes."
+    },
+    {
+      "run": "graph_full_02",
+      "status": "aborted",
+      "validity": "incomplete",
+      "source_commit": "30a157b7b49f732ee4b961cb19d7f877cf475f81",
+      "dataset_sha256": "97fd80207f3419fc57c3684db824334224546d6bdd62c17ef52cd116eec9ffc8",
+      "total_chunks": 88,
+      "total_queries": 60,
+      "logged_error_count": 0,
+      "manifest_wall_seconds": 617.9582686424255,
+      "runner_sha256": null,
+      "answer_max_tokens": 256,
+      "retrieval_top_k": 10,
+      "phases": {
+        "construction": {
+          "recorded_steps": 88,
+          "step_seconds": 0.07656049728393555,
+          "chat_calls": 0,
+          "embedding_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "output_token_fraction": null,
+          "chat_interval_union_seconds": 0,
+          "embedding_interval_union_seconds": 0,
+          "chat_sum_seconds": 0,
+          "embedding_api_batch_histogram": {},
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0
+        },
+        "index_finalize": {
+          "recorded_steps": 0,
+          "step_seconds": 0,
+          "chat_calls": 141,
+          "embedding_calls": 2,
+          "prompt_tokens": 118370,
+          "completion_tokens": 19328,
+          "output_token_fraction": 0.1403651469157141,
+          "chat_interval_union_seconds": 251.56378746032715,
+          "embedding_interval_union_seconds": 23.104790210723877,
+          "chat_sum_seconds": 482.4356381893158,
+          "embedding_api_batch_histogram": {
+            "617": 2
+          },
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0,
+          "embedding_kernel_measurements": {
+            "matching": "Kernel timestamp interval contained in a traced embedding request",
+            "forwards": 40,
+            "cuda_seconds_sum": 19.246072555542,
+            "actual_batch_histogram": {
+              "32": 38,
+              "9": 2
+            },
+            "sequences": 1234,
+            "unpadded_tokens": 769306,
+            "padded_tokens": 1302284,
+            "minimum_sequence_length": 19,
+            "maximum_sequence_length": 1255
+          }
+        }
+      },
+      "gpu_energy_scope": "Gross NVML device energy over monitor interval, including idle resident services; excludes CPU, DRAM and wall-plug power. Not workload-attributed or thermal evidence.",
+      "gpu_measurements": {
+        "0": {
+          "samples": 5346,
+          "observed_seconds": 614.7075593471527,
+          "counter_interval_seconds": 614.7075593471527,
+          "gross_counter_energy_j": 76830.179,
+          "sampled_peak_power_w": 409.613,
+          "sampled_peak_device_memory_bytes": 57905119232
+        },
+        "1": {
+          "samples": 5346,
+          "observed_seconds": 614.7012391090393,
+          "counter_interval_seconds": 614.7012391090393,
+          "gross_counter_energy_j": 30843.02399999999,
+          "sampled_peak_power_w": 71.568,
+          "sampled_peak_device_memory_bytes": 66988343296
+        }
+      },
+      "stored_state_bytes": 0,
+      "stored_cache_bytes": 0,
+      "state_size_scope": "Serialized files only, not peak CPU working set or accelerator memory; partial failed states are not full-corpus sizes."
+    },
+    {
+      "run": "graph_full_03",
+      "status": "failed",
+      "validity": "invalid",
+      "source_commit": "30a157b7b49f732ee4b961cb19d7f877cf475f81",
+      "dataset_sha256": "97fd80207f3419fc57c3684db824334224546d6bdd62c17ef52cd116eec9ffc8",
+      "total_chunks": 88,
+      "total_queries": 60,
+      "logged_error_count": 6,
+      "manifest_wall_seconds": 395.95196557044983,
+      "runner_sha256": "bc5a6ecf0d4778fd36862426202afd27f4a8f76db843ba94048afc1df637de10",
+      "answer_max_tokens": 256,
+      "retrieval_top_k": 10,
+      "phases": {
+        "construction": {
+          "recorded_steps": 88,
+          "step_seconds": 0.05464673042297363,
+          "chat_calls": 0,
+          "embedding_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "output_token_fraction": null,
+          "chat_interval_union_seconds": 0,
+          "embedding_interval_union_seconds": 0,
+          "chat_sum_seconds": 0,
+          "embedding_api_batch_histogram": {},
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0
+        },
+        "index_finalize": {
+          "recorded_steps": 1,
+          "step_seconds": 389.98031735420227,
+          "chat_calls": 450,
+          "embedding_calls": 2,
+          "prompt_tokens": 393601,
+          "completion_tokens": 72925,
+          "output_token_fraction": 0.15631497494244695,
+          "chat_interval_union_seconds": 160.6994125843048,
+          "embedding_interval_union_seconds": 23.473427057266235,
+          "chat_sum_seconds": 4787.9923396110535,
+          "embedding_api_batch_histogram": {
+            "617": 2
+          },
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0,
+          "embedding_kernel_measurements": {
+            "matching": "Kernel timestamp interval contained in a traced embedding request",
+            "forwards": 40,
+            "cuda_seconds_sum": 19.26628384399414,
+            "actual_batch_histogram": {
+              "32": 38,
+              "9": 2
+            },
+            "sequences": 1234,
+            "unpadded_tokens": 769306,
+            "padded_tokens": 1302284,
+            "minimum_sequence_length": 19,
+            "maximum_sequence_length": 1255
+          }
+        }
+      },
+      "runner_hash_source": "separate preserved snapshot; absent from original manifest",
+      "gpu_energy_scope": "Gross NVML device energy over monitor interval, including idle resident services; excludes CPU, DRAM and wall-plug power. Not workload-attributed or thermal evidence.",
+      "gpu_measurements": {
+        "0": {
+          "samples": 3474,
+          "observed_seconds": 393.48872470855713,
+          "counter_interval_seconds": 393.48872470855713,
+          "gross_counter_energy_j": 55438.534000000014,
+          "sampled_peak_power_w": 403.25,
+          "sampled_peak_device_memory_bytes": 57907216384
+        },
+        "1": {
+          "samples": 3474,
+          "observed_seconds": 393.48766708374023,
+          "counter_interval_seconds": 393.48766708374023,
+          "gross_counter_energy_j": 28867.814000000013,
+          "sampled_peak_power_w": 362.044,
+          "sampled_peak_device_memory_bytes": 80984735744
+        }
+      },
+      "stored_state_bytes": 0,
+      "stored_cache_bytes": 0,
+      "state_size_scope": "Serialized files only, not peak CPU working set or accelerator memory; partial failed states are not full-corpus sizes."
+    },
+    {
+      "run": "embed_full_01",
+      "status": "complete",
+      "validity": "valid",
+      "source_commit": "30a157b7b49f732ee4b961cb19d7f877cf475f81",
+      "dataset_sha256": "97fd80207f3419fc57c3684db824334224546d6bdd62c17ef52cd116eec9ffc8",
+      "total_chunks": 88,
+      "total_queries": 60,
+      "logged_error_count": 0,
+      "manifest_wall_seconds": 646.6238758563995,
+      "runner_sha256": "b9627d19f4281962f18306ab05a324af985ae0e4a7fae64d6f8bad41522c84c6",
+      "answer_max_tokens": 256,
+      "retrieval_top_k": 5,
+      "phases": {
+        "construction": {
+          "recorded_steps": 88,
+          "step_seconds": 0.09878087043762207,
+          "chat_calls": 0,
+          "embedding_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "output_token_fraction": null,
+          "chat_interval_union_seconds": 0,
+          "embedding_interval_union_seconds": 0,
+          "chat_sum_seconds": 0,
+          "embedding_api_batch_histogram": {},
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0
+        },
+        "index_finalize": {
+          "recorded_steps": 1,
+          "step_seconds": 13.736516237258911,
+          "chat_calls": 0,
+          "embedding_calls": 1,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "output_token_fraction": null,
+          "chat_interval_union_seconds": 0,
+          "embedding_interval_union_seconds": 10.945173978805542,
+          "chat_sum_seconds": 0,
+          "embedding_api_batch_histogram": {
+            "88": 1
+          },
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0,
+          "embedding_kernel_measurements": {
+            "matching": "Kernel timestamp interval contained in a traced embedding request",
+            "forwards": 3,
+            "cuda_seconds_sum": 9.562817626953125,
+            "actual_batch_histogram": {
+              "32": 2,
+              "24": 1
+            },
+            "sequences": 88,
+            "unpadded_tokens": 368396,
+            "padded_tokens": 383536,
+            "minimum_sequence_length": 958,
+            "maximum_sequence_length": 4386
+          }
+        },
+        "query": {
+          "recorded_steps": 60,
+          "step_seconds": 628.4240460395813,
+          "chat_calls": 60,
+          "embedding_calls": 60,
+          "prompt_tokens": 1247743,
+          "completion_tokens": 1521,
+          "output_token_fraction": 0.0012175168739353732,
+          "chat_interval_union_seconds": 617.790919303894,
+          "embedding_interval_union_seconds": 4.650847673416138,
+          "chat_sum_seconds": 617.790919303894,
+          "embedding_api_batch_histogram": {
+            "1": 60
+          },
+          "first_token_timed_calls": 60,
+          "first_token_wait_sum_seconds": 536.4679439067841,
+          "after_first_token_sum_seconds": 81.32297539710999,
+          "embedding_kernel_measurements": {
+            "matching": "Kernel timestamp interval contained in a traced embedding request",
+            "forwards": 60,
+            "cuda_seconds_sum": 3.6142991180419917,
+            "actual_batch_histogram": {
+              "1": 60
+            },
+            "sequences": 60,
+            "unpadded_tokens": 2416,
+            "padded_tokens": 2416,
+            "minimum_sequence_length": 30,
+            "maximum_sequence_length": 76
+          }
+        }
+      },
+      "gpu_energy_scope": "Gross NVML device energy over monitor interval, including idle resident services; excludes CPU, DRAM and wall-plug power. Not workload-attributed or thermal evidence.",
+      "gpu_measurements": {
+        "0": {
+          "samples": 5540,
+          "observed_seconds": 646.2918477058411,
+          "counter_interval_seconds": 646.2918477058411,
+          "gross_counter_energy_j": 45697.17699999997,
+          "sampled_peak_power_w": 365.844,
+          "sampled_peak_device_memory_bytes": 64437747712
+        },
+        "1": {
+          "samples": 5540,
+          "observed_seconds": 646.2861573696136,
+          "counter_interval_seconds": 646.2861573696136,
+          "gross_counter_energy_j": 183050.135,
+          "sampled_peak_power_w": 453.597,
+          "sampled_peak_device_memory_bytes": 83140608000
+        }
+      },
+      "answer_metrics": {
+        "count": 60,
+        "metric_definition": "pinned artifact LongMemEval post_process: per-metric max of raw and parsed output; lexical only, no semantic judge",
+        "means": {
+          "exact_match": 0,
+          "f1": 0.19807715398688108,
+          "substring_exact_match": 0.38333333333333336,
+          "rougeL_f1": 0.1869366146761964,
+          "rougeL_recall": 0.5093749633561444,
+          "rougeLsum_f1": 0.1869366146761964,
+          "rougeLsum_recall": 0.5093749633561444
+        },
+        "raw_output_means": {
+          "exact_match": 0,
+          "f1": 0.19807715398688108,
+          "substring_exact_match": 0.38333333333333336,
+          "rougeL_f1": 0.1869366146761964,
+          "rougeL_recall": 0.5093749633561444,
+          "rougeLsum_f1": 0.1869366146761964,
+          "rougeLsum_recall": 0.5093749633561444
+        }
+      },
+      "stored_state_bytes": 1990198,
+      "stored_cache_bytes": 5525958,
+      "state_size_scope": "Serialized files only, not peak CPU working set or accelerator memory; partial failed states are not full-corpus sizes."
+    },
+    {
+      "run": "bm25_full_01",
+      "status": "failed",
+      "validity": "invalid",
+      "source_commit": "30a157b7b49f732ee4b961cb19d7f877cf475f81",
+      "dataset_sha256": "97fd80207f3419fc57c3684db824334224546d6bdd62c17ef52cd116eec9ffc8",
+      "total_chunks": 88,
+      "total_queries": 60,
+      "logged_error_count": 0,
+      "manifest_wall_seconds": 372.8355734348297,
+      "runner_sha256": "b9627d19f4281962f18306ab05a324af985ae0e4a7fae64d6f8bad41522c84c6",
+      "answer_max_tokens": 256,
+      "retrieval_top_k": 5,
+      "phases": {
+        "construction": {
+          "recorded_steps": 88,
+          "step_seconds": 0.07424402236938477,
+          "chat_calls": 0,
+          "embedding_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "output_token_fraction": null,
+          "chat_interval_union_seconds": 0,
+          "embedding_interval_union_seconds": 0,
+          "chat_sum_seconds": 0,
+          "embedding_api_batch_histogram": {},
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0
+        },
+        "index_finalize": {
+          "recorded_steps": 1,
+          "step_seconds": 0.4421424865722656,
+          "chat_calls": 0,
+          "embedding_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "output_token_fraction": null,
+          "chat_interval_union_seconds": 0,
+          "embedding_interval_union_seconds": 0,
+          "chat_sum_seconds": 0,
+          "embedding_api_batch_histogram": {},
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0
+        },
+        "query": {
+          "recorded_steps": 34,
+          "step_seconds": 368.130108833313,
+          "chat_calls": 34,
+          "embedding_calls": 0,
+          "prompt_tokens": 721189,
+          "completion_tokens": 990,
+          "output_token_fraction": 0.001370851270945292,
+          "chat_interval_union_seconds": 364.9319188594818,
+          "embedding_interval_union_seconds": 0,
+          "chat_sum_seconds": 364.9319188594818,
+          "embedding_api_batch_histogram": {},
+          "first_token_timed_calls": 34,
+          "first_token_wait_sum_seconds": 311.7744951248169,
+          "after_first_token_sum_seconds": 53.15742373466492
+        }
+      },
+      "gpu_energy_scope": "Gross NVML device energy over monitor interval, including idle resident services; excludes CPU, DRAM and wall-plug power. Not workload-attributed or thermal evidence.",
+      "gpu_measurements": {
+        "0": {
+          "samples": 3199,
+          "observed_seconds": 372.48326086997986,
+          "counter_interval_seconds": 372.48326086997986,
+          "gross_counter_energy_j": 25012.19200000004,
+          "sampled_peak_power_w": 74.649,
+          "sampled_peak_device_memory_bytes": 64437747712
+        },
+        "1": {
+          "samples": 3199,
+          "observed_seconds": 372.48039293289185,
+          "counter_interval_seconds": 372.48039293289185,
+          "gross_counter_energy_j": 107414.266,
+          "sampled_peak_power_w": 464.498,
+          "sampled_peak_device_memory_bytes": 83140608000
+        }
+      },
+      "answer_metrics": {
+        "count": 33,
+        "metric_definition": "pinned artifact LongMemEval post_process: per-metric max of raw and parsed output; lexical only, no semantic judge",
+        "means": {
+          "exact_match": 0,
+          "f1": 0.24039415847222434,
+          "substring_exact_match": 0.3939393939393939,
+          "rougeL_f1": 0.22358452572209167,
+          "rougeL_recall": 0.536854551973129,
+          "rougeLsum_f1": 0.22358452572209167,
+          "rougeLsum_recall": 0.536854551973129
+        },
+        "raw_output_means": {
+          "exact_match": 0,
+          "f1": 0.24039415847222434,
+          "substring_exact_match": 0.3939393939393939,
+          "rougeL_f1": 0.22358452572209167,
+          "rougeL_recall": 0.536854551973129,
+          "rougeLsum_f1": 0.22358452572209167,
+          "rougeLsum_recall": 0.536854551973129
+        }
+      },
+      "stored_state_bytes": 3312590,
+      "stored_cache_bytes": 3188527,
+      "state_size_scope": "Serialized files only, not peak CPU working set or accelerator memory; partial failed states are not full-corpus sizes."
+    },
+    {
+      "run": "bm25_full_02",
+      "status": "complete",
+      "validity": "valid",
+      "source_commit": "30a157b7b49f732ee4b961cb19d7f877cf475f81",
+      "dataset_sha256": "97fd80207f3419fc57c3684db824334224546d6bdd62c17ef52cd116eec9ffc8",
+      "total_chunks": 88,
+      "total_queries": 60,
+      "logged_error_count": 0,
+      "manifest_wall_seconds": 649.0577557086945,
+      "runner_sha256": "56ca626b4b630d09fed8c107754e3147914bc604c217c82bb63046a481be9614",
+      "answer_max_tokens": 1024,
+      "retrieval_top_k": 5,
+      "phases": {
+        "construction": {
+          "recorded_steps": 88,
+          "step_seconds": 0.06685829162597656,
+          "chat_calls": 0,
+          "embedding_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "output_token_fraction": null,
+          "chat_interval_union_seconds": 0,
+          "embedding_interval_union_seconds": 0,
+          "chat_sum_seconds": 0,
+          "embedding_api_batch_histogram": {},
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0
+        },
+        "index_finalize": {
+          "recorded_steps": 1,
+          "step_seconds": 0.44559335708618164,
+          "chat_calls": 0,
+          "embedding_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "output_token_fraction": null,
+          "chat_interval_union_seconds": 0,
+          "embedding_interval_union_seconds": 0,
+          "chat_sum_seconds": 0,
+          "embedding_api_batch_histogram": {},
+          "first_token_timed_calls": 0,
+          "first_token_wait_sum_seconds": 0,
+          "after_first_token_sum_seconds": 0
+        },
+        "query": {
+          "recorded_steps": 60,
+          "step_seconds": 644.3744769096375,
+          "chat_calls": 60,
+          "embedding_calls": 0,
+          "prompt_tokens": 1274993,
+          "completion_tokens": 1639,
+          "output_token_fraction": 0.0012838468720821662,
+          "chat_interval_union_seconds": 639.7395534515381,
+          "embedding_interval_union_seconds": 0,
+          "chat_sum_seconds": 639.7395534515381,
+          "embedding_api_batch_histogram": {},
+          "first_token_timed_calls": 60,
+          "first_token_wait_sum_seconds": 550.9293828010559,
+          "after_first_token_sum_seconds": 88.81017065048218
+        }
+      },
+      "gpu_energy_scope": "Gross NVML device energy over monitor interval, including idle resident services; excludes CPU, DRAM and wall-plug power. Not workload-attributed or thermal evidence.",
+      "gpu_measurements": {
+        "0": {
+          "samples": 5550,
+          "observed_seconds": 648.4133491516113,
+          "counter_interval_seconds": 648.4133491516113,
+          "gross_counter_energy_j": 43064.74399999995,
+          "sampled_peak_power_w": 73.808,
+          "sampled_peak_device_memory_bytes": 64437747712
+        },
+        "1": {
+          "samples": 5550,
+          "observed_seconds": 648.407666683197,
+          "counter_interval_seconds": 648.407666683197,
+          "gross_counter_energy_j": 187904.61199999996,
+          "sampled_peak_power_w": 461.782,
+          "sampled_peak_device_memory_bytes": 83140608000
+        }
+      },
+      "answer_metrics": {
+        "count": 60,
+        "metric_definition": "pinned artifact LongMemEval post_process: per-metric max of raw and parsed output; lexical only, no semantic judge",
+        "means": {
+          "exact_match": 0,
+          "f1": 0.22740877083168765,
+          "substring_exact_match": 0.4666666666666667,
+          "rougeL_f1": 0.20936304379211754,
+          "rougeL_recall": 0.5595596806685386,
+          "rougeLsum_f1": 0.2120512158351283,
+          "rougeLsum_recall": 0.5627648088736668
+        },
+        "raw_output_means": {
+          "exact_match": 0,
+          "f1": 0.22740877083168765,
+          "substring_exact_match": 0.4666666666666667,
+          "rougeL_f1": 0.20927451808561431,
+          "rougeL_recall": 0.5595596806685386,
+          "rougeLsum_f1": 0.21196269012862506,
+          "rougeLsum_recall": 0.5627648088736668
+        }
+      },
+      "stored_state_bytes": 3312590,
+      "stored_cache_bytes": 5625494,
+      "state_size_scope": "Serialized files only, not peak CPU working set or accelerator memory; partial failed states are not full-corpus sizes."
+    }
+  ]
+}

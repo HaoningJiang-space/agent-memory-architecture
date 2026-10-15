@@ -1,0 +1,180 @@
+{
+  "scope": "same actual texts; independent encoding control, not an end-to-end patched Mem0 run",
+  "selection": "only embeddings between fact extraction and update LLM; excludes post-update writes",
+  "retrieval_scope": "read-only frozen index after the failed run; numerical ranking check, not answer quality",
+  "source_run": "mem0_full_01",
+  "groups": [
+    {
+      "index": 0,
+      "native_fact_calls": 16,
+      "serial_seconds": [
+        1.0960095040500164,
+        1.111380523070693,
+        1.1203645240748301
+      ],
+      "batch_seconds": [
+        0.1960792950121686,
+        0.19378021301236004,
+        0.19110905192792416
+      ],
+      "speedup": 5.735263192221824,
+      "min_cosine": 0.9998139142990112,
+      "exact_top5_order_fraction": 0.9375,
+      "top5_set_overlap": 1.0
+    },
+    {
+      "index": 1,
+      "native_fact_calls": 4,
+      "serial_seconds": [
+        0.27529991301707923,
+        0.2681614289758727,
+        0.26996577496174723
+      ],
+      "batch_seconds": [
+        0.10650535603053868,
+        0.10397825797554106,
+        0.10186487203463912
+      ],
+      "speedup": 2.596367550466672,
+      "min_cosine": 0.999848484992981,
+      "exact_top5_order_fraction": 1.0,
+      "top5_set_overlap": 1.0
+    },
+    {
+      "index": 2,
+      "native_fact_calls": 6,
+      "serial_seconds": [
+        0.4264517918927595,
+        0.3942333699669689,
+        0.3968402720056474
+      ],
+      "batch_seconds": [
+        0.11036715400405228,
+        0.1116678339894861,
+        0.11179674800951034
+      ],
+      "speedup": 3.553756330968247,
+      "min_cosine": 0.9997782111167908,
+      "exact_top5_order_fraction": 1.0,
+      "top5_set_overlap": 1.0
+    },
+    {
+      "index": 3,
+      "native_fact_calls": 12,
+      "serial_seconds": [
+        0.8012149590067565,
+        0.8174443079624325,
+        0.8641420130152255
+      ],
+      "batch_seconds": [
+        0.14773202198557556,
+        0.15711242309771478,
+        0.1503397619817406
+      ],
+      "speedup": 5.437312771997834,
+      "min_cosine": 0.9997680187225342,
+      "exact_top5_order_fraction": 1.0,
+      "top5_set_overlap": 1.0
+    },
+    {
+      "index": 4,
+      "native_fact_calls": 16,
+      "serial_seconds": [
+        1.1312627769075334,
+        1.1107170371105894,
+        1.1341576799750328
+      ],
+      "batch_seconds": [
+        0.18627643305808306,
+        0.18001265998464078,
+        0.18717989907599986
+      ],
+      "speedup": 6.0730322045343925,
+      "min_cosine": 0.9997900724411011,
+      "exact_top5_order_fraction": 0.9375,
+      "top5_set_overlap": 1.0
+    },
+    {
+      "index": 5,
+      "native_fact_calls": 15,
+      "serial_seconds": [
+        1.050365338101983,
+        1.0366173869697377,
+        1.0281242940109223
+      ],
+      "batch_seconds": [
+        0.18319100607186556,
+        0.19188423198647797,
+        0.17534454993437976
+      ],
+      "speedup": 5.658669654137246,
+      "min_cosine": 0.9997791051864624,
+      "exact_top5_order_fraction": 0.8666666666666667,
+      "top5_set_overlap": 0.9866666666666667
+    },
+    {
+      "index": 6,
+      "native_fact_calls": 4,
+      "serial_seconds": [
+        0.2740340980235487,
+        0.2648253330262378,
+        0.2687059809686616
+      ],
+      "batch_seconds": [
+        0.10160105000250041,
+        0.09596078097820282,
+        0.11047524702735245
+      ],
+      "speedup": 2.6447165748980814,
+      "min_cosine": 0.999838650226593,
+      "exact_top5_order_fraction": 0.75,
+      "top5_set_overlap": 1.0
+    },
+    {
+      "index": 7,
+      "native_fact_calls": 4,
+      "serial_seconds": [
+        0.26671672298107296,
+        0.2925683819921687,
+        0.26500147103797644
+      ],
+      "batch_seconds": [
+        0.0827196390600875,
+        0.1027423299383372,
+        0.09588597307447344
+      ],
+      "speedup": 2.781603131606303,
+      "min_cosine": 0.9998178482055664,
+      "exact_top5_order_fraction": 1.0,
+      "top5_set_overlap": 1.0
+    },
+    {
+      "index": 8,
+      "native_fact_calls": 1,
+      "serial_seconds": [
+        0.06313473696354777,
+        0.0796779979718849,
+        0.06316221703309566
+      ],
+      "batch_seconds": [
+        0.06975369900465012,
+        0.06320856092497706,
+        0.07520461408421397
+      ],
+      "speedup": 0.9055034777278974,
+      "min_cosine": 1.0000001192092896,
+      "exact_top5_order_fraction": 1.0,
+      "top5_set_overlap": 1.0
+    }
+  ],
+  "aggregate": {
+    "fact_count": 78,
+    "group_count": 9,
+    "median_group_speedup": 3.553756330968247,
+    "minimum_cosine": 0.9997680187225342,
+    "weighted_top5_set_overlap": 0.9974358974358974,
+    "weighted_exact_top5_order": 0.9358974358974359,
+    "total_serial_median_seconds": 5.3620959628606215,
+    "total_batch_median_seconds": 1.1964742281707004
+  }
+}
