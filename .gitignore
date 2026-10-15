@@ -1,0 +1,8 @@
+external/
+.venv/
+__pycache__/
+*.pyc
+outputs/raw/
+hf/
+models/
+logs/

@@ -1,0 +1,7 @@
+{
+  "data_free_bytes": 607442788352,
+  "home_free_bytes": 9494413312,
+  "detailedrouter_exists": false,
+  "remaining_permission_blocked": "/data/ziheng/ecc-olmoe-pilot-Dkz9Dq/__pycache__",
+  "reason": "root-owned cache directory; sudo requires a password"
+}

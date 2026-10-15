@@ -1,0 +1,47 @@
+{
+  "created_utc": "2026-10-15T13:44:29.183701+00:00",
+  "purpose": "Source-level evaluation of Agent memory workloads for architecture research",
+  "checkout_policy": "Public upstream, shallow clone, no submodules initialized, Git LFS downloads skipped",
+  "repositories": [
+    {
+      "name": "mem0",
+      "url": "https://github.com/mem0ai/mem0.git",
+      "path": "/home/abc/jhn/agent-memory-architecture/external/mem0",
+      "commit": "0724291bd864cf807e88ee8981c8226644e8fb42",
+      "branch": "main",
+      "commit_date": "2026-10-14T21:09:50+05:30",
+      "status": "cloned",
+      "worktree_status": ""
+    },
+    {
+      "name": "letta-code",
+      "url": "https://github.com/letta-ai/letta-code.git",
+      "path": "/home/abc/jhn/agent-memory-architecture/external/letta-code",
+      "commit": "cc4654acc3b424a68c385bce0fe0c00edaad5d7e",
+      "branch": "main",
+      "commit_date": "2026-10-14T22:01:15-07:00",
+      "status": "cloned",
+      "worktree_status": ""
+    },
+    {
+      "name": "A-mem",
+      "url": "https://github.com/agiresearch/A-mem.git",
+      "path": "/home/abc/jhn/agent-memory-architecture/external/A-mem",
+      "commit": "ceffb860f0712bbae97b184d440df62bc910ca8d",
+      "branch": "main",
+      "commit_date": "2025-12-12T16:15:29-05:00",
+      "status": "cloned",
+      "worktree_status": ""
+    },
+    {
+      "name": "A-mem-evaluation",
+      "url": "https://github.com/WujiangXu/AgenticMemory.git",
+      "path": "/home/abc/jhn/agent-memory-architecture/external/A-mem-evaluation",
+      "commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+      "branch": "main",
+      "commit_date": "2026-03-05T06:33:11-05:00",
+      "status": "cloned",
+      "worktree_status": ""
+    }
+  ]
+}

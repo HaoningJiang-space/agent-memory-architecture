@@ -1,0 +1,390 @@
+{
+  "free_before": 601597931520,
+  "paths": [
+    {
+      "path": "/data/ziheng/tmp",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/jhn/conda_jhn",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/jhn/sat_solvers",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/.cuda_cache",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/.cupy_cache",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/cupy_cache",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/__pycache__",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/torch_extensions",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/build_cache",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/worktrees",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/vtmp",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/envs",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/alpha_sweep_agg.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/band_smoke.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/build_convert.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/build_tr.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/clone_dreamplace.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/commit_policy_compare.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/composed.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/cs_arch_a_resnet50.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/cs_arch_a_transformer.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/cs_arch_b_resnet50.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/cs_arch_c_resnet50.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/csearch.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/csearch2.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/csearch_c.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/def_sketchability.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/diff_eq_layer2.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/diff_equilibrium_layer.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/disagreement_band.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/dr_conflict_probe.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/dreamplace_clone.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/edyp2.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/edyp6.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/edyp_probe.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/edyp_probe.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/edyp_probe6.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/envcov2.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/envelope_coverage.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/envelope_coverage2.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/field_preconditioned_assign.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/fp_hard.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/geomfac.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/geomfac_arch_b.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/geomfac_arch_c.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/gr_ariane.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/heterodse-timeloop-build.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/iter_stability.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/killgate_mol.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ledger_replay.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/limitparam.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/limitparam2.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/limitparam3.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/lowsens.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/lowsens2.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/mk_orbuild_env.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/o3d_pathb_probe.tcl",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/o3d_pull.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/o3d_pull2.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/o3d_setup.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/optband.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/optimum_band.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/or_cmake.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/orbuild_env.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/paradr_eval.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/price_ledger.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/pull_o3d.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/remap.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/route_mol_bpfe.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/run_lol_one.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/run_mazeprofile.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/run_mol_one.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/run_mp2.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/run_ruleblind.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/run_specrun.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/setup_o3d.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/spansweep2.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/spansweep_b.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/suite_repro.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/suiterepro.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/sweep_lol_bpfe.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/test_hbt_access.sh",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/timeloop-oaves-gcc9-boost171.patch",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/toy_priced_placement.py",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/tr_cmake.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ruleblind_resnet50_arch_a.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ruleblind_resnet50_arch_c.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ruleblind_resnet50_arch_c.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ruleblind_transformer_arch_c.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ruleblind_transformer_arch_c.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ruleblind_all.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ruleblind_transformer_arch_b.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ruleblind_resnet50_arch_a.json",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ruleblind_transformer_arch_a.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ruleblind_resnet50_arch_b.log",
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ruleblind_transformer_arch_a.json",
+      "status": "removed"
+    }
+  ],
+  "free_after": 611150643200
+}

@@ -1,0 +1,147 @@
+{
+  "created_utc": "2026-10-15T13:47:03.936442+00:00",
+  "evidence_level": "Static source inspection only; no model inference, latency, bandwidth, energy or thermal measurements.",
+  "entrypoints": [
+    {
+      "repository": "mem0",
+      "commit": "0724291bd864cf807e88ee8981c8226644e8fb42",
+      "file": "mem0/memory/main.py",
+      "line": 881,
+      "symbol_prefix": "def _add_to_vector_store(",
+      "observation": "Write entry: infer=True retrieves existing memories before the single extraction LLM call, then batch-embeds facts and persists them; infer=False bypasses extraction.",
+      "file_sha256": "f329ca4a17af1fbefb32ac10d4cc7ae7ddbdb7435a87eb74c30915cff98b8b7c"
+    },
+    {
+      "repository": "mem0",
+      "commit": "0724291bd864cf807e88ee8981c8226644e8fb42",
+      "file": "mem0/memory/main.py",
+      "line": 1642,
+      "symbol_prefix": "def _search_vector_store(",
+      "observation": "Read entry: embeds query, performs semantic and supported keyword lookup, computes entity boosts, and ranks candidates. Costs depend on configured providers and scope.",
+      "file_sha256": "f329ca4a17af1fbefb32ac10d4cc7ae7ddbdb7435a87eb74c30915cff98b8b7c"
+    },
+    {
+      "repository": "mem0",
+      "commit": "0724291bd864cf807e88ee8981c8226644e8fb42",
+      "file": "mem0/configs/base.py",
+      "line": 29,
+      "symbol_prefix": "class MemoryConfig(",
+      "observation": "Configurable LLM, embedder, vector store and optional reranker; the package name does not pin a model or deployment.",
+      "file_sha256": "8bc0431f599c13ab2aff887e7b6eecc2688f8f4d070d76f029b3b55e37169b33"
+    },
+    {
+      "repository": "letta-code",
+      "commit": "cc4654acc3b424a68c385bce0fe0c00edaad5d7e",
+      "file": "src/backend/local/system-prompt-compilation.ts",
+      "line": 81,
+      "symbol_prefix": "function collectCommittedMemoryFiles(",
+      "observation": "Local MemFS context compilation reads committed Markdown from Git HEAD. This is a versioned filesystem path, not automatically an ANN workload.",
+      "file_sha256": "d3557c2ab0fc3eedde14ce417247fcce029e75064f4fae5539b144b521c00178"
+    },
+    {
+      "repository": "letta-code",
+      "commit": "cc4654acc3b424a68c385bce0fe0c00edaad5d7e",
+      "file": "src/reminders/memory-git-sync.ts",
+      "line": 162,
+      "symbol_prefix": "export async function runPostTurnMemorySync(",
+      "observation": "Post-turn memory synchronization; remote sync and local work need separate timing boundaries.",
+      "file_sha256": "35469313d3f024f961491e83e2038e45b61e2a718751272b4467ac8363c8fb34"
+    },
+    {
+      "repository": "A-mem",
+      "commit": "ceffb860f0712bbae97b184d440df62bc910ca8d",
+      "file": "agentic_memory/memory_system.py",
+      "line": 233,
+      "symbol_prefix": "def add_note(",
+      "observation": "Adds a note through conditional evolution and Chroma storage; entry skips LLM evolution when no existing neighbors are available.",
+      "file_sha256": "fa58c3ed405e37d298a3d11e5cd69459bc9709004461c0e01fc0c497c77c949b"
+    },
+    {
+      "repository": "A-mem",
+      "commit": "ceffb860f0712bbae97b184d440df62bc910ca8d",
+      "file": "agentic_memory/memory_system.py",
+      "line": 590,
+      "symbol_prefix": "def process_memory(",
+      "observation": "Neighbor retrieval precedes an LLM evolution decision; link and neighbor updates depend on its output.",
+      "file_sha256": "fa58c3ed405e37d298a3d11e5cd69459bc9709004461c0e01fc0c497c77c949b"
+    },
+    {
+      "repository": "A-mem",
+      "commit": "ceffb860f0712bbae97b184d440df62bc910ca8d",
+      "file": "agentic_memory/memory_system.py",
+      "line": 266,
+      "symbol_prefix": "def consolidate_memories(",
+      "observation": "Loops over all stored notes and calls add_document; actual embedding and storage work must be traced before attributing any amplification.",
+      "file_sha256": "fa58c3ed405e37d298a3d11e5cd69459bc9709004461c0e01fc0c497c77c949b"
+    },
+    {
+      "repository": "A-mem",
+      "commit": "ceffb860f0712bbae97b184d440df62bc910ca8d",
+      "file": "agentic_memory/retrievers.py",
+      "line": 42,
+      "symbol_prefix": "class ChromaRetriever:",
+      "observation": "Configures SentenceTransformerEmbeddingFunction, default all-MiniLM-L6-v2, and ChromaDB document/query operations.",
+      "file_sha256": "a4cd9645b9df0774f7f67bdfff3cf4d1a41911b4bac3843208db2019b57e311d"
+    },
+    {
+      "repository": "A-mem-evaluation",
+      "commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+      "file": "memory_layer.py",
+      "line": 666,
+      "symbol_prefix": "class AgenticMemorySystem:",
+      "observation": "Paper evaluation has its own implementation, separate from the reusable A-mem package.",
+      "file_sha256": "b9a5b5797881b25c5524b98a543b22a1bbbcc7f285437ca667a5673e7f293eba"
+    }
+  ],
+  "official_references": [
+    {
+      "url": "https://github.com/letta-ai/letta",
+      "observation": "Current runtime is letta-ai/letta-code; retired V1 server is on archive branch."
+    },
+    {
+      "url": "https://github.com/letta-ai/letta-docs-md/blob/main/concepts/memfs/index.md",
+      "observation": "Current MemFS is Git-backed; semantic/vector indexing is optional."
+    },
+    {
+      "url": "https://github.com/mem0ai/mem0/blob/0724291bd864cf807e88ee8981c8226644e8fb42/docs/core-concepts/how-it-works.mdx",
+      "observation": "Mem0 is an application memory layer; app calls search before a model call and add after a useful interaction. Current inferred writes are additive; explicit update/delete are separate."
+    },
+    {
+      "url": "https://www.thu-haslab.org/publication/2026-hybridspec/",
+      "observation": "Publication metadata verified; complete paper and official artifact not obtained in this inspection. No performance claims imported."
+    }
+  ],
+  "hypotheses_not_results": [
+    "Foreground reasoning and background memory maintenance may contend for shared LLM serving resources under concurrency.",
+    "Different memory implementations may create distinct query, mutation, context-compilation and persistence costs; no shared memory-bound classification is assumed.",
+    "Hybrid bonding is relevant only if a measured hot working set and a 2D bandwidth/energy bottleneck fit its capacity, area, power and thermal constraints."
+  ],
+  "measurement_plan": {
+    "workload_contract": [
+      "Pin source and model revisions, tokenizer, precision, inference engine, embedding provider and database configuration.",
+      "Use a self-hosted memory backend and the same agent reasoning harness for end-to-end comparisons.",
+      "Preserve chronological memory causality and per-user/session isolation; concurrent independent sessions are permitted.",
+      "Measure foreground retrieval/TTFT/turn latency and background memory freshness, queue growth and throughput together."
+    ],
+    "trace_fields": [
+      "request/user/session identifiers",
+      "parent-child spans and stage timestamps",
+      "LLM role, prompt/output tokens and actual batch/shape",
+      "prefill versus decode",
+      "embedding calls and batch sizes",
+      "database candidates, filters, index bytes and working-set residency",
+      "CPU/GPU execution and measured DRAM/HBM/PCIe/SSD traffic",
+      "background update completion and memory version visible to each read"
+    ],
+    "baseline": [
+      "CPU plus optimized GPU inference and an appropriately configured database.",
+      "Tune batching, asynchronous writes, inference scheduling and available prompt/prefix caching before crediting hardware gains.",
+      "Compare equal task quality, retrieval quality, memory freshness and hardware/resource budget."
+    ],
+    "architecture_gate": [
+      "Locate a material end-to-end bottleneck under realistic memory sizes and offered load.",
+      "Demonstrate resource asymmetry and a physical limitation that software tuning and fair 2D baselines do not remove.",
+      "Validate gains after data movement, queueing, area, energy and thermal costs, including held-out workloads."
+    ]
+  }
+}

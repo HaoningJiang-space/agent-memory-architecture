@@ -1,0 +1,1456 @@
+{
+  "authorization": "User: EDA and chiplet related things all delete; reusable caches may delete.",
+  "created_utc": "20261015T142650Z",
+  "active_references": [],
+  "paths": [
+    {
+      "path": "/data/ziheng/.pipcache",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/CATCH",
+      "symlink": false,
+      "status": "removed",
+      "commit": "6bc7e4e52bad0ad8df87a94eac2ee3d68bb0d882\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/CHIPSIM",
+      "symlink": false,
+      "status": "removed",
+      "commit": "9a0da4a351f52dabe0d0b1e9fc3643c1eac7bf84\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/CULS_hh",
+      "symlink": false,
+      "status": "removed",
+      "commit": "5d62b64563b29354151638b67e510eeaa9cf88ed\n",
+      "tracked_status": " M CMakeLists.txt\n"
+    },
+    {
+      "path": "/data/ziheng/CertifiedChipletPlacement",
+      "symlink": false,
+      "status": "removed",
+      "commit": "3c94136ca5881dfc494a67c8c8979ac739e8b493\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope",
+      "symlink": false,
+      "status": "removed",
+      "commit": "42e8cbdff6498b25b27c89c4b8d39ec6f025f759\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope-g0-claim-54c3078",
+      "symlink": false,
+      "status": "removed",
+      "commit": "54c307863730536b83ea604c001c5b418d8d5978\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope-g0-claim-9cec5a8",
+      "symlink": false,
+      "status": "removed",
+      "commit": "39f88ffc37e23a2c95cefb7f5ee8855452ba97be\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope-g0-resource-audit-25442df",
+      "symlink": false,
+      "status": "removed",
+      "commit": "869bba83280fa72c63c30a80875705a0c17d30d5\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope-g0-test-54c3078",
+      "symlink": false,
+      "status": "removed",
+      "commit": "54c307863730536b83ea604c001c5b418d8d5978\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope-g1-identifiability",
+      "symlink": false,
+      "status": "removed",
+      "commit": "557bbb43e0ac447db879e3dd739b43d768f844d6\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope-g1-independent",
+      "symlink": false,
+      "status": "removed",
+      "commit": "c153b8ac537519c45352b7b5afc33336042b277f\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope_g0_claim_9cec5a8",
+      "symlink": false,
+      "status": "removed",
+      "commit": "9cec5a8205ddd76597c4c24cb97f729f14fa040d\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope_g0_integrity",
+      "symlink": false,
+      "status": "removed",
+      "commit": "a001fff736d981c25c04f3cbfb9c1eea47b2adac\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope_g1_audit",
+      "symlink": false,
+      "status": "removed",
+      "commit": "a05fcda5a535cd36dec9531d9cf292bcd91c281b\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope_g1_impl",
+      "symlink": false,
+      "status": "removed",
+      "commit": "c153b8ac537519c45352b7b5afc33336042b277f\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope_g1_semantics",
+      "symlink": false,
+      "status": "removed",
+      "commit": "674d1f80a69d021eb9d5e2ee423359c3ea0abe64\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ChipletThermalEnvelope_g2_oracle",
+      "symlink": false,
+      "status": "removed",
+      "commit": "7b4a4bb87f7e9bd51c9d9152d281cf08c31c22f1\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/DREAMPlace_fresh",
+      "symlink": false,
+      "status": "removed",
+      "commit": "37214b40fe3837cc7d392c7d6092ccd6ff04a02c\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/HeteroDSE",
+      "symlink": false,
+      "status": "removed",
+      "commit": "93e79765e2476b506e363e02d9f948c3e52feaac\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/HeteroDSE-results",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/HeteroDSE-runs",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/MFIT-tree-4444336",
+      "symlink": false,
+      "status": "removed",
+      "commit": "4444336d95fe7e9a3bf440c96937831126c6a37f\n",
+      "tracked_status": "D  .gitignore\nD  FEM_models/README.md\nD  INPUT_FORMAT.md\nD  INSTALL_SuperLU.md\nD  LICENSE\nD  README.md\nD  c_files/solve_chiplet_ode_slu.so\nD  common.py\nD  example_1_uniform_nodes_homogeneous_chiplets/chiplet_geometry_4_chiplets_uniform_nodes.yml\nD  example_1_uniform_nodes_homogeneous_chiplets/power_dist_config_homogeneous.yml\nD  example_1_uniform_nodes_homogeneous_chiplets/power_seq_random_4.csv\nD  example_1_uniform_nodes_homogeneous_chiplets/run1.sh\nD  example_2_non_uniform_nodes_homogeneous_chiplets/chiplet_geometry_4_chiplets_non_uniform.yml\nD  example_2_non_uniform_nodes_homogeneous_chiplets/power_dist_config_tiles_tx_rx.yml\nD  example_2_non_uniform_nodes_homogeneous_chiplets/power_seq_30s_tiles_tx_rs.csv\nD  example_2_non_uniform_nodes_homogeneous_chiplets/run2.sh\nD  example_3_heterogeneous_chiplets/chiplet_geometry_3_chiplets_uniform_nodes.yml\nD  example_3_heterogeneous_chiplets/power_dist_config_heterogeneous.yml\nD  example_3_heterogeneous_chiplets/power_seq_random_3.csv\nD  example_3_heterogeneous_chiplets/run3.sh\nD  layer_class.py\nD  material_prop.yml\nD  node_class.py\nD  package_class.py\nD  power_class.py\nD  requirements.txt\nD  thermal_RC.py\n"
+    },
+    {
+      "path": "/data/ziheng/Open3DBench",
+      "symlink": false,
+      "status": "removed",
+      "commit": "397604eee16a6dee518ef574ea5315634dff1383\n",
+      "tracked_status": " M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/cache_thermal.png\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/cache_thermal.svg\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/core_thermal.png\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/core_thermal.svg\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/test.grid.steady\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/test.grid.ttrace\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/test.steady\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/test.ttrace\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/test_layer0.grid.steady\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/test_layer1.grid.steady\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/test_layer2.grid.steady\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/test_layer3.grid.steady\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/test_layer4.grid.steady\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/outputs/test_layer5.grid.steady\n M OpenROAD-3D/flow/HotSpot/examples/3D_bp/test.init\n"
+    },
+    {
+      "path": "/data/ziheng/TAP-2.5D-upstream-3a3f4e5",
+      "symlink": false,
+      "status": "removed",
+      "commit": "3a3f4e5a4d019b2d9cda1f72d8d1755238845dbb\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ThermoDSE",
+      "symlink": false,
+      "status": "removed",
+      "commit": "403f03998a7c246a3cf7ca223d5f180e37c3f229\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ThermoDSE-CertiTherm",
+      "symlink": false,
+      "status": "removed",
+      "commit": "5f2d3c45bde32ee6847049cc5587699a3ece735a\n",
+      "tracked_status": " M docs/THE_LIMIT_IS_NOT_A_PREMISE.md\n M research/triangle/robustness/limit_parametric_disagreement.py\n M research/triangle/robustness/nominal_vs_envelope_feasible_set.py\n"
+    },
+    {
+      "path": "/data/ziheng/ThermoDSE-CertiTherm_g2_fix",
+      "symlink": false,
+      "status": "removed",
+      "commit": "dc06d77a831a5d4c8b9a3eed31c8d0368acf9e4d\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/artifacts",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/bandsmoke",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/bsf-artifacts",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/bsf-build",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/bsf-g6-rerun-b859b75.61xQZf",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/bsf-results",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/bsf-tmp",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/bsf-tools",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/bsf-upstream",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/bsf_capture",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/bsf_stage0_dsent_cf7f139.json",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/bsf_stage0_dsent_cf7f139_replay.json",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/bsf_stage0_dsent_fa27a92.json",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/build-env",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/builds",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/cache/fenicsx",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/cache/hotspot-superlu-deps",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/certicheck",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/certitherm-gA-20260802-173154",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/chiplet-inference-artifacts",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/chiplet_baseline",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/chiplet_inference",
+      "symlink": false,
+      "status": "removed",
+      "commit": "9a49cf1ce62719d8567016725d629bab5cfd7e91\n",
+      "tracked_status": " M CHIPSIM\n m rapidchiplet\n"
+    },
+    {
+      "path": "/data/ziheng/chiplet_repro",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/MoEChipletThermal-g3-1f6f4384a9c4",
+      "symlink": false,
+      "status": "removed",
+      "commit": "1f6f4384a9c43fc72098a1ab2f48d5b25d6ccbaa\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/MoEChipletThermal-g3-944239620771a7",
+      "symlink": false,
+      "status": "removed",
+      "commit": "944239620771a7a3c036df36504ffb91aad35a21\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/chiplet_research_audit",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/cts_work",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/external_baselines",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/git-bundles",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/moe-chiplet-thermal-02e5edb",
+      "symlink": false,
+      "status": "removed",
+      "commit": "02e5edb9755aa77226ab12262e427f99c0c38599\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/moe-chiplet-thermal-4a32c39-20260828.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/moe-chiplet-thermal-6ddc4d1.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/moe-chiplet-thermal-7827ab9",
+      "symlink": false,
+      "status": "removed",
+      "commit": "7827ab9b9cab4d00613123c2a4432042954ea3b2\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/moe-chiplet-thermal-9402b8e-20260828.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/moe-chiplet-thermal-990a71e",
+      "symlink": false,
+      "status": "removed",
+      "commit": "990a71efd4828bc516e2133eb3a1722981809223\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/moe-chiplet-thermal-e7c901b.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/moe-chiplet-thermal-f25b783.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/moe-chiplet-thermal-repro",
+      "symlink": false,
+      "status": "removed",
+      "commit": "aa461fd5f45811fad110edeea467a1092ac2b791\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/moe-chiplet-thermal-routing-aliasing-2d77900",
+      "symlink": false,
+      "status": "removed",
+      "commit": "2d77900c0053d00dffcf856ad90a28d177a28c4f\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/moe-chiplet-thermal-routing-aliasing-881a646",
+      "symlink": false,
+      "status": "removed",
+      "commit": "881a64606c6e0f072af022cbeeca618c5196f461\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/moe-chiplet-thermal-shared-noc-3f72cd5-bundle",
+      "symlink": false,
+      "status": "removed",
+      "commit": "3f72cd51e31de73c4516eda39bdaffc415479d5f\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/moechipletthermal-abdee89.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/moechipletthermal-g3-abdee89",
+      "symlink": false,
+      "status": "removed",
+      "commit": "abdee890f9ded74dba9c94853d61db45547890a0\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/moechipletthermal-g4-4c99e7c",
+      "symlink": false,
+      "status": "removed",
+      "commit": "4c99e7c37f368da23dcf96ae71aa48f50a7ebb75\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/moechipletthermal-g4-4c99e7c.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/moechipletthermal-queue-d68d08c-bundle",
+      "symlink": false,
+      "status": "removed",
+      "commit": "d68d08c57fbe81ec292217fac68bfe607cb5ba04\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-ab-baseline-w1-finalgr.stdout",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-ab-baseline-w1.stdout",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-ab-flow-w1.stdout",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-ab-log",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-ab-result",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-baseline-natural-log.stdout",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-baseline-natural-safe.stdout",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-cot-audit-log",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-cot-audit-result",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-flow-natural-safe.stdout",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-natural-log",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-natural-log.stdout",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-natural-result",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-qor-result",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-smoke-log",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-smoke-result",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-steiner-xplace",
+      "symlink": false,
+      "status": "removed",
+      "commit": "2b9422d293f2fbfb585542da21e795b74904454c\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/pdc-steiner-xplace-sanitizer-20260807",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/placement",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/streaming-g1-ae99058",
+      "symlink": false,
+      "status": "removed",
+      "commit": "ae99058882b98c650ccaeba05c9199340c12b11a\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/thermodse-attention-chiplet-repro",
+      "symlink": false,
+      "status": "removed",
+      "commit": "230eca2d873b9ac7976084fed2349666f21b6145\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/thermodse-combopt-sources",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/codex-work/thermodse-gpu-833405b",
+      "symlink": false,
+      "status": "removed",
+      "commit": "833405b84d647fdb3d5a739d84e4e7024a834665\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/thermodse-joint-dev",
+      "symlink": false,
+      "status": "removed",
+      "commit": "a7ff465dbf1244f12918307cf04a4b4f2ec03e75\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/thermodse-lcop-reuse-parity",
+      "symlink": false,
+      "status": "removed",
+      "commit": "419a3f9af08ca31959f150c6b33b69915d4c7630\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/thermodse-merge-repro",
+      "symlink": false,
+      "status": "removed",
+      "commit": "6b26f4e5e91dc9e42e9bc09c0426a2abe7c4492e\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/thermodse-tc-review-remediation-repro",
+      "symlink": false,
+      "status": "removed",
+      "commit": "e52bf6d3a0090a16c20d01fb8b231f319ec2dcc2\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/codex-work/tools",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/composed",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/conda_envs/chiplet-fem-0.11",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/conda_envs/chiplet-rte",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/cor_obs",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/cs_arch_a_resnet50",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/cs_arch_a_transformer",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/cs_arch_b_resnet50",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/cs_arch_c_resnet50",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/csearch",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/csearch_c",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/csverify",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-analysis-build-debug",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-analysis-build-release",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-analysis-build-sanitize",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-analysis-tmp",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-d0-fork-ZSpW7R",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-diag-review-PcbFQm",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-g6-formal",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-g7b-WJDC4C",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-g7b-apdbyz",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-g7b-positive-formal-91f1ff3",
+      "symlink": false,
+      "status": "removed",
+      "commit": "91f1ff3f9359092e9d6bca28ab11dd608eda1358\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ecc-g7c-Ac9G4T",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-g7c-formal-e2e2d7c",
+      "symlink": false,
+      "status": "removed",
+      "commit": "e2e2d7c46cf7e58b45b01b6e7164aa02a684605b\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ecc-g7d-formal-b8bce04",
+      "symlink": false,
+      "status": "removed",
+      "commit": "b8bce043410e226bf81ab680dcca9332e50963c8\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ecc-olmoe-pilot-Dkz9Dq",
+      "symlink": false,
+      "status": "error",
+      "error": "[Errno 13] Permission denied: 'verify_analysis.cpython-311.pyc'"
+    },
+    {
+      "path": "/data/ziheng/ecc-r1-RHKWIJ",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r3-booksim-plan",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r3-booksim-results",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r3-fa71249",
+      "symlink": false,
+      "status": "removed",
+      "commit": "a0fbd45012a5225f9b00c8b7271934d955aa961d\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ecc-r3-fa71249-build",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r3-fa71249-reference-plan",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r3-fa71249-reference-results",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r3-heldout-plan",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r3-heldout-results",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r3-heldout-verdict-final.json",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r3-heldout-verdict.json",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r3-reference-plan",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r3-reference-results",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r5-effect-lOddF3",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r5-evidence-zsA2Im",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r5-heldout-VxArkb",
+      "symlink": false,
+      "status": "removed",
+      "commit": "97f22b3b6e427debf48713d9c8e8ffdc9d9b660d\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ecc-r5-release-build-N1M4Kj",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-r5-run-8Nxwpm",
+      "symlink": false,
+      "status": "removed",
+      "commit": "97f22b3b6e427debf48713d9c8e8ffdc9d9b660d\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ecc-refactor-baseline-997f8ae",
+      "symlink": false,
+      "status": "removed",
+      "commit": "997f8ae470a48d0b7597aa1d23b82a39c8083bd3\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ecc-refactor-work",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0-build-release-583d28e",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0-build-sanitize-583d28e",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0-diagnostic-S7JDei",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0-formal-583d28e",
+      "symlink": false,
+      "status": "removed",
+      "commit": "583d28ec639505fb5c9d2ebb5e0d92fc84752bea\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ecc-t0-oKAFDe",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0cj-4dd8df5-CFKakG",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-build-fe5da3c",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-clean-P2siv0",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-dev-MXQyBC",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-dev-build",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-dev-src",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-final-nYvJk5",
+      "symlink": false,
+      "status": "removed",
+      "commit": "",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-first-frozen-run",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-formal-fe5da3c",
+      "symlink": false,
+      "status": "removed",
+      "commit": "fe5da3cd355c6ddd09b99f5d1fd26bf20c6040f1\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-main-dev-build",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-main-dev-configure.log",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-main-dev-src",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-release-build",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-release-configure.log",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-result-fe5da3c",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-sanitize-build",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-t0v2-sanitize-configure.log",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-v3-oMlJDM",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-v3-wait-sgmN5v",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/ecc-v4-core-GGwR44",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/eda",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/eda_hn",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/edyp",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/edyp6",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/envcov",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/experiments",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/external_repos",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/external_src",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/fair_compare",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/fcdiag",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/fcverify",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/femcell",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/frontier",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/frontier_tf",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/garnet-gate",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/geomfac",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/git",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/graph_yosys",
+      "symlink": false,
+      "status": "removed",
+      "commit": "9e7bce8774a7d08216bf16b59da6d749bc64f2ad\n",
+      "tracked_status": " M framework/Makefile\n M framework/garf_flow.cu\n M framework/sched_real.cu\n"
+    },
+    {
+      "path": "/data/ziheng/haoning_tr",
+      "symlink": false,
+      "status": "removed",
+      "commit": "123b49810062b1e7e3b9f2b628f7470dd22f977c\n",
+      "tracked_status": " M CMakeLists.txt\n M README.md\n M src/dr/FlexDR.cpp\n M src/dr/FlexDR_maze.cpp\n"
+    },
+    {
+      "path": "/data/ziheng/hbt_run",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/heterodse-results",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/heterodse-timeloop",
+      "symlink": false,
+      "status": "removed",
+      "commit": "97d52178bf9a9c209bf79be96b87c164bcd35625\n",
+      "tracked_status": " M src/SConscript\n"
+    },
+    {
+      "path": "/data/ziheng/heterodse-timeloop-deps",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/jhn/Placement",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/jhn/chiplet",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/jhn/detailedrouter",
+      "symlink": false,
+      "status": "removed",
+      "commit": "9d290ac361178d941fa272c4c14ca4ba47c89f2c\n",
+      "tracked_status": " D out/m13b/test5_baseline.csv\n D out/m13c/README.md\n D out/m13c/test5_slack0.csv\n D out/m14/gpu_sls_poc_results.md\n D out/m18/test_results.md\n"
+    },
+    {
+      "path": "/data/ziheng/jhn/detailedrouter_out_tracked_backup",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/jhn/proposal",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/jhn/spice_batch_fp16",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/jhn/thermodse-merge",
+      "symlink": false,
+      "status": "removed",
+      "commit": "20895c3f29f0a4022e4eff39f8ecf7bb3a7868fb\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/jhn/thermodse-upstream-taskpolicy",
+      "symlink": false,
+      "status": "removed",
+      "commit": "91959bd16cfe7517eb7a2416969106304c634a1c\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/lowsens",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/openroad_build",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/optband",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/paradr_drcu_mp",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/paradr_fork",
+      "symlink": false,
+      "status": "removed",
+      "commit": "9d290ac361178d941fa272c4c14ca4ba47c89f2c\n",
+      "tracked_status": " M src/db/Setting.h\n M src/main.cpp\n M src/multi_net/Router.cpp\n M src/multi_net/Router.h\n"
+    },
+    {
+      "path": "/data/ziheng/paradr_haoning",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/paradr_work",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/pdn_gpu",
+      "symlink": false,
+      "status": "removed",
+      "commit": "55f750aa76b676b83d8f1ea58f2b90a75ed0ec9a\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/pdn_gpu.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/pdn_gpu_all_observer_final.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/pdn_gpu_all_observer_review.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/pdn_gpu_class_soundness.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/pdn_gpu_class_soundness_final.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/pdn_gpu_source_coverage_final.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/pdn_gpu_source_coverage_review.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/pdn_gpu_static_replay.bundle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/pdn_gpu_untracked_restore_20260706_1545",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/pip_cache",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/pipcache",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/placement_profile",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/placeoracle",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/placeoracle2",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/rbn",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/rccp",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/remap",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/results",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/rider",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/routedcert",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/routing",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/runs",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/spansweep_b",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/spice_runs",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/splitchk",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/suiterepro",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/tools/HotSpot-v7.0",
+      "symlink": false,
+      "status": "removed",
+      "commit": "9f92256f7a45db6057c809e94fcd224ddad9157a\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/tr_build",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/tts",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/tts_deps",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/data/ziheng/vendor/CLIPGen",
+      "symlink": false,
+      "status": "removed",
+      "commit": "35f0932d4a015f1982390de9b795fa6a3ca3c0e2\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/vendor/chiplet-link-pathfinding",
+      "symlink": false,
+      "status": "removed",
+      "commit": "029a112972a78d09106161375ee67fe9cdbadf4f\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/vendor/gemini-hpca2024",
+      "symlink": false,
+      "status": "removed",
+      "commit": "ea8700aceac2a1013437292dba6e6402f759d649\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/wt-1a-schema",
+      "symlink": false,
+      "status": "removed",
+      "commit": "78d165e6c85689d3fcc39fdc78328bc103664fdd\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/wt-1b-join",
+      "symlink": false,
+      "status": "removed",
+      "commit": "e76f0d830351c9cf51385e579822c8a3829c7188\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/wt-stage1a",
+      "symlink": false,
+      "status": "removed",
+      "commit": "98c97888a50da98bde2517f9d468ec956cfb5092\n",
+      "tracked_status": ""
+    },
+    {
+      "path": "/data/ziheng/wzh",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/home/ziheng/.klayout",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/home/ziheng/.openroad_history",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/home/ziheng/.yosys_history",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/home/ziheng/HeteroDSE",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/home/ziheng/cts_build",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/home/ziheng/jhn_cts",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/home/ziheng/miniconda3/envs/drcu-build",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/home/ziheng/miniconda3/envs/heterodse",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/home/ziheng/placement_profile",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/home/ziheng/ppopp_ls",
+      "symlink": false,
+      "status": "removed"
+    },
+    {
+      "path": "/home/ziheng/spice",
+      "symlink": false,
+      "status": "removed"
+    }
+  ],
+  "free_before": {
+    "/data": 85071843328,
+    "/home": 3122044928
+  },
+  "free_after": {
+    "/data": 603798036480,
+    "/home": 9502965760
+  },
+  "remaining": [
+    "/data/ziheng/ecc-olmoe-pilot-Dkz9Dq"
+  ]
+}
