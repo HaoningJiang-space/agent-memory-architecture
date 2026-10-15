@@ -17,19 +17,36 @@ def union(intervals):
     return sum(b-a for a,b in merged)
 
 api=[json.loads(x) for x in (r/'outputs/api_trace.jsonl').read_text().splitlines()]
+kernels=[json.loads(x) for x in (r/'outputs/embedding_kernels.jsonl').read_text().splitlines()]
 result=dict(scope='native measured calls; no architecture performance predictions',runs=[])
-for run in ['mem0_full_01','graph_full_01','graph_full_02','graph_full_03','embed_full_01','bm25_full_01']:
+for run in ['mem0_full_01','graph_full_01','graph_full_02','graph_full_03','embed_full_01','bm25_full_01','bm25_full_02']:
     folder=r/'outputs'/run
     if not folder.exists():continue
     manifests=[json.loads(p.read_text()) for p in folder.glob('*_manifest.json')]
     if not manifests:continue
-    m=manifests[-1]
+    m=max(manifests,key=lambda item:item['start'])
     rows=[x for x in api if x.get('context',{}).get('run')==run]
     steps=[json.loads(x) for x in (folder/'steps.jsonl').read_text().splitlines()] if (folder/'steps.jsonl').exists() else []
     row=dict(run=run,status=m['status'],validity=m['validity'],
         source_commit=m['source_commit'],dataset_sha256=m['dataset_sha256'],
         total_chunks=m.get('total_chunks'),total_queries=m.get('total_queries'),
-        logged_errors=m.get('logged_errors',[]),phases={})
+        logged_error_count=len(m.get('logged_errors',[])),
+        manifest_wall_seconds=m.get('end',m['start'])-m['start'],
+        runner_sha256=m.get('runner_sha256'),phases={})
+    gpu_files=list(folder.glob('*_gpu.jsonl'))
+    if gpu_files:
+        samples=[json.loads(line) for p in gpu_files for line in p.read_text().splitlines()]
+        row['gpu_energy_scope']='Gross NVML device energy over monitor interval, including idle resident services; excludes CPU, DRAM and wall-plug power. Not workload-attributed or thermal evidence.'
+        row['gpu_measurements']={}
+        for gpu in sorted({x['gpu'] for x in samples}):
+            points=sorted([x for x in samples if x['gpu']==gpu],key=lambda x:x['time'])
+            energy=[x for x in points if x.get('energy_j') is not None]
+            row['gpu_measurements'][str(gpu)]=dict(
+                samples=len(points),observed_seconds=points[-1]['time']-points[0]['time'],
+                counter_interval_seconds=energy[-1]['time']-energy[0]['time'] if len(energy)>1 else None,
+                gross_counter_energy_j=energy[-1]['energy_j']-energy[0]['energy_j'] if len(energy)>1 else None,
+                sampled_peak_power_w=max(x['power_w'] for x in points),
+                sampled_peak_device_memory_bytes=max(x['memory_used'] for x in points))
     if run=='mem0_full_01':
         rows=[x for x in rows if x['context'].get('index',99)<9]
         steps=[x for x in steps if x['index']<9]
@@ -53,6 +70,17 @@ for run in ['mem0_full_01','graph_full_01','graph_full_02','graph_full_03','embe
             first_token_timed_calls=len(first),
             first_token_wait_sum_seconds=sum(x['first_token']-x['start'] for x in first),
             after_first_token_sum_seconds=sum(x['end']-x['first_token'] for x in first))
+        matched=[k for k in kernels if any(e['start']<=k['start'] and k['end']<=e['end'] for e in embed)]
+        if matched:
+            phase_row['embedding_kernel_measurements']=dict(
+                matching='Kernel timestamp interval contained in a traced embedding request',
+                forwards=len(matched),cuda_seconds_sum=sum(k['cuda_seconds'] for k in matched),
+                actual_batch_histogram=dict(collections.Counter(k['batch'] for k in matched)),
+                sequences=sum(k['batch'] for k in matched),
+                unpadded_tokens=sum(sum(k['lengths']) for k in matched),
+                padded_tokens=sum(k['batch']*k['padded_length'] for k in matched),
+                minimum_sequence_length=min(min(k['lengths']) for k in matched),
+                maximum_sequence_length=max(max(k['lengths']) for k in matched))
         if phase=='construction' and run=='mem0_full_01':
             total=phase_row['step_seconds']
             removable=phase_row['first_token_wait_sum_seconds']+phase_row['embedding_interval_union_seconds']
@@ -69,6 +97,8 @@ for run in ['mem0_full_01','graph_full_01','graph_full_02','graph_full_03','embe
         row['answer_metrics']=dict(count=len(metrics),metric_definition='pinned artifact lexical metrics; no independent semantic judge',
             means={k:statistics.mean(x[k] for x in metrics) for k in metrics[0]} if metrics else {})
     row['stored_state_bytes']=sum(p.stat().st_size for p in (folder/'state').rglob('*') if p.is_file()) if (folder/'state').exists() else 0
+    row['stored_cache_bytes']=sum(p.stat().st_size for p in (folder/'rag_cache').rglob('*') if p.is_file()) if (folder/'rag_cache').exists() else 0
+    row['state_size_scope']='Serialized files only, not peak CPU working set or accelerator memory; partial failed states are not full-corpus sizes.'
     result['runs'].append(row)
 (r/'outputs/run_summary.json').write_text(json.dumps(result,indent=2)+'\n')
 for row in result['runs']:

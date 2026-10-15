@@ -20,12 +20,16 @@ parser.add_argument('--stage', choices=['construction', 'query', 'both'], defaul
 parser.add_argument('--dataset', default='longmemeval.json')
 parser.add_argument('--max-chunks', type=int, default=0, help='Diagnostic subset only; 0 means all')
 parser.add_argument('--max-queries', type=int, default=0)
+parser.add_argument('--answer-max-tokens', type=int, default=256)
 parser.add_argument('--construction-model', choices=['Qwen/Qwen3-8B', 'Qwen/Qwen3-32B'], default='Qwen/Qwen3-8B')
 parser.add_argument('--wait-for-qa', action='store_true', help='Keep native in-memory index alive until QA server is ready')
 parser.add_argument('--precompute-ner', action='store_true', help='Software control: batch spaCy before concurrent concept LLM calls')
 args = parser.parse_args()
 out = ROOT/'outputs'/args.run
 out.mkdir(parents=True, exist_ok=True)
+if (out/f'{args.stage}_manifest.json').exists():
+    raise RuntimeError('Existing run manifest: choose a new run name')
+(out/f'{args.stage}_runner_snapshot.py').write_bytes(Path(__file__).read_bytes())
 os.environ.update(OPENAI_API_KEY='EMPTY', OPENAI_BASE_URL='http://127.0.0.1:8030/v1',
                   HF_HUB_OFFLINE='1', HF_HOME=str(ROOT/'hf'), MEM0_TELEMETRY='False',
                   MEM0_DIR=str(out/'mem0_home'), NLTK_DATA=str(ROOT/'nltk_data'),
@@ -82,7 +86,7 @@ if args.algorithm == 'mem0':
                            temperature=0.0, max_tokens=4096, openai_base_url=base, api_key='EMPTY'))
 data_cfg = dict(dataset='Accurate_Retrieval', sub_dataset='longmemeval_s*',
                 context_max_length=400000, max_test_samples=1, chunk_size=4096,
-                generation_max_length=256, local_json=str(ROOT/args.dataset), random_seed=42, seed=42)
+                generation_max_length=args.answer_max_tokens, local_json=str(ROOT/args.dataset), random_seed=42, seed=42)
 manifest = dict(args=vars(args), agent_config=cfg, dataset_config=data_cfg,
                 runner_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                 dataset_sha256=hashlib.sha256((ROOT/args.dataset).read_bytes()).hexdigest(),

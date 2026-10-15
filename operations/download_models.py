@@ -21,7 +21,7 @@ manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else 
 for name, revision in MODELS.items():
     started = time.time()
     path = snapshot_download(name, revision=revision, max_workers=4,
-                             endpoint=os.environ['HF_ENDPOINT'])
+                             endpoint=os.environ['HF_ENDPOINT'], token=False)
     manifest[name] = {'revision': revision, 'path': path,
                       'endpoint': os.environ['HF_ENDPOINT'], 'download_seconds': time.time() - started}
     manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')

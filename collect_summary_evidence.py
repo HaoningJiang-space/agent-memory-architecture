@@ -10,6 +10,9 @@ out=r/'outputs/summaries';out.mkdir(exist_ok=True)
 raw=json.loads((r/'outputs/failed_update_replay.json').read_text())
 raw['trials']=[{k:v for k,v in x.items() if k!='response'} for x in raw['trials']]
 (out/'failed_update_replay_summary.json').write_text(json.dumps(raw,indent=2)+'\n')
+cap=json.loads((r/'outputs/capped_answer_replay.json').read_text())
+cap.pop('response')
+(out/'capped_answer_replay_summary.json').write_text(json.dumps(cap,indent=2)+'\n')
 batch=json.loads((r/'outputs/fact_batching_control.json').read_text())
 g=batch['groups'];n=sum(x['native_fact_calls'] for x in g)
 batch['aggregate']=dict(fact_count=n,group_count=len(g),median_group_speedup=statistics.median(x['speedup'] for x in g),
@@ -31,10 +34,11 @@ for row in rows:
 (out/'graph_failures.json').write_text(json.dumps(dict(calls=len(rows),finish_reasons=dict(reasons),
     failures=bad,scope='output truncation invalidates full construction; no QA run'),indent=2)+'\n')
 files=['run_summary.json','calibration_analysis.json','model_capacity.json','environment_conditions.json',
-       'spacy_batch_check.json','pipeline.json','requirements-runtime.lock.txt']
+       'spacy_batch_check.json','pipeline.json','requirements-runtime.lock.txt',
+       'package_versions.json','validation.json','completion_pipeline.json','power_measurement_audit.json']
 for name in files:
     p=r/'outputs'/name
     if p.exists():(out/name).write_bytes(p.read_bytes())
-manifest={p.name:dict(bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in out.iterdir() if p.is_file()}
+manifest={p.name:dict(bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in out.iterdir() if p.is_file() and p.name!='SHA256.json'}
 (out/'SHA256.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print(json.dumps(dict(files=len(manifest),total_bytes=sum(x['bytes'] for x in manifest.values()))))
