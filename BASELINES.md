@@ -4,9 +4,9 @@ The purpose of this matrix is to prevent a familiar software mechanism from bein
 
 | Baseline | What it already covers | Required comparison / rejection condition |
 |---|---|---|
-| Homogeneous GPU/NPU | Shared compute and memory, continuous batching, chunked prefill, prefix caching | If an optimized shared device meets quality/freshness at the same resource budget, reject a claim that heterogeneity is necessary. |
+| Homogeneous GPU/NPU | Shared compute and memory, continuous batching, chunked prefill, prefix caching | Meeting quality/freshness rejects only a necessity claim. Compare feasible throughput/energy/cost frontiers; a unified device's feasibility does not rule out improvement. |
 | Optimized prefill/decode separation | Compute versus decode bandwidth asymmetry, interference and admission | Charge model replication, KV transfers, and interface capacity. A benefit explained entirely by ordinary P/D separation is not Agent Memory novelty. |
-| Capacity / KV control | Additional DRAM, paged KV, prefix reuse and host offload | Match total capacity and resource budget; do not award a new engine an uncharged capacity increase. |
+| Capacity / KV control | Additional DRAM, paged KV, prefix reuse and host offload | Use a shared primary cost/power/area budget with explicit additional constraints. Allow capacity/bandwidth to differ; add equal usable capacity as a mechanism ablation. Charge replication and transfers. |
 | [MemExplorer](https://arxiv.org/abs/2604.16007) | Joint compute/SRAM/memory-technology DSE for prefill and decode in agentic inference | Use its applicable design assumptions as a competing design space, not merely a weak HBM-only baseline. Its projected memory parameters are assumptions, not A800 calibration. |
 | [KEEP](https://arxiv.org/abs/2602.23592) | Update-frequency grouping, dynamic-memory KV invalidation, selective multi-hop recomputation, layer-balanced loading | Test whether residual costs survive reuse/recomputation controls. Its embodied planner and selective recomputation semantics are not automatically equivalent to Mem0 fact extraction. |
 | [TokenCake](https://arxiv.org/abs/2510.18586) | Agent-priority KV capacity allocation, lifecycle notifications, preservation/offload/prefetch during tool stalls | Require genuine DAG dependencies and stall intervals. A static offline corpus has no measured tool-stall distribution; do not invent one and label it workload evidence. |
@@ -19,11 +19,13 @@ Pinned code:
 - KEEP: `PKU-SEC-Lab/KEEP_Embodied_Memory@493388b11e9cbbe0b323a4eb770e2b9bd0a25ed7`. `KEEP_transformers/modeling_qwen2_14b.py` implements module recomputation selection. The repository provides separate accuracy and vLLM latency implementations.
 - TokenCake: `pku-lemonade/TokenCake@1901ebf31fdf63590148e61d5c2f65e9fb7ec010`. `vllm/tokencake/scheduling.py`, `offload_policy.py`, `offloading.py`, `lifecycle.py` implement scheduling and preservation; `config.py` explicitly requires native KV offloading capacity for the offload arm. A scheduling-score-only test cannot reproduce transfer or end-to-end gains.
 
-Experiment rejection gates:
+Evidence limits for claims, not prerequisites for starting an exploration:
 
 1. An input-token majority is insufficient: measure elapsed compute, output generation, embedding, index and idle/launch gaps separately.
 2. An eager framework's high latency is insufficient: compare an optimized launch path with identical weights, inputs and outputs before inferring a hardware bandwidth limit.
 3. An API batch is insufficient: record actual kernel batch and sequence lengths; keep native serialization dependencies.
 4. An offline build/query trace cannot prove online freshness. Arrival-rate replay is a declared scenario, with stability and read-after-write constraints, not a measurement of production arrivals.
-5. A technology sweep without an independently checked area/cost/power budget cannot establish a physical architecture winner.
-6. Until the residual mismatch survives the baselines above, HB/PIM/HBF and thermal optimization remain unselected candidates.
+5. Early technology sweeps may use explicit uncertain coefficients and sensitivity ranges. A physical architecture winner requires independently supported area/cost/power accounting.
+6. HB/PIM/HBF remain candidates, never assumed winners. Use mechanism-relevant baselines; do not require porting every system before any DSE. A gain fully explained by capacity or generic P/D is useful evidence, but not a new Agent Memory mechanism.
+
+First exploration: see [ARCHITECTURE_RESULTS.md](ARCHITECTURE_RESULTS.md). It includes unified configurations, a budgeted per-request P/D model, an unbudgeted phase oracle, ideal prefill-reuse credit, equal usable capacity, and a chunked-workspace capacity bound. These are explicitly bounded analytical controls, not full reproductions of Splitwise, MemExplorer, KEEP or TokenCake. No queued-serving or same-quality application victory is claimed.

@@ -1,0 +1,20 @@
+{
+  "scope": "Exploratory conditional resource model. Technology anchors plus explicit unsynthesized logic/cost assumptions; not dollar cost, measured TDP or physical signoff.",
+  "primary_budget": "normalized system cost; area, power and interface limits are additional constraints",
+  "budget": {"cost_units": 850, "area_mm2": 450, "shoreline_mm": 50, "power_w": 500},
+  "logic_assumptions": {"fixed_area_mm2": 100, "mm2_per_mac": 0.00025, "mm2_per_sram_mib": 1, "phy_depth_mm": 1, "cost_per_mm2": 1, "mac_pj": 0.682, "base_power_w": 30, "sram_dynamic_reserve_w": 20},
+  "array_counts": [8, 16, 32],
+  "array_shapes": [[128, 128], [32, 512]],
+  "sram_mib": [32, 128],
+  "memory_options": [["HBM3E", 4], ["LPDDR5X", 8], ["LPDDR5X", 12]],
+  "memory_technology": {
+    "HBM3E": {"capacity_GB": 24, "bandwidth_GBs": 1000, "latency_ns": 100, "shoreline_mm": 11, "background_w_GB": 0.075, "read_pj_bit": 3, "write_pj_bit": 3.6, "cost_units": 100},
+    "LPDDR5X": {"capacity_GB": 16, "bandwidth_GBs": 76.8, "latency_ns": 50, "shoreline_mm": 4.1, "background_w_GB": 0.00765, "read_pj_bit": 5, "write_pj_bit": 6.5, "cost_units": 10}
+  },
+  "provenance": {
+    "memory": {"source": "https://arxiv.org/html/2604.16007v2#S1.T2", "fields": "capacity, bandwidth, latency, shoreline, read/write energy, background range; HBM background uses range midpoint. GB are decimal.", "qualification": "MemExplorer study parameters, some experimental and some projected. Not measured on our hardware."},
+    "compute_energy": {"source": "local H2-LLM ISCA 2025 PDF, section 7.1", "value": "0.682 pJ/MAC for its 10nm centralized processor", "qualification": "Energy anchor only; our array timing/logic area is not that implementation or node. Sweep 0.5x/2x."},
+    "array": {"source": "H2-LLM section 7.1 and MemExplorer Table III", "qualification": "Published systolic-array/frequency examples motivate geometry; replication counts are design variables."},
+    "unverified": "Logic area coefficients, PHY depth, normalized memory cost ratio, base power, SRAM power reserve, 512 GB/s SRAM port budget per array, 32 outstanding DRAM transfers, bandwidth efficiency, vector/control overhead and achievable clock require independent calibration. Interface limit is a package envelope, not a routed floorplan."
+  }
+}

@@ -1,6 +1,6 @@
 # 从本地 PDF 重新审视 Agent Memory 架构动机
 
-这份记录服务于体系结构研究：找到优化后的现有设计仍然无法消除的资源失配，再决定硬件机制。当前结果尚未证明需要 Hybrid Bonding、PIM、HBF 或专用 Memory XPU。
+这份记录服务于体系结构研究：理解算法如何改变硬件需求，再比较物理配置的效率边界。早期探索不要求先证明全部软件方法都不能解决问题。当前结果尚未证明需要 Hybrid Bonding、PIM、HBF 或专用 Memory XPU；新模型与结果见 [ARCHITECTURE_RESULTS.md](ARCHITECTURE_RESULTS.md)。
 
 **本次实际阅读的本地材料**
 

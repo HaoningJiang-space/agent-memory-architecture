@@ -1,0 +1,147 @@
+{
+  "observed_at": 1792126774.9950438,
+  "scope": "Protocol branch frozen. No new variants or retries scheduled by the architecture exploration.",
+  "pipelines": {
+    "phase3/pipeline_recovery.json": {
+      "status": "experiments_collected",
+      "start": 1792123799.4517033,
+      "end": 1792125024.7333457,
+      "shutdown": {
+        "signalled": [
+          447055,
+          447056,
+          447057,
+          447058
+        ],
+        "remaining": []
+      },
+      "jobs": [
+        {
+          "name": "mem0_8b_delta_v2",
+          "status": "failed",
+          "returncode": 1,
+          "validity": null
+        },
+        {
+          "name": "mem0_8b_snapshot_v2",
+          "status": "failed",
+          "returncode": 1,
+          "validity": null
+        },
+        {
+          "name": "mem0_32b_delta_v2",
+          "status": "failed",
+          "returncode": 1,
+          "validity": null
+        }
+      ]
+    },
+    "phase4/pipeline.json": {
+      "status": "experiments_collected",
+      "start": 1792124361.655625,
+      "end": 1792126349.1553993,
+      "shutdown": {
+        "signalled": [
+          457858,
+          457859,
+          457860,
+          457861
+        ],
+        "remaining": []
+      },
+      "jobs": [
+        {
+          "name": "mem0_8b_guarded",
+          "status": "failed",
+          "returncode": 1,
+          "validity": "invalid"
+        },
+        {
+          "name": "mem0_32b_guarded",
+          "status": "failed",
+          "returncode": 1,
+          "validity": "invalid"
+        }
+      ]
+    }
+  },
+  "runs": {
+    "outputs/phase3/mem0_32b_delta_v2/both_manifest.json": {
+      "status": "failed",
+      "validity": "invalid",
+      "failed_context": {
+        "run": "phase3/mem0_32b_delta_v2",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 18
+      },
+      "total_queries": 60
+    },
+    "outputs/phase3/mem0_8b_delta/both_manifest.json": {
+      "status": "failed",
+      "validity": "invalid",
+      "failed_context": {
+        "run": "phase3/mem0_8b_delta",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 13
+      },
+      "total_queries": 60
+    },
+    "outputs/phase3/mem0_8b_snapshot/both_manifest.json": {
+      "status": "failed",
+      "validity": "invalid",
+      "failed_context": {
+        "run": "phase3/mem0_8b_snapshot",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "total_queries": 60
+    },
+    "outputs/phase3/mem0_8b_delta_v2/both_manifest.json": {
+      "status": "failed",
+      "validity": "invalid",
+      "failed_context": {
+        "run": "phase3/mem0_8b_delta_v2",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 16
+      },
+      "total_queries": 60
+    },
+    "outputs/phase3/mem0_8b_snapshot_v2/both_manifest.json": {
+      "status": "failed",
+      "validity": "invalid",
+      "failed_context": {
+        "run": "phase3/mem0_8b_snapshot_v2",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 19
+      },
+      "total_queries": 60
+    },
+    "outputs/phase4/mem0_32b_guarded/both_manifest.json": {
+      "status": "failed",
+      "validity": "invalid",
+      "failed_context": {
+        "run": "phase4/mem0_32b_guarded",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 18
+      },
+      "total_queries": 60
+    },
+    "outputs/phase4/mem0_8b_guarded/both_manifest.json": {
+      "status": "failed",
+      "validity": "invalid",
+      "failed_context": {
+        "run": "phase4/mem0_8b_guarded",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 19
+      },
+      "total_queries": 60
+    }
+  }
+}

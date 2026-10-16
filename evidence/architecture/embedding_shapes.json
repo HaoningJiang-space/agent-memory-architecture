@@ -1,0 +1,2788 @@
+{
+  "scope": "Real native embedding kernel shapes; no text, vectors or responses exported.",
+  "trace_sha256": "6b540a5e46354aebb00971eeb34b7acaa5f858fc6ef63c7e439edbf7bb0cb379",
+  "kernel_sha256": "2440afd691cc02d64b82b63b5125c495cb6d9a1ef5ba39774eda7833a574fe38",
+  "calls": [
+    {
+      "trace_id": "4d578f54-1abf-497f-b3e7-6ed806a8f054",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            17
+          ],
+          "padded_length": 17
+        }
+      ]
+    },
+    {
+      "trace_id": "7dd7a099-04be-4de6-a62e-fd2708b5ef6c",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            21
+          ],
+          "padded_length": 21
+        }
+      ]
+    },
+    {
+      "trace_id": "685443d6-e469-4eee-92a1-f20c72c24369",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            9
+          ],
+          "padded_length": 9
+        }
+      ]
+    },
+    {
+      "trace_id": "2856983d-94a6-4009-bbd7-2746a25be499",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            15
+          ],
+          "padded_length": 15
+        }
+      ]
+    },
+    {
+      "trace_id": "db59cc70-47c3-483c-9ac3-f5cec9f414a7",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            11
+          ],
+          "padded_length": 11
+        }
+      ]
+    },
+    {
+      "trace_id": "6f070946-452b-49d3-b6f8-8a42927d821c",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            8
+          ],
+          "padded_length": 8
+        }
+      ]
+    },
+    {
+      "trace_id": "52bb7c39-865d-4a9d-8441-42c8112abeca",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            6
+          ],
+          "padded_length": 6
+        }
+      ]
+    },
+    {
+      "trace_id": "2dea9e13-b6b9-4415-92cc-0f0542bb4eeb",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            13
+          ],
+          "padded_length": 13
+        }
+      ]
+    },
+    {
+      "trace_id": "aa0c0a13-231b-482b-a503-e15dbd55ecd5",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            28
+          ],
+          "padded_length": 28
+        }
+      ]
+    },
+    {
+      "trace_id": "b0080a83-3990-42fd-af99-39ece0992cbb",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            14
+          ],
+          "padded_length": 14
+        }
+      ]
+    },
+    {
+      "trace_id": "15f934c2-a007-4be5-aa14-751597702910",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            16
+          ],
+          "padded_length": 16
+        }
+      ]
+    },
+    {
+      "trace_id": "2cc18bb1-a9e8-446e-b661-ce31bb83abe5",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            9
+          ],
+          "padded_length": 9
+        }
+      ]
+    },
+    {
+      "trace_id": "1e1cfcd3-4a7e-4201-8ea3-75e90ac52f83",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            17
+          ],
+          "padded_length": 17
+        }
+      ]
+    },
+    {
+      "trace_id": "3262a00a-2261-4ed7-b915-165a5abc6d33",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            7
+          ],
+          "padded_length": 7
+        }
+      ]
+    },
+    {
+      "trace_id": "866c9600-e3c5-44fe-8f26-9cacd0a30039",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            10
+          ],
+          "padded_length": 10
+        }
+      ]
+    },
+    {
+      "trace_id": "ef4f067b-21e6-47f4-b8c5-336fde5a87bd",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            13
+          ],
+          "padded_length": 13
+        }
+      ]
+    },
+    {
+      "trace_id": "7866be89-8cab-49cf-818c-82bacc12ab22",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 1
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            8
+          ],
+          "padded_length": 8
+        }
+      ]
+    },
+    {
+      "trace_id": "97026550-03a9-406a-9a2f-7de30baf3f7f",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 1
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            9
+          ],
+          "padded_length": 9
+        }
+      ]
+    },
+    {
+      "trace_id": "b905b12e-7567-4098-9350-6c0c2188ab25",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 1
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            10
+          ],
+          "padded_length": 10
+        }
+      ]
+    },
+    {
+      "trace_id": "d3cdfffe-4cc7-4616-9771-0a77be9fa2b1",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 1
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            14
+          ],
+          "padded_length": 14
+        }
+      ]
+    },
+    {
+      "trace_id": "d158c28c-6b82-4294-b526-461a2213e950",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 2
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            10
+          ],
+          "padded_length": 10
+        }
+      ]
+    },
+    {
+      "trace_id": "b5df0287-1c1d-4ee4-ad5b-ce0e057de044",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 2
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            8
+          ],
+          "padded_length": 8
+        }
+      ]
+    },
+    {
+      "trace_id": "b5c903f9-7699-491f-9489-9f5a1817d201",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 2
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            10
+          ],
+          "padded_length": 10
+        }
+      ]
+    },
+    {
+      "trace_id": "2021dc56-bb45-47e9-90ae-038fa103e0a7",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 2
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            6
+          ],
+          "padded_length": 6
+        }
+      ]
+    },
+    {
+      "trace_id": "ba995986-0892-469f-a9e5-5b3593cec644",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 2
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            4
+          ],
+          "padded_length": 4
+        }
+      ]
+    },
+    {
+      "trace_id": "6b963a38-39a0-4238-9741-a33dbb1bafb0",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 2
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            5
+          ],
+          "padded_length": 5
+        }
+      ]
+    },
+    {
+      "trace_id": "6b3a8248-f104-4cc8-a8e2-2e45335c4dfb",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            10
+          ],
+          "padded_length": 10
+        }
+      ]
+    },
+    {
+      "trace_id": "17aa327e-c60f-4fe9-9b2f-1e1c4c97b642",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            8
+          ],
+          "padded_length": 8
+        }
+      ]
+    },
+    {
+      "trace_id": "60eccfaf-2fb4-4e32-9b87-092d115e4528",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            10
+          ],
+          "padded_length": 10
+        }
+      ]
+    },
+    {
+      "trace_id": "9f350239-8e68-4a8d-ac83-8bb8d504593a",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            6
+          ],
+          "padded_length": 6
+        }
+      ]
+    },
+    {
+      "trace_id": "0d80fd23-fe16-4db8-a938-36d7ab9f504d",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            4
+          ],
+          "padded_length": 4
+        }
+      ]
+    },
+    {
+      "trace_id": "f203cd2d-dc1d-4472-b6a3-92805ffee4a7",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            5
+          ],
+          "padded_length": 5
+        }
+      ]
+    },
+    {
+      "trace_id": "f929e361-52b8-46fc-9522-1bc6badb769e",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            10
+          ],
+          "padded_length": 10
+        }
+      ]
+    },
+    {
+      "trace_id": "345dba77-c0eb-4238-9374-0883d2ede3a3",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            8
+          ],
+          "padded_length": 8
+        }
+      ]
+    },
+    {
+      "trace_id": "9be7961a-0109-47fe-9d4b-0a12cda737f6",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            10
+          ],
+          "padded_length": 10
+        }
+      ]
+    },
+    {
+      "trace_id": "fc30709c-948d-49a4-8c2b-5c63fd9c7211",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            6
+          ],
+          "padded_length": 6
+        }
+      ]
+    },
+    {
+      "trace_id": "b64370ab-5d96-49b2-b7c2-48c995df8e67",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            4
+          ],
+          "padded_length": 4
+        }
+      ]
+    },
+    {
+      "trace_id": "b036001f-9c2b-4c9a-9977-e74e44ed5085",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            5
+          ],
+          "padded_length": 5
+        }
+      ]
+    },
+    {
+      "trace_id": "2ecc7a56-40f2-4614-baab-c37076fb8ec9",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            9
+          ],
+          "padded_length": 9
+        }
+      ]
+    },
+    {
+      "trace_id": "d7862062-2b68-40d8-8a51-595625af0999",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            8
+          ],
+          "padded_length": 8
+        }
+      ]
+    },
+    {
+      "trace_id": "321f10cb-9fe1-4a23-b5b4-4d22be58ad91",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            28
+          ],
+          "padded_length": 28
+        }
+      ]
+    },
+    {
+      "trace_id": "850f2d32-ffd1-40b0-adc9-1c7dd45be806",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            5
+          ],
+          "padded_length": 5
+        }
+      ]
+    },
+    {
+      "trace_id": "b993331e-f169-4182-a22f-938c4d88623d",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            23
+          ],
+          "padded_length": 23
+        }
+      ]
+    },
+    {
+      "trace_id": "039b0522-aad3-403d-ad80-ff88b54a0551",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            35
+          ],
+          "padded_length": 35
+        }
+      ]
+    },
+    {
+      "trace_id": "2df56845-995f-4200-9f90-05dde840b3a1",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            8
+          ],
+          "padded_length": 8
+        }
+      ]
+    },
+    {
+      "trace_id": "fc4e85c4-07f8-4898-8f1d-310eb13d96d0",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            9
+          ],
+          "padded_length": 9
+        }
+      ]
+    },
+    {
+      "trace_id": "a34135df-c74b-4f74-9b22-6a1a822feb01",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            10
+          ],
+          "padded_length": 10
+        }
+      ]
+    },
+    {
+      "trace_id": "61d97093-f634-41ba-9f1e-0eed79e3137c",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            12
+          ],
+          "padded_length": 12
+        }
+      ]
+    },
+    {
+      "trace_id": "a96453fb-8bab-4a73-ae0d-84949f619e73",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            14
+          ],
+          "padded_length": 14
+        }
+      ]
+    },
+    {
+      "trace_id": "0c5e6fe5-27a3-4184-a81f-b6cea29c50c2",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            3
+          ],
+          "padded_length": 3
+        }
+      ]
+    },
+    {
+      "trace_id": "f1a876b5-0640-40ae-badd-2ff9b4e309b7",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            6
+          ],
+          "padded_length": 6
+        }
+      ]
+    },
+    {
+      "trace_id": "0c542c2d-67f8-48f5-b968-f0862d97b52f",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            7
+          ],
+          "padded_length": 7
+        }
+      ]
+    },
+    {
+      "trace_id": "2612ba11-5a8f-4779-af96-efe29db3d5e7",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            7
+          ],
+          "padded_length": 7
+        }
+      ]
+    },
+    {
+      "trace_id": "93166580-df2f-48b6-9fa2-9e93566bef90",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            11
+          ],
+          "padded_length": 11
+        }
+      ]
+    },
+    {
+      "trace_id": "7cd62f08-4053-42fc-995b-fb4e90440f12",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            17
+          ],
+          "padded_length": 17
+        }
+      ]
+    },
+    {
+      "trace_id": "1dc5c672-58e7-4f66-92e5-d31895ff89b0",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            9
+          ],
+          "padded_length": 9
+        }
+      ]
+    },
+    {
+      "trace_id": "78b9356b-b4b6-4a94-ada7-3cbee098fcff",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            15
+          ],
+          "padded_length": 15
+        }
+      ]
+    },
+    {
+      "trace_id": "afcff715-bfd9-402d-8042-27eaea4312a1",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            13
+          ],
+          "padded_length": 13
+        }
+      ]
+    },
+    {
+      "trace_id": "3dec7136-d1e3-4e2c-a6dc-ce910d61a605",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            28
+          ],
+          "padded_length": 28
+        }
+      ]
+    },
+    {
+      "trace_id": "3a734a05-9b4e-4afb-baef-ce0260d8f1d0",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            12
+          ],
+          "padded_length": 12
+        }
+      ]
+    },
+    {
+      "trace_id": "2b5986b7-fe31-4182-b676-7f60d7616fde",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            14
+          ],
+          "padded_length": 14
+        }
+      ]
+    },
+    {
+      "trace_id": "6c05442c-f9e6-4a39-b95f-c6058b423aef",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            11
+          ],
+          "padded_length": 11
+        }
+      ]
+    },
+    {
+      "trace_id": "a214572c-a85f-49c6-a8f0-beed1f9f1c35",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            18
+          ],
+          "padded_length": 18
+        }
+      ]
+    },
+    {
+      "trace_id": "84ad1264-4fa7-47fd-b695-878b66c14a78",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            12
+          ],
+          "padded_length": 12
+        }
+      ]
+    },
+    {
+      "trace_id": "e537601d-9142-437c-a1a5-e9b09f0a8ab5",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            10
+          ],
+          "padded_length": 10
+        }
+      ]
+    },
+    {
+      "trace_id": "5b4e0e72-8970-42c4-82b1-e03f7b5b84ff",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            8
+          ],
+          "padded_length": 8
+        }
+      ]
+    },
+    {
+      "trace_id": "092235b2-e11d-4c80-b8f1-2a34786358fc",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            5
+          ],
+          "padded_length": 5
+        }
+      ]
+    },
+    {
+      "trace_id": "8d693644-e85c-4103-a13d-60411336456e",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            13
+          ],
+          "padded_length": 13
+        }
+      ]
+    },
+    {
+      "trace_id": "e866b5b2-0c4e-4380-9273-f9e2e12d6509",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            13
+          ],
+          "padded_length": 13
+        }
+      ]
+    },
+    {
+      "trace_id": "b60363a8-c85b-4ff8-8933-85dd0dc0d0de",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            13
+          ],
+          "padded_length": 13
+        }
+      ]
+    },
+    {
+      "trace_id": "4709dad9-5946-4679-9c3d-c78717ffecc6",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            12
+          ],
+          "padded_length": 12
+        }
+      ]
+    },
+    {
+      "trace_id": "5ff4ad6c-d4b4-418e-8969-bc71317346a3",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            12
+          ],
+          "padded_length": 12
+        }
+      ]
+    },
+    {
+      "trace_id": "c0b4d699-1dfd-45a1-9485-c2d5e025cdd4",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            14
+          ],
+          "padded_length": 14
+        }
+      ]
+    },
+    {
+      "trace_id": "8453ad12-a3d8-4531-8f0d-311e58874139",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            6
+          ],
+          "padded_length": 6
+        }
+      ]
+    },
+    {
+      "trace_id": "571fc96b-b428-429f-ba19-9709abc3cdc8",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            7
+          ],
+          "padded_length": 7
+        }
+      ]
+    },
+    {
+      "trace_id": "c21860d5-aa02-4cb6-8388-cc9f7adeea29",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            11
+          ],
+          "padded_length": 11
+        }
+      ]
+    },
+    {
+      "trace_id": "52bc9b2a-fcaa-4811-9901-033ce8985a5b",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            6
+          ],
+          "padded_length": 6
+        }
+      ]
+    },
+    {
+      "trace_id": "577e3545-eca8-4b2f-8184-26539a747387",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            9
+          ],
+          "padded_length": 9
+        }
+      ]
+    },
+    {
+      "trace_id": "0fd29770-c680-4dd6-9ebc-8671611fcef3",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            28
+          ],
+          "padded_length": 28
+        }
+      ]
+    },
+    {
+      "trace_id": "abaaa903-e78d-4492-9861-c7cea71e244a",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 6
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            10
+          ],
+          "padded_length": 10
+        }
+      ]
+    },
+    {
+      "trace_id": "dcc1aad2-0b4f-4154-ad3f-32f27854f345",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 6
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            11
+          ],
+          "padded_length": 11
+        }
+      ]
+    },
+    {
+      "trace_id": "c928c7d6-7bc8-4b46-b621-03b99c538ec4",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 6
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            8
+          ],
+          "padded_length": 8
+        }
+      ]
+    },
+    {
+      "trace_id": "f6c2e587-1ac6-4b2d-b2c9-12a02a600e1e",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 6
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            8
+          ],
+          "padded_length": 8
+        }
+      ]
+    },
+    {
+      "trace_id": "115dfa13-a889-4f33-a8a5-0dacbfaa09f5",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 7
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            8
+          ],
+          "padded_length": 8
+        }
+      ]
+    },
+    {
+      "trace_id": "7ab63ce1-8447-4058-a432-cabaee48090a",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 7
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            10
+          ],
+          "padded_length": 10
+        }
+      ]
+    },
+    {
+      "trace_id": "c4d3f031-a343-48c5-881c-0e32ebdb2868",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 7
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            13
+          ],
+          "padded_length": 13
+        }
+      ]
+    },
+    {
+      "trace_id": "ca086372-aa33-497b-8b76-3dbff9696837",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 7
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            12
+          ],
+          "padded_length": 12
+        }
+      ]
+    },
+    {
+      "trace_id": "dee857a3-92d7-447e-8aab-62b93b644cba",
+      "context": {
+        "run": "mem0_full_01",
+        "algorithm": "mem0",
+        "phase": "construction",
+        "index": 8
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            9
+          ],
+          "padded_length": 9
+        }
+      ]
+    },
+    {
+      "trace_id": "e9818425-978a-454e-a94a-f6ed4278fe4e",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "index_finalize",
+        "index": -1
+      },
+      "batches": [
+        {
+          "batch": 32,
+          "lengths": [
+            4321,
+            4139,
+            4177,
+            4164,
+            4286,
+            4320,
+            4227,
+            4272,
+            4251,
+            4285,
+            4214,
+            4134,
+            4271,
+            4256,
+            4142,
+            4198,
+            4169,
+            4221,
+            4259,
+            4332,
+            4185,
+            4319,
+            4261,
+            4237,
+            4211,
+            4292,
+            4285,
+            4304,
+            4199,
+            4332,
+            4383,
+            4220
+          ],
+          "padded_length": 4383
+        },
+        {
+          "batch": 32,
+          "lengths": [
+            4260,
+            4176,
+            4155,
+            4207,
+            4158,
+            4286,
+            4243,
+            4147,
+            4257,
+            4095,
+            4198,
+            4258,
+            4162,
+            4185,
+            4177,
+            4189,
+            4216,
+            4157,
+            4271,
+            4282,
+            4236,
+            4313,
+            4213,
+            4175,
+            4240,
+            4212,
+            4190,
+            4233,
+            4170,
+            4150,
+            4187,
+            4214
+          ],
+          "padded_length": 4313
+        },
+        {
+          "batch": 24,
+          "lengths": [
+            4200,
+            4252,
+            4174,
+            4256,
+            4241,
+            4386,
+            4258,
+            4165,
+            4221,
+            4226,
+            4193,
+            4178,
+            4225,
+            4199,
+            4167,
+            4189,
+            4178,
+            4254,
+            4200,
+            4193,
+            4188,
+            4180,
+            4237,
+            958
+          ],
+          "padded_length": 4386
+        }
+      ]
+    },
+    {
+      "trace_id": "cc794825-831d-444a-8a5d-4a84a0657def",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 0
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            38
+          ],
+          "padded_length": 38
+        }
+      ]
+    },
+    {
+      "trace_id": "407581b3-ae5d-482d-b7b3-92fdd58586b6",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 1
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            37
+          ],
+          "padded_length": 37
+        }
+      ]
+    },
+    {
+      "trace_id": "55505ba8-de64-4bb9-bb87-d91ebd2298ea",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 2
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            41
+          ],
+          "padded_length": 41
+        }
+      ]
+    },
+    {
+      "trace_id": "2ac4f24b-7359-46c5-b248-ea5428ace61d",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 3
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            37
+          ],
+          "padded_length": 37
+        }
+      ]
+    },
+    {
+      "trace_id": "8b8e8d32-43f3-4074-872a-97b332ab14a5",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 4
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            38
+          ],
+          "padded_length": 38
+        }
+      ]
+    },
+    {
+      "trace_id": "654e3629-22f1-4680-8513-c829fe101936",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 5
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            56
+          ],
+          "padded_length": 56
+        }
+      ]
+    },
+    {
+      "trace_id": "3e0f5333-049a-4c61-934a-24b33bd296a1",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 6
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            38
+          ],
+          "padded_length": 38
+        }
+      ]
+    },
+    {
+      "trace_id": "b392c0f6-4fd1-49d3-90b8-6fa1ba1c4573",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 7
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            54
+          ],
+          "padded_length": 54
+        }
+      ]
+    },
+    {
+      "trace_id": "ad794990-533f-4c5c-a120-211cf98746ca",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 8
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            41
+          ],
+          "padded_length": 41
+        }
+      ]
+    },
+    {
+      "trace_id": "dca628a6-37c5-44ff-94cc-fc5f01a1f5f9",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 9
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            37
+          ],
+          "padded_length": 37
+        }
+      ]
+    },
+    {
+      "trace_id": "b8f7de30-4976-4af0-add3-8cd5454e83e3",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 10
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            42
+          ],
+          "padded_length": 42
+        }
+      ]
+    },
+    {
+      "trace_id": "db362041-5aaa-4251-9813-0b3767053ddf",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 11
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            70
+          ],
+          "padded_length": 70
+        }
+      ]
+    },
+    {
+      "trace_id": "a4f1b462-8ca8-4809-8847-18626f1a736d",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 12
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            55
+          ],
+          "padded_length": 55
+        }
+      ]
+    },
+    {
+      "trace_id": "3f9ea052-3661-4b01-9609-c4c272e1c7b3",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 13
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            37
+          ],
+          "padded_length": 37
+        }
+      ]
+    },
+    {
+      "trace_id": "7e9ebf6d-c56b-4e16-bfb3-b414fcbfe4e0",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 14
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            32
+          ],
+          "padded_length": 32
+        }
+      ]
+    },
+    {
+      "trace_id": "c0c6f48e-6f08-4b3b-aeca-b45f13efa4bd",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 15
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            34
+          ],
+          "padded_length": 34
+        }
+      ]
+    },
+    {
+      "trace_id": "8191cd7a-cc3a-4a36-960e-2103a75db9fb",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 16
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            37
+          ],
+          "padded_length": 37
+        }
+      ]
+    },
+    {
+      "trace_id": "e70cd276-7390-45ce-9e00-db1255ed7d1e",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 17
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            43
+          ],
+          "padded_length": 43
+        }
+      ]
+    },
+    {
+      "trace_id": "d6568034-0eaf-4662-b3b1-bc21982fa496",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 18
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            33
+          ],
+          "padded_length": 33
+        }
+      ]
+    },
+    {
+      "trace_id": "f3918665-447d-449e-854e-f1015c58d6b9",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 19
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            76
+          ],
+          "padded_length": 76
+        }
+      ]
+    },
+    {
+      "trace_id": "e198312e-f867-4e74-8081-1473182e216a",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 20
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            37
+          ],
+          "padded_length": 37
+        }
+      ]
+    },
+    {
+      "trace_id": "ef716278-d46e-4df5-9a4b-54936a5e12f4",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 21
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            34
+          ],
+          "padded_length": 34
+        }
+      ]
+    },
+    {
+      "trace_id": "0276d62f-2728-4cb1-8d16-ab7c23cd7a85",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 22
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            41
+          ],
+          "padded_length": 41
+        }
+      ]
+    },
+    {
+      "trace_id": "61f87838-38ae-4bc2-881a-8096d88c32e2",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 23
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            33
+          ],
+          "padded_length": 33
+        }
+      ]
+    },
+    {
+      "trace_id": "59bffcca-a09f-49cf-9b0c-12dc5a70895f",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 24
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            42
+          ],
+          "padded_length": 42
+        }
+      ]
+    },
+    {
+      "trace_id": "64d97409-3adb-4cfc-8f48-4d395ce2e056",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 25
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            35
+          ],
+          "padded_length": 35
+        }
+      ]
+    },
+    {
+      "trace_id": "41ee7368-c3cd-4ad5-9559-0da9b0e30e3c",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 26
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            59
+          ],
+          "padded_length": 59
+        }
+      ]
+    },
+    {
+      "trace_id": "0a6a4699-4aed-4c4b-b4ea-268ba0038991",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 27
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            31
+          ],
+          "padded_length": 31
+        }
+      ]
+    },
+    {
+      "trace_id": "87f6e876-202d-4ce2-bc63-3b917ab3542d",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 28
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            38
+          ],
+          "padded_length": 38
+        }
+      ]
+    },
+    {
+      "trace_id": "ea814e37-b156-4996-9608-352277326dc2",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 29
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            38
+          ],
+          "padded_length": 38
+        }
+      ]
+    },
+    {
+      "trace_id": "763541ae-0b11-4c1c-9733-172748b93919",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 30
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            41
+          ],
+          "padded_length": 41
+        }
+      ]
+    },
+    {
+      "trace_id": "e43b0004-3c5d-48f6-a5b2-93531c6628d4",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 31
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            33
+          ],
+          "padded_length": 33
+        }
+      ]
+    },
+    {
+      "trace_id": "8989b3e6-9491-4199-b197-7e01951bf021",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 32
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            40
+          ],
+          "padded_length": 40
+        }
+      ]
+    },
+    {
+      "trace_id": "3d6b33a7-6faf-40e9-8adc-488f42dbc317",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 33
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            70
+          ],
+          "padded_length": 70
+        }
+      ]
+    },
+    {
+      "trace_id": "fc1334b4-4ba6-4c72-9694-8fc06330af81",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 34
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            37
+          ],
+          "padded_length": 37
+        }
+      ]
+    },
+    {
+      "trace_id": "e44e519d-e76f-4327-9d0f-4cf81acdf435",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 35
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            35
+          ],
+          "padded_length": 35
+        }
+      ]
+    },
+    {
+      "trace_id": "ea344e4d-22e2-48f5-93a8-d1530d63c03e",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 36
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            32
+          ],
+          "padded_length": 32
+        }
+      ]
+    },
+    {
+      "trace_id": "5a1b902e-75fc-4b87-aed1-33dcc950ae01",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 37
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            31
+          ],
+          "padded_length": 31
+        }
+      ]
+    },
+    {
+      "trace_id": "c67e9d87-3bf1-43eb-b3d0-0aa4796acbe5",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 38
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            39
+          ],
+          "padded_length": 39
+        }
+      ]
+    },
+    {
+      "trace_id": "fc57e26a-3b3b-4cf1-9b91-c9fa888d6329",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 39
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            35
+          ],
+          "padded_length": 35
+        }
+      ]
+    },
+    {
+      "trace_id": "ba74c446-90ec-458e-932e-7906960ced97",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 40
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            37
+          ],
+          "padded_length": 37
+        }
+      ]
+    },
+    {
+      "trace_id": "44fa255b-1f25-49b4-ae54-271379d64459",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 41
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            30
+          ],
+          "padded_length": 30
+        }
+      ]
+    },
+    {
+      "trace_id": "4f3ef5ee-b13c-472a-b98a-41d2d32fe8a9",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 42
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            40
+          ],
+          "padded_length": 40
+        }
+      ]
+    },
+    {
+      "trace_id": "fb6baac4-65fc-4364-bd01-de78e4aa8c65",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 43
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            47
+          ],
+          "padded_length": 47
+        }
+      ]
+    },
+    {
+      "trace_id": "3aed59b2-c1dd-41b4-a726-5c06e664d1a4",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 44
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            39
+          ],
+          "padded_length": 39
+        }
+      ]
+    },
+    {
+      "trace_id": "e97e2a60-672c-4ff7-9485-84e48ebdaf5a",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 45
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            31
+          ],
+          "padded_length": 31
+        }
+      ]
+    },
+    {
+      "trace_id": "7f8f50d5-a76c-4ba0-b6a3-cc52e8857ebf",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 46
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            33
+          ],
+          "padded_length": 33
+        }
+      ]
+    },
+    {
+      "trace_id": "0a209629-6e6b-42db-a066-31d1babf9213",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 47
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            34
+          ],
+          "padded_length": 34
+        }
+      ]
+    },
+    {
+      "trace_id": "f7185fba-508b-44a5-b002-a1a900f71732",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 48
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            39
+          ],
+          "padded_length": 39
+        }
+      ]
+    },
+    {
+      "trace_id": "a623a97b-21b1-4739-ba85-1d6950f486c8",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 49
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            51
+          ],
+          "padded_length": 51
+        }
+      ]
+    },
+    {
+      "trace_id": "55097f32-4247-45a5-a5cc-065c7c6bcbf9",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 50
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            34
+          ],
+          "padded_length": 34
+        }
+      ]
+    },
+    {
+      "trace_id": "ec708d2d-2bf1-4f27-b8d1-2a3ca4ca5a9e",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 51
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            54
+          ],
+          "padded_length": 54
+        }
+      ]
+    },
+    {
+      "trace_id": "18d99386-2ff4-48c2-a9aa-2d91151ff18d",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 52
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            34
+          ],
+          "padded_length": 34
+        }
+      ]
+    },
+    {
+      "trace_id": "d66ae983-b8c2-4a4b-a8b1-aa225ed49571",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 53
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            35
+          ],
+          "padded_length": 35
+        }
+      ]
+    },
+    {
+      "trace_id": "c02bf5d3-e606-48b0-a474-c44942fdd24e",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 54
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            36
+          ],
+          "padded_length": 36
+        }
+      ]
+    },
+    {
+      "trace_id": "c5dc3d79-2452-48ee-aa51-7d413e0a2db6",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 55
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            39
+          ],
+          "padded_length": 39
+        }
+      ]
+    },
+    {
+      "trace_id": "bcf66d34-27ff-4207-9bd3-5a217ce93838",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 56
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            39
+          ],
+          "padded_length": 39
+        }
+      ]
+    },
+    {
+      "trace_id": "82e05535-c8c4-4097-b187-1a4a630fb062",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 57
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            34
+          ],
+          "padded_length": 34
+        }
+      ]
+    },
+    {
+      "trace_id": "2d45809f-b395-470f-a56d-851834f93bbd",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 58
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            37
+          ],
+          "padded_length": 37
+        }
+      ]
+    },
+    {
+      "trace_id": "e9d15302-484e-4a20-88a8-8825409e0f78",
+      "context": {
+        "run": "embed_full_01",
+        "algorithm": "embedrag",
+        "phase": "query",
+        "index": 59
+      },
+      "batches": [
+        {
+          "batch": 1,
+          "lengths": [
+            36
+          ],
+          "padded_length": 36
+        }
+      ]
+    }
+  ]
+}

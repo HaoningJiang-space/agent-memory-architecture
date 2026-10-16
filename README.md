@@ -2,7 +2,9 @@
 
 本仓库从真实算法检验架构动机。A800 用于运行与校准；没有预设 Hybrid Bonding、PIM、HBF 或热优化的优势。
 
-最新进展见 [第二、三轮结果与原因](PHASE23_RESULTS.md)、[下一步的第一性原理 overview](OVERVIEW_NEXT.md)。原生 32B Mem0 在第 82 个片段出现无效 ID；正确计数为 81 个通过检查的片段，尚无完整质量结果。第三轮已通过 CPU 因果对照定位严格 schema 的 `minLength` 开销；完整软件控制从干净状态在远端 `outputs/phase3/` 后台运行。
+最新结果见 [第一次有物理约束的架构对照](ARCHITECTURE_RESULTS.md)：真实请求驱动的阵列/SRAM/DRAM 模型、32 个配置及记忆策略反事实；探索不再等待完整 Mem0 成功。完整应用质量与最终硬件结论仍单独验收。
+
+协议调查已冻结为支线，已排队的运行自然结束并释放服务，见 [收尾状态](evidence/architecture/protocol_branch_status.json)。历史结果保留在 [第二、三轮结果与原因](PHASE23_RESULTS.md)，研究方向见 [第一性原理 overview](OVERVIEW_NEXT.md)。
 
 [本地 PDF 阅读](PDF_OVERVIEW.md) 对照 HybridSpec、Splitwise、H²-LLM、FGDRAM、TETRIS 等梳理证据门槛。[早期第一性原理图](evidence/phase2/first_principles_overview.pdf) 的 20K 上下文是明确的容量假设，不能代替实际 Mem0 查询长度；新分析同时核算语义压缩节省的 KV。
 
@@ -14,6 +16,8 @@
 
 | 文件 | 用途 |
 |---|---|
+| `architecture/model.py` / `architecture/spec.json` | 显式分块、阵列利用率、SRAM/DRAM 服务与物理参数假设 |
+| `architecture/explore.py` / `architecture/report.py` | 条件性架构比较、生命周期与容量相图、P/D/缓存/等容量控制 |
 | `operations/download_models.py` | 从 HF 镜像下载固定 revision 的三个模型 |
 | `operations/prepare_dataset.py` | 从镜像重建固定 MemoryAgentBench 输入；已有文件不覆盖 |
 | `launch_services.py` | 固定模型服务参数和 PID，隔离缓存 |
@@ -47,5 +51,13 @@ cd /data/ziheng/agent-memory-architecture
 正式 pilot 使用第一个完整 LongMemEval record，包含 88 个构建片段、60 个问题；不把 tiny fixture 当质量证据。`--precompute-ner` 是显式的软件调度控制，批量执行原有 spaCy 管线后再并发调用概念抽取 LLM。初始服务关闭 prefix cache 用于刻画；不能因此声称优于启用成熟优化的服务基线。
 
 没有通过正确性、校准、预算控制和强基线排除之前，不报告新架构获益或热设计结论。
+
+上述要求约束最终贡献，不阻止真实请求层的早期建模。纯 CPU 探索可直接运行：
+
+```bash
+python3 architecture_unittest.py
+python3 -m architecture.explore
+python3 -m architecture.report
+```
 
 第一轮收尾核验入口为 `validate_evidence.py`；`audit_power.py` 检查粗粒度设备能量读数；`freeze_receipts.py` 固定远端原始证据哈希。`operations/stop_services.py` 是第一轮专用收尾脚本，不用于 phase2。新运行使用不同 session、trace 路径和证据回执，避免修改旧的冻结文件。
