@@ -25,6 +25,7 @@ MAIN = 'Qwen/Qwen3-32B'
 EMBED = 'Qwen/Qwen3-Embedding-0.6B'
 BASE_URL = 'http://127.0.0.1:8030/v1'
 PHASE = 'initialization'
+SESSION = 'family_01'
 LOCK = threading.Lock()
 
 
@@ -44,7 +45,13 @@ def append(path, value):
 def set_phase(algorithm, phase):
     global PHASE
     PHASE = phase
-    write(ROOT / 'run_context.json', dict(run='family_01', algorithm=algorithm, phase=phase))
+    write(ROOT / 'run_context.json', dict(run=SESSION, algorithm=algorithm, phase=phase))
+
+
+def engine_metrics():
+    import httpx
+    return {str(port): httpx.get(f'http://127.0.0.1:{port}/metrics', timeout=10).text
+            for port in (8031, 8032)}
 
 
 def install_call_audit(out):
@@ -203,10 +210,12 @@ def lightmem(out, history, data, manifest):
 
 
 def main():
+    global SESSION
     parser = argparse.ArgumentParser()
     parser.add_argument('algorithm', choices=['simplemem', 'lightmem'])
     parser.add_argument('--session', default='family_01')
     args = parser.parse_args()
+    SESSION = args.session
     assert args.session.replace('_', '').isalnum()
     out = ROOT / 'outputs' / args.session / args.algorithm
     out.mkdir(parents=True, exist_ok=False)
@@ -220,18 +229,25 @@ def main():
         selection='First 48 chronological source messages, no answer-conditioned selection; first 3 questions are retrieval probes only.',
         quality_scope='No cross-algorithm accuracy, complete-history or lifecycle claim.',
         deployment='Local Qwen3-8B construction/planning, Qwen3-32B answering, Qwen3-Embedding-0.6B; greedy, prefix cache enabled.',
-        versions={p: importlib.metadata.version(p) for p in ['openai', 'torch', 'transformers', 'qdrant-client', 'lancedb']})
+        versions={p: importlib.metadata.version(p) for p in ['openai', 'torch', 'transformers', 'qdrant-client', 'lancedb', 'pylance', 'tantivy']})
     write(out / 'manifest.json', manifest)
     try:
         history, data = source_history()
         write(out / 'history_private.json', history)
         manifest['history_sha256'] = sha(out/'history_private.json')
+        write(out/'engine_metrics_before.json', engine_metrics())
         install_call_audit(out)
         globals()[args.algorithm](out, history, data, manifest)
         calls = [json.loads(line) for line in (out/'llm_private.jsonl').read_text().splitlines()]
         assert calls and all(c['validated'] for c in calls), 'Upstream may swallow errors; audit rejects them'
+        operations = [json.loads(line) for line in (out/'operations.jsonl').read_text().splitlines()]
+        assert all(r['status'] == 'ok' for r in operations)
         manifest.update(status='complete', end=time.time(), llm_calls=len(calls),
                         state_disk_bytes=sum(p.stat().st_size for p in (out/'state').rglob('*') if p.is_file()))
+        # Allow the asynchronous engine statistics logger to flush after the
+        # workload; this delay is outside the recorded workload interval.
+        time.sleep(6)
+        write(out/'engine_metrics_after.json', engine_metrics())
     except Exception:
         manifest.update(status='failed', end=time.time(), error=traceback.format_exc())
         raise
