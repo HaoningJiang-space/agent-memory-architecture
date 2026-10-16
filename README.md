@@ -2,7 +2,11 @@
 
 本仓库从真实算法检验架构动机。A800 用于运行与校准；没有预设 Hybrid Bonding、PIM、HBF 或热优化的优势。
 
-最新结果见 [第一次有物理约束的架构对照](ARCHITECTURE_RESULTS.md)：真实请求驱动的阵列/SRAM/DRAM 模型、32 个配置及记忆策略反事实；探索不再等待完整 Mem0 成功。完整应用质量与最终硬件结论仍单独验收。
+最新结果见 [算存联合机制检验](MECHANISM_RESULTS.md)：交叉阵列/带宽控制、有资源代价的 K 分片、96 个条件预算配置，以及输入/输出四组合。更新路径的联合诊断空间达到 3.28×，但初版 K 分片相对连续 K 的强统一基线仅约 1–2%；没有把诊断上界当成可实现加速。
+
+[映射与资源合同](K_SHARD_DESIGN.md) 公开归约、广播、buffer、地址发生器、复用器和频率代价。[表示控制](REPRESENTATION_CONTROLS.md) 已完成 7 次小块原文问答及问题 30/39 的审查：普通小块检索也显著减少输入，但时间锚点/支持覆盖存在损失；原有词面命中包含误判，不能当正确率。
+
+此前 [第一次有物理约束的架构对照](ARCHITECTURE_RESULTS.md) 保留真实请求驱动的阵列/SRAM/DRAM 模型、32 个配置及记忆策略反事实；探索不等待完整 Mem0 成功。完整应用质量与最终硬件结论仍单独验收。
 
 复核后的 [阵列瓶颈诊断](ARRAY_DIAGNOSIS.md) 分开有效 MAC、低 M padding、波次和填排空，并比较固定映射带宽、理想阵列与重新映射。生命周期漏计已修复；这些诊断上界不作为可实现新硬件的收益。
 
@@ -26,6 +30,10 @@
 | `architecture/explore.py` / `architecture/report.py` | 条件性架构比较、生命周期与容量相图、P/D/缓存/等容量控制 |
 | `architecture/diagnose_array.py` | 阵列周期守恒分解、固定映射/重新映射的带宽与周期控制 |
 | `architecture/finite_prefix.py` / `architecture/report_finite_prefix.py` | 远端有限历史配对、同时驻留采样及真实形状的模型对照 |
+| `architecture/mechanism.py` / `mechanism_unittest.py` | K 分片、局部归约与资源计费；独立运算/计数验证 |
+| `architecture/joint_diagnostics.py` / `architecture/report_mechanism.py` | 交叉控制、预算内比较、L/O 归因及报告 |
+| `architecture/representation_controls.py` | 远端 512-token 原文检索对照和两例审查回执 |
+| `architecture/validate_mechanism.py` | 冻结基线、模型输入哈希、预算及新 GPU 控制对账 |
 | `operations/download_models.py` | 从 HF 镜像下载固定 revision 的三个模型 |
 | `operations/prepare_dataset.py` | 从镜像重建固定 MemoryAgentBench 输入；已有文件不覆盖 |
 | `launch_services.py` | 固定模型服务参数和 PID，隔离缓存 |
@@ -68,6 +76,10 @@ python3 -m architecture.explore
 python3 -m architecture.report
 python3 -m architecture.diagnose_array
 python3 -m architecture.report_finite_prefix
+python3 mechanism_unittest.py
+python3 -m architecture.joint_diagnostics
+python3 -m architecture.report_mechanism
+python3 -m architecture.validate_mechanism
 ```
 
 第一轮收尾核验入口为 `validate_evidence.py`；`audit_power.py` 检查粗粒度设备能量读数；`freeze_receipts.py` 固定远端原始证据哈希。`operations/stop_services.py` 是第一轮专用收尾脚本，不用于 phase2。新运行使用不同 session、trace 路径和证据回执，避免修改旧的冻结文件。

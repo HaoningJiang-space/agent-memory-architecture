@@ -1,0 +1,32 @@
+{
+  "method": "Manual inspection by Codex of all 114 facts, actual contexts, outputs and reference; not an automatic evaluator or official grading.",
+  "cases": [
+    {
+      "index": 30,
+      "audit_private_sha256": "f4e00d35163f3bc15e5b7d82aacfa061b4a2c04c63fe82b4256cec6543da7183",
+      "raw_private_sha256": "c4ba68e9c7a31706b7ce170f8387fcab43827248159ae7d2b9e3479065bbdd60",
+      "mem0_private_sha256": "9a413d6fa669f7dc1bba3857ef5bef861da322bb112a596a4567b9c94e061430",
+      "fine_private_sha256": "493c6b42b79b219663b2c06d6eb88cccb1510ab0271d4f24ec276383b1183b23",
+      "checked_state_records": 114,
+      "required_facts_in_persistent_state": false,
+      "required_facts_in_mem0_top10": false,
+      "mem0_answer_is_correct_paraphrase": false,
+      "original_raw_substring_false_positive": true,
+      "fine_failure": "event date missing"
+    },
+    {
+      "index": 39,
+      "audit_private_sha256": "e3b7793f326b407294a44236f3f34f2e7d8eecef05cf91f34ac9aaa0c2a006e9",
+      "raw_private_sha256": "0678ed5ecb8959bc44508913788ff09cf1e7c599a43854f2b31900e89a7acd9c",
+      "mem0_private_sha256": "39725462a2af5cafd5efac3c47879ac6df43f6d19835dce6e3d5658fe6fa6752",
+      "fine_private_sha256": "90edd34d3a3a4581682db324044f6b6dd87f66d1e4b6b414853698ac5010c451",
+      "checked_state_records": 114,
+      "required_facts_in_persistent_state": false,
+      "required_facts_in_mem0_top10": false,
+      "mem0_answer_is_correct_paraphrase": false,
+      "original_raw_substring_false_positive": false,
+      "fine_failure": "one of two support intervals missing"
+    }
+  ],
+  "scope": "Only two cases reviewed semantically; no adjusted seven-question accuracy is reported."
+}

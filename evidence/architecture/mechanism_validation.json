@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "checks": [
+    "All joint-result input hashes match current sources and frozen inputs.",
+    "Baseline model, spec, lifecycle ledger and paired evidence match 7cd9029 byte for byte.",
+    "Original-mode update and paired-query numeric totals reproduce the prior artifacts.",
+    "All 96 ranked designs satisfy the declared budgets without diagnostic bandwidth multipliers.",
+    "Input and output attribution credits sum to the observed-shape endpoint difference.",
+    "All seven uncapped GPU controls preserve question coverage, source state and KV accounting."
+  ],
+  "crossed_controls": 54,
+  "ranked_designs": 96,
+  "design_profiles": 480,
+  "gpu_queries": 7,
+  "input_sha256": {
+    "architecture/mechanism.py": "1ba411265a843810f108126d316f259272993a89be10c3c4ec0a0a62ee71c9cd",
+    "architecture/joint_diagnostics.py": "b0de38966c21a83a7e2cd367cf2672c1963249abfd912ad04d4dc4f7a7c8b315",
+    "architecture/report_mechanism.py": "f131cf692dd99ac5a9ff87983118b3b867c2955edee7e2b3ad02ecfea860bd74",
+    "architecture/representation_controls.py": "4ab201a88fc08ffed38b1c4d26abcdba054d8c0c3670fee3eb59c3acf35ad311",
+    "architecture/validate_mechanism.py": "db2de81b90804a104cfdc3a0cf3d6fd9711658984e98aefb5b1329a3f478ae88",
+    "mechanism_unittest.py": "544352ae491275a8d51fa36c7dd8e63f8cd62e09f8b67fc16711d9caedb1eab4",
+    "evidence/architecture/joint_diagnostics.json": "4d082172783824fbc68030a0f98cca3c9698f6ccee2873d266710eec4eed1c83",
+    "evidence/architecture/representation_controls.json": "57a6282dfb75fbc868c586552dcebd092d561b6987c1a1368a6eb52abcaad431",
+    "evidence/architecture/two_case_review.json": "b85cfbf818757b6fb830d433813ac94341c0e146141b7883c0db0aad95359581"
+  },
+  "scope": "Artifact consistency and declared-budget checks; not physical-model calibration or quality equivalence."
+}
