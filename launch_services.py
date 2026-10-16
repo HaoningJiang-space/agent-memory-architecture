@@ -57,6 +57,6 @@ for name in options.services:
     p = subprocess.Popen(args, cwd=ROOT, env=env, stdin=subprocess.DEVNULL,
                          stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
     manifest[name] = {'pid':p.pid, 'argv':args,
-                      'environment':{k:env[k] for k in ['CUDA_VISIBLE_DEVICES','HF_HOME','TMPDIR','VLLM_CACHE_ROOT','CUDA_HOME','VLLM_USE_FLASHINFER_SAMPLER','VLLM_ATTENTION_BACKEND','AGENT_MEMORY_TRACE'] if k in env}}
+                      'environment':{k:env[k] for k in ['CUDA_VISIBLE_DEVICES','HF_HOME','TMPDIR','VLLM_CACHE_ROOT','CUDA_HOME','VLLM_USE_FLASHINFER_SAMPLER','VLLM_ATTENTION_BACKEND','AGENT_MEMORY_TRACE','VLLM_SERVER_DEV_MODE'] if k in env}}
     record.write_text(json.dumps(manifest, indent=2)+'\n')
     print(name, p.pid)
