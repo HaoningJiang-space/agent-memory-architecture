@@ -94,8 +94,8 @@ def collect(path, service_path):
             delta = {key: last[key]-first[key] for key in first}
             assert all(v >= 0 for v in delta.values())
             histogram[port] = delta
-        public['engine_step_cumulative_token_buckets'] = histogram
-    public['batch_boundary'] = 'API concurrency is not kernel batch. Embedding M is observed padded B*L; vLLM engine-step histogram, when present, counts scheduled tokens and does not expose padded kernel M.'
+        public['engine_output_token_buckets'] = histogram
+    public['batch_boundary'] = 'API concurrency is not kernel batch. Embedding M is observed padded B*L. vLLM 0.10.2 v1 metrics/stats.py adds full prompt_len on first output; its iteration histogram is output-accounted tokens, NOT scheduled tokens or padded kernel M.'
     return public
 
 
