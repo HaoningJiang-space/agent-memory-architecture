@@ -80,7 +80,8 @@ for name in ('mem0_8b_delta','mem0_8b_snapshot','mem0_32b_delta',
     calls = [r for r in api if r.get('context',{}).get('run') == 'phase3/'+name
              and (r['context'].get('phase'),r['context'].get('index')) in contexts]
     roles = defaultdict(lambda:dict(calls=0,seconds=0,input_tokens=0,output_tokens=0,ttft=0,after_first=0,
-                                   max_prompt_tokens=0,max_request_tokens=0,cached_input_tokens=0))
+                                   max_prompt_tokens=0,max_request_tokens=0,cached_input_tokens_reported=0,
+                                   calls_with_cache_usage_metadata=0))
     for r in calls:
         if r.get('path')!='chat/completions' or not r.get('usage'): continue
         role = 'query' if r['context']['phase']=='query' else ('update' if len(r['request']['messages'])==1 else 'extraction')
@@ -95,7 +96,10 @@ for name in ('mem0_8b_delta','mem0_8b_snapshot','mem0_32b_delta',
             entry['after_first'] += r['end']-r['first_token']
         entry['max_prompt_tokens'] = max(entry['max_prompt_tokens'],usage['prompt_tokens'])
         entry['max_request_tokens'] = max(entry['max_request_tokens'],usage['prompt_tokens']+usage['completion_tokens'])
-        entry['cached_input_tokens'] += (usage.get('prompt_tokens_details') or {}).get('cached_tokens',0)
+        details = usage.get('prompt_tokens_details') or {}
+        if 'cached_tokens' in details:
+            entry['cached_input_tokens_reported'] += details['cached_tokens']
+            entry['calls_with_cache_usage_metadata'] += 1
     index = [r for r in rows(run/'index.jsonl') if (r['context']['phase'],r['context']['index']) in contexts]
     index_time = sum(r['end']-r['start'] for r in index)
     validation = rows(run/'protocol_validation.jsonl')

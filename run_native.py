@@ -25,7 +25,7 @@ parser.add_argument('--construction-model', choices=['Qwen/Qwen3-8B', 'Qwen/Qwen
 parser.add_argument('--wait-for-qa', action='store_true', help='Keep native in-memory index alive until QA server is ready')
 parser.add_argument('--precompute-ner', action='store_true', help='Software control: batch spaCy before concurrent concept LLM calls')
 parser.add_argument('--trace-file', default='outputs/api_trace.jsonl')
-parser.add_argument('--update-control', choices=['native', 'flat_snapshot', 'flat_delta'], default='native')
+parser.add_argument('--update-control', choices=['native', 'flat_snapshot', 'flat_delta','guarded_native'], default='native')
 args = parser.parse_args()
 if args.update_control != 'native' and args.algorithm != 'mem0':
     parser.error('--update-control is only available for Mem0')

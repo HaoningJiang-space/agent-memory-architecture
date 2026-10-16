@@ -29,6 +29,24 @@ def flat_schema(valid_ids, delta=False):
         required=['memory'], additionalProperties=False)
 
 
+def reference_schema(valid_ids):
+    """Native prompt, operation-dependent ID domain; deliberately no minLength."""
+    common = dict(type='object',properties={
+        'id':dict(type='string'),'text':dict(type='string'),
+        'event':dict(type='string'),'old_memory':dict(type='string')},
+        required=['id','text','event'],additionalProperties=False)
+    addition = copy.deepcopy(common)
+    addition['properties']['event']['enum'] = ['ADD']
+    branches = [addition]
+    if valid_ids:
+        existing = copy.deepcopy(common)
+        existing['properties']['id']['enum'] = list(valid_ids)
+        existing['properties']['event']['enum'] = ['UPDATE','DELETE','NONE']
+        branches.append(existing)
+    return dict(type='object',properties={'memory':dict(type='array',items={'anyOf':branches})},
+                required=['memory'],additionalProperties=False)
+
+
 def controlled_prompt(prompt, delta=False):
     rule = ('\nProtocol clarification: existing IDs refer to the existing memory table, '
             'never output row positions. For ADD, use the ignored placeholder ID "NEW". '
@@ -42,7 +60,7 @@ def controlled_prompt(prompt, delta=False):
     return prompt+rule
 
 
-def validate_response(text, valid_ids, delta=False):
+def validate_response(text, valid_ids, delta=False, flat_domain=True):
     result = json.loads(text)
     if not isinstance(result, dict) or set(result) != {'memory'} or not isinstance(result['memory'], list):
         raise ValueError('Expected an object containing only a memory array')
@@ -59,7 +77,7 @@ def validate_response(text, valid_ids, delta=False):
             raise ValueError('old_memory must be a string')
         if not isinstance(op['id'], str) or op['event'] not in events:
             raise ValueError('Invalid id type or event')
-        if op['id'] not in valid_ids and op['id'] != 'NEW':
+        if flat_domain and op['id'] not in valid_ids and op['id'] != 'NEW':
             raise ValueError('ID is outside the flat schema domain: '+op['id'])
         # The pinned store ignores ADD and NONE IDs. Requiring NEW for ADD,
         # or rejecting a harmless NONE/UPDATE pair, would invent failure modes.
@@ -86,8 +104,9 @@ def api_receipts(path, offset, wait=False):
 
 class UpdateControl:
     def __init__(self, generate, mode, log, trace_path=None, attempts=3):
-        assert mode in ('flat_snapshot', 'flat_delta')
+        assert mode in ('flat_snapshot', 'flat_delta', 'guarded_native')
         self.generate = generate
+        self.mode = mode
         self.delta = mode == 'flat_delta'
         self.log = log
         self.trace_path = trace_path
@@ -99,10 +118,10 @@ class UpdateControl:
             return self.generate(messages=messages, **kwargs)
         old, _ = snapshot(messages[0]['content'])
         valid = [str(item['id']) for item in old]
-        base = controlled_prompt(messages[0]['content'], self.delta)
+        base = messages[0]['content'] if self.mode=='guarded_native' else controlled_prompt(messages[0]['content'], self.delta)
         options = copy.deepcopy(kwargs)
         options['extra_body'] = dict(options.get('extra_body') or {},
-                                     guided_json=flat_schema(valid, self.delta))
+                                     guided_json=reference_schema(valid) if self.mode=='guarded_native' else flat_schema(valid, self.delta))
         diagnostic = ''
         trace_ids = set()
         for attempt in range(self.attempts):
@@ -123,7 +142,7 @@ class UpdateControl:
                         c.get('finish_reason') for c in row.get('response', {}).get('choices', [])]
                     if 'length' in reasons or row.get('error') or row.get('status', 200) != 200:
                         raise ValueError('Update API failed or reached output cap')
-                result = validate_response(text, valid, self.delta)
+                result = validate_response(text, valid, self.delta,flat_domain=self.mode!='guarded_native')
                 accepted = True
             except (ValueError, TypeError, KeyError) as exc:
                 error = str(exc)

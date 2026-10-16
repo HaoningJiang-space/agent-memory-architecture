@@ -99,6 +99,18 @@ class ProtocolSafety(unittest.TestCase):
             self.assertTrue(logs[0]['accepted'])
             self.assertEqual(control.handled_trace_ids,{'delayed'})
 
+    def test_guarded_native_retains_prompt_and_ignores_add_id(self):
+        prompt = MARKER+"```[{'id':'0','text':'old'}]``` ```['new']```"
+        calls=[]
+        def generate(**kw):
+            calls.append(kw)
+            return response(op('ADD','999'),op('UPDATE','0'))
+        control = UpdateControl(generate,'guarded_native',lambda row:None)
+        result = control([dict(role='user',content=prompt)])
+        self.assertEqual(calls[0]['messages'][0]['content'],prompt)
+        self.assertEqual(len(json.loads(result)['memory']),2)
+        self.assertNotIn('minLength',json.dumps(calls[0]['extra_body']['guided_json']))
+
 
 if __name__ == '__main__':
     unittest.main()

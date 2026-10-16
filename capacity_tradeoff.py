@@ -17,10 +17,11 @@ parser.add_argument('--run',required=True)
 parser.add_argument('--name',required=True)
 args = parser.parse_args()
 assert all(c.isalnum() or c in '_-' for c in args.name)
-out = root/'outputs/phase3'
+manifest = json.loads((root/'outputs'/args.run/'both_manifest.json').read_text())
+trace_path = root/manifest['args']['trace_file']
+out = trace_path.parent
 target = out/(args.name+'.json')
 assert not target.exists()
-manifest = json.loads((root/'outputs'/args.run/'both_manifest.json').read_text())
 assert manifest['status']=='complete' and manifest['validity']=='valid', 'Full valid execution required'
 models = json.loads((root/'models.json').read_text())
 config = {name:json.loads((Path(v['path'])/'config.json').read_text()) for name,v in models.items()}
@@ -41,7 +42,7 @@ weights = {name:weight_bytes(v['path']) for name,v in models.items()}
 old_raw = (root/'outputs/api_trace.jsonl').read_bytes()
 receipt = json.loads((root/'outputs/raw_artifact_sha256.json').read_text())
 assert hashlib.sha256(old_raw).hexdigest()==receipt['files']['outputs/api_trace.jsonl']['sha256']
-new_raw = (out/'api_trace.jsonl').read_bytes()
+new_raw = trace_path.read_bytes()
 new_raw = new_raw[:new_raw.rfind(b'\n')+1]
 def select(raw, run, phase):
     return [r for r in map(json.loads,raw.splitlines()) if r.get('context',{}).get('run')==run
