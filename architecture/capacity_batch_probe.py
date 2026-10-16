@@ -155,12 +155,16 @@ def run(args, out, manifest):
                         ref = references[key]
                         relative_l2 = (vector - ref).norm().item() / max(ref.norm().item(), 1e-12)
                         max_abs = (vector - ref).abs().max().item()
+                        passed = relative_l2 <= 0.02 and max_abs <= 0.5
                         validation.append(dict(index=call['index'], step=step,
                             relative_logit_l2=relative_l2, max_absolute_logit_error=max_abs,
-                            argmax_agreement=bool(vector.argmax() == ref.argmax())))
+                            argmax_agreement=bool(vector.argmax() == ref.argmax()),
+                            numerical_pass=passed))
                         # BF16 tolerance is a numerical mapping check, not task quality.
-                        if relative_l2 > 0.02 or max_abs > 0.5:
-                            raise RuntimeError(f'Batch/chunk numerical check failed: {validation[-1]}')
+                        # Retain failed checks without silently relaxing tolerance.
+                        # Completing the diagnostic matrix does not validate those cases.
+                        if not passed:
+                            print('NUMERICAL-CHECK-FAILED', validation[-1], flush=True)
                 del logits
 
             for begin in range(0, length, chunk):
@@ -192,7 +196,8 @@ def run(args, out, manifest):
                        peak_allocated_bytes=torch.cuda.max_memory_allocated(),
                        temperature_c=pynvml.nvmlDeviceGetTemperature(handle, pynvml.NVML_TEMPERATURE_GPU),
                        sm_clock_mhz=pynvml.nvmlDeviceGetClockInfo(handle, pynvml.NVML_CLOCK_SM),
-                       numerical_checks=validation)
+                       numerical_checks=validation,
+                       numerical_pass=all(v['numerical_pass'] for v in validation))
             save()
             print('DONE', strategy, group[0]['index'], batch, kind,
                   round(row['mean_decode_step_ms'], 3), round(row['forward_decode_tokens_per_second'], 2), flush=True)
