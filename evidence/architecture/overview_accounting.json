@@ -1,0 +1,113 @@
+{
+  "scope": "Existing finite calls and controlled legal groups, NOT DRAM counters or deployment mix",
+  "source_sha256": "bbd6735cc4bc78805cd2fc03ee0163e7a5c3f03d0e107c80bc889a9ab14a4dfe",
+  "input_sha256": {
+    "evidence/architecture/hetero_projection_shapes.json": "c869524139e507c4fd0e2f736b26bd1b26c407342f1dffd7d318450f0620833f",
+    "evidence/architecture/batch_closure_traces.json.gz": "d463f5066c34a0de8678c9ba1df7c59395d2906c4b6ffbb91548519f2e200731",
+    "evidence/calibration/model_capacity.json": "93790515461648349a7de12ce785f835068c0e1ca1f2bf4b898008bd2aafa442"
+  },
+  "streams": [
+    {
+      "graph": "simplemem_concurrent_queries",
+      "maintenance_cap": null,
+      "models": {
+        "Qwen/Qwen3-32B": {
+          "one_pass_linear_weight_bytes": 9339191951360,
+          "flops": 741735134658560,
+          "resident_bf16_weight_bytes": 65524246528,
+          "weight_work_fraction": 0.13894085482450688,
+          "flop_fraction": 0.4202736042361449
+        },
+        "Qwen/Qwen3-8B": {
+          "one_pass_linear_weight_bytes": 57850535608320,
+          "flops": 1019605949612032,
+          "resident_bf16_weight_bytes": 16381470720,
+          "weight_work_fraction": 0.8606529249358739,
+          "flop_fraction": 0.5777176343969761
+        },
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "one_pass_linear_weight_bytes": 27304919040,
+          "flops": 3545235456000,
+          "resident_bf16_weight_bytes": 1191553024,
+          "weight_work_fraction": 0.00040622023961924187,
+          "flop_fraction": 0.002008761366878979
+        }
+      },
+      "stages": [
+        {
+          "model": "Qwen/Qwen3-8B",
+          "stage": "construction",
+          "calls": 4,
+          "input_tokens": 19683,
+          "output_tokens": 7587
+        },
+        {
+          "model": "Qwen/Qwen3-8B",
+          "stage": "query",
+          "calls": 21,
+          "input_tokens": 36481,
+          "output_tokens": 2186
+        },
+        {
+          "model": "Qwen/Qwen3-32B",
+          "stage": "query",
+          "calls": 3,
+          "input_tokens": 11738,
+          "output_tokens": 146
+        }
+      ],
+      "completed_main_query_calls": 3
+    },
+    {
+      "graph": "lightmem_concurrent_queries",
+      "maintenance_cap": null,
+      "models": {
+        "Qwen/Qwen3-32B": {
+          "one_pass_linear_weight_bytes": 4413727703040,
+          "flops": 202249412280320,
+          "resident_bf16_weight_bytes": 65524246528,
+          "weight_work_fraction": 0.028177295350935837,
+          "flop_fraction": 0.18680073425135957
+        },
+        "Qwen/Qwen3-8B": {
+          "one_pass_linear_weight_bytes": 151997665771520,
+          "flops": 875385581469696,
+          "resident_bf16_weight_bytes": 16381470720,
+          "weight_work_fraction": 0.9703550851465237,
+          "flop_fraction": 0.8085198741885502
+        },
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "one_pass_linear_weight_bytes": 229889802240,
+          "flops": 5066383687680,
+          "resident_bf16_weight_bytes": 1191553024,
+          "weight_work_fraction": 0.0014676195025404824,
+          "flop_fraction": 0.00467939156009021
+        }
+      },
+      "stages": [
+        {
+          "model": "Qwen/Qwen3-8B",
+          "stage": "construction",
+          "calls": 24,
+          "input_tokens": 30408,
+          "output_tokens": 9985
+        },
+        {
+          "model": "Qwen/Qwen3-8B",
+          "stage": "maintenance",
+          "calls": 29,
+          "input_tokens": 18839,
+          "output_tokens": 1229
+        },
+        {
+          "model": "Qwen/Qwen3-32B",
+          "stage": "query",
+          "calls": 3,
+          "input_tokens": 3036,
+          "output_tokens": 104
+        }
+      ],
+      "completed_main_query_calls": 3
+    }
+  ]
+}
