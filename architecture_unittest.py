@@ -5,7 +5,7 @@ from pathlib import Path
 import unittest
 
 from architecture.explore import break_even, lifecycle, scenario_costs, profile, embedding_ledger
-from architecture.model import candidates, decoder, gemm, GIB
+from architecture.model import candidates, decoder, gemm, attention, GIB, CYCLE_KEYS
 from workload_accounting import request_work
 
 ROOT = Path(__file__).resolve().parent
@@ -106,6 +106,30 @@ class ArchitectureTests(unittest.TestCase):
         broken['embedding_accidental_extra_stage'] = groups['embedding_embed_full_01_query']
         with self.assertRaisesRegex(ValueError,'unassigned'):
             embedding_ledger(broken)
+
+    def test_array_cycle_attribution_small_matrix(self):
+        h=replace(self.h,arrays=2,rows=2,cols=2)
+        r=gemm(h,1,4,3)
+        # Eight MACs total: 12 useful MACs -> 1.5 ideal cycles;
+        # row pad 1.5, column pad 1, one fill/drain 2 -> six cycles.
+        self.assertEqual(r['array_useful_seconds']*h.frequency,1.5)
+        self.assertEqual(r['array_m_padding_seconds']*h.frequency,1.5)
+        self.assertEqual(r['array_n_padding_seconds']*h.frequency,1)
+        self.assertEqual(r['array_fill_drain_seconds']*h.frequency,2)
+        self.assertEqual(r['compute_seconds']*h.frequency,6)
+
+    def test_cycle_conservation_and_frozen_mapping(self):
+        for op in (gemm(self.h,1,4096,12288),attention(self.h,1901,32,8,128,decode=True),
+                   attention(self.h,1901,32,8,128)):
+            self.assertAlmostEqual(sum(op['array_'+k+'_seconds'] for k in CYCLE_KEYS),op['compute_seconds'])
+            self.assertTrue(all(op['array_'+k+'_seconds']>=0 for k in CYCLE_KEYS))
+        original=gemm(self.h,1,4096,12288)
+        ideal=gemm(replace(self.h,cycle_mode='ideal',freeze_mapping_bandwidth=self.h.bandwidth),1,4096,12288)
+        self.assertEqual(ideal['tile'],original['tile'])
+        self.assertEqual(ideal['dataflow'],original['dataflow'])
+        self.assertEqual(ideal['read_bytes'],original['read_bytes'])
+        self.assertEqual(ideal['write_bytes'],original['write_bytes'])
+        self.assertGreaterEqual(ideal['seconds'],original['memory_seconds'])
 
 
 if __name__=='__main__':

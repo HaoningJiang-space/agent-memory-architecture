@@ -101,6 +101,8 @@ def main():
 
 相对 `455bf8e`，已修复 EmbedRAG `index_finalize` 构建费用被错误键名默认为零的问题。所有 Embedding 阶段现在逐项对账、各有一个账本去向；缺失或未知阶段报错。重算差异见 [修正回执](evidence/architecture/ledger_correction.json)，原版本可由 Git 追溯。
 
+后续 [阵列瓶颈诊断](ARRAY_DIAGNOSIS.md) 保持 baseline 数值不变，拆开低 M padding 与填排空。当前 update 的限制是所选映射的阵列周期；增加带宽无收益，理想阵列上界也仅约 1.38×，不能以低有效利用率的倒数推算加速。
+
 ![第一次架构对照](evidence/architecture/architecture_exploration.png)
 
 ## 证据层次与输入

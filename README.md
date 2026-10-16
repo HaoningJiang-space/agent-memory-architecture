@@ -4,6 +4,8 @@
 
 最新结果见 [第一次有物理约束的架构对照](ARCHITECTURE_RESULTS.md)：真实请求驱动的阵列/SRAM/DRAM 模型、32 个配置及记忆策略反事实；探索不再等待完整 Mem0 成功。完整应用质量与最终硬件结论仍单独验收。
 
+复核后的 [阵列瓶颈诊断](ARRAY_DIAGNOSIS.md) 分开有效 MAC、低 M padding、波次和填排空，并比较固定映射带宽、理想阵列与重新映射。生命周期漏计已修复；这些诊断上界不作为可实现新硬件的收益。
+
 另已完成 [18 项 A800 算子微基准](evidence/architecture/operator_calibration.json)：真实请求对应的 GEMM 形状、合成矩阵、独立 CUDA 时间。它们是现有 GPU 的校准点，未外推成新 NPU 性能。
 
 协议调查已冻结为支线，已排队的运行自然结束并释放服务，见 [收尾状态](evidence/architecture/protocol_branch_status.json)。历史结果保留在 [第二、三轮结果与原因](PHASE23_RESULTS.md)，研究方向见 [第一性原理 overview](OVERVIEW_NEXT.md)。
