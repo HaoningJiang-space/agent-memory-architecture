@@ -1,6 +1,7 @@
 """Validate frozen A800 results and compare exactly the same request sets."""
 import hashlib
 import json
+import math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,15 +49,15 @@ def main():
             assert row['final_kv_bytes'] == kv
             assert row['peak_allocated_bytes'] >= row['allocated_bytes']
             assert row['allocated_bytes'] >= manifest['weight_bytes'] + kv
-            seconds = sum(row['decode_cuda_seconds'])
+            seconds = math.fsum(row['decode_cuda_seconds'])
             assert abs(row['mean_decode_step_ms'] - 1000 * seconds / steps) < 1e-8
             assert abs(row['forward_decode_tokens_per_second'] - batch * steps / seconds) < 1e-8
             checks.extend(row['numerical_checks'])
             if row['kind'] == 'distinct_batch':
                 assert row['indices'] == indices[:batch]
                 matched = [refs[i] for i in row['indices']]
-                serial_decode = sum(sum(r['decode_cuda_seconds']) for r in matched)
-                serial_prefill = sum(r['prefill_cuda_seconds'] for r in matched)
+                serial_decode = math.fsum(math.fsum(r['decode_cuda_seconds']) for r in matched)
+                serial_prefill = math.fsum(r['prefill_cuda_seconds'] for r in matched)
                 comparisons.append(dict(strategy=strategy, batch=batch, indices=row['indices'],
                     numerical_pass=row['numerical_pass'],
                     matched_single_mean_step_ms=1000 * serial_decode / (steps * batch),
