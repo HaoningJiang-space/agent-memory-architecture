@@ -1,0 +1,50 @@
+{
+  "captured": 1792168207.7387037,
+  "checkout": "/data/ziheng/agent-memory-alignment-01",
+  "checkout_commit": "00e769d19eba7cc08f2ad02a6a96baa5fae48c9e",
+  "files": {
+    "outputs/capacity_batch_01/manifest.json": {
+      "sha256": "8f75f6f7e789b407462aa5389973c9a914d4630a50dd0f061b43dde0e428c231",
+      "bytes": 6104
+    },
+    "outputs/capacity_batch_01/public_summary.json": {
+      "sha256": "93fbcebc1ff5835f0ae34a853b1813e850dd0f2904aa704b649adc4db7e5e498",
+      "bytes": 9631
+    },
+    "outputs/capacity_batch_02/public_summary.json": {
+      "sha256": "8fb4eefbf2f297b5cd4399312f310794d29158d0384072300d34b76289cad66c",
+      "bytes": 65216
+    },
+    "outputs/attention_mask_01/public_summary.json": {
+      "sha256": "7a83c002cb5f0316ddd17a1d97da4c2fc66bd6fb4fcb4b67b35b6d7d15ba62ed",
+      "bytes": 20475
+    },
+    "outputs/prefix_capacity_01/public_summary.json": {
+      "sha256": "2b83768a1cec96200011f50cdbf1cfc59048565fbe13e5612d000f552c3793d4",
+      "bytes": 8760
+    },
+    "logs/capacity_batch_01.log": {
+      "sha256": "64879fa752de09014bdd54d8e224c19c89f69c494a2c9f24926a3fcef4aed0c6",
+      "bytes": 3703
+    },
+    "logs/capacity_batch_02.log": {
+      "sha256": "751a0367849cd412fdb9272bb4b06b180272e3a33507400ecb38ce63b714af87",
+      "bytes": 10921
+    },
+    "logs/attention_mask_01.log": {
+      "sha256": "f4ad74ff579488c135725c088d60c6c3d132fec817cb847056d85037d63bff07",
+      "bytes": 1115
+    },
+    "logs/prefix_capacity_01.log": {
+      "sha256": "b280bb2a35fbbea226784fea5078e529de92a8f0ae3a1dd8037dfee4841bed58",
+      "bytes": 351
+    }
+  },
+  "owned_processes_live": {
+    "713228": false,
+    "715150": false,
+    "716811": false,
+    "717287": false
+  },
+  "gpu_processes": ""
+}

@@ -1,0 +1,300 @@
+{
+  "status": "complete",
+  "execution_commit": "00e769d19eba7cc08f2ad02a6a96baa5fae48c9e",
+  "source_sha256": "cc0ba9f69e023e4b1787b9826afe0aa8c829278314ec0ab19134734c14c503b3",
+  "model_revision": "9216db5781bf21249d130ec9da846c4624c16137",
+  "rows": [
+    {
+      "strategy": "raw",
+      "batch": 2,
+      "indices": [
+        3,
+        28
+      ],
+      "source_sha256": [
+        "64e06437b0b6d5fc8cef91c8ec045fd45463c8d18f2f69ab62f3a90b72dbc2b4",
+        "587178525e7368b79332cd4ee3cd132888a5e82877cd40d4b5cb518ecdd87ac0"
+      ],
+      "private_prompt_tokens": 42391,
+      "unique_prefix_tokens": 42367,
+      "ideal_prompt_capacity_saved_fraction": 0.0005661579108773296,
+      "block_controls": [
+        {
+          "block_size": 16,
+          "shared_slots": 42384,
+          "unshared_slots": 42400
+        },
+        {
+          "block_size": 32,
+          "shared_slots": 42432,
+          "unshared_slots": 42432
+        }
+      ]
+    },
+    {
+      "strategy": "raw",
+      "batch": 4,
+      "indices": [
+        3,
+        28,
+        30,
+        31
+      ],
+      "source_sha256": [
+        "64e06437b0b6d5fc8cef91c8ec045fd45463c8d18f2f69ab62f3a90b72dbc2b4",
+        "587178525e7368b79332cd4ee3cd132888a5e82877cd40d4b5cb518ecdd87ac0",
+        "c4ba68e9c7a31706b7ce170f8387fcab43827248159ae7d2b9e3479065bbdd60",
+        "4ada03e1b36e1e8cf0a0a58187711f0654f4ea7123646acecbcf2a9ed3f1f7b3"
+      ],
+      "private_prompt_tokens": 84761,
+      "unique_prefix_tokens": 84689,
+      "ideal_prompt_capacity_saved_fraction": 0.0008494472693809652,
+      "block_controls": [
+        {
+          "block_size": 16,
+          "shared_slots": 84736,
+          "unshared_slots": 84784
+        },
+        {
+          "block_size": 32,
+          "shared_slots": 84832,
+          "unshared_slots": 84832
+        }
+      ]
+    },
+    {
+      "strategy": "raw",
+      "batch": 7,
+      "indices": [
+        3,
+        28,
+        30,
+        31,
+        39,
+        48,
+        54
+      ],
+      "source_sha256": [
+        "64e06437b0b6d5fc8cef91c8ec045fd45463c8d18f2f69ab62f3a90b72dbc2b4",
+        "587178525e7368b79332cd4ee3cd132888a5e82877cd40d4b5cb518ecdd87ac0",
+        "c4ba68e9c7a31706b7ce170f8387fcab43827248159ae7d2b9e3479065bbdd60",
+        "4ada03e1b36e1e8cf0a0a58187711f0654f4ea7123646acecbcf2a9ed3f1f7b3",
+        "0678ed5ecb8959bc44508913788ff09cf1e7c599a43854f2b31900e89a7acd9c",
+        "efde6663c26345b8a990add6385e1892a0ced84dc1617b39291faecca79a51f4",
+        "644eba4bd3558108fdfb1fe3d4c88fb03efd892191526575f59c6f56f4ec262b"
+      ],
+      "private_prompt_tokens": 148057,
+      "unique_prefix_tokens": 147912,
+      "ideal_prompt_capacity_saved_fraction": 0.0009793525466543773,
+      "block_controls": [
+        {
+          "block_size": 16,
+          "shared_slots": 148016,
+          "unshared_slots": 148112
+        },
+        {
+          "block_size": 32,
+          "shared_slots": 148192,
+          "unshared_slots": 148192
+        }
+      ]
+    },
+    {
+      "strategy": "raw_512",
+      "batch": 2,
+      "indices": [
+        3,
+        28
+      ],
+      "source_sha256": [
+        "3527e764278dacb1bbf8076332e7a54d40a135b5f84b873305cfee8efbb177b6",
+        "d502cabe8c42b3565ee03c8f67f64fccbb699ac73864c5c81ebee6005493a67a"
+      ],
+      "private_prompt_tokens": 5338,
+      "unique_prefix_tokens": 5314,
+      "ideal_prompt_capacity_saved_fraction": 0.004496065942300453,
+      "block_controls": [
+        {
+          "block_size": 16,
+          "shared_slots": 5328,
+          "unshared_slots": 5344
+        },
+        {
+          "block_size": 32,
+          "shared_slots": 5376,
+          "unshared_slots": 5376
+        }
+      ]
+    },
+    {
+      "strategy": "raw_512",
+      "batch": 4,
+      "indices": [
+        3,
+        28,
+        30,
+        31
+      ],
+      "source_sha256": [
+        "3527e764278dacb1bbf8076332e7a54d40a135b5f84b873305cfee8efbb177b6",
+        "d502cabe8c42b3565ee03c8f67f64fccbb699ac73864c5c81ebee6005493a67a",
+        "493c6b42b79b219663b2c06d6eb88cccb1510ab0271d4f24ec276383b1183b23",
+        "ca964869ffada6c425af45e6aba061587b3b8479b8bc2050fbe692b2d7cd3ae4"
+      ],
+      "private_prompt_tokens": 10675,
+      "unique_prefix_tokens": 10603,
+      "ideal_prompt_capacity_saved_fraction": 0.0067447306791569295,
+      "block_controls": [
+        {
+          "block_size": 16,
+          "shared_slots": 10640,
+          "unshared_slots": 10688
+        },
+        {
+          "block_size": 32,
+          "shared_slots": 10752,
+          "unshared_slots": 10752
+        }
+      ]
+    },
+    {
+      "strategy": "raw_512",
+      "batch": 7,
+      "indices": [
+        3,
+        28,
+        30,
+        31,
+        39,
+        48,
+        54
+      ],
+      "source_sha256": [
+        "3527e764278dacb1bbf8076332e7a54d40a135b5f84b873305cfee8efbb177b6",
+        "d502cabe8c42b3565ee03c8f67f64fccbb699ac73864c5c81ebee6005493a67a",
+        "493c6b42b79b219663b2c06d6eb88cccb1510ab0271d4f24ec276383b1183b23",
+        "ca964869ffada6c425af45e6aba061587b3b8479b8bc2050fbe692b2d7cd3ae4",
+        "90edd34d3a3a4581682db324044f6b6dd87f66d1e4b6b414853698ac5010c451",
+        "824b89c7b368086046b8a46f55257f12f3264ff8db824b85bfea14e4bab1ded6",
+        "166fe85c82446615d8f9dcdd760a5acf1418cd359f04b99500f4771cf2ae0fb4"
+      ],
+      "private_prompt_tokens": 17987,
+      "unique_prefix_tokens": 17843,
+      "ideal_prompt_capacity_saved_fraction": 0.008005781953633218,
+      "block_controls": [
+        {
+          "block_size": 16,
+          "shared_slots": 17920,
+          "unshared_slots": 18016
+        },
+        {
+          "block_size": 32,
+          "shared_slots": 18112,
+          "unshared_slots": 18112
+        }
+      ]
+    },
+    {
+      "strategy": "mem0",
+      "batch": 2,
+      "indices": [
+        3,
+        28
+      ],
+      "source_sha256": [
+        "a1ae56e2c454ad0547f7903b2dca25930da7d141e4b4a00f60b0e628aab43149",
+        "4b0012b76d5d52ba42fe9ed62b9e40f54b9f08d07a8a84acc6d79e111d19b239"
+      ],
+      "private_prompt_tokens": 518,
+      "unique_prefix_tokens": 493,
+      "ideal_prompt_capacity_saved_fraction": 0.04826254826254828,
+      "block_controls": [
+        {
+          "block_size": 16,
+          "shared_slots": 512,
+          "unshared_slots": 528
+        },
+        {
+          "block_size": 32,
+          "shared_slots": 544,
+          "unshared_slots": 544
+        }
+      ]
+    },
+    {
+      "strategy": "mem0",
+      "batch": 4,
+      "indices": [
+        3,
+        28,
+        30,
+        31
+      ],
+      "source_sha256": [
+        "a1ae56e2c454ad0547f7903b2dca25930da7d141e4b4a00f60b0e628aab43149",
+        "4b0012b76d5d52ba42fe9ed62b9e40f54b9f08d07a8a84acc6d79e111d19b239",
+        "9a413d6fa669f7dc1bba3857ef5bef861da322bb112a596a4567b9c94e061430",
+        "eea7b8f6a517400e25b15ba11eb60770ee2fe6c9762420a81b76a4bd2cca7268"
+      ],
+      "private_prompt_tokens": 994,
+      "unique_prefix_tokens": 915,
+      "ideal_prompt_capacity_saved_fraction": 0.07947686116700203,
+      "block_controls": [
+        {
+          "block_size": 16,
+          "shared_slots": 976,
+          "unshared_slots": 1024
+        },
+        {
+          "block_size": 32,
+          "shared_slots": 1056,
+          "unshared_slots": 1056
+        }
+      ]
+    },
+    {
+      "strategy": "mem0",
+      "batch": 7,
+      "indices": [
+        3,
+        28,
+        30,
+        31,
+        39,
+        48,
+        54
+      ],
+      "source_sha256": [
+        "a1ae56e2c454ad0547f7903b2dca25930da7d141e4b4a00f60b0e628aab43149",
+        "4b0012b76d5d52ba42fe9ed62b9e40f54b9f08d07a8a84acc6d79e111d19b239",
+        "9a413d6fa669f7dc1bba3857ef5bef861da322bb112a596a4567b9c94e061430",
+        "eea7b8f6a517400e25b15ba11eb60770ee2fe6c9762420a81b76a4bd2cca7268",
+        "39725462a2af5cafd5efac3c47879ac6df43f6d19835dce6e3d5658fe6fa6752",
+        "586044e5b71e2f611d42d63599d8f094359abd34b83559d051adad8f4cea9706",
+        "8396d2ebebeccea3095e80a285ec78e84ffc7c22e5c10c981fc0011c9cff8023"
+      ],
+      "private_prompt_tokens": 1678,
+      "unique_prefix_tokens": 1522,
+      "ideal_prompt_capacity_saved_fraction": 0.09296781883194283,
+      "block_controls": [
+        {
+          "block_size": 16,
+          "shared_slots": 1632,
+          "unshared_slots": 1728
+        },
+        {
+          "block_size": 32,
+          "shared_slots": 1792,
+          "unshared_slots": 1792
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Prompt only; private generated tokens and workspace must be added.",
+    "Potential exact-prefix sharing, not observed runtime cache hits or timing.",
+    "All requests are from the same fixed model and finite history.",
+    "No eviction; only complete blocks share; each partial block stays private.",
+    "No cross-strategy quality equivalence."
+  ]
+}

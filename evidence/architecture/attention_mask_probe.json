@@ -1,0 +1,533 @@
+{
+  "status": "complete",
+  "pid": 716811,
+  "start": 1792168019.3468635,
+  "execution_commit": "00e769d19eba7cc08f2ad02a6a96baa5fae48c9e",
+  "source_sha256": "40fb5600866b39f997118f110708df6211d898db524d91c8ce3cfe87010b5148",
+  "gpu": "NVIDIA A800 80GB PCIe",
+  "torch": "2.8.0+cu128",
+  "transformers": "4.57.6",
+  "helper_sources": {
+    "repeat_kv": "def repeat_kv(hidden_states: torch.Tensor, n_rep: int) -> torch.Tensor:\n    \"\"\"\n    This is the equivalent of torch.repeat_interleave(x, dim=1, repeats=n_rep). The hidden states go from (batch,\n    num_key_value_heads, seqlen, head_dim) to (batch, num_attention_heads, seqlen, head_dim)\n    \"\"\"\n    batch, num_key_value_heads, slen, head_dim = hidden_states.shape\n    if n_rep == 1:\n        return hidden_states\n    hidden_states = hidden_states[:, :, None, :, :].expand(batch, num_key_value_heads, n_rep, slen, head_dim)\n    return hidden_states.reshape(batch, num_key_value_heads * n_rep, slen, head_dim)\n",
+    "use_gqa_in_sdpa": "def use_gqa_in_sdpa(attention_mask: Optional[torch.Tensor], key: torch.Tensor) -> bool:\n    # GQA can only be used under the following conditions\n    # 1.cuda\n    #   - torch version >= 2.5\n    #   - attention_mask is None (otherwise it will fall back to the math kernel)\n    #   - key is not a torch.fx.Proxy (otherwise it will fail with a tracing error)\n    # 2.xpu\n    #   - torch version >= 2.8\n    #   - key is not a torch.fx.Proxy (otherwise it will fail with a tracing error)\n    # 3.npu\n    #   - npu is not supported gqa currently\n    if _is_torch_xpu_available:\n        return _is_torch_greater_or_equal_than_2_8 and not isinstance(key, torch.fx.Proxy)\n    if _is_torch_npu_available:\n        return False\n    return _is_torch_greater_or_equal_than_2_5 and attention_mask is None and not isinstance(key, torch.fx.Proxy)\n"
+  },
+  "controls": {
+    "seed": 20261017,
+    "batch": 1,
+    "query_tokens": 1,
+    "heads": 64,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "dtype": "BF16",
+    "warmup": 2,
+    "timed_steps": 16,
+    "reference": "FP32 grouped einsum, no repeated KV heads"
+  },
+  "cases": [
+    {
+      "strategy": "raw",
+      "route": "native_no_padding",
+      "length": 21032,
+      "padded_length": 21359,
+      "native_gqa": true,
+      "forward_ms": [
+        0.12492799758911133,
+        0.10547199845314026,
+        0.1013759970664978,
+        0.1013759970664978,
+        0.1013759970664978,
+        0.1013759970664978,
+        0.10035199671983719,
+        0.09932799637317657,
+        0.10035199671983719,
+        0.10239999741315842,
+        0.10035199671983719,
+        0.09830400347709656,
+        0.09932799637317657,
+        0.09932799637317657,
+        0.09932799637317657,
+        0.10239999741315842
+      ],
+      "peak_extra_bytes": 711680,
+      "relative_l2": 0.00224311236848175,
+      "max_abs": 0.00015620887279510498,
+      "numerical_pass": true,
+      "selected_profile_events": [
+        {
+          "name": "aten::scaled_dot_product_attention",
+          "count": 1,
+          "cuda_time_us": 164.09800000000087
+        },
+        {
+          "name": "aten::_scaled_dot_product_flash_attention",
+          "count": 1,
+          "cuda_time_us": 164.09800000000087
+        },
+        {
+          "name": "aten::reshape",
+          "count": 4,
+          "cuda_time_us": 0
+        }
+      ]
+    },
+    {
+      "strategy": "raw",
+      "route": "expanded_no_padding",
+      "length": 21032,
+      "padded_length": 21359,
+      "native_gqa": false,
+      "forward_ms": [
+        1.5767040252685547,
+        1.5574400424957275,
+        1.5594559907913208,
+        1.5640000104904175,
+        1.5617599487304688,
+        1.566912055015564,
+        1.5568959712982178,
+        1.5536960363388062,
+        1.5631040334701538,
+        1.5619839429855347,
+        1.5633280277252197,
+        1.5571520328521729,
+        1.5594559907913208,
+        1.557536005973816,
+        1.5589760541915894,
+        1.563040018081665
+      ],
+      "peak_extra_bytes": 689293824,
+      "relative_l2": 0.002285715066285115,
+      "max_abs": 0.00014563649892807007,
+      "numerical_pass": true,
+      "selected_profile_events": [
+        {
+          "name": "aten::reshape",
+          "count": 2,
+          "cuda_time_us": 1744.737
+        },
+        {
+          "name": "aten::clone",
+          "count": 2,
+          "cuda_time_us": 1744.737
+        },
+        {
+          "name": "aten::copy_",
+          "count": 2,
+          "cuda_time_us": 1744.737
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+          "count": 2,
+          "cuda_time_us": 1163.617
+        },
+        {
+          "name": "aten::scaled_dot_product_attention",
+          "count": 1,
+          "cuda_time_us": 409.28099999999995
+        },
+        {
+          "name": "aten::_scaled_dot_product_flash_attention",
+          "count": 1,
+          "cuda_time_us": 409.28099999999995
+        }
+      ]
+    },
+    {
+      "strategy": "raw",
+      "route": "hf_padded",
+      "length": 21032,
+      "padded_length": 21359,
+      "native_gqa": false,
+      "forward_ms": [
+        2.349152088165283,
+        2.336575984954834,
+        2.333087921142578,
+        2.3344318866729736,
+        2.336832046508789,
+        2.334656000137329,
+        2.335360050201416,
+        2.3314878940582275,
+        2.337599992752075,
+        2.3341760635375977,
+        2.335007905960083,
+        2.3340799808502197,
+        2.3354880809783936,
+        2.3365440368652344,
+        2.3330559730529785,
+        2.3330559730529785
+      ],
+      "peak_extra_bytes": 700508160,
+      "relative_l2": 0.0023272557817896273,
+      "max_abs": 0.00013103708624839783,
+      "numerical_pass": true,
+      "selected_profile_events": [
+        {
+          "name": "aten::reshape",
+          "count": 2,
+          "cuda_time_us": 1763.8739999999998
+        },
+        {
+          "name": "aten::clone",
+          "count": 2,
+          "cuda_time_us": 1763.8739999999998
+        },
+        {
+          "name": "aten::copy_",
+          "count": 3,
+          "cuda_time_us": 1766.8509999999997
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+          "count": 2,
+          "cuda_time_us": 1176.417
+        },
+        {
+          "name": "aten::scaled_dot_product_attention",
+          "count": 1,
+          "cuda_time_us": 1169.7619999999997
+        },
+        {
+          "name": "aten::_scaled_dot_product_efficient_attention",
+          "count": 1,
+          "cuda_time_us": 1164.353
+        }
+      ]
+    },
+    {
+      "strategy": "raw_512",
+      "route": "native_no_padding",
+      "length": 2669,
+      "padded_length": 2672,
+      "native_gqa": true,
+      "forward_ms": [
+        0.08742400258779526,
+        0.07260800153017044,
+        0.06985600292682648,
+        0.0682239979505539,
+        0.06745599955320358,
+        0.0689919963479042,
+        0.06745599955320358,
+        0.07056000083684921,
+        0.06860800087451935,
+        0.06771200150251389,
+        0.06752000004053116,
+        0.06729599833488464,
+        0.06723199784755707,
+        0.06643199920654297,
+        0.06694400310516357,
+        0.066880002617836
+      ],
+      "peak_extra_bytes": 711680,
+      "relative_l2": 0.0021910399007013907,
+      "max_abs": 0.00037292391061782837,
+      "numerical_pass": true,
+      "selected_profile_events": [
+        {
+          "name": "aten::scaled_dot_product_attention",
+          "count": 1,
+          "cuda_time_us": 42.68799999999919
+        },
+        {
+          "name": "aten::_scaled_dot_product_flash_attention",
+          "count": 1,
+          "cuda_time_us": 42.68799999999919
+        },
+        {
+          "name": "aten::reshape",
+          "count": 4,
+          "cuda_time_us": 0
+        }
+      ]
+    },
+    {
+      "strategy": "raw_512",
+      "route": "expanded_no_padding",
+      "length": 2669,
+      "padded_length": 2672,
+      "native_gqa": false,
+      "forward_ms": [
+        0.2879999876022339,
+        0.25887998938560486,
+        0.25651198625564575,
+        0.25571200251579285,
+        0.2584959864616394,
+        0.25574401021003723,
+        0.25468799471855164,
+        0.25651198625564575,
+        0.25468799471855164,
+        0.2561280131340027,
+        0.255840003490448,
+        0.2560639977455139,
+        0.256415992975235,
+        0.2574720084667206,
+        0.25603199005126953,
+        0.25542399287223816
+      ],
+      "peak_extra_bytes": 88197632,
+      "relative_l2": 0.0022467589963970085,
+      "max_abs": 0.00032170116901397705,
+      "numerical_pass": true,
+      "selected_profile_events": [
+        {
+          "name": "aten::reshape",
+          "count": 2,
+          "cuda_time_us": 225.73700000000008
+        },
+        {
+          "name": "aten::clone",
+          "count": 2,
+          "cuda_time_us": 225.73700000000008
+        },
+        {
+          "name": "aten::copy_",
+          "count": 2,
+          "cuda_time_us": 225.73700000000008
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+          "count": 2,
+          "cuda_time_us": 150.59799999999996
+        },
+        {
+          "name": "aten::scaled_dot_product_attention",
+          "count": 1,
+          "cuda_time_us": 77.98699999999963
+        },
+        {
+          "name": "aten::_scaled_dot_product_flash_attention",
+          "count": 1,
+          "cuda_time_us": 77.98699999999963
+        }
+      ]
+    },
+    {
+      "strategy": "raw_512",
+      "route": "hf_padded",
+      "length": 2669,
+      "padded_length": 2672,
+      "native_gqa": false,
+      "forward_ms": [
+        0.35043200850486755,
+        0.3396799862384796,
+        0.3394559919834137,
+        0.33875200152397156,
+        0.3380799889564514,
+        0.3381119966506958,
+        0.3386560082435608,
+        0.3383679986000061,
+        0.3415359854698181,
+        0.33772799372673035,
+        0.3381440043449402,
+        0.33635199069976807,
+        0.3378559947013855,
+        0.3383040130138397,
+        0.33823999762535095,
+        0.33657601475715637
+      ],
+      "peak_extra_bytes": 88096768,
+      "relative_l2": 0.002310652332446129,
+      "max_abs": 0.0003155842423439026,
+      "numerical_pass": true,
+      "selected_profile_events": [
+        {
+          "name": "aten::reshape",
+          "count": 2,
+          "cuda_time_us": 230.56200000000035
+        },
+        {
+          "name": "aten::clone",
+          "count": 2,
+          "cuda_time_us": 230.56200000000035
+        },
+        {
+          "name": "aten::copy_",
+          "count": 2,
+          "cuda_time_us": 230.56200000000035
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+          "count": 2,
+          "cuda_time_us": 154.08100000000013
+        },
+        {
+          "name": "aten::scaled_dot_product_attention",
+          "count": 1,
+          "cuda_time_us": 157.4409999999998
+        },
+        {
+          "name": "aten::_scaled_dot_product_efficient_attention",
+          "count": 1,
+          "cuda_time_us": 157.4409999999998
+        }
+      ]
+    },
+    {
+      "strategy": "mem0",
+      "route": "native_no_padding",
+      "length": 255,
+      "padded_length": 263,
+      "native_gqa": true,
+      "forward_ms": [
+        0.08560000360012054,
+        0.07203199714422226,
+        0.06883200258016586,
+        0.06947200000286102,
+        0.06864000111818314,
+        0.06755200028419495,
+        0.06758400052785873,
+        0.0671359971165657,
+        0.06800000369548798,
+        0.06870400160551071,
+        0.06764800101518631,
+        0.06831999868154526,
+        0.06723199784755707,
+        0.066880002617836,
+        0.06710399687290192,
+        0.06758400052785873
+      ],
+      "peak_extra_bytes": 83968,
+      "relative_l2": 0.002163052554624729,
+      "max_abs": 0.0012251734733581543,
+      "numerical_pass": true,
+      "selected_profile_events": [
+        {
+          "name": "aten::scaled_dot_product_attention",
+          "count": 1,
+          "cuda_time_us": 25.536000000000058
+        },
+        {
+          "name": "aten::_scaled_dot_product_flash_attention",
+          "count": 1,
+          "cuda_time_us": 25.536000000000058
+        },
+        {
+          "name": "aten::reshape",
+          "count": 4,
+          "cuda_time_us": 0
+        }
+      ]
+    },
+    {
+      "strategy": "mem0",
+      "route": "expanded_no_padding",
+      "length": 255,
+      "padded_length": 263,
+      "native_gqa": false,
+      "forward_ms": [
+        0.1648000031709671,
+        0.13519999384880066,
+        0.1313920021057129,
+        0.12880000472068787,
+        0.12889599800109863,
+        0.131071999669075,
+        0.12966400384902954,
+        0.13939200341701508,
+        0.131071999669075,
+        0.12825599312782288,
+        0.12822400033473969,
+        0.12860800325870514,
+        0.12809599936008453,
+        0.12812800705432892,
+        0.1292479932308197,
+        0.12822400033473969
+      ],
+      "peak_extra_bytes": 8439808,
+      "relative_l2": 0.002163052554624729,
+      "max_abs": 0.0012251734733581543,
+      "numerical_pass": true,
+      "selected_profile_events": [
+        {
+          "name": "aten::reshape",
+          "count": 2,
+          "cuda_time_us": 28.160000000000082
+        },
+        {
+          "name": "aten::clone",
+          "count": 2,
+          "cuda_time_us": 28.160000000000082
+        },
+        {
+          "name": "aten::copy_",
+          "count": 2,
+          "cuda_time_us": 28.160000000000082
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+          "count": 2,
+          "cuda_time_us": 18.752000000000066
+        },
+        {
+          "name": "aten::scaled_dot_product_attention",
+          "count": 1,
+          "cuda_time_us": 16.416000000000054
+        },
+        {
+          "name": "aten::_scaled_dot_product_flash_attention",
+          "count": 1,
+          "cuda_time_us": 16.416000000000054
+        }
+      ]
+    },
+    {
+      "strategy": "mem0",
+      "route": "hf_padded",
+      "length": 255,
+      "padded_length": 263,
+      "native_gqa": false,
+      "forward_ms": [
+        0.16710400581359863,
+        0.1467519998550415,
+        0.1425279974937439,
+        0.14022399485111237,
+        0.14073599874973297,
+        0.1406400054693222,
+        0.14076800644397736,
+        0.14000000059604645,
+        0.14099200069904327,
+        0.14035199582576752,
+        0.13916799426078796,
+        0.13808000087738037,
+        0.1393280029296875,
+        0.13840000331401825,
+        0.13920000195503235,
+        0.15836800634860992
+      ],
+      "peak_extra_bytes": 8635392,
+      "relative_l2": 0.0021874150905174874,
+      "max_abs": 0.0012251734733581543,
+      "numerical_pass": true,
+      "selected_profile_events": [
+        {
+          "name": "aten::reshape",
+          "count": 2,
+          "cuda_time_us": 28.92800000000034
+        },
+        {
+          "name": "aten::clone",
+          "count": 2,
+          "cuda_time_us": 28.92800000000034
+        },
+        {
+          "name": "aten::copy_",
+          "count": 3,
+          "cuda_time_us": 30.78400000000056
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+          "count": 2,
+          "cuda_time_us": 19.200000000000273
+        },
+        {
+          "name": "aten::scaled_dot_product_attention",
+          "count": 1,
+          "cuda_time_us": 26.176000000000386
+        },
+        {
+          "name": "aten::_scaled_dot_product_efficient_attention",
+          "count": 1,
+          "cuda_time_us": 22.688000000000102
+        }
+      ]
+    }
+  ],
+  "end": 1792168020.490496
+}

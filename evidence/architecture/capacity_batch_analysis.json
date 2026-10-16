@@ -1,0 +1,237 @@
+{
+  "source_sha256": "8fb4eefbf2f297b5cd4399312f310794d29158d0384072300d34b76289cad66c",
+  "analysis_source_sha256": "ab0b98b7cdb2fd9f095efbe8067aa4c12242721995720e69c44c061476494f55",
+  "comparisons": [
+    {
+      "strategy": "raw",
+      "batch": 2,
+      "indices": [
+        3,
+        28
+      ],
+      "numerical_pass": false,
+      "matched_single_mean_step_ms": 142.39662146568298,
+      "matched_single_step_range_ms": [
+        70.14103174209595,
+        214.65221118927002
+      ],
+      "batch_mean_step_ms": 344.42298126220703,
+      "serial_forward_tps": 7.022638526862774,
+      "batch_forward_tps": 5.806813449760521,
+      "decode_throughput_ratio": 0.8268706167273858,
+      "per_request_step_ratio": 2.4187580977489103,
+      "prefill_serial_to_batch_ratio": 1.0607475679269907,
+      "prefill_plus_decode_serial_to_batch_ratio": 1.0284073731943466,
+      "kv_gib": 10.43701171875,
+      "peak_allocated_gib": 72.8736343383789
+    },
+    {
+      "strategy": "raw_512",
+      "batch": 2,
+      "indices": [
+        3,
+        28
+      ],
+      "numerical_pass": false,
+      "matched_single_mean_step_ms": 78.24224877357483,
+      "matched_single_step_range_ms": [
+        78.2383599281311,
+        78.24613761901855
+      ],
+      "batch_mean_step_ms": 93.89872026443481,
+      "serial_forward_tps": 12.7808187478596,
+      "batch_forward_tps": 21.299544811342038,
+      "decode_throughput_ratio": 1.6665242838929286,
+      "per_request_step_ratio": 1.2001025243557126,
+      "prefill_serial_to_batch_ratio": 1.085115073447788,
+      "prefill_plus_decode_serial_to_batch_ratio": 1.3121888277063758,
+      "kv_gib": 1.3125,
+      "peak_allocated_gib": 62.51947259902954
+    },
+    {
+      "strategy": "raw_512",
+      "batch": 4,
+      "indices": [
+        3,
+        28,
+        30,
+        31
+      ],
+      "numerical_pass": false,
+      "matched_single_mean_step_ms": 73.45476895570755,
+      "matched_single_step_range_ms": [
+        59.095684289932244,
+        78.24613761901855
+      ],
+      "batch_mean_step_ms": 126.34955549240112,
+      "serial_forward_tps": 13.613819963180193,
+      "batch_forward_tps": 31.658203975561804,
+      "decode_throughput_ratio": 2.3254460585775543,
+      "per_request_step_ratio": 1.7201001009013939,
+      "prefill_serial_to_batch_ratio": 1.1561628809741844,
+      "prefill_plus_decode_serial_to_batch_ratio": 1.5250902290687813,
+      "kv_gib": 2.625,
+      "peak_allocated_gib": 64.00237321853638
+    },
+    {
+      "strategy": "raw_512",
+      "batch": 7,
+      "indices": [
+        3,
+        28,
+        30,
+        31,
+        39,
+        48,
+        54
+      ],
+      "numerical_pass": false,
+      "matched_single_mean_step_ms": 75.48556753567287,
+      "matched_single_step_range_ms": [
+        59.095684289932244,
+        78.26168394088745
+      ],
+      "batch_mean_step_ms": 173.9473581314087,
+      "serial_forward_tps": 13.247565496906695,
+      "batch_forward_tps": 40.242059869123416,
+      "decode_throughput_ratio": 3.0376947280253064,
+      "per_request_step_ratio": 2.304379019859722,
+      "prefill_serial_to_batch_ratio": 1.0816045699037151,
+      "prefill_plus_decode_serial_to_batch_ratio": 1.5779703976364752,
+      "kv_gib": 4.59375,
+      "peak_allocated_gib": 66.22385883331299
+    },
+    {
+      "strategy": "mem0",
+      "batch": 2,
+      "indices": [
+        3,
+        28
+      ],
+      "numerical_pass": false,
+      "matched_single_mean_step_ms": 63.413130402564995,
+      "matched_single_step_range_ms": [
+        58.752909898757935,
+        68.07335090637207
+      ],
+      "batch_mean_step_ms": 68.13865232467651,
+      "serial_forward_tps": 15.76960471201641,
+      "batch_forward_tps": 29.35191600899475,
+      "decode_throughput_ratio": 1.8612968774435192,
+      "per_request_step_ratio": 1.0745196127696666,
+      "prefill_serial_to_batch_ratio": 1.2229589984952445,
+      "prefill_plus_decode_serial_to_batch_ratio": 1.7477141460302874,
+      "kv_gib": 0.13623046875,
+      "peak_allocated_gib": 61.261868953704834
+    },
+    {
+      "strategy": "mem0",
+      "batch": 4,
+      "indices": [
+        3,
+        28,
+        30,
+        31
+      ],
+      "numerical_pass": false,
+      "matched_single_mean_step_ms": 65.72881871461868,
+      "matched_single_step_range_ms": [
+        58.752909898757935,
+        68.07335090637207
+      ],
+      "batch_mean_step_ms": 68.23524570465088,
+      "serial_forward_tps": 15.214026656127794,
+      "batch_forward_tps": 58.62073124662849,
+      "decode_throughput_ratio": 3.8530714170280262,
+      "per_request_step_ratio": 1.038132847037988,
+      "prefill_serial_to_batch_ratio": 1.376854819148476,
+      "prefill_plus_decode_serial_to_batch_ratio": 3.162040462160937,
+      "kv_gib": 0.2724609375,
+      "peak_allocated_gib": 61.485798358917236
+    },
+    {
+      "strategy": "mem0",
+      "batch": 7,
+      "indices": [
+        3,
+        28,
+        30,
+        31,
+        39,
+        48,
+        54
+      ],
+      "numerical_pass": false,
+      "matched_single_mean_step_ms": 66.75009090559823,
+      "matched_single_step_range_ms": [
+        58.752909898757935,
+        68.15931987762451
+      ],
+      "batch_mean_step_ms": 73.2328143119812,
+      "serial_forward_tps": 14.981253005546566,
+      "batch_forward_tps": 95.58556592102416,
+      "decode_throughput_ratio": 6.380345214491415,
+      "per_request_step_ratio": 1.097119319516002,
+      "prefill_serial_to_batch_ratio": 1.4608909855255912,
+      "prefill_plus_decode_serial_to_batch_ratio": 4.548577494640431,
+      "kv_gib": 0.476806640625,
+      "peak_allocated_gib": 61.81870412826538
+    }
+  ],
+  "chunk_controls": [
+    {
+      "strategy": "raw",
+      "index": 3,
+      "numerical_pass": false,
+      "chunked_prefill_seconds": 18.0350639038086,
+      "unchunked_prefill_seconds": 20.29656640625,
+      "chunked_peak_gib": 66.95444250106812,
+      "unchunked_peak_gib": 70.55568408966064
+    },
+    {
+      "strategy": "raw_512",
+      "index": 3,
+      "numerical_pass": true,
+      "chunked_prefill_seconds": 1.2732897262573244,
+      "unchunked_prefill_seconds": 1.1409111328125,
+      "chunked_peak_gib": 61.79054069519043,
+      "unchunked_peak_gib": 62.177905559539795
+    },
+    {
+      "strategy": "mem0",
+      "index": 3,
+      "numerical_pass": true,
+      "chunked_prefill_seconds": 0.14840115356445313,
+      "unchunked_prefill_seconds": 0.14925926208496093,
+      "chunked_peak_gib": 61.144484519958496,
+      "unchunked_peak_gib": 61.144484519958496
+    }
+  ],
+  "capacity_skips": [
+    {
+      "strategy": "raw",
+      "batch": 4,
+      "weights_plus_kv_gib": 81.89823341369629
+    },
+    {
+      "strategy": "raw",
+      "batch": 7,
+      "weights_plus_kv_gib": 97.55375099182129
+    }
+  ],
+  "validation": {
+    "completed_cases": 31,
+    "skipped_cases": 2,
+    "numerical_checks": 62,
+    "numerical_passes": 21,
+    "argmax_agreements": 62,
+    "max_relative_logit_l2": 0.11676413373776795,
+    "max_absolute_logit_error": 2.625
+  },
+  "limits": [
+    "HF eager SDPA/DynamicCache calibration, not production serving.",
+    "Batch and single attention dispatch can differ with padding masks.",
+    "Same request set, same recorded teacher-forced 16-token work.",
+    "No cross-representation quality equivalence, no new hardware result."
+  ]
+}

@@ -1,0 +1,2260 @@
+{
+  "status": "complete",
+  "manifest": {
+    "status": "complete",
+    "start": 1792167696.7424738,
+    "pid": 715150,
+    "args": {
+      "session": "capacity_batch_02",
+      "gpu": 1,
+      "source_root": "/data/ziheng/agent-memory-architecture",
+      "steps": 16,
+      "prefill_chunk": 512,
+      "reserve_gib": 6
+    },
+    "runner_sha256": "a8bb88caea52012460319ecf9643ebf4a803bbdd9291e306880cfd84723e4400",
+    "execution_commit": "ec306d20f5c09226ec2a19ff33e14ab3b2b98ba3",
+    "source_receipts": [
+      {
+        "index": 3,
+        "strategy": "raw",
+        "private_sha256": "64e06437b0b6d5fc8cef91c8ec045fd45463c8d18f2f69ab62f3a90b72dbc2b4",
+        "input_tokens": 21032
+      },
+      {
+        "index": 3,
+        "strategy": "mem0",
+        "private_sha256": "a1ae56e2c454ad0547f7903b2dca25930da7d141e4b4a00f60b0e628aab43149",
+        "input_tokens": 255
+      },
+      {
+        "index": 28,
+        "strategy": "mem0",
+        "private_sha256": "4b0012b76d5d52ba42fe9ed62b9e40f54b9f08d07a8a84acc6d79e111d19b239",
+        "input_tokens": 263
+      },
+      {
+        "index": 28,
+        "strategy": "raw",
+        "private_sha256": "587178525e7368b79332cd4ee3cd132888a5e82877cd40d4b5cb518ecdd87ac0",
+        "input_tokens": 21359
+      },
+      {
+        "index": 30,
+        "strategy": "raw",
+        "private_sha256": "c4ba68e9c7a31706b7ce170f8387fcab43827248159ae7d2b9e3479065bbdd60",
+        "input_tokens": 21225
+      },
+      {
+        "index": 30,
+        "strategy": "mem0",
+        "private_sha256": "9a413d6fa669f7dc1bba3857ef5bef861da322bb112a596a4567b9c94e061430",
+        "input_tokens": 247
+      },
+      {
+        "index": 31,
+        "strategy": "mem0",
+        "private_sha256": "eea7b8f6a517400e25b15ba11eb60770ee2fe6c9762420a81b76a4bd2cca7268",
+        "input_tokens": 229
+      },
+      {
+        "index": 31,
+        "strategy": "raw",
+        "private_sha256": "4ada03e1b36e1e8cf0a0a58187711f0654f4ea7123646acecbcf2a9ed3f1f7b3",
+        "input_tokens": 21145
+      },
+      {
+        "index": 39,
+        "strategy": "raw",
+        "private_sha256": "0678ed5ecb8959bc44508913788ff09cf1e7c599a43854f2b31900e89a7acd9c",
+        "input_tokens": 21065
+      },
+      {
+        "index": 39,
+        "strategy": "mem0",
+        "private_sha256": "39725462a2af5cafd5efac3c47879ac6df43f6d19835dce6e3d5658fe6fa6752",
+        "input_tokens": 238
+      },
+      {
+        "index": 48,
+        "strategy": "mem0",
+        "private_sha256": "586044e5b71e2f611d42d63599d8f094359abd34b83559d051adad8f4cea9706",
+        "input_tokens": 221
+      },
+      {
+        "index": 48,
+        "strategy": "raw",
+        "private_sha256": "efde6663c26345b8a990add6385e1892a0ced84dc1617b39291faecca79a51f4",
+        "input_tokens": 21346
+      },
+      {
+        "index": 54,
+        "strategy": "raw",
+        "private_sha256": "644eba4bd3558108fdfb1fe3d4c88fb03efd892191526575f59c6f56f4ec262b",
+        "input_tokens": 20885
+      },
+      {
+        "index": 54,
+        "strategy": "mem0",
+        "private_sha256": "8396d2ebebeccea3095e80a285ec78e84ffc7c22e5c10c981fc0011c9cff8023",
+        "input_tokens": 225
+      },
+      {
+        "index": 3,
+        "strategy": "raw_512",
+        "private_sha256": "3527e764278dacb1bbf8076332e7a54d40a135b5f84b873305cfee8efbb177b6",
+        "input_tokens": 2669
+      },
+      {
+        "index": 28,
+        "strategy": "raw_512",
+        "private_sha256": "d502cabe8c42b3565ee03c8f67f64fccbb699ac73864c5c81ebee6005493a67a",
+        "input_tokens": 2669
+      },
+      {
+        "index": 30,
+        "strategy": "raw_512",
+        "private_sha256": "493c6b42b79b219663b2c06d6eb88cccb1510ab0271d4f24ec276383b1183b23",
+        "input_tokens": 2672
+      },
+      {
+        "index": 31,
+        "strategy": "raw_512",
+        "private_sha256": "ca964869ffada6c425af45e6aba061587b3b8479b8bc2050fbe692b2d7cd3ae4",
+        "input_tokens": 2665
+      },
+      {
+        "index": 39,
+        "strategy": "raw_512",
+        "private_sha256": "90edd34d3a3a4581682db324044f6b6dd87f66d1e4b6b414853698ac5010c451",
+        "input_tokens": 2278
+      },
+      {
+        "index": 48,
+        "strategy": "raw_512",
+        "private_sha256": "824b89c7b368086046b8a46f55257f12f3264ff8db824b85bfea14e4bab1ded6",
+        "input_tokens": 2368
+      },
+      {
+        "index": 54,
+        "strategy": "raw_512",
+        "private_sha256": "166fe85c82446615d8f9dcdd760a5acf1418cd359f04b99500f4771cf2ae0fb4",
+        "input_tokens": 2666
+      }
+    ],
+    "model_revision": "9216db5781bf21249d130ec9da846c4624c16137",
+    "model_config_sha256": "97e295b63283935788fac5e4f8860862a56d4089538cafc93f0431f2ebe483bb",
+    "source_root": "/data/ziheng/agent-memory-architecture",
+    "loading_started": 1792167704.4386072,
+    "model_loaded": 1792167716.2886655,
+    "weight_bytes": 65524246528,
+    "gpu_memory_bytes": 85095874560,
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6",
+    "gpu": "NVIDIA A800 80GB PCIe",
+    "kv_bytes_per_token": 262144,
+    "backend": "HF eager BF16 SDPA, fixed padded length within strategy, teacher forced",
+    "limits": [
+      "Distinct recorded requests; no new answer or quality claim.",
+      "No cross-request prefix sharing or optimized vLLM scheduling.",
+      "CUDA event forward times exclude tokenization and validation copies.",
+      "Memory includes padded KV; chunked prefill charged explicitly.",
+      "Single trajectory per case, 16 steps are sequential samples, not independent trials.",
+      "Shape calibration only; no production arrival, SLO or energy result."
+    ],
+    "end": 1792167993.7056267,
+    "planned_cases": 33,
+    "completed_cases": 31,
+    "numerical_checks": 62
+  },
+  "cases": [
+    {
+      "strategy": "raw",
+      "indices": [
+        3
+      ],
+      "batch": 1,
+      "padded_input_tokens": 21359,
+      "actual_input_tokens": [
+        21032
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167716.7793634,
+      "status": "complete",
+      "end": 1792167738.3847086,
+      "prefill_chunks": 42,
+      "prefill_cuda_seconds": 18.0350639038086,
+      "decode_cuda_seconds": [
+        0.21641603088378905,
+        0.21480140686035157,
+        0.21435084533691406,
+        0.21494886779785155,
+        0.21427711486816406,
+        0.21473178100585938,
+        0.21420748901367187,
+        0.21464678955078126,
+        0.21389312744140626,
+        0.21473587036132813,
+        0.214297607421875,
+        0.21471743774414062,
+        0.21444915771484374,
+        0.21482803344726562,
+        0.2143488006591797,
+        0.21478501892089844
+      ],
+      "mean_decode_step_ms": 214.65221118927002,
+      "median_decode_step_ms": 214.68211364746094,
+      "forward_decode_tokens_per_second": 4.658698806127126,
+      "instrumented_wall_seconds": 21.47547234396916,
+      "prefill_kv_bytes": 5599133696,
+      "final_kv_bytes": 5603328000,
+      "allocated_bytes": 71136903168,
+      "peak_allocated_bytes": 71891785216,
+      "temperature_c": 60,
+      "sm_clock_mhz": 1410,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw",
+      "indices": [
+        28
+      ],
+      "batch": 1,
+      "padded_input_tokens": 21359,
+      "actual_input_tokens": [
+        21359
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167738.3888106,
+      "status": "complete",
+      "end": 1792167758.5361469,
+      "prefill_chunks": 42,
+      "prefill_cuda_seconds": 18.392974273681638,
+      "decode_cuda_seconds": [
+        0.07394982147216797,
+        0.06987980651855469,
+        0.06989004516601563,
+        0.0698439712524414,
+        0.0698603515625,
+        0.06979891204833985,
+        0.06985830688476563,
+        0.0698388442993164,
+        0.06985318756103516,
+        0.06981938934326172,
+        0.06980608367919922,
+        0.06983782196044921,
+        0.06991053009033203,
+        0.07015219116210937,
+        0.07017676544189454,
+        0.06978047943115234
+      ],
+      "mean_decode_step_ms": 70.14103174209595,
+      "median_decode_step_ms": 69.85574722290039,
+      "forward_decode_tokens_per_second": 14.25699016913432,
+      "instrumented_wall_seconds": 19.520836006035097,
+      "prefill_kv_bytes": 5599133696,
+      "final_kv_bytes": 5603328000,
+      "allocated_bytes": 71136903168,
+      "peak_allocated_bytes": 71891785216,
+      "temperature_c": 64,
+      "sm_clock_mhz": 1380,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw",
+      "indices": [
+        30
+      ],
+      "batch": 1,
+      "padded_input_tokens": 21359,
+      "actual_input_tokens": [
+        21225
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167758.5373678,
+      "status": "complete",
+      "end": 1792167780.6616106,
+      "prefill_chunks": 42,
+      "prefill_cuda_seconds": 18.52083514404297,
+      "decode_cuda_seconds": [
+        0.21763072204589845,
+        0.21640499877929686,
+        0.21588377380371093,
+        0.21659750366210936,
+        0.21598515319824219,
+        0.2164541473388672,
+        0.21593292236328124,
+        0.2165207061767578,
+        0.2155878448486328,
+        0.21643878173828124,
+        0.2160199737548828,
+        0.2164654083251953,
+        0.2161766357421875,
+        0.2165760040283203,
+        0.2165032958984375,
+        0.21637528991699218
+      ],
+      "mean_decode_step_ms": 216.34707260131836,
+      "median_decode_step_ms": 216.42189025878906,
+      "forward_decode_tokens_per_second": 4.622202593158204,
+      "instrumented_wall_seconds": 21.987619120045565,
+      "prefill_kv_bytes": 5599133696,
+      "final_kv_bytes": 5603328000,
+      "allocated_bytes": 71136903168,
+      "peak_allocated_bytes": 71891785216,
+      "temperature_c": 69,
+      "sm_clock_mhz": 1395,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw",
+      "indices": [
+        31
+      ],
+      "batch": 1,
+      "padded_input_tokens": 21359,
+      "actual_input_tokens": [
+        21145
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167780.6626582,
+      "status": "complete",
+      "end": 1792167802.8033834,
+      "prefill_chunks": 42,
+      "prefill_cuda_seconds": 18.532068313598632,
+      "decode_cuda_seconds": [
+        0.21812979125976562,
+        0.21724057006835937,
+        0.21659954833984374,
+        0.21749247741699218,
+        0.21737881469726564,
+        0.21790208435058595,
+        0.21680844116210937,
+        0.21759181213378906,
+        0.21633331298828126,
+        0.21759078979492188,
+        0.21688729858398437,
+        0.2173235168457031,
+        0.2173624267578125,
+        0.2180280303955078,
+        0.21704293823242188,
+        0.21715660095214845
+      ],
+      "mean_decode_step_ms": 217.30427837371826,
+      "median_decode_step_ms": 217.3429718017578,
+      "forward_decode_tokens_per_second": 4.6018422070835046,
+      "instrumented_wall_seconds": 22.013993647065945,
+      "prefill_kv_bytes": 5599133696,
+      "final_kv_bytes": 5603328000,
+      "allocated_bytes": 71136903168,
+      "peak_allocated_bytes": 71891785216,
+      "temperature_c": 72,
+      "sm_clock_mhz": 1380,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw",
+      "indices": [
+        39
+      ],
+      "batch": 1,
+      "padded_input_tokens": 21359,
+      "actual_input_tokens": [
+        21065
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167802.8047495,
+      "status": "complete",
+      "end": 1792167825.4208252,
+      "prefill_chunks": 42,
+      "prefill_cuda_seconds": 18.9756589050293,
+      "decode_cuda_seconds": [
+        0.21903993225097657,
+        0.21784474182128907,
+        0.21762559509277343,
+        0.2184058837890625,
+        0.2184847412109375,
+        0.2182860870361328,
+        0.21734912109375,
+        0.21833523559570311,
+        0.21719552612304688,
+        0.21940940856933594,
+        0.21791949462890625,
+        0.21788160705566406,
+        0.21744741821289063,
+        0.21832293701171876,
+        0.21723239135742187,
+        0.21814682006835937
+      ],
+      "mean_decode_step_ms": 218.05793380737305,
+      "median_decode_step_ms": 218.0331573486328,
+      "forward_decode_tokens_per_second": 4.58593724401413,
+      "instrumented_wall_seconds": 22.46968628303148,
+      "prefill_kv_bytes": 5599133696,
+      "final_kv_bytes": 5603328000,
+      "allocated_bytes": 71136903168,
+      "peak_allocated_bytes": 71891785216,
+      "temperature_c": 74,
+      "sm_clock_mhz": 1380,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw",
+      "indices": [
+        48
+      ],
+      "batch": 1,
+      "padded_input_tokens": 21359,
+      "actual_input_tokens": [
+        21346
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167825.421931,
+      "status": "complete",
+      "end": 1792167848.0308442,
+      "prefill_chunks": 42,
+      "prefill_cuda_seconds": 18.99688745117188,
+      "decode_cuda_seconds": [
+        0.21887432861328124,
+        0.21813862609863283,
+        0.21779046630859375,
+        0.21800344848632813,
+        0.21848165893554689,
+        0.21839872741699218,
+        0.2178293762207031,
+        0.21837925720214843,
+        0.21744741821289063,
+        0.218787841796875,
+        0.21793075561523437,
+        0.21782322692871095,
+        0.21791641235351564,
+        0.21835366821289062,
+        0.21841305541992187,
+        0.2178560028076172
+      ],
+      "mean_decode_step_ms": 218.15151691436768,
+      "median_decode_step_ms": 218.07103729248047,
+      "forward_decode_tokens_per_second": 4.583969958790321,
+      "instrumented_wall_seconds": 22.492359219002537,
+      "prefill_kv_bytes": 5599133696,
+      "final_kv_bytes": 5603328000,
+      "allocated_bytes": 71136903168,
+      "peak_allocated_bytes": 71891785216,
+      "temperature_c": 74,
+      "sm_clock_mhz": 1380,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw",
+      "indices": [
+        54
+      ],
+      "batch": 1,
+      "padded_input_tokens": 21359,
+      "actual_input_tokens": [
+        20885
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167848.032266,
+      "status": "complete",
+      "end": 1792167870.80192,
+      "prefill_chunks": 42,
+      "prefill_cuda_seconds": 19.138571136474614,
+      "decode_cuda_seconds": [
+        0.2188458557128906,
+        0.21776998901367187,
+        0.21740544128417968,
+        0.21782015991210937,
+        0.21776792907714843,
+        0.21760000610351563,
+        0.21766554260253906,
+        0.21801983642578124,
+        0.2169671630859375,
+        0.21787954711914062,
+        0.2178508758544922,
+        0.217955322265625,
+        0.2174238739013672,
+        0.21789286804199218,
+        0.21753958129882814,
+        0.2180904998779297
+      ],
+      "mean_decode_step_ms": 217.78090572357178,
+      "median_decode_step_ms": 217.79507446289062,
+      "forward_decode_tokens_per_second": 4.591770783014811,
+      "instrumented_wall_seconds": 22.628130528028123,
+      "prefill_kv_bytes": 5599133696,
+      "final_kv_bytes": 5603328000,
+      "allocated_bytes": 71136903168,
+      "peak_allocated_bytes": 71891785216,
+      "temperature_c": 72,
+      "sm_clock_mhz": 1380,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw",
+      "indices": [
+        3,
+        28
+      ],
+      "batch": 2,
+      "padded_input_tokens": 21359,
+      "actual_input_tokens": [
+        21032,
+        21359
+      ],
+      "chunk_tokens": 512,
+      "kind": "distinct_batch",
+      "start": 1792167870.8031034,
+      "status": "complete",
+      "end": 1792167910.785495,
+      "prefill_chunks": 42,
+      "prefill_cuda_seconds": 34.34185406494141,
+      "decode_cuda_seconds": [
+        0.355597412109375,
+        0.34255975341796874,
+        0.3447664489746094,
+        0.34259457397460935,
+        0.34320486450195314,
+        0.3458447265625,
+        0.3418470458984375,
+        0.343900146484375,
+        0.3442944030761719,
+        0.3432140808105469,
+        0.34323455810546877,
+        0.3450654602050781,
+        0.34297445678710936,
+        0.3433615417480469,
+        0.3442984924316406,
+        0.3440097351074219
+      ],
+      "mean_decode_step_ms": 344.42298126220703,
+      "median_decode_step_ms": 343.63084411621094,
+      "forward_decode_tokens_per_second": 5.806813449760521,
+      "instrumented_wall_seconds": 39.863932231091894,
+      "prefill_kv_bytes": 11198267392,
+      "final_kv_bytes": 11206656000,
+      "allocated_bytes": 76740744192,
+      "peak_allocated_bytes": 78247469056,
+      "temperature_c": 74,
+      "sm_clock_mhz": 1335,
+      "numerical_checks": [
+        {
+          "index": 3,
+          "step": 0,
+          "relative_logit_l2": 0.019932781603611057,
+          "max_absolute_logit_error": 0.625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 28,
+          "step": 0,
+          "relative_logit_l2": 0.029668650702068426,
+          "max_absolute_logit_error": 1.125,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 3,
+          "step": 16,
+          "relative_logit_l2": 0.018232539666099615,
+          "max_absolute_logit_error": 0.5,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 28,
+          "step": 16,
+          "relative_logit_l2": 0.01462243167855499,
+          "max_absolute_logit_error": 0.3671875,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        }
+      ],
+      "numerical_pass": false
+    },
+    {
+      "strategy": "raw",
+      "indices": [
+        3,
+        28,
+        30,
+        31
+      ],
+      "batch": 4,
+      "padded_input_tokens": 21359,
+      "actual_input_tokens": [
+        21032,
+        21359,
+        21225,
+        21145
+      ],
+      "chunk_tokens": 512,
+      "kind": "distinct_batch",
+      "start": 1792167910.7873566,
+      "status": "capacity_skipped",
+      "projected_kv_bytes": 22413312000,
+      "reason": "Weight + padded KV + declared workspace reserve exceeds device memory"
+    },
+    {
+      "strategy": "raw",
+      "indices": [
+        3,
+        28,
+        30,
+        31,
+        39,
+        48,
+        54
+      ],
+      "batch": 7,
+      "padded_input_tokens": 21359,
+      "actual_input_tokens": [
+        21032,
+        21359,
+        21225,
+        21145,
+        21065,
+        21346,
+        20885
+      ],
+      "chunk_tokens": 512,
+      "kind": "distinct_batch",
+      "start": 1792167910.788051,
+      "status": "capacity_skipped",
+      "projected_kv_bytes": 39223296000,
+      "reason": "Weight + padded KV + declared workspace reserve exceeds device memory"
+    },
+    {
+      "strategy": "raw",
+      "indices": [
+        3
+      ],
+      "batch": 1,
+      "padded_input_tokens": 21359,
+      "actual_input_tokens": [
+        21032
+      ],
+      "chunk_tokens": 21359,
+      "kind": "unchunked_control",
+      "start": 1792167910.7887092,
+      "status": "complete",
+      "end": 1792167934.7319136,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 20.29656640625,
+      "decode_cuda_seconds": [
+        0.22505113220214842,
+        0.21769215393066407,
+        0.21752012634277343,
+        0.21793382263183594,
+        0.21867622375488283,
+        0.21812838745117188,
+        0.2179174346923828,
+        0.21813760375976562,
+        0.21774949645996095,
+        0.2181457977294922,
+        0.21756825256347656,
+        0.21762969970703125,
+        0.21766963195800781,
+        0.21851341247558595,
+        0.21812019348144532,
+        0.21816012573242188
+      ],
+      "mean_decode_step_ms": 218.41334342956543,
+      "median_decode_step_ms": 218.02700805664062,
+      "forward_decode_tokens_per_second": 4.578474850930904,
+      "instrumented_wall_seconds": 23.79614039696753,
+      "prefill_kv_bytes": 5599133696,
+      "final_kv_bytes": 5603328000,
+      "allocated_bytes": 71137904640,
+      "peak_allocated_bytes": 75758588928,
+      "temperature_c": 74,
+      "sm_clock_mhz": 1380,
+      "numerical_checks": [
+        {
+          "index": 3,
+          "step": 0,
+          "relative_logit_l2": 0.023198586982286645,
+          "max_absolute_logit_error": 0.625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 3,
+          "step": 16,
+          "relative_logit_l2": 0.047358470963633485,
+          "max_absolute_logit_error": 0.625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        }
+      ],
+      "numerical_pass": false
+    },
+    {
+      "strategy": "raw_512",
+      "indices": [
+        3
+      ],
+      "batch": 1,
+      "padded_input_tokens": 2672,
+      "actual_input_tokens": [
+        2669
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167934.7333753,
+      "status": "complete",
+      "end": 1792167937.3629308,
+      "prefill_chunks": 6,
+      "prefill_cuda_seconds": 1.2732897262573244,
+      "decode_cuda_seconds": [
+        0.07940748596191406,
+        0.07820800018310547,
+        0.07824486541748046,
+        0.07837184143066406,
+        0.07817625427246094,
+        0.07813836669921875,
+        0.0781844482421875,
+        0.0779530258178711,
+        0.07805644989013671,
+        0.07814450836181641,
+        0.07813632202148438,
+        0.07830118560791016,
+        0.07802674865722656,
+        0.07811174774169923,
+        0.0781629409790039,
+        0.07818956756591797
+      ],
+      "mean_decode_step_ms": 78.2383599281311,
+      "median_decode_step_ms": 78.16959762573242,
+      "forward_decode_tokens_per_second": 12.781454019723688,
+      "instrumented_wall_seconds": 2.527561880997382,
+      "prefill_kv_bytes": 700448768,
+      "final_kv_bytes": 704643072,
+      "allocated_bytes": 66241183744,
+      "peak_allocated_bytes": 66347087872,
+      "temperature_c": 73,
+      "sm_clock_mhz": 1395,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw_512",
+      "indices": [
+        28
+      ],
+      "batch": 1,
+      "padded_input_tokens": 2672,
+      "actual_input_tokens": [
+        2669
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167937.364416,
+      "status": "complete",
+      "end": 1792167939.983972,
+      "prefill_chunks": 6,
+      "prefill_cuda_seconds": 1.2706283645629883,
+      "decode_cuda_seconds": [
+        0.07942646026611327,
+        0.078202880859375,
+        0.07815987396240234,
+        0.078382080078125,
+        0.07804108428955078,
+        0.07820800018310547,
+        0.07817215728759766,
+        0.07802982330322265,
+        0.0780421142578125,
+        0.078308349609375,
+        0.07815987396240234,
+        0.07835033416748047,
+        0.0780206069946289,
+        0.07812710571289062,
+        0.07814553833007812,
+        0.07816191864013672
+      ],
+      "mean_decode_step_ms": 78.24613761901855,
+      "median_decode_step_ms": 78.16089630126953,
+      "forward_decode_tokens_per_second": 12.780183539141735,
+      "instrumented_wall_seconds": 2.525324141024612,
+      "prefill_kv_bytes": 700448768,
+      "final_kv_bytes": 704643072,
+      "allocated_bytes": 66241183744,
+      "peak_allocated_bytes": 66347087872,
+      "temperature_c": 72,
+      "sm_clock_mhz": 1395,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw_512",
+      "indices": [
+        30
+      ],
+      "batch": 1,
+      "padded_input_tokens": 2672,
+      "actual_input_tokens": [
+        2672
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167939.98554,
+      "status": "complete",
+      "end": 1792167942.3061929,
+      "prefill_chunks": 6,
+      "prefill_cuda_seconds": 1.259440139770508,
+      "decode_cuda_seconds": [
+        0.05943097686767578,
+        0.05907660675048828,
+        0.059222015380859375,
+        0.059061248779296874,
+        0.059189247131347655,
+        0.059169792175292966,
+        0.05900185775756836,
+        0.05906534576416016,
+        0.05912268829345703,
+        0.059156478881835936,
+        0.05902438354492188,
+        0.05899776077270508,
+        0.05900288009643555,
+        0.059046913146972656,
+        0.05893427276611328,
+        0.059028480529785154
+      ],
+      "mean_decode_step_ms": 59.095684289932244,
+      "median_decode_step_ms": 59.063297271728516,
+      "forward_decode_tokens_per_second": 16.92170946179167,
+      "instrumented_wall_seconds": 2.2081319040153176,
+      "prefill_kv_bytes": 700448768,
+      "final_kv_bytes": 704643072,
+      "allocated_bytes": 66241183744,
+      "peak_allocated_bytes": 66347087872,
+      "temperature_c": 72,
+      "sm_clock_mhz": 1395,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw_512",
+      "indices": [
+        31
+      ],
+      "batch": 1,
+      "padded_input_tokens": 2672,
+      "actual_input_tokens": [
+        2665
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167942.3077404,
+      "status": "complete",
+      "end": 1792167944.923767,
+      "prefill_chunks": 6,
+      "prefill_cuda_seconds": 1.267190788269043,
+      "decode_cuda_seconds": [
+        0.07932694244384765,
+        0.07825305938720703,
+        0.078166015625,
+        0.07836569976806641,
+        0.07806771087646484,
+        0.07821926116943359,
+        0.07818752288818359,
+        0.07802265930175781,
+        0.07804313659667969,
+        0.0781629409790039,
+        0.07814348602294922,
+        0.07828479766845703,
+        0.07803494262695312,
+        0.07813632202148438,
+        0.07820697784423829,
+        0.0782008285522461
+      ],
+      "mean_decode_step_ms": 78.23889398574829,
+      "median_decode_step_ms": 78.1767692565918,
+      "forward_decode_tokens_per_second": 12.781366773693865,
+      "instrumented_wall_seconds": 2.5219253859249875,
+      "prefill_kv_bytes": 700448768,
+      "final_kv_bytes": 704643072,
+      "allocated_bytes": 66241183744,
+      "peak_allocated_bytes": 66347087872,
+      "temperature_c": 72,
+      "sm_clock_mhz": 1395,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw_512",
+      "indices": [
+        39
+      ],
+      "batch": 1,
+      "padded_input_tokens": 2672,
+      "actual_input_tokens": [
+        2278
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167944.9253614,
+      "status": "complete",
+      "end": 1792167947.7304165,
+      "prefill_chunks": 6,
+      "prefill_cuda_seconds": 1.2551219177246096,
+      "decode_cuda_seconds": [
+        0.07894329833984375,
+        0.07818035125732421,
+        0.0782376937866211,
+        0.07839334106445313,
+        0.07810559844970703,
+        0.07815987396240234,
+        0.07817727661132813,
+        0.07800729370117188,
+        0.07810559844970703,
+        0.07818342590332031,
+        0.07819264221191406,
+        0.07833087921142579,
+        0.07804621124267579,
+        0.07813836669921875,
+        0.07818342590332031,
+        0.07817727661132813
+      ],
+      "mean_decode_step_ms": 78.22265958786011,
+      "median_decode_step_ms": 78.17881393432617,
+      "forward_decode_tokens_per_second": 12.784019429520862,
+      "instrumented_wall_seconds": 2.5100415860069916,
+      "prefill_kv_bytes": 700448768,
+      "final_kv_bytes": 704643072,
+      "allocated_bytes": 66241183744,
+      "peak_allocated_bytes": 66347087872,
+      "temperature_c": 71,
+      "sm_clock_mhz": 1395,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw_512",
+      "indices": [
+        48
+      ],
+      "batch": 1,
+      "padded_input_tokens": 2672,
+      "actual_input_tokens": [
+        2368
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167947.7322059,
+      "status": "complete",
+      "end": 1792167950.340847,
+      "prefill_chunks": 6,
+      "prefill_cuda_seconds": 1.258281997680664,
+      "decode_cuda_seconds": [
+        0.07931372833251953,
+        0.07822438049316406,
+        0.0782551040649414,
+        0.07837696075439453,
+        0.07811277008056641,
+        0.07822233581542969,
+        0.0782008285522461,
+        0.07804108428955078,
+        0.07814246368408204,
+        0.07815987396240234,
+        0.07819161224365234,
+        0.07830016326904297,
+        0.07806566619873047,
+        0.07819673919677735,
+        0.07816703796386719,
+        0.07821619415283203
+      ],
+      "mean_decode_step_ms": 78.26168394088745,
+      "median_decode_step_ms": 78.19878387451172,
+      "forward_decode_tokens_per_second": 12.777644814738704,
+      "instrumented_wall_seconds": 2.5130752760451287,
+      "prefill_kv_bytes": 700448768,
+      "final_kv_bytes": 704643072,
+      "allocated_bytes": 66241183744,
+      "peak_allocated_bytes": 66347087872,
+      "temperature_c": 71,
+      "sm_clock_mhz": 1395,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw_512",
+      "indices": [
+        54
+      ],
+      "batch": 1,
+      "padded_input_tokens": 2672,
+      "actual_input_tokens": [
+        2666
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167950.342549,
+      "status": "complete",
+      "end": 1792167953.4763052,
+      "prefill_chunks": 6,
+      "prefill_cuda_seconds": 1.2687380599975586,
+      "decode_cuda_seconds": [
+        0.07879068756103516,
+        0.07812812805175781,
+        0.07819058990478515,
+        0.0782735366821289,
+        0.07769497680664063,
+        0.07819878387451172,
+        0.07804927825927735,
+        0.07776767730712891,
+        0.07791410827636719,
+        0.07790386962890625,
+        0.07823052978515625,
+        0.07831756591796875,
+        0.07801958465576173,
+        0.07812710571289062,
+        0.07809126281738281,
+        0.07783116912841796
+      ],
+      "mean_decode_step_ms": 78.09555339813232,
+      "median_decode_step_ms": 78.10918426513672,
+      "forward_decode_tokens_per_second": 12.80482635038111,
+      "instrumented_wall_seconds": 2.5213942490518093,
+      "prefill_kv_bytes": 700448768,
+      "final_kv_bytes": 704643072,
+      "allocated_bytes": 66241183744,
+      "peak_allocated_bytes": 66347087872,
+      "temperature_c": 71,
+      "sm_clock_mhz": 1410,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "raw_512",
+      "indices": [
+        3,
+        28
+      ],
+      "batch": 2,
+      "padded_input_tokens": 2672,
+      "actual_input_tokens": [
+        2669,
+        2669
+      ],
+      "chunk_tokens": 512,
+      "kind": "distinct_batch",
+      "start": 1792167953.4780583,
+      "status": "complete",
+      "end": 1792167957.4263597,
+      "prefill_chunks": 6,
+      "prefill_cuda_seconds": 2.3443763275146483,
+      "decode_cuda_seconds": [
+        0.09559091186523437,
+        0.09372774505615235,
+        0.09378406524658203,
+        0.09405235290527343,
+        0.09346355438232422,
+        0.09357721710205077,
+        0.09381887817382813,
+        0.0936079330444336,
+        0.09355570983886718,
+        0.0935884780883789,
+        0.09430937957763671,
+        0.09423052978515625,
+        0.0936089630126953,
+        0.09377689361572265,
+        0.09385266876220703,
+        0.09383424377441406
+      ],
+      "mean_decode_step_ms": 93.89872026443481,
+      "median_decode_step_ms": 93.78047943115233,
+      "forward_decode_tokens_per_second": 21.29954481134204,
+      "instrumented_wall_seconds": 3.85389509703964,
+      "prefill_kv_bytes": 1400897536,
+      "final_kv_bytes": 1409286144,
+      "allocated_bytes": 66945627136,
+      "peak_allocated_bytes": 67129772544,
+      "temperature_c": 71,
+      "sm_clock_mhz": 1395,
+      "numerical_checks": [
+        {
+          "index": 3,
+          "step": 0,
+          "relative_logit_l2": 0.011150994820371738,
+          "max_absolute_logit_error": 0.4375,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 28,
+          "step": 0,
+          "relative_logit_l2": 0.02877794063262652,
+          "max_absolute_logit_error": 0.857421875,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 3,
+          "step": 16,
+          "relative_logit_l2": 0.011445653723720469,
+          "max_absolute_logit_error": 0.3515625,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 28,
+          "step": 16,
+          "relative_logit_l2": 0.018601243857988083,
+          "max_absolute_logit_error": 0.40625,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        }
+      ],
+      "numerical_pass": false
+    },
+    {
+      "strategy": "raw_512",
+      "indices": [
+        3,
+        28,
+        30,
+        31
+      ],
+      "batch": 4,
+      "padded_input_tokens": 2672,
+      "actual_input_tokens": [
+        2669,
+        2669,
+        2672,
+        2665
+      ],
+      "chunk_tokens": 512,
+      "kind": "distinct_batch",
+      "start": 1792167957.4282389,
+      "status": "complete",
+      "end": 1792167963.953762,
+      "prefill_chunks": 6,
+      "prefill_cuda_seconds": 4.385670135498047,
+      "decode_cuda_seconds": [
+        0.12722463989257812,
+        0.12589363098144532,
+        0.12637184143066407,
+        0.12673433685302735,
+        0.12546047973632812,
+        0.12570521545410157,
+        0.1263984603881836,
+        0.1273108444213867,
+        0.12570931243896485,
+        0.12582707214355468,
+        0.12671488189697266,
+        0.1266841583251953,
+        0.1256069107055664,
+        0.12582093048095702,
+        0.12703641510009767,
+        0.12709375762939454
+      ],
+      "mean_decode_step_ms": 126.34955549240112,
+      "median_decode_step_ms": 126.38515090942381,
+      "forward_decode_tokens_per_second": 31.65820397556181,
+      "instrumented_wall_seconds": 6.417739159078337,
+      "prefill_kv_bytes": 2801795072,
+      "final_kv_bytes": 2818572288,
+      "allocated_bytes": 68353989120,
+      "peak_allocated_bytes": 68722024960,
+      "temperature_c": 70,
+      "sm_clock_mhz": 1365,
+      "numerical_checks": [
+        {
+          "index": 3,
+          "step": 0,
+          "relative_logit_l2": 0.011929784314156634,
+          "max_absolute_logit_error": 0.625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 28,
+          "step": 0,
+          "relative_logit_l2": 0.03929816860200596,
+          "max_absolute_logit_error": 0.5,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 30,
+          "step": 0,
+          "relative_logit_l2": 0.04617048433000901,
+          "max_absolute_logit_error": 0.84375,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 31,
+          "step": 0,
+          "relative_logit_l2": 0.11676413373776795,
+          "max_absolute_logit_error": 2.625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 3,
+          "step": 16,
+          "relative_logit_l2": 0.013910287054692844,
+          "max_absolute_logit_error": 0.5,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 28,
+          "step": 16,
+          "relative_logit_l2": 0.017227881846056663,
+          "max_absolute_logit_error": 0.4375,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 30,
+          "step": 16,
+          "relative_logit_l2": 0.04088590803839595,
+          "max_absolute_logit_error": 0.4375,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 31,
+          "step": 16,
+          "relative_logit_l2": 0.023709150467757907,
+          "max_absolute_logit_error": 0.4375,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        }
+      ],
+      "numerical_pass": false
+    },
+    {
+      "strategy": "raw_512",
+      "indices": [
+        3,
+        28,
+        30,
+        31,
+        39,
+        48,
+        54
+      ],
+      "batch": 7,
+      "padded_input_tokens": 2672,
+      "actual_input_tokens": [
+        2669,
+        2669,
+        2672,
+        2665,
+        2278,
+        2368,
+        2666
+      ],
+      "chunk_tokens": 512,
+      "kind": "distinct_batch",
+      "start": 1792167963.9557252,
+      "status": "complete",
+      "end": 1792167975.040464,
+      "prefill_chunks": 6,
+      "prefill_cuda_seconds": 8.18477587890625,
+      "decode_cuda_seconds": [
+        0.17362684631347655,
+        0.17304063415527343,
+        0.17339596557617187,
+        0.17451930236816407,
+        0.1732157440185547,
+        0.17382194519042968,
+        0.17472000122070314,
+        0.17462374877929687,
+        0.1731112976074219,
+        0.1729853515625,
+        0.1744998474121094,
+        0.17527705383300782,
+        0.17432371520996093,
+        0.17336933898925783,
+        0.17416806030273438,
+        0.17445887756347656
+      ],
+      "mean_decode_step_ms": 173.9473581314087,
+      "median_decode_step_ms": 173.99500274658203,
+      "forward_decode_tokens_per_second": 40.24205986912342,
+      "instrumented_wall_seconds": 10.984869866049848,
+      "prefill_kv_bytes": 4903141376,
+      "final_kv_bytes": 4932501504,
+      "allocated_bytes": 70466015232,
+      "peak_allocated_bytes": 71107326976,
+      "temperature_c": 70,
+      "sm_clock_mhz": 1335,
+      "numerical_checks": [
+        {
+          "index": 3,
+          "step": 0,
+          "relative_logit_l2": 0.012068269302510315,
+          "max_absolute_logit_error": 0.5,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 28,
+          "step": 0,
+          "relative_logit_l2": 0.033300513793713,
+          "max_absolute_logit_error": 0.78125,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 30,
+          "step": 0,
+          "relative_logit_l2": 0.05606414665272942,
+          "max_absolute_logit_error": 0.796875,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 31,
+          "step": 0,
+          "relative_logit_l2": 0.040975438342173404,
+          "max_absolute_logit_error": 0.59375,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 39,
+          "step": 0,
+          "relative_logit_l2": 0.017131960022614943,
+          "max_absolute_logit_error": 0.5,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 48,
+          "step": 0,
+          "relative_logit_l2": 0.021040121508600285,
+          "max_absolute_logit_error": 0.5625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 54,
+          "step": 0,
+          "relative_logit_l2": 0.02160454263880512,
+          "max_absolute_logit_error": 0.5,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 3,
+          "step": 16,
+          "relative_logit_l2": 0.022681752019108745,
+          "max_absolute_logit_error": 0.75,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 28,
+          "step": 16,
+          "relative_logit_l2": 0.01678369787969208,
+          "max_absolute_logit_error": 0.3125,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 30,
+          "step": 16,
+          "relative_logit_l2": 0.031130244774683045,
+          "max_absolute_logit_error": 0.375,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 31,
+          "step": 16,
+          "relative_logit_l2": 0.028159252750252932,
+          "max_absolute_logit_error": 0.4375,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 39,
+          "step": 16,
+          "relative_logit_l2": 0.04301398493374506,
+          "max_absolute_logit_error": 1.3125,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 48,
+          "step": 16,
+          "relative_logit_l2": 0.03388842127184994,
+          "max_absolute_logit_error": 0.625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 54,
+          "step": 16,
+          "relative_logit_l2": 0.009132453004426682,
+          "max_absolute_logit_error": 0.375,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        }
+      ],
+      "numerical_pass": false
+    },
+    {
+      "strategy": "raw_512",
+      "indices": [
+        3
+      ],
+      "batch": 1,
+      "padded_input_tokens": 2672,
+      "actual_input_tokens": [
+        2669
+      ],
+      "chunk_tokens": 2672,
+      "kind": "unchunked_control",
+      "start": 1792167975.0426142,
+      "status": "complete",
+      "end": 1792167977.533639,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 1.1409111328125,
+      "decode_cuda_seconds": [
+        0.08155379486083984,
+        0.0780943374633789,
+        0.07828275299072265,
+        0.07781171417236328,
+        0.07789055633544922,
+        0.07764173126220703,
+        0.07791718292236328,
+        0.07744102478027344,
+        0.07778610992431641,
+        0.07755878448486328,
+        0.07794892883300782,
+        0.07781785583496094,
+        0.07780556488037109,
+        0.07799091339111328,
+        0.07824179077148438,
+        0.07750348663330078
+      ],
+      "mean_decode_step_ms": 78.08040809631348,
+      "median_decode_step_ms": 77.85420608520508,
+      "forward_decode_tokens_per_second": 12.807310109937992,
+      "instrumented_wall_seconds": 2.3939576089615002,
+      "prefill_kv_bytes": 700448768,
+      "final_kv_bytes": 704643072,
+      "allocated_bytes": 66239488000,
+      "peak_allocated_bytes": 66763017728,
+      "temperature_c": 69,
+      "sm_clock_mhz": 1395,
+      "numerical_checks": [
+        {
+          "index": 3,
+          "step": 0,
+          "relative_logit_l2": 0.012000309763939771,
+          "max_absolute_logit_error": 0.375,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 3,
+          "step": 16,
+          "relative_logit_l2": 0.014749021317601736,
+          "max_absolute_logit_error": 0.5,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        }
+      ],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "mem0",
+      "indices": [
+        3
+      ],
+      "batch": 1,
+      "padded_input_tokens": 263,
+      "actual_input_tokens": [
+        255
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167977.5361886,
+      "status": "complete",
+      "end": 1792167978.8652246,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 0.14840115356445313,
+      "decode_cuda_seconds": [
+        0.06715606689453125,
+        0.06823731231689453,
+        0.06832332611083984,
+        0.06818508911132813,
+        0.06840525054931641,
+        0.06816255950927734,
+        0.06821273803710938,
+        0.06802124786376954,
+        0.06658560180664062,
+        0.06800179290771484,
+        0.06831104278564454,
+        0.0681891860961914,
+        0.0684062728881836,
+        0.06832434844970703,
+        0.06844313812255859,
+        0.0682086410522461
+      ],
+      "mean_decode_step_ms": 68.07335090637207,
+      "median_decode_step_ms": 68.21068954467773,
+      "forward_decode_tokens_per_second": 14.690036360563441,
+      "instrumented_wall_seconds": 1.2395001309923828,
+      "prefill_kv_bytes": 68943872,
+      "final_kv_bytes": 73138176,
+      "allocated_bytes": 65606208000,
+      "peak_allocated_bytes": 65653390336,
+      "temperature_c": 69,
+      "sm_clock_mhz": 1410,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "mem0",
+      "indices": [
+        28
+      ],
+      "batch": 1,
+      "padded_input_tokens": 263,
+      "actual_input_tokens": [
+        263
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167978.8675437,
+      "status": "complete",
+      "end": 1792167980.039695,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 0.14018867492675782,
+      "decode_cuda_seconds": [
+        0.05963183975219727,
+        0.05888614273071289,
+        0.05874790573120117,
+        0.058761215209960936,
+        0.05869772720336914,
+        0.058649600982666014,
+        0.05864857482910156,
+        0.05849497604370117,
+        0.0586956787109375,
+        0.05857279968261719,
+        0.058687488555908204,
+        0.058597377777099606,
+        0.05876019287109375,
+        0.05878476715087891,
+        0.058720256805419924,
+        0.058710014343261716
+      ],
+      "mean_decode_step_ms": 58.752909898757935,
+      "median_decode_step_ms": 58.70387077331543,
+      "forward_decode_tokens_per_second": 17.020433570408407,
+      "instrumented_wall_seconds": 1.0822131760651246,
+      "prefill_kv_bytes": 68943872,
+      "final_kv_bytes": 73138176,
+      "allocated_bytes": 65606208000,
+      "peak_allocated_bytes": 65653320704,
+      "temperature_c": 69,
+      "sm_clock_mhz": 1410,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "mem0",
+      "indices": [
+        30
+      ],
+      "batch": 1,
+      "padded_input_tokens": 263,
+      "actual_input_tokens": [
+        247
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167980.0420275,
+      "status": "complete",
+      "end": 1792167981.6061206,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 0.1476167755126953,
+      "decode_cuda_seconds": [
+        0.06699513244628906,
+        0.06821683502197265,
+        0.06839398193359375,
+        0.06826496124267578,
+        0.06839295959472656,
+        0.06825062561035156,
+        0.06842982482910157,
+        0.06807859039306641,
+        0.06658354949951172,
+        0.06811135864257813,
+        0.06826496124267578,
+        0.06804889678955078,
+        0.06822502136230468,
+        0.06807654571533203,
+        0.06826290893554687,
+        0.0681553955078125
+      ],
+      "mean_decode_step_ms": 68.04697179794312,
+      "median_decode_step_ms": 68.22092819213867,
+      "forward_decode_tokens_per_second": 14.695731104234492,
+      "instrumented_wall_seconds": 1.2383387999143451,
+      "prefill_kv_bytes": 68943872,
+      "final_kv_bytes": 73138176,
+      "allocated_bytes": 65606208000,
+      "peak_allocated_bytes": 65653390336,
+      "temperature_c": 69,
+      "sm_clock_mhz": 1410,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "mem0",
+      "indices": [
+        31
+      ],
+      "batch": 1,
+      "padded_input_tokens": 263,
+      "actual_input_tokens": [
+        229
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167981.608486,
+      "status": "complete",
+      "end": 1792167982.9349551,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 0.14567015075683593,
+      "decode_cuda_seconds": [
+        0.06722038269042968,
+        0.06828543853759765,
+        0.06840013122558594,
+        0.06823423767089844,
+        0.06826496124267578,
+        0.06814310455322266,
+        0.06828237152099609,
+        0.06816051483154296,
+        0.06636748504638672,
+        0.06803763580322265,
+        0.06819737243652343,
+        0.06808576202392579,
+        0.06831922912597656,
+        0.0680263671875,
+        0.06838272094726562,
+        0.06826496124267578
+      ],
+      "mean_decode_step_ms": 68.04204225540161,
+      "median_decode_step_ms": 68.21580505371094,
+      "forward_decode_tokens_per_second": 14.696795787616349,
+      "instrumented_wall_seconds": 1.2366836200235412,
+      "prefill_kv_bytes": 68943872,
+      "final_kv_bytes": 73138176,
+      "allocated_bytes": 65606208000,
+      "peak_allocated_bytes": 65653390336,
+      "temperature_c": 69,
+      "sm_clock_mhz": 1410,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "mem0",
+      "indices": [
+        39
+      ],
+      "batch": 1,
+      "padded_input_tokens": 263,
+      "actual_input_tokens": [
+        238
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167982.937607,
+      "status": "complete",
+      "end": 1792167984.2653239,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 0.14495539855957032,
+      "decode_cuda_seconds": [
+        0.06713484954833984,
+        0.068279296875,
+        0.06821887969970702,
+        0.06834175872802735,
+        0.06839910125732422,
+        0.06829670715332031,
+        0.06840729522705079,
+        0.06830284881591797,
+        0.06654156494140626,
+        0.0681164779663086,
+        0.06837452697753907,
+        0.06814208221435547,
+        0.06851789093017578,
+        0.06881177520751953,
+        0.06835711669921875,
+        0.06830694580078125
+      ],
+      "mean_decode_step_ms": 68.15931987762451,
+      "median_decode_step_ms": 68.30489730834961,
+      "forward_decode_tokens_per_second": 14.67150789936626,
+      "instrumented_wall_seconds": 1.2377754430053756,
+      "prefill_kv_bytes": 68943872,
+      "final_kv_bytes": 73138176,
+      "allocated_bytes": 65606208000,
+      "peak_allocated_bytes": 65653390336,
+      "temperature_c": 69,
+      "sm_clock_mhz": 1410,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "mem0",
+      "indices": [
+        48
+      ],
+      "batch": 1,
+      "padded_input_tokens": 263,
+      "actual_input_tokens": [
+        221
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167984.2677782,
+      "status": "complete",
+      "end": 1792167985.5935931,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 0.14399897766113282,
+      "decode_cuda_seconds": [
+        0.06701920318603516,
+        0.06832947540283203,
+        0.06840729522705079,
+        0.06818406677246094,
+        0.06844927978515625,
+        0.06829875183105469,
+        0.06840013122558594,
+        0.06807244873046875,
+        0.06663782501220702,
+        0.06819840240478516,
+        0.06832434844970703,
+        0.06824038696289063,
+        0.06829567718505859,
+        0.06841446685791015,
+        0.0683468780517578,
+        0.06825472259521484
+      ],
+      "mean_decode_step_ms": 68.11708498001099,
+      "median_decode_step_ms": 68.29721450805664,
+      "forward_decode_tokens_per_second": 14.680604730714045,
+      "instrumented_wall_seconds": 1.23588456294965,
+      "prefill_kv_bytes": 68943872,
+      "final_kv_bytes": 73138176,
+      "allocated_bytes": 65606208000,
+      "peak_allocated_bytes": 65653390336,
+      "temperature_c": 68,
+      "sm_clock_mhz": 1410,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "mem0",
+      "indices": [
+        54
+      ],
+      "batch": 1,
+      "padded_input_tokens": 263,
+      "actual_input_tokens": [
+        225
+      ],
+      "chunk_tokens": 512,
+      "kind": "single_reference",
+      "start": 1792167985.5961044,
+      "status": "complete",
+      "end": 1792167987.345386,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 0.14467071533203124,
+      "decode_cuda_seconds": [
+        0.06712953948974609,
+        0.06830182647705078,
+        0.06814310455322266,
+        0.06802534484863282,
+        0.06845951843261719,
+        0.06809497833251953,
+        0.06831820678710937,
+        0.06808370971679688,
+        0.06649549102783203,
+        0.06806015777587891,
+        0.0683868179321289,
+        0.06830489349365235,
+        0.06837760162353515,
+        0.06821273803710938,
+        0.0683694076538086,
+        0.06817996978759766
+      ],
+      "mean_decode_step_ms": 68.05895662307739,
+      "median_decode_step_ms": 68.19635391235352,
+      "forward_decode_tokens_per_second": 14.693143263100229,
+      "instrumented_wall_seconds": 1.23638388607651,
+      "prefill_kv_bytes": 68943872,
+      "final_kv_bytes": 73138176,
+      "allocated_bytes": 65606208000,
+      "peak_allocated_bytes": 65653390336,
+      "temperature_c": 68,
+      "sm_clock_mhz": 1410,
+      "numerical_checks": [],
+      "numerical_pass": true
+    },
+    {
+      "strategy": "mem0",
+      "indices": [
+        3,
+        28
+      ],
+      "batch": 2,
+      "padded_input_tokens": 263,
+      "actual_input_tokens": [
+        255,
+        263
+      ],
+      "chunk_tokens": 512,
+      "kind": "distinct_batch",
+      "start": 1792167987.3479476,
+      "status": "complete",
+      "end": 1792167988.7711604,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 0.23597669982910155,
+      "decode_cuda_seconds": [
+        0.06760185241699218,
+        0.06834175872802735,
+        0.06838374328613281,
+        0.06809804534912109,
+        0.06836224365234375,
+        0.0681502685546875,
+        0.06830182647705078,
+        0.06824960327148437,
+        0.06694707489013672,
+        0.0682239990234375,
+        0.06840217590332032,
+        0.0682639389038086,
+        0.06826496124267578,
+        0.06808985900878907,
+        0.06841036987304687,
+        0.06812671661376953
+      ],
+      "mean_decode_step_ms": 68.13865232467651,
+      "median_decode_step_ms": 68.25677108764648,
+      "forward_decode_tokens_per_second": 29.35191600899475,
+      "instrumented_wall_seconds": 1.3333480540895835,
+      "prefill_kv_bytes": 137887744,
+      "final_kv_bytes": 146276352,
+      "allocated_bytes": 65686991360,
+      "peak_allocated_bytes": 65779430912,
+      "temperature_c": 68,
+      "sm_clock_mhz": 1410,
+      "numerical_checks": [
+        {
+          "index": 3,
+          "step": 0,
+          "relative_logit_l2": 0.02027093792322827,
+          "max_absolute_logit_error": 1.0625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 28,
+          "step": 0,
+          "relative_logit_l2": 0.025797680635569534,
+          "max_absolute_logit_error": 0.5625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 3,
+          "step": 16,
+          "relative_logit_l2": 0.016286745609072766,
+          "max_absolute_logit_error": 0.5,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 28,
+          "step": 16,
+          "relative_logit_l2": 0.02863652539615894,
+          "max_absolute_logit_error": 0.453125,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        }
+      ],
+      "numerical_pass": false
+    },
+    {
+      "strategy": "mem0",
+      "indices": [
+        3,
+        28,
+        30,
+        31
+      ],
+      "batch": 4,
+      "padded_input_tokens": 263,
+      "actual_input_tokens": [
+        255,
+        263,
+        247,
+        229
+      ],
+      "chunk_tokens": 512,
+      "kind": "distinct_batch",
+      "start": 1792167988.7738624,
+      "status": "complete",
+      "end": 1792167990.3885076,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 0.4226130065917969,
+      "decode_cuda_seconds": [
+        0.06908080291748046,
+        0.06824857330322266,
+        0.06837145233154297,
+        0.06823321533203125,
+        0.06854041290283203,
+        0.06825984191894531,
+        0.06838374328613281,
+        0.06800179290771484,
+        0.06721228790283203,
+        0.06812159729003907,
+        0.06830387115478516,
+        0.06819635009765625,
+        0.06819430541992187,
+        0.06814720153808594,
+        0.06833152008056641,
+        0.068136962890625
+      ],
+      "mean_decode_step_ms": 68.23524570465088,
+      "median_decode_step_ms": 68.24089431762695,
+      "forward_decode_tokens_per_second": 58.62073124662849,
+      "instrumented_wall_seconds": 1.525210889056325,
+      "prefill_kv_bytes": 275775488,
+      "final_kv_bytes": 292552704,
+      "allocated_bytes": 65826952704,
+      "peak_allocated_bytes": 66019873280,
+      "temperature_c": 69,
+      "sm_clock_mhz": 1410,
+      "numerical_checks": [
+        {
+          "index": 3,
+          "step": 0,
+          "relative_logit_l2": 0.01916373017964464,
+          "max_absolute_logit_error": 1.0625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 28,
+          "step": 0,
+          "relative_logit_l2": 0.029076663048606156,
+          "max_absolute_logit_error": 0.625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 30,
+          "step": 0,
+          "relative_logit_l2": 0.02566459432895527,
+          "max_absolute_logit_error": 1.0,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 31,
+          "step": 0,
+          "relative_logit_l2": 0.012844656897611453,
+          "max_absolute_logit_error": 0.40625,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 3,
+          "step": 16,
+          "relative_logit_l2": 0.020179422587827706,
+          "max_absolute_logit_error": 0.375,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 28,
+          "step": 16,
+          "relative_logit_l2": 0.025807291425145686,
+          "max_absolute_logit_error": 0.9375,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 30,
+          "step": 16,
+          "relative_logit_l2": 0.03521311806800741,
+          "max_absolute_logit_error": 0.921875,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 31,
+          "step": 16,
+          "relative_logit_l2": 0.015500294820560244,
+          "max_absolute_logit_error": 0.921875,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        }
+      ],
+      "numerical_pass": false
+    },
+    {
+      "strategy": "mem0",
+      "indices": [
+        3,
+        28,
+        30,
+        31,
+        39,
+        48,
+        54
+      ],
+      "batch": 7,
+      "padded_input_tokens": 263,
+      "actual_input_tokens": [
+        255,
+        263,
+        247,
+        229,
+        238,
+        221,
+        225
+      ],
+      "chunk_tokens": 512,
+      "kind": "distinct_batch",
+      "start": 1792167990.3913045,
+      "status": "complete",
+      "end": 1792167992.3663042,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 0.695125,
+      "decode_cuda_seconds": [
+        0.07536201477050782,
+        0.07293337249755859,
+        0.07319039916992187,
+        0.07278797149658203,
+        0.07324057769775391,
+        0.07285350036621094,
+        0.07321190643310548,
+        0.07263744354248047,
+        0.0731361312866211,
+        0.07276032257080078,
+        0.07333478546142579,
+        0.07306444549560547,
+        0.0737966079711914,
+        0.07307161712646484,
+        0.07318937683105468,
+        0.07315455627441406
+      ],
+      "mean_decode_step_ms": 73.2328143119812,
+      "median_decode_step_ms": 73.14534378051756,
+      "forward_decode_tokens_per_second": 95.58556592102414,
+      "instrumented_wall_seconds": 1.8835593679687008,
+      "prefill_kv_bytes": 482607104,
+      "final_kv_bytes": 511967232,
+      "allocated_bytes": 66047286272,
+      "peak_allocated_bytes": 66377328128,
+      "temperature_c": 69,
+      "sm_clock_mhz": 1395,
+      "numerical_checks": [
+        {
+          "index": 3,
+          "step": 0,
+          "relative_logit_l2": 0.021740354421802163,
+          "max_absolute_logit_error": 1.4375,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 28,
+          "step": 0,
+          "relative_logit_l2": 0.02747056431273069,
+          "max_absolute_logit_error": 0.4375,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 30,
+          "step": 0,
+          "relative_logit_l2": 0.018176517737688806,
+          "max_absolute_logit_error": 0.53125,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 31,
+          "step": 0,
+          "relative_logit_l2": 0.013311273842420276,
+          "max_absolute_logit_error": 0.46875,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 39,
+          "step": 0,
+          "relative_logit_l2": 0.019932841999855698,
+          "max_absolute_logit_error": 0.4375,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 48,
+          "step": 0,
+          "relative_logit_l2": 0.02231314478829498,
+          "max_absolute_logit_error": 0.640625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 54,
+          "step": 0,
+          "relative_logit_l2": 0.022923855840868795,
+          "max_absolute_logit_error": 0.53125,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 3,
+          "step": 16,
+          "relative_logit_l2": 0.01897878663832671,
+          "max_absolute_logit_error": 0.390625,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 28,
+          "step": 16,
+          "relative_logit_l2": 0.024643876893340643,
+          "max_absolute_logit_error": 0.65625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 30,
+          "step": 16,
+          "relative_logit_l2": 0.022343006663535784,
+          "max_absolute_logit_error": 0.5625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 31,
+          "step": 16,
+          "relative_logit_l2": 0.016073215819668897,
+          "max_absolute_logit_error": 0.5712890625,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 39,
+          "step": 16,
+          "relative_logit_l2": 0.011854784464185352,
+          "max_absolute_logit_error": 0.25390625,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 48,
+          "step": 16,
+          "relative_logit_l2": 0.0371736014894354,
+          "max_absolute_logit_error": 0.5,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        },
+        {
+          "index": 54,
+          "step": 16,
+          "relative_logit_l2": 0.023475100215451683,
+          "max_absolute_logit_error": 0.46875,
+          "argmax_agreement": true,
+          "numerical_pass": false
+        }
+      ],
+      "numerical_pass": false
+    },
+    {
+      "strategy": "mem0",
+      "indices": [
+        3
+      ],
+      "batch": 1,
+      "padded_input_tokens": 263,
+      "actual_input_tokens": [
+        255
+      ],
+      "chunk_tokens": 263,
+      "kind": "unchunked_control",
+      "start": 1792167992.3693357,
+      "status": "complete",
+      "end": 1792167993.7023768,
+      "prefill_chunks": 1,
+      "prefill_cuda_seconds": 0.14925926208496093,
+      "decode_cuda_seconds": [
+        0.06710050964355468,
+        0.0681553955078125,
+        0.068347900390625,
+        0.06812467193603515,
+        0.06839705657958985,
+        0.06808678436279297,
+        0.06818611145019532,
+        0.06797414398193359,
+        0.0663746566772461,
+        0.06789836883544922,
+        0.068242431640625,
+        0.06810726165771484,
+        0.06825164794921874,
+        0.06803046417236328,
+        0.06828134155273438,
+        0.06820761871337891
+      ],
+      "mean_decode_step_ms": 67.98539781570435,
+      "median_decode_step_ms": 68.14003372192381,
+      "forward_decode_tokens_per_second": 14.709040943039156,
+      "instrumented_wall_seconds": 1.240702404989861,
+      "prefill_kv_bytes": 68943872,
+      "final_kv_bytes": 73138176,
+      "allocated_bytes": 65606208000,
+      "peak_allocated_bytes": 65653390336,
+      "temperature_c": 68,
+      "sm_clock_mhz": 1410,
+      "numerical_checks": [
+        {
+          "index": 3,
+          "step": 0,
+          "relative_logit_l2": 0.0,
+          "max_absolute_logit_error": 0.0,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        },
+        {
+          "index": 3,
+          "step": 16,
+          "relative_logit_l2": 0.0,
+          "max_absolute_logit_error": 0.0,
+          "argmax_agreement": true,
+          "numerical_pass": true
+        }
+      ],
+      "numerical_pass": true
+    }
+  ]
+}

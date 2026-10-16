@@ -1,0 +1,165 @@
+{
+  "status": "failed",
+  "start": 1792167355.7249901,
+  "pid": 713228,
+  "args": {
+    "session": "capacity_batch_01",
+    "gpu": 1,
+    "source_root": "/data/ziheng/agent-memory-architecture",
+    "steps": 16,
+    "prefill_chunk": 512,
+    "reserve_gib": 6
+  },
+  "runner_sha256": "f3c2c8fff9794b7df054577440140117b1d5b3da6fa3ecfe0f618922034dd9c3",
+  "execution_commit": "70672865b17baa3eaf0c3176150fafff741df8e5",
+  "source_receipts": [
+    {
+      "index": 3,
+      "strategy": "raw",
+      "private_sha256": "64e06437b0b6d5fc8cef91c8ec045fd45463c8d18f2f69ab62f3a90b72dbc2b4",
+      "input_tokens": 21032
+    },
+    {
+      "index": 3,
+      "strategy": "mem0",
+      "private_sha256": "a1ae56e2c454ad0547f7903b2dca25930da7d141e4b4a00f60b0e628aab43149",
+      "input_tokens": 255
+    },
+    {
+      "index": 28,
+      "strategy": "mem0",
+      "private_sha256": "4b0012b76d5d52ba42fe9ed62b9e40f54b9f08d07a8a84acc6d79e111d19b239",
+      "input_tokens": 263
+    },
+    {
+      "index": 28,
+      "strategy": "raw",
+      "private_sha256": "587178525e7368b79332cd4ee3cd132888a5e82877cd40d4b5cb518ecdd87ac0",
+      "input_tokens": 21359
+    },
+    {
+      "index": 30,
+      "strategy": "raw",
+      "private_sha256": "c4ba68e9c7a31706b7ce170f8387fcab43827248159ae7d2b9e3479065bbdd60",
+      "input_tokens": 21225
+    },
+    {
+      "index": 30,
+      "strategy": "mem0",
+      "private_sha256": "9a413d6fa669f7dc1bba3857ef5bef861da322bb112a596a4567b9c94e061430",
+      "input_tokens": 247
+    },
+    {
+      "index": 31,
+      "strategy": "mem0",
+      "private_sha256": "eea7b8f6a517400e25b15ba11eb60770ee2fe6c9762420a81b76a4bd2cca7268",
+      "input_tokens": 229
+    },
+    {
+      "index": 31,
+      "strategy": "raw",
+      "private_sha256": "4ada03e1b36e1e8cf0a0a58187711f0654f4ea7123646acecbcf2a9ed3f1f7b3",
+      "input_tokens": 21145
+    },
+    {
+      "index": 39,
+      "strategy": "raw",
+      "private_sha256": "0678ed5ecb8959bc44508913788ff09cf1e7c599a43854f2b31900e89a7acd9c",
+      "input_tokens": 21065
+    },
+    {
+      "index": 39,
+      "strategy": "mem0",
+      "private_sha256": "39725462a2af5cafd5efac3c47879ac6df43f6d19835dce6e3d5658fe6fa6752",
+      "input_tokens": 238
+    },
+    {
+      "index": 48,
+      "strategy": "mem0",
+      "private_sha256": "586044e5b71e2f611d42d63599d8f094359abd34b83559d051adad8f4cea9706",
+      "input_tokens": 221
+    },
+    {
+      "index": 48,
+      "strategy": "raw",
+      "private_sha256": "efde6663c26345b8a990add6385e1892a0ced84dc1617b39291faecca79a51f4",
+      "input_tokens": 21346
+    },
+    {
+      "index": 54,
+      "strategy": "raw",
+      "private_sha256": "644eba4bd3558108fdfb1fe3d4c88fb03efd892191526575f59c6f56f4ec262b",
+      "input_tokens": 20885
+    },
+    {
+      "index": 54,
+      "strategy": "mem0",
+      "private_sha256": "8396d2ebebeccea3095e80a285ec78e84ffc7c22e5c10c981fc0011c9cff8023",
+      "input_tokens": 225
+    },
+    {
+      "index": 3,
+      "strategy": "raw_512",
+      "private_sha256": "3527e764278dacb1bbf8076332e7a54d40a135b5f84b873305cfee8efbb177b6",
+      "input_tokens": 2669
+    },
+    {
+      "index": 28,
+      "strategy": "raw_512",
+      "private_sha256": "d502cabe8c42b3565ee03c8f67f64fccbb699ac73864c5c81ebee6005493a67a",
+      "input_tokens": 2669
+    },
+    {
+      "index": 30,
+      "strategy": "raw_512",
+      "private_sha256": "493c6b42b79b219663b2c06d6eb88cccb1510ab0271d4f24ec276383b1183b23",
+      "input_tokens": 2672
+    },
+    {
+      "index": 31,
+      "strategy": "raw_512",
+      "private_sha256": "ca964869ffada6c425af45e6aba061587b3b8479b8bc2050fbe692b2d7cd3ae4",
+      "input_tokens": 2665
+    },
+    {
+      "index": 39,
+      "strategy": "raw_512",
+      "private_sha256": "90edd34d3a3a4581682db324044f6b6dd87f66d1e4b6b414853698ac5010c451",
+      "input_tokens": 2278
+    },
+    {
+      "index": 48,
+      "strategy": "raw_512",
+      "private_sha256": "824b89c7b368086046b8a46f55257f12f3264ff8db824b85bfea14e4bab1ded6",
+      "input_tokens": 2368
+    },
+    {
+      "index": 54,
+      "strategy": "raw_512",
+      "private_sha256": "166fe85c82446615d8f9dcdd760a5acf1418cd359f04b99500f4771cf2ae0fb4",
+      "input_tokens": 2666
+    }
+  ],
+  "model_revision": "9216db5781bf21249d130ec9da846c4624c16137",
+  "model_config_sha256": "97e295b63283935788fac5e4f8860862a56d4089538cafc93f0431f2ebe483bb",
+  "source_root": "/data/ziheng/agent-memory-architecture",
+  "loading_started": 1792167360.416662,
+  "model_loaded": 1792167372.4455824,
+  "weight_bytes": 65524246528,
+  "gpu_memory_bytes": 85095874560,
+  "torch": "2.8.0+cu128",
+  "transformers": "4.57.6",
+  "gpu": "NVIDIA A800 80GB PCIe",
+  "kv_bytes_per_token": 262144,
+  "backend": "HF eager BF16 SDPA, fixed padded length within strategy, teacher forced",
+  "limits": [
+    "Distinct recorded requests; no new answer or quality claim.",
+    "No cross-request prefix sharing or optimized vLLM scheduling.",
+    "CUDA event forward times exclude tokenization and validation copies.",
+    "Memory includes padded KV; chunked prefill charged explicitly.",
+    "Single trajectory per case, 16 steps are sequential samples, not independent trials.",
+    "Shape calibration only; no production arrival, SLO or energy result."
+  ],
+  "end": 1792167563.4739661,
+  "error": "Traceback (most recent call last):\n  File \"/data/ziheng/agent-memory-alignment-01/architecture/capacity_batch_probe.py\", line 232, in main\n    run(args, out, manifest)\n  File \"/data/ziheng/agent-memory-alignment-01/architecture/capacity_batch_probe.py\", line 205, in run\n    case(strategy, calls[:batch], args.prefill_chunk, 'distinct_batch')\n  File \"/data/ziheng/agent-memory-alignment-01/architecture/capacity_batch_probe.py\", line 171, in case\n    check(response, 0)\n  File \"/data/ziheng/agent-memory-alignment-01/architecture/capacity_batch_probe.py\", line 163, in check\n    raise RuntimeError(f'Batch/chunk numerical check failed: {validation[-1]}')\nRuntimeError: Batch/chunk numerical check failed: {'index': 3, 'step': 0, 'relative_logit_l2': 0.019932781603611057, 'max_absolute_logit_error': 0.625, 'argmax_agreement': True}\n"
+}
