@@ -3,7 +3,7 @@
   "input_sha256": {
     "evidence/architecture/call_placement.json.gz": "8b2e6c5a7f85f5b87f446621f60c5447297e662add1143d996279e4f0eb88d5a",
     "evidence/architecture/batch_closure_traces.json.gz": "d463f5066c34a0de8678c9ba1df7c59395d2906c4b6ffbb91548519f2e200731",
-    "architecture/service_envelope.py": "9ee1826bf8cb19044b9a627f3e8650f0fc46c6cf92183ae38f397ff2c0099ca1",
+    "architecture/service_envelope.py": "effec758b0252cc96fecfc8f1e25d04d646a1991c279e20ae300989a09545443",
     "architecture/call_placement.py": "417a5f202a8ece67ab35a270b40f7a03f2182832478b377cdc8fc3e652494733",
     "architecture/spec.json": "7f1d7cbd6e24df9f03785bc3689365d007dca8b3fe02a2f0442ec98c5e2acba7"
   },

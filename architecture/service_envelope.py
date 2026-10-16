@@ -63,6 +63,10 @@ def main():
     placement_path = source / 'call_placement.json.gz'
     graph_path = source / 'batch_closure_traces.json.gz'
     evidence = json.loads(gzip.decompress(placement_path.read_bytes()))
+    for name, expected in evidence['input_sha256'].items():
+        actual = hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+        if actual != expected:
+            raise ValueError(f'Frozen placement dependency changed: {name}')
     frozen = json.loads(gzip.decompress(graph_path.read_bytes()))
     _, trace, _, capacity, _ = placement.load()
     weights = {row['model']: row['weight_bytes'] for row in capacity['models']}
