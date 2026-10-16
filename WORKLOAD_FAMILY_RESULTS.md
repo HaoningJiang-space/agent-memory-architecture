@@ -1,5 +1,7 @@
 # 共同执行模式、固定硬件复核与合法批处理反例
 
+本文件保留 a8bf9c1 的历史结果。后续已完成有代价 M=1–8 与完整依赖重放，当前候选收尾决定见 [BATCH_CLOSURE_RESULTS.md](BATCH_CLOSURE_RESULTS.md)。
+
 **本轮已取得 SimpleMem 与 LightMem 的有边界原生执行记录，并将同一供数候选直接用于这些新请求。两者都包含大量生成操作，但合法批处理足以消除当前候选在 SimpleMem 构建组上的额外优势。因此，共同工作负载成立，当前 M=1 局部供数机制尚未证明整类负载上的稳健收益。**
 
 本报告与 [供数路径结果](SUPPLY_PATH_RESULTS.md) 是本轮两条工作线的合并交付。旧 Mem0、KShard 与 `35e6e9e` 的 model/spec/mechanism/joint_diagnostics 不改动；没有重开协议修复，没有新建 SSD/HBF/热支线。

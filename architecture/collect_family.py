@@ -14,7 +14,8 @@ def digest(path):
 
 
 def records(path):
-    return [json.loads(line) for line in path.read_text().splitlines()] if path.exists() else []
+    # Required traces must fail closed: absence is not zero measured work.
+    return [json.loads(line) for line in path.read_text().splitlines()]
 
 
 def overlap(rows):
@@ -66,6 +67,8 @@ def collect(path, service_path):
         sequences=r['embedding_count'], tokens=r['usage']['prompt_tokens']) for r in api]
     kernels = [r for r in records(service_path/'embedding_kernels.jsonl')
                if manifest['start'] <= r['start'] < manifest['end']]
+    if not api or not kernels:
+        raise ValueError(f'No embedding evidence for {path}; check the service session')
     assert sum(k['batch'] for k in kernels) == sum(r['sequences'] for r in embedding)
     assert sum(sum(k['lengths']) for k in kernels) == sum(r['tokens'] for r in embedding)
     for k in kernels:
@@ -104,16 +107,19 @@ def main():
     parser.add_argument('--simple', default='family_02/simplemem')
     parser.add_argument('--light', default='family_01/lightmem')
     parser.add_argument('--out', default='outputs/family_01/public_summary.json')
+    parser.add_argument('--service-session', required=True,
+                        help='Session owning api_trace.jsonl and embedding_kernels.jsonl; may differ from the workload session')
     args = parser.parse_args()
     result = dict(scope='Bounded native workload-family coverage; not complete applications or equal-quality ranking.',
         collector_sha256=digest(Path(__file__)), algorithms=[
-            collect(ROOT/'outputs'/args.simple, ROOT/'outputs/family_01'),
-            collect(ROOT/'outputs'/args.light, ROOT/'outputs/family_01')])
+            collect(ROOT/'outputs'/args.simple, ROOT/'outputs'/args.service_session),
+            collect(ROOT/'outputs'/args.light, ROOT/'outputs'/args.service_session)])
     assert result['algorithms'][0]['history_sha256'] == result['algorithms'][1]['history_sha256']
     failed = ROOT/'outputs/family_01/simplemem/manifest.json'
-    result['excluded_attempt'] = dict(path=str(failed.parent), manifest_sha256=digest(failed),
-        status=json.loads(failed.read_text())['status'],
-        reason='48 entries generated; native FTS index unavailable because pylance dependency was absent. Whole attempt excluded from successful-path summary.')
+    if failed.exists() and args.simple=='family_02/simplemem' and args.light=='family_01/lightmem':
+        result['excluded_attempt'] = dict(path=str(failed.parent), manifest_sha256=digest(failed),
+            status=json.loads(failed.read_text())['status'],
+            reason='48 entries generated; native FTS index unavailable because pylance dependency was absent. Whole attempt excluded from successful-path summary.')
     (ROOT/args.out).write_text(json.dumps(result, indent=2)+'\n')
     print([(a['algorithm'],len(a['calls']),a['records']) for a in result['algorithms']])
 

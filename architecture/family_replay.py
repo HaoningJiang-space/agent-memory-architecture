@@ -7,6 +7,7 @@ it preserves every L/O and explicitly charges padding and the shrinking tail.
 from collections import Counter, defaultdict
 import hashlib
 import json
+from functools import lru_cache
 from pathlib import Path
 
 from architecture import model as base
@@ -19,6 +20,28 @@ OUT = ROOT / 'evidence/architecture'
 BASELINE = 'HBM3E4_a16_128x128_s128_k2'
 CANDIDATE = 'HBM3E4_a16_128x128_s32_k2_hb32b51.2p4_price100'
 FRACTION = 0.3052229000351929  # Frozen on old Mem0 update, not these algorithms.
+
+
+@lru_cache(maxsize=8)
+def known_weight_bytes(config_json):
+    _, trace, _, capacity, _ = load()
+    weights={m['model']:m['weight_bytes'] for m in capacity['models']}
+    for name,entry in trace['models'].items():
+        if json.dumps(entry['config'],sort_keys=True)==config_json:
+            return weights[name]
+    raise ValueError('Unknown checkpoint: supply explicit resident weight bytes')
+
+
+def batch_capacity(config,calls,resident_weight_bytes=None):
+    """Peak padded KV plus per-forward activation, including the decode tail."""
+    weight=known_weight_bytes(json.dumps(config,sort_keys=True)) if resident_weight_bytes is None else resident_weight_bytes
+    shape=base.decoder_shape(config)
+    length=max(c['L'] for c in calls);batch=len(calls)
+    activation=2*batch*length*(config['hidden_size']+2*config['intermediate_size'])
+    pre=weight+shape['kv_bytes_per_token']*batch*length+activation
+    peaks=[weight+shape['kv_bytes_per_token']*p['batch']*(p['padded_prompt']+p['end'])+
+           2*p['batch']*(config['hidden_size']+2*config['intermediate_size']) for p in segments(calls)]
+    return max([pre]+peaks)
 
 
 def segments(calls):
@@ -51,7 +74,7 @@ def forward(hw, config, length, batch, decode, path=None, fraction=0, embedding=
     return supply.add(dense,supply.scale(supply.score(hw,attn),layers))
 
 
-def batched(hw, config, calls, path=None, fraction=0):
+def batched(hw, config, calls, path=None, fraction=0,resident_weight_bytes=None):
     """Static ready group, padded prefill, compact only at true completion ends.
 
     Sequential attention time is approximated at each segment's midpoint, as
@@ -59,10 +82,13 @@ def batched(hw, config, calls, path=None, fraction=0):
     result is interpreted as an implemented runtime or whole-agent speedup.
     """
     parts = segments(calls)
+    required=batch_capacity(config,calls,resident_weight_bytes)
+    if required>hw.capacity_bytes:
+        raise ValueError(f'Batch requires {required} bytes; backing provides {hw.capacity_bytes}')
     pre = forward(hw,config,max(c['L'] for c in calls),len(calls),False,path,fraction)
     dec = supply.add(*(supply.scale(forward(hw,config,
         p['padded_prompt']+(p['start']+p['end']+1)//2,p['batch'],True,path,fraction),p['count']) for p in parts))
-    return dict(prefill=pre,decode=dec,total=supply.add(pre,dec),segments=parts,
+    return dict(prefill=pre,decode=dec,total=supply.add(pre,dec),segments=parts,peak_capacity_bytes=required,
                 actual_input_tokens=sum(c['L'] for c in calls),
                 padded_input_tokens=len(calls)*max(c['L'] for c in calls),
                 actual_decode_tokens=sum(c['O']-1 for c in calls))

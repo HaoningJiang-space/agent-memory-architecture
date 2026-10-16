@@ -15,7 +15,12 @@ def main():
     probe=json.loads((OUT/'family_kernel_probe.json').read_text())
     for p,value in replay['source_sha256'].items():
         assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==value,p
-    assert family['collector_sha256']==hashlib.sha256((ROOT/'architecture/collect_family.py').read_bytes()).hexdigest()
+    # The public raw summary is frozen; its collector predates strict session
+    # validation. Verify that recorded source version, not today's different code.
+    collector=(ROOT/'architecture/collect_family.py').read_bytes()
+    if family['collector_sha256']!=hashlib.sha256(collector).hexdigest():
+        collector=(ROOT/'architecture/frozen/collect_family_a8bf9c1.py').read_bytes()
+    assert family['collector_sha256']==hashlib.sha256(collector).hexdigest()
     assert probe['runner_sha256']==hashlib.sha256((ROOT/'architecture/family_kernel_probe.py').read_bytes()).hexdigest()
     assert len({a['history_sha256'] for a in family['algorithms']})==1
     checked=0

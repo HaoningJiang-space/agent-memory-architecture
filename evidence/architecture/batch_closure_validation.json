@@ -1,0 +1,13 @@
+{
+  "input_hashes": 13,
+  "graphs": 4,
+  "runs": 36,
+  "checked_service_rows": 7572,
+  "all_neural_nodes_consumed_once": true,
+  "dependency_readiness_verified": true,
+  "nonoverlapping_gpu_and_fill": true,
+  "traffic_time_energy_conserved": true,
+  "capacity_and_budget_checked": true,
+  "trace_archive_sha256": "d463f5066c34a0de8678c9ba1df7c59395d2906c4b6ffbb91548519f2e200731",
+  "scope": "Internal consistency only; not physical calibration or semantic quality validation."
+}

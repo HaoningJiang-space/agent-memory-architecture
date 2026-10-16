@@ -4,7 +4,11 @@
 
 当前主线：面向神经网络加工的 Agent 语义记忆，联合研究计算、DRAM 供数和 SRAM 缓冲；Mem0 是样本之一。范围固定为已知文本的并行处理与低批量生成，不预设两类必须使用两颗芯片。
 
-最新 [跨算法与合法批处理结果](WORKLOAD_FAMILY_RESULTS.md) 已补 SimpleMem 28 次、LightMem 56 次原生 LLM 调用、292 个 Embedding 模型 batch，以及四条独立请求的 A800 张量形状校准。共同生成/供数需求成立，但合批改变适用范围：四条 SimpleMem 构建请求合法合批后，强基线的条件模型速度提高 1.526×，当前局部供数候选的额外速度比仅 0.997×。没有将独立 B=1 服务量当作完整算法加速。
+**最新决定：结束当前固定 10 GB HB 权重副本候选作为主方案的推进，冻结为负面对照。** [小批量供数闭环](BATCH_CLOSURE_RESULTS.md) 已为基线与候选同时加入有代价的 M=1–8 映射，并按真实依赖重放已有完整阶段链；允许更大合法 batch，计入 Embedding、冷填充、切换与空闲功耗。SimpleMem / LightMem 名义条件速度比分别约 1.08–1.09× / 1.19–1.20×，但既有 bank/interface 不确定性控制使优势消失。共同工作负载主线与模型保留；本候选不再通过低 M 特例、增大 HB 或热管理续推。
+
+[代码审计](CODE_AUDIT.md) 修复必需 trace 缺失被记零、服务 session 写死、合批缺少容量检查；保留并标注上游 LightMem 更新文本却使用旧向量的行为。44 项单元检查及 36 次闭环重放对账通过。本轮没有新增 A800 运行。
+
+此前 [跨算法与合法批处理结果](WORKLOAD_FAMILY_RESULTS.md) 已补 SimpleMem 28 次、LightMem 56 次原生 LLM 调用、292 个 Embedding 模型 batch，以及四条独立请求的 A800 张量形状校准。四条 SimpleMem 构建请求合法合批后，旧强基线的条件模型速度提高 1.526×，旧 M=1 局部供数候选的额外速度比仅 0.997×。这些历史结果保留，不将独立 B=1 服务量当作完整算法加速。
 
 [有代价的供数模型](SUPPLY_PATH_RESULTS.md) 加入有限 HB 容量、bank、接口、在途窗口、SRAM 端口、控制器面积及冷填充；168 个预算内点中，100-unit HB 成本情景下旧更新/短问答约 1.24×/1.15×，但价格、bank skew 和控制器面积控制可使优势消失。尚未得到稳健物理收益，不进入热优化。
 
@@ -44,6 +48,8 @@
 | `architecture/family_kernel_probe.py` | 四条不同真实输入的 B=1/B=4 张量与 CUDA 校准 |
 | `architecture/supply_path.py` / `report_supply.py` | 同预算有限容量/bank/接口/SRAM 供数与敏感性 |
 | `architecture/family_replay.py` / `report_family.py` | 固定硬件跨算法请求核算、合法合批控制和证据对账 |
+| `architecture/small_batch.py` / `batch_closure_unittest.py` | 固定 K2 的有代价 M=1–8 映射与独立参考/边界检查 |
+| `architecture/batch_closure.py` / `report_batch_closure.py` | 依赖就绪、合法大 batch、完整账本与候选收尾判定 |
 | `operations/download_models.py` | 从 HF 镜像下载固定 revision 的三个模型 |
 | `operations/prepare_dataset.py` | 从镜像重建固定 MemoryAgentBench 输入；已有文件不覆盖 |
 | `launch_services.py` | 固定模型服务参数和 PID，隔离缓存 |
@@ -95,6 +101,9 @@ python3 -m architecture.supply_path
 python3 -m architecture.report_supply
 python3 -m architecture.family_replay
 python3 -m architecture.report_family
+python3 -m unittest batch_closure_unittest
+python3 -m architecture.batch_closure
+python3 -m architecture.report_batch_closure
 ```
 
 第一轮收尾核验入口为 `validate_evidence.py`；`audit_power.py` 检查粗粒度设备能量读数；`freeze_receipts.py` 固定远端原始证据哈希。`operations/stop_services.py` 是第一轮专用收尾脚本，不用于 phase2。新运行使用不同 session、trace 路径和证据回执，避免修改旧的冻结文件。

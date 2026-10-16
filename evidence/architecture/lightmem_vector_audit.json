@@ -1,0 +1,16 @@
+{
+  "scope": "Read-only audit of frozen LightMem maintenance; no new generation or state mutation.",
+  "run": "family_01/lightmem",
+  "before_count": 258,
+  "after_count": 258,
+  "changed_memory_payloads": 17,
+  "exact_equal_vectors": 9,
+  "unchanged_vectors_at_1e_7": 17,
+  "max_vector_abs_difference": 1.4901161193847656e-08,
+  "min_cosine_similarity": 0.9999999999999993,
+  "state_sha256": {
+    "before_maintenance_private.json": "fc8985e6d197aa55d61bfdf1359f8ffc62f86b6baba3cd3a892343d07ffe0266",
+    "state_private.json": "f2929ba67bda75f1cb44b27b33d01cc9c12856fc29875fbe226b41a0df2346a5"
+  },
+  "limitation": "Vector agreement does not measure question-answer quality; frozen upstream behavior retained."
+}

@@ -22377,6 +22377,7 @@
             "padded_prompt": 6418
           }
         ],
+        "peak_capacity_bytes": 21639096320,
         "actual_input_tokens": 19683,
         "padded_input_tokens": 25672,
         "actual_decode_tokens": 32
@@ -22490,6 +22491,7 @@
             "padded_prompt": 6418
           }
         ],
+        "peak_capacity_bytes": 21639096320,
         "actual_input_tokens": 19683,
         "padded_input_tokens": 25672,
         "actual_decode_tokens": 32
@@ -22759,6 +22761,7 @@
             "padded_prompt": 5663
           }
         ],
+        "peak_capacity_bytes": 21639096320,
         "actual_input_tokens": 19683,
         "padded_input_tokens": 25672,
         "actual_decode_tokens": 7583
@@ -22905,6 +22908,7 @@
             "padded_prompt": 5663
           }
         ],
+        "peak_capacity_bytes": 21639096320,
         "actual_input_tokens": 19683,
         "padded_input_tokens": 25672,
         "actual_decode_tokens": 7583
@@ -22935,7 +22939,7 @@
     }
   },
   "source_sha256": {
-    "architecture/family_replay.py": "ff9ac61641f317bf91e3fb242169ced0d1f0d3ef53108c357677dc540dc2b535",
+    "architecture/family_replay.py": "6d055795817e14245a841e65060c1f22852be1b2a9485589724ca23aa79bfe3b",
     "architecture/supply_path.py": "0b39a4891a52e2885fd13b8be84edb2eb45a96d62cfb212136907bd9b163eec4",
     "architecture/mechanism.py": "1ba411265a843810f108126d316f259272993a89be10c3c4ec0a0a62ee71c9cd",
     "architecture/model.py": "2daed62f07e6456c95ccf506c4a9a6d226725d0077cd02f56f2ce3c6354fab04",
