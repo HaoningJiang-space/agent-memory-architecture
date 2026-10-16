@@ -1,0 +1,182 @@
+{
+  "scope": "Recount fixed LightMem calls, without a latency or target-hardware model.\n\nThe byte count is one logical linear-weight pass per forward with independent\ncalls and no inter-forward cache reuse. It is neither measured DRAM traffic nor\nthe legal-batch accounting used by overview_accounting.py.\n",
+  "source_sha256": "9b1f5d838ebaa3e418e6fd0a6778f5f3df85c47a32f36af7a5e37d8e37af4f37",
+  "decoder_shape_source_sha256": "97065c8a30dc7631e2c0695ff1b22610bbc92c1be467958f5015c8385f130136",
+  "input_sha256": {
+    "evidence/architecture/lightmem_paths.json.gz": "7981dee56db8a81aed64eb1227c13bbca1164fc0009d1457c84bcd28ee47d6f9",
+    "evidence/phase2/workload_accounting.json": "75d6c0950006efa81229e3377fb67b63daf5a598f99202b68c9f68c4742a8ff5"
+  },
+  "exclusions": [
+    "attention",
+    "KV and activation traffic",
+    "prefix caching",
+    "batch reuse",
+    "queueing",
+    "quality and semantic validity",
+    "hardware time, energy and cost"
+  ],
+  "cases": [
+    {
+      "session": "lightpath2_flat512",
+      "stages": [
+        {
+          "phase": "construction",
+          "model": "Qwen/Qwen3-8B",
+          "calls": 24,
+          "input_tokens": 30408,
+          "output_tokens": 10268,
+          "linear_flops": 577498840563712,
+          "one_pass_weight_bytes": 155418445742080
+        },
+        {
+          "phase": "maintenance",
+          "model": "Qwen/Qwen3-8B",
+          "calls": 37,
+          "input_tokens": 23942,
+          "output_tokens": 1564,
+          "linear_flops": 355750148833280,
+          "one_pass_weight_bytes": 23673008291840
+        },
+        {
+          "phase": "query_0",
+          "model": "Qwen/Qwen3-32B",
+          "calls": 1,
+          "input_tokens": 1029,
+          "output_tokens": 34,
+          "linear_flops": 66333638656000,
+          "one_pass_weight_bytes": 2174880317440
+        },
+        {
+          "phase": "query_1",
+          "model": "Qwen/Qwen3-32B",
+          "calls": 1,
+          "input_tokens": 977,
+          "output_tokens": 27,
+          "linear_flops": 62640484515840,
+          "one_pass_weight_bytes": 1727110840320
+        },
+        {
+          "phase": "query_2",
+          "model": "Qwen/Qwen3-32B",
+          "calls": 1,
+          "input_tokens": 1123,
+          "output_tokens": 44,
+          "linear_flops": 72839966228480,
+          "one_pass_weight_bytes": 2814550999040
+        }
+      ],
+      "llm_calls": 64,
+      "write_llm_one_pass_weight_bytes": 179091454033920,
+      "three_query_llm_one_pass_weight_bytes": 6716542156800,
+      "write_fraction_of_llm_proxy": 0.9638522437435583,
+      "query_count_at_equal_llm_weight_proxy": 79.99270302469697,
+      "equality_scope": "Continuous repetition of the observed three-query shape mix; NOT valid semantic reuse or a lifecycle cost break-even.",
+      "embedding_sequences": 264,
+      "embedding_tokens": 5986,
+      "encoder_linear_flops": 0,
+      "non_llm_scope": "Embedding/encoder recorded separately, excluded from LLM-only equality."
+    },
+    {
+      "session": "lightpath2_full512",
+      "stages": [
+        {
+          "phase": "construction",
+          "model": "Qwen/Qwen3-8B",
+          "calls": 4,
+          "input_tokens": 12069,
+          "output_tokens": 1689,
+          "linear_flops": 193166400552960,
+          "one_pass_weight_bytes": 25565032611840
+        },
+        {
+          "phase": "query_0",
+          "model": "Qwen/Qwen3-32B",
+          "calls": 1,
+          "input_tokens": 992,
+          "output_tokens": 31,
+          "linear_flops": 63832521441280,
+          "one_pass_weight_bytes": 1982979112960
+        },
+        {
+          "phase": "query_1",
+          "model": "Qwen/Qwen3-32B",
+          "calls": 1,
+          "input_tokens": 1036,
+          "output_tokens": 33,
+          "linear_flops": 66706550292480,
+          "one_pass_weight_bytes": 2110913249280
+        },
+        {
+          "phase": "query_2",
+          "model": "Qwen/Qwen3-32B",
+          "calls": 1,
+          "input_tokens": 1007,
+          "output_tokens": 40,
+          "linear_flops": 65344393707520,
+          "one_pass_weight_bytes": 2558682726400
+        }
+      ],
+      "llm_calls": 7,
+      "write_llm_one_pass_weight_bytes": 25565032611840,
+      "three_query_llm_one_pass_weight_bytes": 6652575088640,
+      "write_fraction_of_llm_proxy": 0.7935112019958923,
+      "query_count_at_equal_llm_weight_proxy": 11.528633170407241,
+      "equality_scope": "Continuous repetition of the observed three-query shape mix; NOT valid semantic reuse or a lifecycle cost break-even.",
+      "embedding_sequences": 72,
+      "embedding_tokens": 11787,
+      "encoder_linear_flops": 6373441975296,
+      "non_llm_scope": "Embedding/encoder recorded separately, excluded from LLM-only equality."
+    },
+    {
+      "session": "lightpath2_full768",
+      "stages": [
+        {
+          "phase": "construction",
+          "model": "Qwen/Qwen3-8B",
+          "calls": 4,
+          "input_tokens": 12069,
+          "output_tokens": 1679,
+          "linear_flops": 193015038607360,
+          "one_pass_weight_bytes": 25413670666240
+        },
+        {
+          "phase": "query_0",
+          "model": "Qwen/Qwen3-32B",
+          "calls": 1,
+          "input_tokens": 992,
+          "output_tokens": 31,
+          "linear_flops": 63832521441280,
+          "one_pass_weight_bytes": 1982979112960
+        },
+        {
+          "phase": "query_1",
+          "model": "Qwen/Qwen3-32B",
+          "calls": 1,
+          "input_tokens": 1041,
+          "output_tokens": 33,
+          "linear_flops": 67018606510080,
+          "one_pass_weight_bytes": 2110913249280
+        },
+        {
+          "phase": "query_2",
+          "model": "Qwen/Qwen3-32B",
+          "calls": 1,
+          "input_tokens": 1007,
+          "output_tokens": 40,
+          "linear_flops": 65344393707520,
+          "one_pass_weight_bytes": 2558682726400
+        }
+      ],
+      "llm_calls": 7,
+      "write_llm_one_pass_weight_bytes": 25413670666240,
+      "three_query_llm_one_pass_weight_bytes": 6652575088640,
+      "write_fraction_of_llm_proxy": 0.7925365152037613,
+      "query_count_at_equal_llm_weight_proxy": 11.460376017237277,
+      "equality_scope": "Continuous repetition of the observed three-query shape mix; NOT valid semantic reuse or a lifecycle cost break-even.",
+      "embedding_sequences": 72,
+      "embedding_tokens": 11777,
+      "encoder_linear_flops": 6373441975296,
+      "non_llm_scope": "Embedding/encoder recorded separately, excluded from LLM-only equality."
+    }
+  ]
+}
