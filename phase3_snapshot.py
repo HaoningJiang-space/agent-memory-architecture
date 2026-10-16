@@ -36,6 +36,8 @@ record = dict(created=time.time(), pipeline=read_json(out/'pipeline.json'),
               scope='Completed step prefixes only. Structural validation is not semantic quality. '
                     'API timing includes host/runtime overhead. All jobs use one real history. '
                     'No new-hardware performance or isolated energy claim.')
+record['pipeline_stop'] = read_json(out/'pipeline_stop.json')
+record['pipeline_recovery'] = read_json(out/'pipeline_recovery.json')
 record['grammar'] = {}
 for name in ('grammar_replay','grammar_factorial'):
     manifest = read_json(out/name/'manifest.json')
@@ -65,7 +67,8 @@ for variant, group in grouped.items():
                  for r in group])
 api = rows(out/'api_trace.jsonl')
 record['runs'] = {}
-for name in ('mem0_8b_delta','mem0_8b_snapshot','mem0_32b_delta'):
+for name in ('mem0_8b_delta','mem0_8b_snapshot','mem0_32b_delta',
+             'mem0_8b_delta_v2','mem0_8b_snapshot_v2','mem0_32b_delta_v2'):
     run = out/name
     manifest = read_json(run/'both_manifest.json')
     if not manifest: continue

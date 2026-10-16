@@ -1,5 +1,6 @@
 """Sequential background software controls, complete histories, and exact-PID teardown."""
 import hashlib
+import argparse
 import json
 import os
 from pathlib import Path
@@ -11,9 +12,12 @@ import time
 import urllib.request
 
 root = Path(__file__).resolve().parents[1]
+parser = argparse.ArgumentParser()
+parser.add_argument('--recover',action='store_true',help='Fresh complete runs after the audited receipt-race fix')
+args = parser.parse_args()
 out = root/'outputs/phase3'
 out.mkdir(parents=True,exist_ok=True)
-path = out/'pipeline.json'
+path = out/('pipeline_recovery.json' if args.recover else 'pipeline.json')
 assert not path.exists(), 'Use a fresh session; never overwrite run evidence'
 record = dict(start=time.time(),status='waiting',jobs=[],
     scope='Sequential software controls on one real history. No cross-job GPU contention. '
@@ -53,12 +57,15 @@ try:
                     raise RuntimeError(f'Port {port} readiness timeout')
                 time.sleep(5)
     record['ready'] = time.time()
-    job('grammar',[sys.executable,'-u','grammar_replay.py'])
-    job('frozen_protocol',[sys.executable,'-u','protocol_ablation.py','--session','phase3',
-                           '--variants','native','flat_snapshot','flat_delta'])
+    if not args.recover:
+        job('grammar',[sys.executable,'-u','grammar_replay.py'])
+        job('frozen_protocol',[sys.executable,'-u','protocol_ablation.py','--session','phase3',
+                               '--variants','native','flat_snapshot','flat_delta'])
     for name, model, control in [('mem0_8b_delta','Qwen/Qwen3-8B','flat_delta'),
                                   ('mem0_8b_snapshot','Qwen/Qwen3-8B','flat_snapshot'),
                                   ('mem0_32b_delta','Qwen/Qwen3-32B','flat_delta')]:
+        if args.recover:
+            name += '_v2'
         entry = job(name,[sys.executable,'-u','run_native.py','--algorithm','mem0',
                           '--run',f'phase3/{name}','--stage','both',
                           '--construction-model',model,'--answer-max-tokens','1024',
@@ -76,6 +83,9 @@ try:
             entry['quality_scope'] = 'Lexical metrics only; no independent semantic judge.'
         else:
             entry['failure'] = manifest.get('error','Missing manifest')
+        if manifest.get('status') == 'complete' and manifest.get('validity') == 'valid':
+            job(name+'_capacity',[sys.executable,'-u','capacity_tradeoff.py',
+                                  '--run',f'phase3/{name}','--name',name+'_capacity'])
         save()
     record['status'] = 'experiments_collected'
 except BaseException as exc:
