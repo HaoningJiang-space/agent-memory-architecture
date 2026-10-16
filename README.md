@@ -4,7 +4,9 @@
 
 当前主线：面向神经网络加工的 Agent 语义记忆，联合研究计算、DRAM 供数和 SRAM 缓冲；Mem0 是样本之一。范围固定为已知文本的并行处理与低批量生成，不预设两类必须使用两颗芯片。
 
-**正式研究状态：共同工作负载与框架保留；固定 10 GB HB 权重副本候选关闭；下一项候选选定为压缩权重的供数与解码资源组织。** [选择依据与判定合同](NEXT_CANDIDATE.md) 固定共享解码单元、局部展开缓冲及直接先前工作对照；新颖性和硬件收益仍未成立。真实 BF16 权重的 CPU 抽样检查已完成，含块头、对齐与访问表后的抽样大小约为原始的 78.3% / 76.9%；不代表全模型压缩率或推理加速。
+**当前主线：异构 architecture。** [本轮第一性原理与 PDF 对照](HETEROGENEOUS_ARCHITECTURE.md) 将候选明确为共享权重的矩阵/近存两种消费域，压缩和共享解码属于供数子机制。已有六种合法分组的计算/字节统计与统一/异构 × 原始/压缩门槛筛查；没有将未定价的内部带宽当成加速结果。固定 10 GB HB 副本仍关闭，新候选的净收益和新颖性尚待验证。
+
+此前 [压缩供数初筛](NEXT_CANDIDATE.md) 检查了真实 BF16 权重样本，含块头、对齐及访问表的大小约为原始的 78.3% / 76.9%；这不是全模型压缩率。压缩同样给优化统一架构和已有异构基线。
 
 **旧候选的决定保持：结束固定 10 GB HB 权重副本候选作为主方案的推进，冻结为负面对照。** [小批量供数闭环](BATCH_CLOSURE_RESULTS.md) 已为基线与候选同时加入有代价的 M=1–8 映射，并按真实依赖重放已有完整阶段链；允许更大合法 batch，计入 Embedding、冷填充、切换与空闲功耗。SimpleMem / LightMem 名义条件速度比分别约 1.08–1.09× / 1.19–1.20×，但既有 bank/interface 不确定性控制使优势消失。共同工作负载主线与模型保留；本候选不再通过低 M 特例、增大 HB 或热管理续推。
 
@@ -38,6 +40,7 @@
 
 | 文件 | 用途 |
 |---|---|
+| `architecture/hetero_boundary.py` / `hetero_boundary_unittest.py` | 合法投影分组、双域条件门槛与相同资源反例；不预测完整芯片性能 |
 | `architecture/weight_codec_screen.py` / `weight_codec_unittest.py` | 现有 BF16 checkpoint 的 CPU 抽样编码、访问表核算和逐位重构检查 |
 | `architecture/model.py` / `architecture/spec.json` | 显式分块、阵列利用率、SRAM/DRAM 服务与物理参数假设 |
 | `architecture/explore.py` / `architecture/report.py` | 条件性架构比较、生命周期与容量相图、P/D/缓存/等容量控制 |

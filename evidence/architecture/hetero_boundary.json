@@ -1,0 +1,2315 @@
+{
+  "scope": "Supply break-even conditions in a reduced matrix/near-memory model.\n\nUses recorded legal batches, not API timestamps. This is a projection-only,\noptimistic resource screen, NOT a cycle simulator, equal-area result or speedup\nprediction. Compression ratios are controlled scenarios, not extrapolated\nwhole-model measurements. No old architecture/evidence file is modified.\n",
+  "parameters": {
+    "peak_flops_s": 519084181084626.75,
+    "bandwidth_bytes_s": 3200000000000.0,
+    "partitions": 16,
+    "ratios": [
+      1.0,
+      0.8
+    ],
+    "fractions": [
+      0.1,
+      0.25,
+      0.5
+    ],
+    "sink_ratios": [
+      1.0,
+      2.0,
+      4.0
+    ],
+    "overhead_fraction": 0.03,
+    "link_ratio": 1.0,
+    "launch_seconds": 1e-07,
+    "ratio_provenance": "0.8 is a controlled whole-stream assumption, not a measured whole-model ratio",
+    "omitted": "SRAM capacity/tiling and ports beyond sink bound, attention, vector ops, DAG rescheduling, energy, physical area/cost, bank timing; no whole-agent speedup"
+  },
+  "streams": [
+    {
+      "graph": "simplemem_sequential_queries",
+      "maintenance_cap": null,
+      "neural_nodes": 59,
+      "decode_tokens": 9891,
+      "m_work": {
+        "1": {
+          "flops": 44733017096192,
+          "one_pass_weight_bytes": 44733017096192
+        },
+        "2-8": {
+          "flops": 111997682188288,
+          "one_pass_weight_bytes": 36494609743872
+        },
+        "9-32": {
+          "flops": 309162147840,
+          "one_pass_weight_bytes": 22900899840
+        },
+        "33-128": {
+          "flops": 120670126080,
+          "one_pass_weight_bytes": 2642411520
+        },
+        "129+": {
+          "flops": 1599099145027584,
+          "one_pass_weight_bytes": 494609104896
+        }
+      },
+      "scenarios": [
+        {
+          "ratio": 1.0,
+          "requirements": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 28.92038567766845,
+              "infinite_local_bandwidth_projection_seconds": 28.92038567766845,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 28.92038567766845,
+              "infinite_local_bandwidth_projection_seconds": 16.500173446136905,
+              "required_local_bandwidth_ratio": 1.027505864223518,
+              "required_local_bytes_s": 3288018765515.2573,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 28.92038567766845,
+              "infinite_local_bandwidth_projection_seconds": 10.173205160911747,
+              "required_local_bandwidth_ratio": 1.027505864223518,
+              "required_local_bytes_s": 3288018765515.2573,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 29.626139678738145,
+              "infinite_local_bandwidth_projection_seconds": 29.626139678738145,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 29.626139678738145,
+              "infinite_local_bandwidth_projection_seconds": 17.20428330345814,
+              "required_local_bandwidth_ratio": 1.058887103933836,
+              "required_local_bytes_s": 3388438732588.275,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 29.626139678738145,
+              "infinite_local_bandwidth_projection_seconds": 10.85725273857402,
+              "required_local_bandwidth_ratio": 1.058887103933836,
+              "required_local_bytes_s": 3388438732588.275,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 31.74340168194722,
+              "infinite_local_bandwidth_projection_seconds": 31.74340168194722,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 31.74340168194722,
+              "infinite_local_bandwidth_projection_seconds": 19.321516822399996,
+              "required_local_bandwidth_ratio": 1.1622254084668038,
+              "required_local_bytes_s": 3719121307093.772,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 31.74340168194722,
+              "infinite_local_bandwidth_projection_seconds": 12.973819342719993,
+              "required_local_bandwidth_ratio": 1.1622254084668038,
+              "required_local_bytes_s": 3719121307093.772,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            }
+          ],
+          "controls": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 28.814522577508004,
+              "infinite_local_bandwidth_projection_seconds": 16.394256133088007,
+              "required_local_bandwidth_ratio": 1.0228330633130152,
+              "required_local_bytes_s": 3273065802601.6484,
+              "near_flops_s": 51908418108462.68,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.1,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 29.194845566973335,
+              "infinite_local_bandwidth_projection_seconds": 16.774766424213333,
+              "required_local_bandwidth_ratio": 1.0395078250921725,
+              "required_local_bytes_s": 3326425040294.952,
+              "near_flops_s": 46717576297616.414,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 0.25,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 28.92038567766845,
+              "infinite_local_bandwidth_projection_seconds": 16.935789276840413,
+              "required_local_bandwidth_ratio": 1.0389001076459337,
+              "required_local_bytes_s": 3324480344466.988,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            }
+          ]
+        },
+        {
+          "ratio": 0.8,
+          "requirements": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 28.92038567766845,
+              "infinite_local_bandwidth_projection_seconds": 28.92038567766845,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.393908752525206,
+              "same_bandwidth_projection_seconds": 23.842062543204463,
+              "infinite_local_bandwidth_projection_seconds": 16.49890822847374,
+              "required_local_bandwidth_ratio": 1.034620396259115,
+              "required_local_bytes_s": 3310785268029.168,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.393908752525206,
+              "same_bandwidth_projection_seconds": 23.842062543204463,
+              "infinite_local_bandwidth_projection_seconds": 10.171939943248574,
+              "required_local_bandwidth_ratio": 1.034620396259115,
+              "required_local_bytes_s": 3310785268029.168,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 29.626139678738145,
+              "infinite_local_bandwidth_projection_seconds": 29.626139678738145,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.393908752525206,
+              "same_bandwidth_projection_seconds": 24.547816544274156,
+              "infinite_local_bandwidth_projection_seconds": 17.204027455138153,
+              "required_local_bandwidth_ratio": 1.0747087250312144,
+              "required_local_bytes_s": 3439067920099.886,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.393908752525206,
+              "same_bandwidth_projection_seconds": 24.547816544274156,
+              "infinite_local_bandwidth_projection_seconds": 10.857073030530476,
+              "required_local_bandwidth_ratio": 1.0747087250312144,
+              "required_local_bytes_s": 3439067920099.886,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 28.4722318869892,
+              "same_bandwidth_projection_seconds": 31.74340168194722,
+              "infinite_local_bandwidth_projection_seconds": 31.74340168194722,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.393908752525206,
+              "same_bandwidth_projection_seconds": 26.665078547483226,
+              "infinite_local_bandwidth_projection_seconds": 19.321289458347223,
+              "required_local_bandwidth_ratio": 1.2113534870243574,
+              "required_local_bytes_s": 3876331158477.944,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.393908752525206,
+              "same_bandwidth_projection_seconds": 26.665078547483226,
+              "infinite_local_bandwidth_projection_seconds": 12.973682676267213,
+              "required_local_bandwidth_ratio": 1.2113534870243574,
+              "required_local_bytes_s": 3876331158477.944,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            }
+          ],
+          "controls": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.393908752525206,
+              "same_bandwidth_projection_seconds": 23.73619944304402,
+              "infinite_local_bandwidth_projection_seconds": 16.393037229052013,
+              "required_local_bandwidth_ratio": 1.0287051859734548,
+              "required_local_bytes_s": 3291856595115.0557,
+              "near_flops_s": 51908418108462.68,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.1,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.393908752525206,
+              "same_bandwidth_projection_seconds": 24.116522432509345,
+              "infinite_local_bandwidth_projection_seconds": 16.773379022925344,
+              "required_local_bandwidth_ratio": 1.0498774184462214,
+              "required_local_bytes_s": 3359607739027.9087,
+              "near_flops_s": 46717576297616.414,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 0.25,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.393908752525206,
+              "same_bandwidth_projection_seconds": 23.842062543204463,
+              "infinite_local_bandwidth_projection_seconds": 16.934207398308462,
+              "required_local_bandwidth_ratio": 1.0491026592399513,
+              "required_local_bytes_s": 3357128509567.844,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "graph": "simplemem_concurrent_queries",
+      "maintenance_cap": null,
+      "neural_nodes": 59,
+      "decode_tokens": 9891,
+      "m_work": {
+        "1": {
+          "flops": 19858226413568,
+          "one_pass_weight_bytes": 19858226413568
+        },
+        "2-8": {
+          "flops": 136872472870912,
+          "one_pass_weight_bytes": 46977568997376
+        },
+        "9-32": {
+          "flops": 309162147840,
+          "one_pass_weight_bytes": 22900899840
+        },
+        "33-128": {
+          "flops": 120670126080,
+          "one_pass_weight_bytes": 2642411520
+        },
+        "129+": {
+          "flops": 1607725788168192,
+          "one_pass_weight_bytes": 355693756416
+        }
+      },
+      "scenarios": [
+        {
+          "ratio": 1.0,
+          "requirements": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 24.44197497406433,
+              "infinite_local_bandwidth_projection_seconds": 24.44197497406433,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 24.44197497406433,
+              "infinite_local_bandwidth_projection_seconds": 14.246450403332778,
+              "required_local_bandwidth_ratio": 1.0328268652451393,
+              "required_local_bytes_s": 3305045968784.446,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 24.44197497406433,
+              "infinite_local_bandwidth_projection_seconds": 9.043843948507627,
+              "required_local_bandwidth_ratio": 1.0328268652451393,
+              "required_local_bytes_s": 3305045968784.446,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 25.1515362987332,
+              "infinite_local_bandwidth_projection_seconds": 25.1515362987332,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 25.1515362987332,
+              "infinite_local_bandwidth_projection_seconds": 14.954367584253195,
+              "required_local_bandwidth_ratio": 1.071725818026141,
+              "required_local_bytes_s": 3429522617683.6514,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 25.1515362987332,
+              "infinite_local_bandwidth_projection_seconds": 9.731698849769074,
+              "required_local_bandwidth_ratio": 1.071725818026141,
+              "required_local_bytes_s": 3429522617683.6514,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 27.280220272739797,
+              "infinite_local_bandwidth_projection_seconds": 27.280220272739797,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 27.280220272739797,
+              "infinite_local_bandwidth_projection_seconds": 17.083023073992578,
+              "required_local_bandwidth_ratio": 1.2038453794763917,
+              "required_local_bytes_s": 3852305214324.4536,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 27.280220272739797,
+              "infinite_local_bandwidth_projection_seconds": 11.859687424712574,
+              "required_local_bandwidth_ratio": 1.2038453794763917,
+              "required_local_bytes_s": 3852305214324.4536,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            }
+          ],
+          "controls": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 24.335540775364002,
+              "infinite_local_bandwidth_projection_seconds": 14.139961991743997,
+              "required_local_bandwidth_ratio": 1.027210969214215,
+              "required_local_bytes_s": 3287075101485.4883,
+              "near_flops_s": 51908418108462.68,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.1,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 24.717915489213336,
+              "infinite_local_bandwidth_projection_seconds": 14.522524007253331,
+              "required_local_bandwidth_ratio": 1.0476766774849486,
+              "required_local_bytes_s": 3352565367951.8354,
+              "near_flops_s": 46717576297616.414,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 0.25,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 24.44197497406433,
+              "infinite_local_bandwidth_projection_seconds": 14.682066234036283,
+              "required_local_bandwidth_ratio": 1.0482316332157215,
+              "required_local_bytes_s": 3354341226290.309,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            }
+          ]
+        },
+        {
+          "ratio": 0.8,
+          "requirements": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 24.44197497406433,
+              "infinite_local_bandwidth_projection_seconds": 24.44197497406433,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 19.81256986275561,
+              "same_bandwidth_projection_seconds": 20.263141303920342,
+              "infinite_local_bandwidth_projection_seconds": 14.245185185669607,
+              "required_local_bandwidth_ratio": 1.0413731190070277,
+              "required_local_bytes_s": 3332393980822.489,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 19.81256986275561,
+              "same_bandwidth_projection_seconds": 20.263141303920342,
+              "infinite_local_bandwidth_projection_seconds": 9.042578730844452,
+              "required_local_bandwidth_ratio": 1.0413731190070277,
+              "required_local_bytes_s": 3332393980822.489,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 25.1515362987332,
+              "infinite_local_bandwidth_projection_seconds": 25.1515362987332,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 19.81256986275561,
+              "same_bandwidth_projection_seconds": 20.972702628589207,
+              "infinite_local_bandwidth_projection_seconds": 14.954111735933195,
+              "required_local_bandwidth_ratio": 1.091294312341126,
+              "required_local_bytes_s": 3492141799491.6035,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 19.81256986275561,
+              "same_bandwidth_projection_seconds": 20.972702628589207,
+              "infinite_local_bandwidth_projection_seconds": 9.731519141725528,
+              "required_local_bandwidth_ratio": 1.091294312341126,
+              "required_local_bytes_s": 3492141799491.6035,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 23.991403532899596,
+              "same_bandwidth_projection_seconds": 27.280220272739797,
+              "infinite_local_bandwidth_projection_seconds": 27.280220272739797,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 19.81256986275561,
+              "same_bandwidth_projection_seconds": 23.101386602595806,
+              "infinite_local_bandwidth_projection_seconds": 17.082795709939802,
+              "required_local_bandwidth_ratio": 1.2684893001648532,
+              "required_local_bytes_s": 4059165760527.5303,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 19.81256986275561,
+              "same_bandwidth_projection_seconds": 23.101386602595806,
+              "infinite_local_bandwidth_projection_seconds": 11.85955075825979,
+              "required_local_bandwidth_ratio": 1.2684893001648532,
+              "required_local_bytes_s": 4059165760527.5303,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            }
+          ],
+          "controls": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 19.81256986275561,
+              "same_bandwidth_projection_seconds": 20.15670710522001,
+              "infinite_local_bandwidth_projection_seconds": 14.138743087707997,
+              "required_local_bandwidth_ratio": 1.0342466828761265,
+              "required_local_bytes_s": 3309589385203.605,
+              "near_flops_s": 51908418108462.68,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.1,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 19.81256986275561,
+              "same_bandwidth_projection_seconds": 20.539081819069345,
+              "infinite_local_bandwidth_projection_seconds": 14.521136605965332,
+              "required_local_bandwidth_ratio": 1.0603147485598543,
+              "required_local_bytes_s": 3393007195391.5337,
+              "near_flops_s": 46717576297616.414,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 0.25,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 19.81256986275561,
+              "same_bandwidth_projection_seconds": 20.263141303920342,
+              "infinite_local_bandwidth_projection_seconds": 14.680484355504328,
+              "required_local_bandwidth_ratio": 1.0610253799553662,
+              "required_local_bytes_s": 3395281215857.172,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "graph": "lightmem_sequential_queries",
+      "maintenance_cap": 5,
+      "neural_nodes": 317,
+      "decode_tokens": 11262,
+      "m_work": {
+        "1": {
+          "flops": 159126109814784,
+          "one_pass_weight_bytes": 159126109814784
+        },
+        "2-8": {
+          "flops": 16354358853632,
+          "one_pass_weight_bytes": 5050827014144
+        },
+        "9-32": {
+          "flops": 3997087825920,
+          "one_pass_weight_bytes": 201704079360
+        },
+        "33-128": {
+          "flops": 1055203000320,
+          "one_pass_weight_bytes": 26424115200
+        },
+        "129+": {
+          "flops": 891197526638592,
+          "one_pass_weight_bytes": 590088241152
+        }
+      },
+      "scenarios": [
+        {
+          "ratio": 1.0,
+          "requirements": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 53.3432095362771,
+              "infinite_local_bandwidth_projection_seconds": 53.3432095362771,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 53.3432095362771,
+              "infinite_local_bandwidth_projection_seconds": 28.121795325619807,
+              "required_local_bandwidth_ratio": 1.0112064151656652,
+              "required_local_bytes_s": 3235860528530.129,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 53.3432095362771,
+              "infinite_local_bandwidth_projection_seconds": 15.312001881715668,
+              "required_local_bandwidth_ratio": 1.0112064151656652,
+              "required_local_bytes_s": 3235860528530.129,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 53.73653487956453,
+              "infinite_local_bandwidth_projection_seconds": 53.73653487956453,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 53.73653487956453,
+              "infinite_local_bandwidth_projection_seconds": 28.50434815989444,
+              "required_local_bandwidth_ratio": 1.019927595886877,
+              "required_local_bytes_s": 3263768306838.0063,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 53.73653487956453,
+              "infinite_local_bandwidth_projection_seconds": 15.674686948864329,
+              "required_local_bandwidth_ratio": 1.019927595886877,
+              "required_local_bytes_s": 3263768306838.0063,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 54.91651090942679,
+              "infinite_local_bandwidth_projection_seconds": 54.91651090942679,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 54.91651090942679,
+              "infinite_local_bandwidth_projection_seconds": 29.68160031510599,
+              "required_local_bandwidth_ratio": 1.0454767076236033,
+              "required_local_bytes_s": 3345525464395.531,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 54.91651090942679,
+              "infinite_local_bandwidth_projection_seconds": 16.841490537639594,
+              "required_local_bandwidth_ratio": 1.0454767076236033,
+              "required_local_bytes_s": 3345525464395.531,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            }
+          ],
+          "controls": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 53.28421073478399,
+              "infinite_local_bandwidth_projection_seconds": 28.06269985532001,
+              "required_local_bandwidth_ratio": 1.009735865332486,
+              "required_local_bytes_s": 3231154769063.955,
+              "near_flops_s": 51908418108462.68,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.1,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 53.496169392,
+              "infinite_local_bandwidth_projection_seconds": 28.27496537344001,
+              "required_local_bandwidth_ratio": 1.0148413013702355,
+              "required_local_bytes_s": 3247492164384.754,
+              "near_flops_s": 46717576297616.414,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 0.25,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 53.3432095362771,
+              "infinite_local_bandwidth_projection_seconds": 28.61302520857403,
+              "required_local_bandwidth_ratio": 1.0171729182760156,
+              "required_local_bytes_s": 3254953338483.25,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            }
+          ]
+        },
+        {
+          "ratio": 0.8,
+          "requirements": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 53.3432095362771,
+              "infinite_local_bandwidth_projection_seconds": 53.3432095362771,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.8181313793216,
+              "same_bandwidth_projection_seconds": 43.06789297230911,
+              "infinite_local_bandwidth_projection_seconds": 28.10797852283629,
+              "required_local_bandwidth_ratio": 1.0140473741337137,
+              "required_local_bytes_s": 3244951597227.884,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.8181313793216,
+              "same_bandwidth_projection_seconds": 43.06789297230911,
+              "infinite_local_bandwidth_projection_seconds": 15.298185078932162,
+              "required_local_bandwidth_ratio": 1.0140473741337137,
+              "required_local_bytes_s": 3244951597227.884,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 53.73653487956453,
+              "infinite_local_bandwidth_projection_seconds": 53.73653487956453,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.8181313793216,
+              "same_bandwidth_projection_seconds": 43.46121831559654,
+              "infinite_local_bandwidth_projection_seconds": 28.49838102175374,
+              "required_local_bandwidth_ratio": 1.02503421277749,
+              "required_local_bytes_s": 3280109480887.9683,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.8181313793216,
+              "same_bandwidth_projection_seconds": 43.46121831559654,
+              "infinite_local_bandwidth_projection_seconds": 15.669188359566844,
+              "required_local_bandwidth_ratio": 1.02503421277749,
+              "required_local_bytes_s": 3280109480887.9683,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 53.09344794328959,
+              "same_bandwidth_projection_seconds": 54.91651090942679,
+              "infinite_local_bandwidth_projection_seconds": 54.91651090942679,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.8181313793216,
+              "same_bandwidth_projection_seconds": 44.64119434545879,
+              "infinite_local_bandwidth_projection_seconds": 29.677510041810812,
+              "required_local_bandwidth_ratio": 1.057499607741942,
+              "required_local_bytes_s": 3383998744774.215,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.8181313793216,
+              "same_bandwidth_projection_seconds": 44.64119434545879,
+              "infinite_local_bandwidth_projection_seconds": 16.839876094800502,
+              "required_local_bandwidth_ratio": 1.057499607741942,
+              "required_local_bytes_s": 3383998744774.215,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            }
+          ],
+          "controls": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.8181313793216,
+              "same_bandwidth_projection_seconds": 43.00889417081599,
+              "infinite_local_bandwidth_projection_seconds": 28.048956216684005,
+              "required_local_bandwidth_ratio": 1.01219952489849,
+              "required_local_bytes_s": 3239038479675.1685,
+              "near_flops_s": 51908418108462.68,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.1,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.8181313793216,
+              "same_bandwidth_projection_seconds": 43.220852828032,
+              "infinite_local_bandwidth_projection_seconds": 28.260994482912007,
+              "required_local_bandwidth_ratio": 1.0186207156258775,
+              "required_local_bytes_s": 3259586290002.808,
+              "near_flops_s": 46717576297616.414,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 0.25,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.8181313793216,
+              "same_bandwidth_projection_seconds": 43.06789297230911,
+              "infinite_local_bandwidth_projection_seconds": 28.598308831294688,
+              "required_local_bandwidth_ratio": 1.0215587043118401,
+              "required_local_bytes_s": 3268987853797.8887,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "graph": "lightmem_sequential_queries",
+      "maintenance_cap": null,
+      "neural_nodes": 317,
+      "decode_tokens": 11262,
+      "m_work": {
+        "1": {
+          "flops": 156053462319104,
+          "one_pass_weight_bytes": 156053462319104
+        },
+        "2-8": {
+          "flops": 3528179318784,
+          "one_pass_weight_bytes": 1183629443072
+        },
+        "9-32": {
+          "flops": 19895914856448,
+          "one_pass_weight_bytes": 1095984218112
+        },
+        "33-128": {
+          "flops": 1055203000320,
+          "one_pass_weight_bytes": 26424115200
+        },
+        "129+": {
+          "flops": 895865082347520,
+          "one_pass_weight_bytes": 520630566912
+        }
+      },
+      "scenarios": [
+        {
+          "ratio": 1.0,
+          "requirements": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 51.464270502149276,
+              "infinite_local_bandwidth_projection_seconds": 51.464270502149276,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 51.464270502149276,
+              "infinite_local_bandwidth_projection_seconds": 27.28242973792269,
+              "required_local_bandwidth_ratio": 1.0114240624442605,
+              "required_local_bytes_s": 3236556999821.634,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 51.464270502149276,
+              "infinite_local_bandwidth_projection_seconds": 15.006313652934125,
+              "required_local_bandwidth_ratio": 1.0114240624442605,
+              "required_local_bytes_s": 3236556999821.634,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 51.859655846611126,
+              "infinite_local_bandwidth_projection_seconds": 51.859655846611126,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 51.859655846611126,
+              "infinite_local_bandwidth_projection_seconds": 27.571784228896913,
+              "required_local_bandwidth_ratio": 1.0204673590204936,
+              "required_local_bytes_s": 3265495548865.5796,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 51.859655846611126,
+              "infinite_local_bandwidth_projection_seconds": 15.260880358439803,
+              "required_local_bandwidth_ratio": 1.0204673590204936,
+              "required_local_bytes_s": 3265495548865.5796,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 53.045811879996705,
+              "infinite_local_bandwidth_projection_seconds": 53.045811879996705,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 53.045811879996705,
+              "infinite_local_bandwidth_projection_seconds": 28.74542560567588,
+              "required_local_bandwidth_ratio": 1.0472643773185475,
+              "required_local_bytes_s": 3351246007419.352,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 53.045811879996705,
+              "infinite_local_bandwidth_projection_seconds": 16.382721063416703,
+              "required_local_bandwidth_ratio": 1.0472643773185475,
+              "required_local_bytes_s": 3351246007419.352,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            }
+          ],
+          "controls": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 51.40496270047999,
+              "infinite_local_bandwidth_projection_seconds": 27.220484236045003,
+              "required_local_bandwidth_ratio": 1.0098942087407823,
+              "required_local_bytes_s": 3231661467970.5034,
+              "near_flops_s": 51908418108462.68,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.1,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 51.61803146943999,
+              "infinite_local_bandwidth_projection_seconds": 27.441475468915005,
+              "required_local_bandwidth_ratio": 1.0151642488698098,
+              "required_local_bytes_s": 3248525596383.3916,
+              "near_flops_s": 46717576297616.414,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 0.25,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 51.464270502149276,
+              "infinite_local_bandwidth_projection_seconds": 27.735179590533825,
+              "required_local_bandwidth_ratio": 1.0174411676549082,
+              "required_local_bytes_s": 3255811736495.7065,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            }
+          ]
+        },
+        {
+          "ratio": 0.8,
+          "requirements": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 51.464270502149276,
+              "infinite_local_bandwidth_projection_seconds": 51.464270502149276,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 41.31573205244802,
+              "same_bandwidth_projection_seconds": 41.56680174618131,
+              "infinite_local_bandwidth_projection_seconds": 27.226164103130795,
+              "required_local_bandwidth_ratio": 1.0143219562870476,
+              "required_local_bytes_s": 3245830260118.5522,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 41.31573205244802,
+              "same_bandwidth_projection_seconds": 41.56680174618131,
+              "infinite_local_bandwidth_projection_seconds": 14.950048018142224,
+              "required_local_bandwidth_ratio": 1.0143219562870476,
+              "required_local_bytes_s": 3245830260118.5522,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 51.859655846611126,
+              "infinite_local_bandwidth_projection_seconds": 51.859655846611126,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 41.31573205244802,
+              "same_bandwidth_projection_seconds": 41.962187090643155,
+              "infinite_local_bandwidth_projection_seconds": 27.56427942012265,
+              "required_local_bandwidth_ratio": 1.02571578231289,
+              "required_local_bytes_s": 3282290503401.248,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 41.31573205244802,
+              "same_bandwidth_projection_seconds": 41.962187090643155,
+              "infinite_local_bandwidth_projection_seconds": 15.253924921023547,
+              "required_local_bandwidth_ratio": 1.02571578231289,
+              "required_local_bytes_s": 3282290503401.248,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 51.213200808416,
+              "same_bandwidth_projection_seconds": 53.045811879996705,
+              "infinite_local_bandwidth_projection_seconds": 53.045811879996705,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 41.31573205244802,
+              "same_bandwidth_projection_seconds": 43.148343124028735,
+              "infinite_local_bandwidth_projection_seconds": 28.740827722012707,
+              "required_local_bandwidth_ratio": 1.0597869195290177,
+              "required_local_bytes_s": 3391318142492.8564,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 41.31573205244802,
+              "same_bandwidth_projection_seconds": 43.148343124028735,
+              "infinite_local_bandwidth_projection_seconds": 16.38099287068433,
+              "required_local_bandwidth_ratio": 1.0597869195290177,
+              "required_local_bytes_s": 3391318142492.8564,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            }
+          ],
+          "controls": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 41.31573205244802,
+              "same_bandwidth_projection_seconds": 41.50749394451203,
+              "infinite_local_bandwidth_projection_seconds": 27.165773538037506,
+              "required_local_bandwidth_ratio": 1.0123992085778242,
+              "required_local_bytes_s": 3239677467449.037,
+              "near_flops_s": 51908418108462.68,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.1,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 41.31573205244802,
+              "same_bandwidth_projection_seconds": 41.72056271347202,
+              "infinite_local_bandwidth_projection_seconds": 27.382401620447002,
+              "required_local_bandwidth_ratio": 1.0190282992730901,
+              "required_local_bytes_s": 3260890557673.888,
+              "near_flops_s": 46717576297616.414,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 0.25,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 41.31573205244802,
+              "same_bandwidth_projection_seconds": 41.56680174618131,
+              "infinite_local_bandwidth_projection_seconds": 27.674312674394955,
+              "required_local_bandwidth_ratio": 1.0218969366042463,
+              "required_local_bytes_s": 3270070197133.5884,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "graph": "lightmem_concurrent_queries",
+      "maintenance_cap": 5,
+      "neural_nodes": 317,
+      "decode_tokens": 11262,
+      "m_work": {
+        "1": {
+          "flops": 154773237530624,
+          "one_pass_weight_bytes": 154773237530624
+        },
+        "2-8": {
+          "flops": 20707231137792,
+          "one_pass_weight_bytes": 7227263156224
+        },
+        "9-32": {
+          "flops": 3997087825920,
+          "one_pass_weight_bytes": 201704079360
+        },
+        "33-128": {
+          "flops": 1055203000320,
+          "one_pass_weight_bytes": 26424115200
+        },
+        "129+": {
+          "flops": 897501062234112,
+          "one_pass_weight_bytes": 527676997632
+        }
+      },
+      "scenarios": [
+        {
+          "ratio": 1.0,
+          "requirements": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 52.676983403361646,
+              "infinite_local_bandwidth_projection_seconds": 52.676983403361646,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 52.676983403361646,
+              "infinite_local_bandwidth_projection_seconds": 27.79411063990434,
+              "required_local_bandwidth_ratio": 1.0114099958818188,
+              "required_local_bytes_s": 3236511986821.8203,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 52.676983403361646,
+              "infinite_local_bandwidth_projection_seconds": 15.154351269600205,
+              "required_local_bandwidth_ratio": 1.0114099958818188,
+              "required_local_bytes_s": 3236511986821.8203,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 53.07309077894598,
+              "infinite_local_bandwidth_projection_seconds": 53.07309077894598,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 53.07309077894598,
+              "infinite_local_bandwidth_projection_seconds": 28.179445506475886,
+              "required_local_bandwidth_ratio": 1.0202815968556045,
+              "required_local_bytes_s": 3264901109937.9346,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 53.07309077894598,
+              "infinite_local_bandwidth_projection_seconds": 15.519818369045772,
+              "required_local_bandwidth_ratio": 1.0202815968556045,
+              "required_local_bytes_s": 3264901109937.9346,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 54.261412905698954,
+              "infinite_local_bandwidth_projection_seconds": 54.261412905698954,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 54.261412905698954,
+              "infinite_local_bandwidth_projection_seconds": 29.365043758578153,
+              "required_local_bandwidth_ratio": 1.0463938139717945,
+              "required_local_bytes_s": 3348460204709.7427,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 54.261412905698954,
+              "infinite_local_bandwidth_projection_seconds": 16.694968054711758,
+              "required_local_bandwidth_ratio": 1.0463938139717945,
+              "required_local_bytes_s": 3348460204709.7427,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            }
+          ],
+          "controls": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 52.61756729702398,
+              "infinite_local_bandwidth_projection_seconds": 27.734597864760012,
+              "required_local_bandwidth_ratio": 1.0099041779180935,
+              "required_local_bytes_s": 3231693369337.8994,
+              "near_flops_s": 51908418108462.68,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.1,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 52.83102516053333,
+              "infinite_local_bandwidth_projection_seconds": 27.948362589173346,
+              "required_local_bandwidth_ratio": 1.0150873866783445,
+              "required_local_bytes_s": 3248279637370.7026,
+              "near_flops_s": 46717576297616.414,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 0.25,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 52.676983403361646,
+              "infinite_local_bandwidth_projection_seconds": 28.285340522858565,
+              "required_local_bandwidth_ratio": 1.0175120166452345,
+              "required_local_bytes_s": 3256038453264.7505,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            }
+          ]
+        },
+        {
+          "ratio": 0.8,
+          "requirements": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 52.676983403361646,
+              "infinite_local_bandwidth_projection_seconds": 52.676983403361646,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.2861659147776,
+              "same_bandwidth_projection_seconds": 42.53769409827365,
+              "infinite_local_bandwidth_projection_seconds": 27.78029383712083,
+              "required_local_bandwidth_ratio": 1.0143032949864963,
+              "required_local_bytes_s": 3245770543956.788,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.2861659147776,
+              "same_bandwidth_projection_seconds": 42.53769409827365,
+              "infinite_local_bandwidth_projection_seconds": 15.1405344668167,
+              "required_local_bandwidth_ratio": 1.0143032949864963,
+              "required_local_bytes_s": 3245770543956.788,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 53.07309077894598,
+              "infinite_local_bandwidth_projection_seconds": 53.07309077894598,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.2861659147776,
+              "same_bandwidth_projection_seconds": 42.93380147385799,
+              "infinite_local_bandwidth_projection_seconds": 28.17347836833518,
+              "required_local_bandwidth_ratio": 1.0254811959051922,
+              "required_local_bytes_s": 3281539826896.6147,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.2861659147776,
+              "same_bandwidth_projection_seconds": 42.93380147385799,
+              "infinite_local_bandwidth_projection_seconds": 15.514319779748288,
+              "required_local_bandwidth_ratio": 1.0254811959051922,
+              "required_local_bytes_s": 3281539826896.6147,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 52.42545521986558,
+              "same_bandwidth_projection_seconds": 54.261412905698954,
+              "infinite_local_bandwidth_projection_seconds": 54.261412905698954,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.2861659147776,
+              "same_bandwidth_projection_seconds": 44.12212360061096,
+              "infinite_local_bandwidth_projection_seconds": 29.360953485282977,
+              "required_local_bandwidth_ratio": 1.0586727809863143,
+              "required_local_bytes_s": 3387752899156.206,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.2861659147776,
+              "same_bandwidth_projection_seconds": 44.12212360061096,
+              "infinite_local_bandwidth_projection_seconds": 16.693353611872666,
+              "required_local_bandwidth_ratio": 1.0586727809863143,
+              "required_local_bytes_s": 3387752899156.206,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            }
+          ],
+          "controls": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.2861659147776,
+              "same_bandwidth_projection_seconds": 42.478277991936,
+              "infinite_local_bandwidth_projection_seconds": 27.720854226124008,
+              "required_local_bandwidth_ratio": 1.0124109524679608,
+              "required_local_bytes_s": 3239715047897.4746,
+              "near_flops_s": 51908418108462.68,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.1,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.2861659147776,
+              "same_bandwidth_projection_seconds": 42.691735855445344,
+              "infinite_local_bandwidth_projection_seconds": 27.934391698645342,
+              "required_local_bandwidth_ratio": 1.0189306368073254,
+              "required_local_bytes_s": 3260578037783.4414,
+              "near_flops_s": 46717576297616.414,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 0.25,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 42.2861659147776,
+              "same_bandwidth_projection_seconds": 42.53769409827365,
+              "infinite_local_bandwidth_projection_seconds": 28.270624145579223,
+              "required_local_bandwidth_ratio": 1.0219862768179437,
+              "required_local_bytes_s": 3270356085817.42,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "graph": "lightmem_concurrent_queries",
+      "maintenance_cap": null,
+      "neural_nodes": 317,
+      "decode_tokens": 11262,
+      "m_work": {
+        "1": {
+          "flops": 151700590034944,
+          "one_pass_weight_bytes": 151700590034944
+        },
+        "2-8": {
+          "flops": 7881051602944,
+          "one_pass_weight_bytes": 3360065585152
+        },
+        "9-32": {
+          "flops": 19895914856448,
+          "one_pass_weight_bytes": 1095984218112
+        },
+        "33-128": {
+          "flops": 1055203000320,
+          "one_pass_weight_bytes": 26424115200
+        },
+        "129+": {
+          "flops": 902168617943040,
+          "one_pass_weight_bytes": 458219323392
+        }
+      },
+      "scenarios": [
+        {
+          "ratio": 1.0,
+          "requirements": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 50.79804436923382,
+              "infinite_local_bandwidth_projection_seconds": 50.79804436923382,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 50.79804436923382,
+              "infinite_local_bandwidth_projection_seconds": 26.95474505220723,
+              "required_local_bandwidth_ratio": 1.0116392051607892,
+              "required_local_bytes_s": 3237245456514.5254,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 50.79804436923382,
+              "infinite_local_bandwidth_projection_seconds": 14.848663040818659,
+              "required_local_bandwidth_ratio": 1.0116392051607892,
+              "required_local_bytes_s": 3237245456514.5254,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 51.196211745992564,
+              "infinite_local_bandwidth_projection_seconds": 51.196211745992564,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 51.196211745992564,
+              "infinite_local_bandwidth_projection_seconds": 27.24688157547836,
+              "required_local_bandwidth_ratio": 1.0208435807135245,
+              "required_local_bytes_s": 3266699458283.2783,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 51.196211745992564,
+              "infinite_local_bandwidth_projection_seconds": 15.106011778621243,
+              "required_local_bandwidth_ratio": 1.0208435807135245,
+              "required_local_bytes_s": 3266699458283.2783,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 52.39071387626887,
+              "infinite_local_bandwidth_projection_seconds": 52.39071387626887,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 52.39071387626887,
+              "infinite_local_bandwidth_projection_seconds": 28.428869049148037,
+              "required_local_bandwidth_ratio": 1.048248529519217,
+              "required_local_bytes_s": 3354395294461.494,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 52.39071387626887,
+              "infinite_local_bandwidth_projection_seconds": 16.236198580488868,
+              "required_local_bandwidth_ratio": 1.048248529519217,
+              "required_local_bytes_s": 3354395294461.494,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            }
+          ],
+          "controls": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 50.73831926272,
+              "infinite_local_bandwidth_projection_seconds": 26.892382245485006,
+              "required_local_bandwidth_ratio": 1.0100714047777333,
+              "required_local_bytes_s": 3232228495288.7466,
+              "near_flops_s": 51908418108462.68,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.1,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 50.95288723797332,
+              "infinite_local_bandwidth_projection_seconds": 27.114872684648333,
+              "required_local_bandwidth_ratio": 1.0154239060613193,
+              "required_local_bytes_s": 3249356499396.2217,
+              "near_flops_s": 46717576297616.414,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 0.25,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 50.79804436923382,
+              "infinite_local_bandwidth_projection_seconds": 27.40749490481836,
+              "required_local_bandwidth_ratio": 1.0177993412002837,
+              "required_local_bytes_s": 3256957891840.9077,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            }
+          ]
+        },
+        {
+          "ratio": 0.8,
+          "requirements": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 50.79804436923382,
+              "infinite_local_bandwidth_projection_seconds": 50.79804436923382,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 40.783766587904026,
+              "same_bandwidth_projection_seconds": 41.036602872145856,
+              "infinite_local_bandwidth_projection_seconds": 26.898479417415334,
+              "required_local_bandwidth_ratio": 1.0145924943337594,
+              "required_local_bytes_s": 3246695981868.0303,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 40.783766587904026,
+              "same_bandwidth_projection_seconds": 41.036602872145856,
+              "infinite_local_bandwidth_projection_seconds": 14.792397406026758,
+              "required_local_bandwidth_ratio": 1.0145924943337594,
+              "required_local_bytes_s": 3246695981868.0303,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 51.196211745992564,
+              "infinite_local_bandwidth_projection_seconds": 51.196211745992564,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 40.783766587904026,
+              "same_bandwidth_projection_seconds": 41.434770248904606,
+              "infinite_local_bandwidth_projection_seconds": 27.239376766704094,
+              "required_local_bandwidth_ratio": 1.02619095420891,
+              "required_local_bytes_s": 3283811053468.512,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.25,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 40.783766587904026,
+              "same_bandwidth_projection_seconds": 41.434770248904606,
+              "infinite_local_bandwidth_projection_seconds": 15.099056341204987,
+              "required_local_bandwidth_ratio": 1.02619095420891,
+              "required_local_bytes_s": 3283811053468.512,
+              "near_flops_s": 125877913913021.98,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 1.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 50.545208084992,
+              "same_bandwidth_projection_seconds": 52.39071387626887,
+              "infinite_local_bandwidth_projection_seconds": 52.39071387626887,
+              "required_local_bandwidth_ratio": null,
+              "required_local_bytes_s": null,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 3200000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 40.783766587904026,
+              "same_bandwidth_projection_seconds": 42.629272379180904,
+              "infinite_local_bandwidth_projection_seconds": 28.42427116548487,
+              "required_local_bandwidth_ratio": 1.0610470191251002,
+              "required_local_bytes_s": 3395350461200.321,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.5,
+              "sink_ratio": 4.0,
+              "overhead": 0.03,
+              "link_ratio": 1.0,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 40.783766587904026,
+              "same_bandwidth_projection_seconds": 42.629272379180904,
+              "infinite_local_bandwidth_projection_seconds": 16.234470387756495,
+              "required_local_bandwidth_ratio": 1.0610470191251002,
+              "required_local_bytes_s": 3395350461200.321,
+              "near_flops_s": 251755827826043.97,
+              "sink_unfolded_bytes_s": 12800000000000.0
+            }
+          ],
+          "controls": [
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 40.783766587904026,
+              "same_bandwidth_projection_seconds": 40.97687776563203,
+              "infinite_local_bandwidth_projection_seconds": 26.837671547477505,
+              "required_local_bandwidth_ratio": 1.0126218593911476,
+              "required_local_bytes_s": 3240389950051.6724,
+              "near_flops_s": 51908418108462.68,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.1,
+              "link_ratio": 1,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 40.783766587904026,
+              "same_bandwidth_projection_seconds": 41.19144574088535,
+              "infinite_local_bandwidth_projection_seconds": 27.05579883618034,
+              "required_local_bandwidth_ratio": 1.0193554015099051,
+              "required_local_bytes_s": 3261937284831.6963,
+              "near_flops_s": 46717576297616.414,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            },
+            {
+              "fraction": 0.1,
+              "sink_ratio": 2.0,
+              "overhead": 0.03,
+              "link_ratio": 0.25,
+              "target_ratio": 1.0,
+              "unified_projection_seconds": 40.783766587904026,
+              "same_bandwidth_projection_seconds": 41.036602872145856,
+              "infinite_local_bandwidth_projection_seconds": 27.34662798867949,
+              "required_local_bandwidth_ratio": 1.022348624197215,
+              "required_local_bytes_s": 3271515597431.0884,
+              "near_flops_s": 50351165565208.8,
+              "sink_unfolded_bytes_s": 6400000000000.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "input_sha256": {
+    "architecture/hetero_boundary.py": "86bb2e6cb64618fbbeee771cc5a83edb563394bcf06d27a6a93490f7b4ab90be",
+    "evidence/architecture/batch_closure_traces.json.gz": "d463f5066c34a0de8678c9ba1df7c59395d2906c4b6ffbb91548519f2e200731",
+    "evidence/phase2/workload_accounting.json": "75d6c0950006efa81229e3377fb67b63daf5a598f99202b68c9f68c4742a8ff5",
+    "evidence/architecture/weight_codec_screen.json": "40013585188cb5d980798b1128a1c005ae4eaa54067c18925b3f58f403988e51"
+  }
+}
