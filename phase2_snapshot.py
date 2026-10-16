@@ -34,6 +34,19 @@ run = root/'outputs/phase2/mem0_32b_native'
 manifest = json.loads((run/'both_manifest.json').read_text())
 steps = read_rows('outputs/phase2/mem0_32b_native/steps.jsonl')
 construction = [s for s in steps if s['phase'] == 'construction']
+recorded_construction = len(construction)
+failed_context = manifest.get('failed_context')
+validation_basis = 'Explicit step validation where available; legacy running snapshots are provisional.'
+if manifest['status'] == 'failed' and steps and 'validation' not in steps[-1]:
+    # Historical runner wrote its step before raising on captured upstream errors.
+    # These frozen files are not rewritten; a new summary corrects that counting.
+    if 'Upstream logged errors:' not in manifest.get('error','') or 'measured' not in manifest.get('traceback',''):
+        raise RuntimeError('Cannot infer failed legacy step; audit before summarizing')
+    failed_context = {k:steps[-1][k] for k in ['run','algorithm','phase','index']}
+    construction = [s for s in construction if s is not steps[-1]]
+    validation_basis = ('Legacy failed run: final recorded step excluded because it was written '
+                        'before the upstream-error check raised. Prefix is structurally checked, not quality validated.')
+construction = [s for s in construction if s.get('validation','passed') == 'passed']
 cutoff = construction[-1]['end'] if construction else 0
 last_index = construction[-1]['index'] if construction else -1
 wall = sum(s['end']-s['start'] for s in construction)
@@ -66,6 +79,8 @@ for row in protocol:
         'exact_mutation_match_original','noop_count','parse_error']})
 record = dict(created=time.time(), native_status=manifest['status'],
               native_validity=manifest['validity'], completed_construction_chunks=len(construction),
+              recorded_construction_steps=recorded_construction, failed_step_context=failed_context,
+              validation_basis=validation_basis,
               total_construction_chunks=manifest['total_chunks'], completed_query_steps=sum(s['phase']=='query' for s in steps),
               construction_wall_seconds=wall, index_operations=operation, llm_roles=roles,
               index_fraction=index_seconds/wall if wall else None,

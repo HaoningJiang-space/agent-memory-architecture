@@ -1,14 +1,22 @@
 """Frozen-state Mem0 update controls; operation agreement is not semantic accuracy."""
 import ast
+import argparse
 import copy
 import hashlib
 import json
 from pathlib import Path
 import time
 import urllib.request
+from protocol_controls import controlled_prompt, flat_schema, validate_response
 
 root = Path(__file__).resolve().parent
-out = root/'outputs/phase2/protocol_ablation'
+parser = argparse.ArgumentParser()
+parser.add_argument('--session', default='phase2')
+parser.add_argument('--variants', nargs='+', choices=['native','ids','delta','flat_snapshot','flat_delta'],
+                    default=['native','ids','delta'])
+args = parser.parse_args()
+assert all(c.isalnum() or c in '_-' for c in args.session)
+out = root/'outputs'/args.session/'protocol_ablation'
 out.mkdir(parents=True, exist_ok=True)
 target = out/'raw.jsonl'
 if target.exists():
@@ -54,12 +62,14 @@ def normalized(result):
 
 
 record = dict(start=time.time(), status='running', source_trace_sha256=hashlib.sha256(raw).hexdigest(),
-              model='Qwen/Qwen3-8B', samples=len(sources),
+              model='Qwen/Qwen3-8B', samples=len(sources), variants=args.variants,
               scope='Ten real frozen update inputs, no state writes. Native, legal-ID schema, '
                     'and legal-ID plus delta-output controls. Prompt/schema changes can change decisions. '
                     'Exact mutation agreement is a diagnostic, not an independent quality judgment. '
                     'GPU0 also hosts the embedding service; overlap is recorded, energy is not compared.')
 (out/'manifest.json').write_text(json.dumps(record, indent=2)+'\n')
+(out/'runner_snapshot.py').write_bytes(Path(__file__).read_bytes())
+(out/'protocol_controls_snapshot.py').write_bytes((root/'protocol_controls.py').read_bytes())
 try:
     deadline = time.monotonic()+600
     while True:
@@ -74,15 +84,19 @@ try:
         memory, facts = snapshot(source)
         valid = [str(item['id']) for item in memory]
         # Alternate order to expose, rather than always favor, cache warmness.
-        variants = ['native','ids','delta']
+        variants = list(args.variants)
         if source['context']['index'] % 2:
             variants.reverse()
         baseline = normalized(json.loads(source['response_text']))
         for variant in variants:
             body = copy.deepcopy(source['request'])
             body.update(model='Qwen/Qwen3-8B', stream=True, stream_options={'include_usage':True})
-            if variant != 'native':
+            if variant in ('ids','delta'):
                 body['guided_json'] = schema(valid, delta=variant == 'delta')
+            if variant.startswith('flat_'):
+                body['guided_json'] = flat_schema(valid, delta=variant == 'flat_delta')
+                body['messages'][0]['content'] = controlled_prompt(body['messages'][0]['content'],
+                                                                  delta=variant == 'flat_delta')
             if variant == 'delta':
                 body['messages'][0]['content'] += (
                     '\nFor this response, return only actual ADD, UPDATE, and DELETE operations. '
@@ -120,6 +134,9 @@ try:
                 row['mutation_count'] = len(normalized(result))
                 row['exact_mutation_match_original'] = normalized(result) == baseline
                 row['noop_count'] = sum(op['event'] == 'NONE' for op in result['memory'])
+                if variant.startswith('flat_'):
+                    validate_response(row['response_text'],valid,delta=variant == 'flat_delta')
+                    row['protocol_validation'] = 'passed'
             except (ValueError, KeyError, TypeError) as exc:
                 row['parse_error'] = repr(exc)
             with target.open('a') as stream:

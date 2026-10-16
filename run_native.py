@@ -25,7 +25,10 @@ parser.add_argument('--construction-model', choices=['Qwen/Qwen3-8B', 'Qwen/Qwen
 parser.add_argument('--wait-for-qa', action='store_true', help='Keep native in-memory index alive until QA server is ready')
 parser.add_argument('--precompute-ner', action='store_true', help='Software control: batch spaCy before concurrent concept LLM calls')
 parser.add_argument('--trace-file', default='outputs/api_trace.jsonl')
+parser.add_argument('--update-control', choices=['native', 'flat_snapshot', 'flat_delta'], default='native')
 args = parser.parse_args()
+if args.update_control != 'native' and args.algorithm != 'mem0':
+    parser.error('--update-control is only available for Mem0')
 router_health = json.load(urllib.request.urlopen('http://127.0.0.1:8030/health', timeout=5))
 if router_health.get('trace_path') != str((ROOT/args.trace_file).resolve()):
     raise RuntimeError('Router trace destination does not match --trace-file')
@@ -98,6 +101,13 @@ manifest = dict(args=vars(args), agent_config=cfg, dataset_config=data_cfg,
                 cpu_runtime=dict(OMP_NUM_THREADS=1,MKL_NUM_THREADS=1,OPENBLAS_NUM_THREADS=1,torch_num_threads=1),
                 models=json.loads((ROOT/'models.json').read_text()), start=time.time(),
                 status='running', validity='pending')
+if args.update_control != 'native':
+    source = ROOT/'protocol_controls.py'
+    (out/'protocol_controls_snapshot.py').write_bytes(source.read_bytes())
+    manifest['software_control'] = dict(name=args.update_control,
+        sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
+        scope='Prompt/schema and pre-application reference validation; bounded retries. '
+              'This is a modified protocol, not unmodified native Mem0 or proof of semantic quality.')
 write(out/f'{args.stage}_manifest.json', manifest)
 
 class ErrorCapture(logging.Handler):
@@ -149,6 +159,9 @@ def mark(phase, index):
     write(ROOT/'run_context.json', context)
     return context
 
+update_control = None
+
+
 def measured(fn, phase, index):
     context = mark(phase, index)
     begin = time.time()
@@ -156,26 +169,40 @@ def measured(fn, phase, index):
     calls = len(tracker.call_log)
     trace_path = ROOT/args.trace_file
     offset = trace_path.stat().st_size if trace_path.exists() else 0
-    value = fn()
-    append('steps.jsonl', dict(**context, start=begin, end=time.time(), result=value))
-    for row in tracker.call_log[calls:]:
-        append('calls.jsonl', row)
-    if len(errors.messages) > count:
-        raise RuntimeError('Upstream logged errors: '+repr(errors.messages[count:]))
-    if trace_path.exists():
-        with trace_path.open() as f:
-            f.seek(offset)
-            for line in f:
-                row = json.loads(line)
-                if row.get('context') != context:
-                    continue
-                reasons = [row.get('finish_reason')]
-                reasons += [c.get('finish_reason') for c in row.get('response', {}).get('choices', [])]
-                if 'length' in reasons:
-                    raise RuntimeError('Generation truncated at token cap; run is invalid')
-                if row.get('error') or row.get('status', 200) != 200:
-                    raise RuntimeError('Inference request failed; inspect raw API trace')
-    return value
+    value = None
+    validation, failure = 'failed', None
+    try:
+        value = fn()
+        if len(errors.messages) > count:
+            raise RuntimeError('Upstream logged errors: '+repr(errors.messages[count:]))
+        if trace_path.exists():
+            with trace_path.open() as f:
+                f.seek(offset)
+                for line in f:
+                    row = json.loads(line)
+                    if row.get('context') != context:
+                        continue
+                    if update_control and row['id'] in update_control.handled_trace_ids:
+                        # The validator checked the accepted response, and accounted for
+                        # failed attempts before returning anything to the state writer.
+                        continue
+                    reasons = [row.get('finish_reason')]
+                    reasons += [c.get('finish_reason') for c in row.get('response', {}).get('choices', [])]
+                    if 'length' in reasons:
+                        raise RuntimeError('Generation truncated at token cap; run is invalid')
+                    if row.get('error') or row.get('status', 200) != 200:
+                        raise RuntimeError('Inference request failed; inspect raw API trace')
+        validation = 'passed'
+        return value
+    except BaseException as exc:
+        failure = repr(exc)
+        manifest['failed_context'] = context
+        raise
+    finally:
+        append('steps.jsonl', dict(**context, start=begin, end=time.time(), result=value,
+                                  validation=validation, error=failure))
+        for row in tracker.call_log[calls:]:
+            append('calls.jsonl', row)
 
 try:
     creator = ConversationCreator(cfg, data_cfg)
@@ -187,12 +214,20 @@ try:
         assert args.algorithm == 'mem0', 'Other native agents lack state reload; use stage both'
         prior = json.loads((out/'construction_manifest.json').read_text())
         assert prior['status'] == 'complete' and prior['validity'] == 'valid'
+        assert prior['args']['construction_model'] == args.construction_model
+        assert prior['args'].get('update_control','native') == args.update_control
     elif (out/'state').exists():
         raise RuntimeError('Existing state: choose a new run name to avoid duplicate ingestion')
     with tracker:
         mark('initialization', -1)
         agent = AgentWrapper(cfg, data_cfg, str(out/'state'), force_rerun=False)
         if args.algorithm == 'mem0':
+            if args.update_control != 'native':
+                from protocol_controls import UpdateControl
+                update_control = UpdateControl(agent.memory.llm.generate_response, args.update_control,
+                    lambda row: append('protocol_validation.jsonl',
+                                       dict(row, context=dict(tracker.current_context))), ROOT/args.trace_file)
+                agent.memory.llm.generate_response = update_control
             # Observe real index operations without changing order or issuing extra queries.
             for name in ['search', 'insert', 'update', 'delete']:
                 original = getattr(agent.memory.vector_store, name)

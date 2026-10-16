@@ -1,0 +1,101 @@
+{
+  "scope": "Phase-2 files after registered jobs finished",
+  "files": {
+    "outputs/phase2/api_trace.jsonl": {
+      "bytes": 3530667,
+      "sha256": "c7c61adb9fb002db8e3a91a7398dfbaffdf29f9a75e7a67af2ea18b57dc6ac61"
+    },
+    "outputs/phase2/completed_observation.json": {
+      "bytes": 20071,
+      "sha256": "ecb355cd30d3b773a1855fe4eb0914b7539319f7c5fadd39ad57f3264b63486b"
+    },
+    "outputs/phase2/embedding_kernels.jsonl": {
+      "bytes": 112304,
+      "sha256": "62bb081e9679019bf30a84c35f195491d7f305ff28124ba5885afc3bdb4da8f6"
+    },
+    "outputs/phase2/mem0_32b_native/both_gpu.jsonl": {
+      "bytes": 9092445,
+      "sha256": "1400a07d768116a35aab259cabc3a3475e9333048f853231d94859a32b300b09"
+    },
+    "outputs/phase2/mem0_32b_native/both_manifest.json": {
+      "bytes": 4640,
+      "sha256": "07942ae27d04dcfb513fe864fb5459856ae0b9b33f7c83689e12a0a89132331e"
+    },
+    "outputs/phase2/mem0_32b_native/both_runner_snapshot.py": {
+      "bytes": 12955,
+      "sha256": "7939ce1398a34fd9306075db49aec667dfb94c4f1855c35dff80d8f6423cee74"
+    },
+    "outputs/phase2/mem0_32b_native/calls.jsonl": {
+      "bytes": 157530,
+      "sha256": "fe9106f2073192b545971ca98e9ce8473445e95f7fd6e0b37cc3bf5dc970f748"
+    },
+    "outputs/phase2/mem0_32b_native/index.jsonl": {
+      "bytes": 254230,
+      "sha256": "e40ae2e00a47c9722607f45c84f184c315afd94a864792c1cd5b9db4ad8e5363"
+    },
+    "outputs/phase2/mem0_32b_native/mem0_home/config.json": {
+      "bytes": 57,
+      "sha256": "50127a0914651f3cb23c803e02ead20440a88a347c994fee62eeccd3f2e885f1"
+    },
+    "outputs/phase2/mem0_32b_native/state/mem0/history.db": {
+      "bytes": 167936,
+      "sha256": "23dfa3c9f7281dc02e7c6587506d1f168f98565415abc697a1ec6032a8a44ee2"
+    },
+    "outputs/phase2/mem0_32b_native/state/mem0/qdrant/.lock": {
+      "bytes": 13,
+      "sha256": "67a987c432005e3afcc13a871b3ddabaeee0f4504058da65b0769016d3083b44"
+    },
+    "outputs/phase2/mem0_32b_native/state/mem0/qdrant/collection/mem0/storage.sqlite": {
+      "bytes": 5906432,
+      "sha256": "17a957868ae4019b9b8cc7e977b0e0a1c6da52afe1267f41ba3b56ae70a3696e"
+    },
+    "outputs/phase2/mem0_32b_native/state/mem0/qdrant/meta.json": {
+      "bytes": 538,
+      "sha256": "86074cab9af8a42995b0c1c697c87f99f28e00bfe742cd2316d1adba2aee7be0"
+    },
+    "outputs/phase2/mem0_32b_native/steps.jsonl": {
+      "bytes": 14049,
+      "sha256": "d4da13e4c091cf4d9619eeae696aa698d1b7ac4a72315bf7e4f5bda636a7259b"
+    },
+    "outputs/phase2/memoryarena_data/physics.jsonl": {
+      "bytes": 87070,
+      "sha256": "580862006af2ff2bfc8c5d2d2b9a60bf33a46cbb64f27d60a2bfe039aec61cf6"
+    },
+    "outputs/phase2/memoryarena_dataset.json": {
+      "bytes": 688,
+      "sha256": "1d73b56d0a4311207d3cf6d6ac3e9c2ca10cc318767ac9b8224520fe9b258c23"
+    },
+    "outputs/phase2/native_control_pipeline.json": {
+      "bytes": 687,
+      "sha256": "a77974966476c8f5c0fed9869e1a079afca967b8d0d6fb6ce3e651d236cfb095"
+    },
+    "outputs/phase2/overview_observation_01.json": {
+      "bytes": 11807,
+      "sha256": "b15b6b4769f40639c328517fe19264994a5d861d0b91539c02928169facbb86b"
+    },
+    "outputs/phase2/protocol_ablation/manifest.json": {
+      "bytes": 559,
+      "sha256": "af1761c5bc33bb8fcfb9108d18044358fe1e5c1a7135221f1a3db73f097b4d50"
+    },
+    "outputs/phase2/protocol_ablation/raw.jsonl": {
+      "bytes": 410617,
+      "sha256": "45b39917d5649b3c7233e861bcdf6002ed443f82106f6d15fb87680cbec08495"
+    },
+    "outputs/phase2/protocol_ablation/runner_snapshot.py": {
+      "bytes": 7016,
+      "sha256": "b8f833975964e6b79bfa63fb519466190820cc8d9e25f4e53f9896cb61450ac5"
+    },
+    "outputs/phase2/protocol_ablation/source_receipt.json": {
+      "bytes": 90,
+      "sha256": "39718042ecb68f81466afaa663be600a594000019c492fa478fc9b209f547be8"
+    },
+    "outputs/phase2/service_configuration.json": {
+      "bytes": 3964,
+      "sha256": "389ee2a5907833f6d7eae6b2980fe5a8e0137eca33d3f87688d83c6390fa5c23"
+    },
+    "outputs/phase2/workload_accounting.json": {
+      "bytes": 126127,
+      "sha256": "75d6c0950006efa81229e3377fb67b63daf5a598f99202b68c9f68c4742a8ff5"
+    }
+  }
+}

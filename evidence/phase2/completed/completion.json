@@ -1,0 +1,21 @@
+{
+  "start": 1792086163.4311426,
+  "status": "complete",
+  "native_status": "failed",
+  "protocol_status": "complete",
+  "answer_metrics": {
+    "status": "not_valid_for_quality_comparison",
+    "reason": "RuntimeError('Upstream logged errors: [\"Error in new_memories_with_actions: \\'51\\'\", \"Error in new_memories_with_actions: \\'63\\'\", \"Error in new_memories_with_actions: \\'64\\'\", \"Error in new_memories_with_actions: \\'66\\'\"]')"
+  },
+  "scope": "Completion of the registered experiments, not completion of the research motivation. Overlapping GPU0 embedding/protocol work prevents uncontended latency/energy claims.",
+  "service_shutdown": {
+    "signalled_pids": [
+      212664,
+      212666,
+      212667,
+      214821
+    ],
+    "remaining_pids": []
+  },
+  "end": 1792089328.609322
+}
