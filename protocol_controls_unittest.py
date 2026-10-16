@@ -1,6 +1,8 @@
 """State safety and bounded-retry checks independent of model inference."""
 import json
 import unittest
+from pathlib import Path
+import tempfile
 from protocol_controls import MARKER, UpdateControl, validate_response
 
 
@@ -58,6 +60,21 @@ class ProtocolSafety(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'after 3 attempts'):
             control([dict(role='user',content=prompt)])
         self.assertEqual(len(logs),3)
+
+    def test_capped_valid_json_is_retried_and_receipts_are_accounted(self):
+        with tempfile.TemporaryDirectory() as directory:
+            trace = Path(directory)/'api.jsonl'
+            calls, logs = [],[]
+            def generate(**kw):
+                calls.append(kw)
+                row = dict(id=str(len(calls)),path='chat/completions',
+                           finish_reason='length' if len(calls)==1 else 'stop',status=200)
+                with trace.open('a') as stream: stream.write(json.dumps(row)+'\n')
+                return response(op('ADD','NEW'))
+            control = UpdateControl(generate,'flat_delta',logs.append,trace_path=trace)
+            control([dict(role='user',content=MARKER+'```[]``` ```[]```')])
+            self.assertEqual([r['accepted'] for r in logs],[False,True])
+            self.assertEqual(control.handled_trace_ids,{'1','2'})
 
 
 if __name__ == '__main__':

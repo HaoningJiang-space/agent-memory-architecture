@@ -72,6 +72,18 @@ def validate_response(text, valid_ids, delta=False):
     return result
 
 
+def api_receipts(path, offset, wait=False):
+    deadline = time.monotonic()+(1 if wait else 0)
+    while True:
+        raw = path.read_bytes()[offset:] if path.exists() else b''
+        raw = raw[:raw.rfind(b'\n')+1]
+        rows = [r for r in map(json.loads,raw.splitlines()) if r.get('path')=='chat/completions']
+        if rows or time.monotonic()>=deadline:
+            return rows
+        # SSE clients may finish on [DONE] just before the router flushes its receipt.
+        time.sleep(.002)
+
+
 class UpdateControl:
     def __init__(self, generate, mode, log, trace_path=None, attempts=3):
         assert mode in ('flat_snapshot', 'flat_delta')
@@ -100,13 +112,9 @@ class UpdateControl:
             accepted, error = False, None
             try:
                 text = self.generate(messages=[dict(messages[0], content=prompt)], **options)
-                result = validate_response(text, valid, self.delta)
                 if self.trace_path:
-                    with self.trace_path.open() as stream:
-                        stream.seek(offset)
-                        rows = [json.loads(line) for line in stream]
                     # The runner is the sole proxied workload. Every update is synchronous.
-                    chats = [r for r in rows if r.get('path') == 'chat/completions']
+                    chats = api_receipts(self.trace_path,offset,wait=True)
                     if len(chats) != 1:
                         raise ValueError('Expected exactly one update API receipt')
                     row = chats[0]
@@ -115,6 +123,7 @@ class UpdateControl:
                         c.get('finish_reason') for c in row.get('response', {}).get('choices', [])]
                     if 'length' in reasons or row.get('error') or row.get('status', 200) != 200:
                         raise ValueError('Update API failed or reached output cap')
+                result = validate_response(text, valid, self.delta)
                 accepted = True
             except (ValueError, TypeError, KeyError) as exc:
                 error = str(exc)
@@ -124,10 +133,7 @@ class UpdateControl:
             finally:
                 # Include invalid-JSON/ID attempts in the audited trace set as well.
                 if self.trace_path and self.trace_path.exists():
-                    with self.trace_path.open() as stream:
-                        stream.seek(offset)
-                        trace_ids.update(r['id'] for r in map(json.loads, stream)
-                                         if r.get('path') == 'chat/completions')
+                    trace_ids.update(r['id'] for r in api_receipts(self.trace_path,offset))
                 self.log(dict(attempt=attempt+1, start=begin, end=time.time(),
                               accepted=accepted, error=error, existing_ids=len(valid),
                               delta=self.delta, cumulative_trace_ids=sorted(trace_ids)))

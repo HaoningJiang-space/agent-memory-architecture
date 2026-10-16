@@ -1,0 +1,763 @@
+{
+  "created": 1792123283.3308039,
+  "pipeline": {
+    "start": 1792122496.085991,
+    "status": "running",
+    "jobs": [
+      {
+        "name": "grammar",
+        "command": [
+          "/data/ziheng/agent-memory-architecture/.venv/bin/python",
+          "-u",
+          "grammar_replay.py"
+        ],
+        "start": 1792122591.2056344,
+        "status": "failed",
+        "end": 1792123137.6753166,
+        "returncode": -15
+      },
+      {
+        "name": "frozen_protocol",
+        "command": [
+          "/data/ziheng/agent-memory-architecture/.venv/bin/python",
+          "-u",
+          "protocol_ablation.py",
+          "--session",
+          "phase3",
+          "--variants",
+          "native",
+          "flat_snapshot",
+          "flat_delta"
+        ],
+        "start": 1792123137.6762648,
+        "status": "running"
+      }
+    ],
+    "scope": "Sequential software controls on one real history. No cross-job GPU contention. Shared host CPU and differing cache state preclude isolated hardware rankings. Flat protocol is an explicit software variant; quality must be evaluated separately.",
+    "ready": 1792122591.2056217
+  },
+  "scope": "Completed step prefixes only. Structural validation is not semantic quality. API timing includes host/runtime overhead. All jobs use one real history. No new-hardware performance or isolated energy claim.",
+  "grammar": {
+    "grammar_replay": {
+      "manifest": {
+        "start": 1792122591.279505,
+        "status": "running",
+        "scope": "CPU-only replay of identical valid JSON token streams through xgrammar.\n\nThis isolates grammar compilation/matching, not GPU masking or server latency.\nRaw strings remain remote. JSON ADD placeholders are normalized explicitly so\nthe exact same stream is legal under every schema.\n"
+      },
+      "measurements": [
+        {
+          "chunk": 0,
+          "variant": "native",
+          "repeat": 0,
+          "tokens": 474,
+          "stream_sha256": "f6003f2a42ad5baf7ab4be96c1f785a772e7b7ef82814c358f1b6c5f5b044948",
+          "wall": 0.012078357976861298,
+          "cpu": 0.012071195999997286,
+          "compile_wall": 0.02863775799050927,
+          "compile_cpu": 0.047065218000000186,
+          "p50_token_seconds": 4.112999886274338e-05,
+          "p95_token_seconds": 4.3098931200802326e-05
+        },
+        {
+          "chunk": 0,
+          "variant": "native",
+          "repeat": 1,
+          "tokens": 474,
+          "stream_sha256": "f6003f2a42ad5baf7ab4be96c1f785a772e7b7ef82814c358f1b6c5f5b044948",
+          "wall": 0.012018645997159183,
+          "cpu": 0.01201372599999928,
+          "compile_wall": 0.02863775799050927,
+          "compile_cpu": 0.047065218000000186,
+          "p50_token_seconds": 4.122103564441204e-05,
+          "p95_token_seconds": 4.290207289159298e-05
+        },
+        {
+          "chunk": 0,
+          "variant": "native",
+          "repeat": 2,
+          "tokens": 474,
+          "stream_sha256": "f6003f2a42ad5baf7ab4be96c1f785a772e7b7ef82814c358f1b6c5f5b044948",
+          "wall": 0.011964126955717802,
+          "cpu": 0.011959935000000144,
+          "compile_wall": 0.02863775799050927,
+          "compile_cpu": 0.047065218000000186,
+          "p50_token_seconds": 4.121451638638973e-05,
+          "p95_token_seconds": 4.271592479199171e-05
+        },
+        {
+          "chunk": 0,
+          "variant": "branches",
+          "repeat": 0,
+          "tokens": 474,
+          "stream_sha256": "f6003f2a42ad5baf7ab4be96c1f785a772e7b7ef82814c358f1b6c5f5b044948",
+          "wall": 45.528176076943055,
+          "cpu": 45.517677172,
+          "compile_wall": 0.03095512103755027,
+          "compile_cpu": 0.13450840800000208,
+          "p50_token_seconds": 4.2809988372027874e-05,
+          "p95_token_seconds": 0.21400209900457412
+        },
+        {
+          "chunk": 0,
+          "variant": "branches",
+          "repeat": 1,
+          "tokens": 474,
+          "stream_sha256": "f6003f2a42ad5baf7ab4be96c1f785a772e7b7ef82814c358f1b6c5f5b044948",
+          "wall": 45.50688512099441,
+          "cpu": 45.496485953000004,
+          "compile_wall": 0.03095512103755027,
+          "compile_cpu": 0.13450840800000208,
+          "p50_token_seconds": 4.279450513422489e-05,
+          "p95_token_seconds": 0.21333828603383154
+        },
+        {
+          "chunk": 0,
+          "variant": "branches",
+          "repeat": 2,
+          "tokens": 474,
+          "stream_sha256": "f6003f2a42ad5baf7ab4be96c1f785a772e7b7ef82814c358f1b6c5f5b044948",
+          "wall": 45.502410886925645,
+          "cpu": 45.49181116999999,
+          "compile_wall": 0.03095512103755027,
+          "compile_cpu": 0.13450840800000208,
+          "p50_token_seconds": 4.26130136474967e-05,
+          "p95_token_seconds": 0.21301671699620783
+        },
+        {
+          "chunk": 0,
+          "variant": "flat",
+          "repeat": 0,
+          "tokens": 474,
+          "stream_sha256": "f6003f2a42ad5baf7ab4be96c1f785a772e7b7ef82814c358f1b6c5f5b044948",
+          "wall": 0.01731606700923294,
+          "cpu": 0.017294868999982782,
+          "compile_wall": 0.029060704982839525,
+          "compile_cpu": 0.06607295399999202,
+          "p50_token_seconds": 1.598248491063714e-05,
+          "p95_token_seconds": 7.594900671392679e-05
+        },
+        {
+          "chunk": 0,
+          "variant": "flat",
+          "repeat": 1,
+          "tokens": 474,
+          "stream_sha256": "f6003f2a42ad5baf7ab4be96c1f785a772e7b7ef82814c358f1b6c5f5b044948",
+          "wall": 0.010724564897827804,
+          "cpu": 0.0107205480000232,
+          "compile_wall": 0.029060704982839525,
+          "compile_cpu": 0.06607295399999202,
+          "p50_token_seconds": 7.758033461868763e-06,
+          "p95_token_seconds": 4.259706474840641e-05
+        },
+        {
+          "chunk": 0,
+          "variant": "flat",
+          "repeat": 2,
+          "tokens": 474,
+          "stream_sha256": "f6003f2a42ad5baf7ab4be96c1f785a772e7b7ef82814c358f1b6c5f5b044948",
+          "wall": 0.010687222937121987,
+          "cpu": 0.010682779999996228,
+          "compile_wall": 0.029060704982839525,
+          "compile_cpu": 0.06607295399999202,
+          "p50_token_seconds": 7.439521141350269e-06,
+          "p95_token_seconds": 4.2360974475741386e-05
+        },
+        {
+          "chunk": 2,
+          "variant": "native",
+          "repeat": 0,
+          "tokens": 584,
+          "stream_sha256": "bb6709a2a6b768bc9f2f7fb712bb1b84973d5ec9a4292da02e52c71326a5ac87",
+          "wall": 0.022170588956214488,
+          "cpu": 0.0221536920000176,
+          "compile_wall": 0.02768864994868636,
+          "compile_cpu": 0.0664711119999879,
+          "p50_token_seconds": 3.227347042411566e-05,
+          "p95_token_seconds": 0.00014645804185420275
+        },
+        {
+          "chunk": 2,
+          "variant": "native",
+          "repeat": 1,
+          "tokens": 584,
+          "stream_sha256": "bb6709a2a6b768bc9f2f7fb712bb1b84973d5ec9a4292da02e52c71326a5ac87",
+          "wall": 0.01403145701624453,
+          "cpu": 0.014021542999984149,
+          "compile_wall": 0.02768864994868636,
+          "compile_cpu": 0.0664711119999879,
+          "p50_token_seconds": 9.2705013230443e-06,
+          "p95_token_seconds": 4.238600376993418e-05
+        },
+        {
+          "chunk": 2,
+          "variant": "native",
+          "repeat": 2,
+          "tokens": 584,
+          "stream_sha256": "bb6709a2a6b768bc9f2f7fb712bb1b84973d5ec9a4292da02e52c71326a5ac87",
+          "wall": 0.014073183992877603,
+          "cpu": 0.014069094000006999,
+          "compile_wall": 0.02768864994868636,
+          "compile_cpu": 0.0664711119999879,
+          "p50_token_seconds": 9.401061106473207e-06,
+          "p95_token_seconds": 4.253594670444727e-05
+        },
+        {
+          "chunk": 2,
+          "variant": "branches",
+          "repeat": 0,
+          "tokens": 584,
+          "stream_sha256": "bb6709a2a6b768bc9f2f7fb712bb1b84973d5ec9a4292da02e52c71326a5ac87",
+          "wall": 52.37320410099346,
+          "cpu": 52.361174936,
+          "compile_wall": 0.041733020916581154,
+          "compile_cpu": 0.25729470600001036,
+          "p50_token_seconds": 3.312953049317002e-05,
+          "p95_token_seconds": 0.21917840198148042
+        },
+        {
+          "chunk": 2,
+          "variant": "branches",
+          "repeat": 1,
+          "tokens": 584,
+          "stream_sha256": "bb6709a2a6b768bc9f2f7fb712bb1b84973d5ec9a4292da02e52c71326a5ac87",
+          "wall": 52.44073037302587,
+          "cpu": 52.42979681099996,
+          "compile_wall": 0.041733020916581154,
+          "compile_cpu": 0.25729470600001036,
+          "p50_token_seconds": 2.065399894490838e-05,
+          "p95_token_seconds": 0.21998794900719076
+        },
+        {
+          "chunk": 2,
+          "variant": "branches",
+          "repeat": 2,
+          "tokens": 584,
+          "stream_sha256": "bb6709a2a6b768bc9f2f7fb712bb1b84973d5ec9a4292da02e52c71326a5ac87",
+          "wall": 52.416041463962756,
+          "cpu": 52.402896656999985,
+          "compile_wall": 0.041733020916581154,
+          "compile_cpu": 0.25729470600001036,
+          "p50_token_seconds": 2.0843988750129938e-05,
+          "p95_token_seconds": 0.21967406605836004
+        },
+        {
+          "chunk": 2,
+          "variant": "flat",
+          "repeat": 0,
+          "tokens": 584,
+          "stream_sha256": "bb6709a2a6b768bc9f2f7fb712bb1b84973d5ec9a4292da02e52c71326a5ac87",
+          "wall": 0.019284402020275593,
+          "cpu": 0.019265211000004,
+          "compile_wall": 0.032068753032945096,
+          "compile_cpu": 0.0745960809999815,
+          "p50_token_seconds": 1.9477505702525377e-05,
+          "p95_token_seconds": 0.00014770508278161287
+        },
+        {
+          "chunk": 2,
+          "variant": "flat",
+          "repeat": 1,
+          "tokens": 584,
+          "stream_sha256": "bb6709a2a6b768bc9f2f7fb712bb1b84973d5ec9a4292da02e52c71326a5ac87",
+          "wall": 0.012305601965636015,
+          "cpu": 0.012300805999984732,
+          "compile_wall": 0.032068753032945096,
+          "compile_cpu": 0.0745960809999815,
+          "p50_token_seconds": 6.6829961724579334e-06,
+          "p95_token_seconds": 4.259101115167141e-05
+        },
+        {
+          "chunk": 2,
+          "variant": "flat",
+          "repeat": 2,
+          "tokens": 584,
+          "stream_sha256": "bb6709a2a6b768bc9f2f7fb712bb1b84973d5ec9a4292da02e52c71326a5ac87",
+          "wall": 0.012346663977950811,
+          "cpu": 0.012342625000030694,
+          "compile_wall": 0.032068753032945096,
+          "compile_cpu": 0.0745960809999815,
+          "p50_token_seconds": 6.684975232928991e-06,
+          "p95_token_seconds": 4.271697252988815e-05
+        },
+        {
+          "chunk": 5,
+          "variant": "native",
+          "repeat": 0,
+          "tokens": 1227,
+          "stream_sha256": "1a200128c108f2831afae698bccc1097cb65d681bcaa8269d85a957e3d53fd8f",
+          "wall": 0.03774554003030062,
+          "cpu": 0.03771920700000919,
+          "compile_wall": 0.02855384594295174,
+          "compile_cpu": 0.06778046199997334,
+          "p50_token_seconds": 3.965198993682861e-05,
+          "p95_token_seconds": 7.052300497889519e-05
+        },
+        {
+          "chunk": 5,
+          "variant": "native",
+          "repeat": 1,
+          "tokens": 1227,
+          "stream_sha256": "1a200128c108f2831afae698bccc1097cb65d681bcaa8269d85a957e3d53fd8f",
+          "wall": 0.031169757014140487,
+          "cpu": 0.031123460999992858,
+          "compile_wall": 0.02855384594295174,
+          "compile_cpu": 0.06778046199997334,
+          "p50_token_seconds": 3.6807963624596596e-05,
+          "p95_token_seconds": 4.3465057387948036e-05
+        },
+        {
+          "chunk": 5,
+          "variant": "native",
+          "repeat": 2,
+          "tokens": 1227,
+          "stream_sha256": "1a200128c108f2831afae698bccc1097cb65d681bcaa8269d85a957e3d53fd8f",
+          "wall": 0.0310973470332101,
+          "cpu": 0.03106563700004017,
+          "compile_wall": 0.02855384594295174,
+          "compile_cpu": 0.06778046199997334,
+          "p50_token_seconds": 3.680598456412554e-05,
+          "p95_token_seconds": 4.343490581959486e-05
+        },
+        {
+          "chunk": 5,
+          "variant": "branches",
+          "repeat": 0,
+          "tokens": 1227,
+          "stream_sha256": "1a200128c108f2831afae698bccc1097cb65d681bcaa8269d85a957e3d53fd8f",
+          "wall": 104.78328157495707,
+          "cpu": 104.763062284,
+          "compile_wall": 0.04403392702806741,
+          "compile_cpu": 0.2534838579999814,
+          "p50_token_seconds": 3.784999717026949e-05,
+          "p95_token_seconds": 0.21873232198413461
+        },
+        {
+          "chunk": 5,
+          "variant": "branches",
+          "repeat": 1,
+          "tokens": 1227,
+          "stream_sha256": "1a200128c108f2831afae698bccc1097cb65d681bcaa8269d85a957e3d53fd8f",
+          "wall": 104.79741514008492,
+          "cpu": 104.777008335,
+          "compile_wall": 0.04403392702806741,
+          "compile_cpu": 0.2534838579999814,
+          "p50_token_seconds": 3.7934049032628536e-05,
+          "p95_token_seconds": 0.2189173320075497
+        }
+      ],
+      "external_stop": {
+        "time": 1792123137.6345925,
+        "pid": 449008,
+        "argv": [
+          "/data/ziheng/agent-memory-architecture/.venv/bin/python",
+          "-u",
+          "grammar_replay.py"
+        ],
+        "status": "early_stop_requested",
+        "reason": "Complete 3x2 schema factorial with two repeats isolated minLength overhead. Stop redundant remaining broad replays; preserve partial measurements."
+      },
+      "observed_status": "early_stopped"
+    },
+    "grammar_factorial": {
+      "manifest": {
+        "start": 1792122779.9676445,
+        "status": "complete",
+        "scope": "One identical serialized JSON stream from a real frozen request; CPU grammar only. Shared host and concurrent CPU grammar job; process CPU time reported separately. No inference or index operations. Not a GPU or new-hardware speedup.",
+        "source_trace_sha256": "6b540a5e46354aebb00971eeb34b7acaa5f858fc6ef63c7e439edbf7bb0cb379",
+        "source_trace_id": "9b4c9483-6958-4ce0-b294-3af634f5ee9e",
+        "normalized_stream_sha256": "bb6709a2a6b768bc9f2f7fb712bb1b84973d5ec9a4292da02e52c71326a5ac87",
+        "schema_sha256": {
+          "native_min0": "61ee1c06e18fa51e88f75adbccb15f8ae29afbfd93aef8bbaf41ef429aa5bc9d",
+          "native_min1": "30cf00a04df9d8973507757f3e7f1a1fee8d15bbc1d9e00dec4868342f98ccb9",
+          "flat_min0": "bc9198e729afec1037ae2f734a2eb726fa72bef40b9785781329f60c3d40c393",
+          "flat_min1": "e302d83514335f250e38b8195688a70aab65c6e8480f74e5c1a3c2b757d774a5",
+          "branches_min0": "d4de6a231d82d9651bae80d996a70b51e2c47c119ba73317ca23757178fa725e",
+          "branches_min1": "77a145e2672a32fa37143be3b933991484bf6b89c9d6733569f6d8f4fee86860"
+        },
+        "end": 1792123094.2748895
+      },
+      "measurements": [
+        {
+          "variant": "native_min0",
+          "repeat": 0,
+          "tokens": 584,
+          "wall": 0.013851166004315019,
+          "cpu": 0.013844133999999286,
+          "compile_wall": 0.02385196799878031,
+          "compile_cpu": 0.04164246499999891
+        },
+        {
+          "variant": "native_min1",
+          "repeat": 0,
+          "tokens": 584,
+          "wall": 50.978747735964134,
+          "cpu": 50.966439582999996,
+          "compile_wall": 0.031041455920785666,
+          "compile_cpu": 0.14006039700000272
+        },
+        {
+          "variant": "flat_min0",
+          "repeat": 0,
+          "tokens": 584,
+          "wall": 0.018602549913339317,
+          "cpu": 0.018583732999999825,
+          "compile_wall": 0.03290576604194939,
+          "compile_cpu": 0.07321261200000606
+        },
+        {
+          "variant": "flat_min1",
+          "repeat": 0,
+          "tokens": 584,
+          "wall": 51.04638364294078,
+          "cpu": 51.036057196,
+          "compile_wall": 0.035993019002489746,
+          "compile_cpu": 0.1680193419999938
+        },
+        {
+          "variant": "branches_min0",
+          "repeat": 0,
+          "tokens": 584,
+          "wall": 0.022762211970984936,
+          "cpu": 0.02274539199999026,
+          "compile_wall": 0.0333785560214892,
+          "compile_cpu": 0.08072612899999854
+        },
+        {
+          "variant": "branches_min1",
+          "repeat": 0,
+          "tokens": 584,
+          "wall": 52.58675605698954,
+          "cpu": 52.573850861999986,
+          "compile_wall": 0.044507170910947025,
+          "compile_cpu": 0.2510748480000018
+        },
+        {
+          "variant": "branches_min1",
+          "repeat": 1,
+          "tokens": 584,
+          "wall": 52.3517232920276,
+          "cpu": 52.33828935300002,
+          "compile_wall": 0.04726375103928149,
+          "compile_cpu": 0.26420950600001447
+        },
+        {
+          "variant": "branches_min0",
+          "repeat": 1,
+          "tokens": 584,
+          "wall": 0.021850753924809396,
+          "cpu": 0.021826024000006328,
+          "compile_wall": 0.03326172800734639,
+          "compile_cpu": 0.0768538250000006
+        },
+        {
+          "variant": "flat_min1",
+          "repeat": 1,
+          "tokens": 584,
+          "wall": 50.685497666941956,
+          "cpu": 50.67258454900002,
+          "compile_wall": 0.038705629063770175,
+          "compile_cpu": 0.17579935899999555
+        },
+        {
+          "variant": "flat_min0",
+          "repeat": 1,
+          "tokens": 584,
+          "wall": 0.01858289900701493,
+          "cpu": 0.018564983000032953,
+          "compile_wall": 0.03476488194428384,
+          "compile_cpu": 0.07499893800002155
+        },
+        {
+          "variant": "native_min1",
+          "repeat": 1,
+          "tokens": 584,
+          "wall": 51.16545685194433,
+          "cpu": 51.15226185900002,
+          "compile_wall": 0.040437388932332397,
+          "compile_cpu": 0.18043249700002661
+        },
+        {
+          "variant": "native_min0",
+          "repeat": 1,
+          "tokens": 584,
+          "wall": 0.022009765030816197,
+          "cpu": 0.02199104500004978,
+          "compile_wall": 0.03188207501079887,
+          "compile_cpu": 0.07717768000003389
+        }
+      ],
+      "external_stop": {},
+      "observed_status": "complete"
+    }
+  },
+  "protocol": {
+    "native": {
+      "calls": 5,
+      "seconds": 49.09161972999573,
+      "ttft": 1.3452377319335938,
+      "output_tokens": 3747,
+      "input_tokens": 9435,
+      "agreement": 5,
+      "invalid_reference_cases": 0,
+      "parse_or_validation_errors": 0,
+      "truncated": 0,
+      "noop_count": 53,
+      "samples": [
+        {
+          "chunk": 0,
+          "start": 1792123137.9430964,
+          "first_token": 1792123139.0243752,
+          "end": 1792123147.2183263,
+          "usage": {
+            "prompt_tokens": 1732,
+            "total_tokens": 2379,
+            "completion_tokens": 647
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": true,
+          "protocol_validation": null,
+          "parse_error": null
+        },
+        {
+          "chunk": 1,
+          "start": 1792123170.1288245,
+          "first_token": 1792123170.1691177,
+          "end": 1792123175.966982,
+          "usage": {
+            "prompt_tokens": 1744,
+            "total_tokens": 2204,
+            "completion_tokens": 460
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": true,
+          "protocol_validation": null,
+          "parse_error": null
+        },
+        {
+          "chunk": 2,
+          "start": 1792123175.9685807,
+          "first_token": 1792123176.04927,
+          "end": 1792123185.5744286,
+          "usage": {
+            "prompt_tokens": 1902,
+            "total_tokens": 2645,
+            "completion_tokens": 743
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": true,
+          "protocol_validation": null,
+          "parse_error": null
+        },
+        {
+          "chunk": 3,
+          "start": 1792123221.3472848,
+          "first_token": 1792123221.3846838,
+          "end": 1792123228.2739334,
+          "usage": {
+            "prompt_tokens": 1925,
+            "total_tokens": 2468,
+            "completion_tokens": 543
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": true,
+          "protocol_validation": null,
+          "parse_error": null
+        },
+        {
+          "chunk": 4,
+          "start": 1792123228.2757099,
+          "first_token": 1792123228.3812873,
+          "end": 1792123245.7214458,
+          "usage": {
+            "prompt_tokens": 2132,
+            "total_tokens": 3486,
+            "completion_tokens": 1354
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": true,
+          "protocol_validation": null,
+          "parse_error": null
+        }
+      ]
+    },
+    "flat_snapshot": {
+      "calls": 4,
+      "seconds": 29.87765121459961,
+      "ttft": 0.3004426956176758,
+      "output_tokens": 2335,
+      "input_tokens": 7543,
+      "agreement": 4,
+      "invalid_reference_cases": 0,
+      "parse_or_validation_errors": 1,
+      "truncated": 0,
+      "noop_count": 40,
+      "samples": [
+        {
+          "chunk": 0,
+          "start": 1792123147.219338,
+          "first_token": 1792123147.2983088,
+          "end": 1792123154.7800884,
+          "usage": {
+            "prompt_tokens": 1792,
+            "total_tokens": 2384,
+            "completion_tokens": 592
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": true,
+          "protocol_validation": "passed",
+          "parse_error": null
+        },
+        {
+          "chunk": 1,
+          "start": 1792123164.2673178,
+          "first_token": 1792123164.3320577,
+          "end": 1792123170.1278396,
+          "usage": {
+            "prompt_tokens": 1804,
+            "total_tokens": 2261,
+            "completion_tokens": 457
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": true,
+          "protocol_validation": "passed",
+          "parse_error": null
+        },
+        {
+          "chunk": 2,
+          "start": 1792123185.5753443,
+          "first_token": 1792123185.6638176,
+          "end": 1792123195.0696483,
+          "usage": {
+            "prompt_tokens": 1962,
+            "total_tokens": 2705,
+            "completion_tokens": 743
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": true,
+          "protocol_validation": null,
+          "parse_error": "ValueError('ADD requires the NEW placeholder')"
+        },
+        {
+          "chunk": 3,
+          "start": 1792123214.3842528,
+          "first_token": 1792123214.4525113,
+          "end": 1792123221.3463278,
+          "usage": {
+            "prompt_tokens": 1985,
+            "total_tokens": 2528,
+            "completion_tokens": 543
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": true,
+          "protocol_validation": "passed",
+          "parse_error": null
+        }
+      ]
+    },
+    "flat_delta": {
+      "calls": 4,
+      "seconds": 28.794866800308228,
+      "ttft": 0.41266584396362305,
+      "output_tokens": 2236,
+      "input_tokens": 7715,
+      "agreement": 2,
+      "invalid_reference_cases": 0,
+      "parse_or_validation_errors": 1,
+      "truncated": 0,
+      "noop_count": 0,
+      "samples": [
+        {
+          "chunk": 0,
+          "start": 1792123154.7804604,
+          "first_token": 1792123154.8603542,
+          "end": 1792123162.3460615,
+          "usage": {
+            "prompt_tokens": 1835,
+            "total_tokens": 2427,
+            "completion_tokens": 592
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": true,
+          "protocol_validation": "passed",
+          "parse_error": null
+        },
+        {
+          "chunk": 1,
+          "start": 1792123162.347701,
+          "first_token": 1792123162.4641411,
+          "end": 1792123164.2665052,
+          "usage": {
+            "prompt_tokens": 1847,
+            "total_tokens": 1990,
+            "completion_tokens": 143
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": true,
+          "protocol_validation": null,
+          "parse_error": "ValueError('ADD requires the NEW placeholder')"
+        },
+        {
+          "chunk": 2,
+          "start": 1792123195.0707147,
+          "first_token": 1792123195.1551936,
+          "end": 1792123204.0671968,
+          "usage": {
+            "prompt_tokens": 2005,
+            "total_tokens": 2708,
+            "completion_tokens": 703
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": false,
+          "protocol_validation": "passed",
+          "parse_error": null
+        },
+        {
+          "chunk": 3,
+          "start": 1792123204.0691297,
+          "first_token": 1792123204.2009828,
+          "end": 1792123214.383109,
+          "usage": {
+            "prompt_tokens": 2028,
+            "total_tokens": 2826,
+            "completion_tokens": 798
+          },
+          "finish_reason": "stop",
+          "exact_mutation_match_original": false,
+          "protocol_validation": "passed",
+          "parse_error": null
+        }
+      ]
+    }
+  },
+  "runs": {},
+  "source_receipts": {
+    "outputs/phase3/pipeline.json": {
+      "bytes": 1026,
+      "sha256": "93c88025a0f745e8160385f8cdb4d7e64c3c1943e3b0bf23acd2cd848d248bf5"
+    },
+    "outputs/phase3/grammar_replay/manifest.json": {
+      "bytes": 357,
+      "sha256": "c53b18a18e6ccb3501498f24c86d49fd278ea257e662030d3486cb934736ffbd"
+    },
+    "outputs/phase3/grammar_replay/early_stop.json": {
+      "bytes": 362,
+      "sha256": "72d352a076aff8139ccea8cb3e5f49416db3d805c6a778d0bef7e42aa409fb38"
+    },
+    "outputs/phase3/grammar_replay/measurements.jsonl": {
+      "prefix_bytes": 8371,
+      "sha256": "554a6a51e5a6c6cffd2f84816901bd355aace59a07693d29232b87d421e95943"
+    },
+    "outputs/phase3/grammar_factorial/manifest.json": {
+      "bytes": 3998,
+      "sha256": "e72b5073b028032663ad21c73b8bef95e794d99ff0c22e978ac71980e6d8824c"
+    },
+    "outputs/phase3/grammar_factorial/measurements.jsonl": {
+      "prefix_bytes": 2204,
+      "sha256": "4d4b8e7f7ce643c95355535a6a2cb9e4105aa923f917fa95832a60fc420b5b91"
+    },
+    "outputs/phase3/protocol_ablation/raw.jsonl": {
+      "prefix_bytes": 171689,
+      "sha256": "3366464e82d3b26ea90649d7a499268c4fd2d25b636c707f17c201ade2c71632"
+    }
+  }
+}
