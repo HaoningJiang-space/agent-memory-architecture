@@ -10,6 +10,8 @@ The purpose of this matrix is to prevent a familiar software mechanism from bein
 | [MemExplorer](https://arxiv.org/abs/2604.16007) | Joint compute/SRAM/memory-technology DSE for prefill and decode in agentic inference | Use its applicable design assumptions as a competing design space, not merely a weak HBM-only baseline. Its projected memory parameters are assumptions, not A800 calibration. |
 | [KEEP](https://arxiv.org/abs/2602.23592) | Update-frequency grouping, dynamic-memory KV invalidation, selective multi-hop recomputation, layer-balanced loading | Test whether residual costs survive reuse/recomputation controls. Its embodied planner and selective recomputation semantics are not automatically equivalent to Mem0 fact extraction. |
 | [TokenCake](https://arxiv.org/abs/2510.18586) | Agent-priority KV capacity allocation, lifecycle notifications, preservation/offload/prefetch during tool stalls | Require genuine DAG dependencies and stall intervals. A static offline corpus has no measured tool-stall distribution; do not invent one and label it workload evidence. |
+| [CONCUR](https://proceedings.mlr.press/v306/chen26fs.html) | Feedback-driven active-agent admission to control KV pressure in batch inference | Count entrance/admission waiting in latency; batch throughput is not evidence of semantic-write freshness. Paper-level coverage checked; not reproduced here. |
+| [Hot–Cold HBM/HBF](https://arxiv.org/html/2609.25782v1) | Hot KV in HBM, cold paused KV overflow, write-on-evict and resume | Trace-scaled analytical evaluation with immutable KV and projected HBF. Semantic updates can invalidate immutable blocks rather than overwrite them: quantify turnover/recompute instead of treating mutability alone as novelty. |
 
 Pinned code:
 
