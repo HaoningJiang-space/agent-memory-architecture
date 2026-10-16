@@ -2,7 +2,9 @@
 
 本仓库从真实算法检验架构动机。A800 用于运行与校准；没有预设 Hybrid Bonding、PIM、HBF 或热优化的优势。
 
-当前 follow-up 见 [本地 PDF overview 与修订后的动机检验](PDF_OVERVIEW.md)。第一轮证据已冻结；新的原生 32B Mem0 与输出协议对照在远端 `outputs/phase2/` 独立后台运行，启用 prefix caching。[第一性原理图](evidence/phase2/first_principles_overview.pdf) 分别展示实测请求时间和权重/KV 容量上界，不代表已经得到新架构加速比。
+最新进展见 [第二、三轮结果与原因](PHASE23_RESULTS.md)、[下一步的第一性原理 overview](OVERVIEW_NEXT.md)。原生 32B Mem0 在第 82 个片段出现无效 ID；正确计数为 81 个通过检查的片段，尚无完整质量结果。第三轮已通过 CPU 因果对照定位严格 schema 的 `minLength` 开销；完整软件控制从干净状态在远端 `outputs/phase3/` 后台运行。
+
+[本地 PDF 阅读](PDF_OVERVIEW.md) 对照 HybridSpec、Splitwise、H²-LLM、FGDRAM、TETRIS 等梳理证据门槛。[早期第一性原理图](evidence/phase2/first_principles_overview.pdf) 的 20K 上下文是明确的容量假设，不能代替实际 Mem0 查询长度；新分析同时核算语义压缩节省的 KV。
 
 第一轮实测与反证见 [RESULTS.md](RESULTS.md)，进一步的失败与性能原因分析见 [CAUSES.md](CAUSES.md)。实验口径与否决条件见 [PROTOCOL.md](PROTOCOL.md)，成熟基线覆盖见 [BASELINES.md](BASELINES.md)，版本适配与测量限制见 [COMPATIBILITY.md](COMPATIBILITY.md)。最终结果由原始 API 响应与执行记录汇总，原生 profiler 的计数另行核对。
 
@@ -26,6 +28,10 @@
 | `protocol_ablation.py` | 冻结状态上的原生、合法 ID、delta 输出对照；不修改数据库 |
 | `operations/start_phase2.py` | 等待隔离服务就绪并执行完整原生 32B 对照，保留后台运行状态 |
 | `phase2_snapshot.py` / `operations/finish_phase2.py` | 固定运行中的观察前缀；两个后台实验结束后汇总、冻结并释放准确匹配的服务进程 |
+| `protocol_controls.py` | 明确标记的协议控制；写库前引用校验、有限重试和完整 API 回执检查 |
+| `grammar_replay.py` / `grammar_factorial.py` | 相同 JSON token 流的 CPU 约束匹配对照，隔离 schema 规则开销 |
+| `operations/start_phase3.py --recover` | 已审计的采集器修复后，从新状态顺序执行三个完整控制并收尾 |
+| `phase3_snapshot.py` / `capacity_tradeoff.py` | 导出观察前缀；仅在完整合法运行后计算真实成对查询的 KV 容量账 |
 
 在远端已经准备好的环境中，可用新 run 名复查：
 

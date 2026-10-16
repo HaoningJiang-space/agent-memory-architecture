@@ -3,6 +3,8 @@ import json
 import unittest
 from pathlib import Path
 import tempfile
+import threading
+import time
 from protocol_controls import MARKER, UpdateControl, validate_response
 
 
@@ -75,6 +77,27 @@ class ProtocolSafety(unittest.TestCase):
             control([dict(role='user',content=MARKER+'```[]``` ```[]```')])
             self.assertEqual([r['accepted'] for r in logs],[False,True])
             self.assertEqual(control.handled_trace_ids,{'1','2'})
+
+    def test_response_can_precede_partial_trace_flush(self):
+        with tempfile.TemporaryDirectory() as directory:
+            trace = Path(directory)/'api.jsonl'
+            logs, writers = [],[]
+            def generate(**kw):
+                receipt = json.dumps(dict(id='delayed',path='chat/completions',finish_reason='stop'))+'\n'
+                trace.write_text(receipt[:5])
+                def finish_write():
+                    time.sleep(.02)
+                    with trace.open('a') as stream: stream.write(receipt[5:])
+                writer = threading.Thread(target=finish_write)
+                writer.start()
+                writers.append(writer)
+                return response(op('ADD','NEW'))
+            control = UpdateControl(generate,'flat_delta',logs.append,trace_path=trace)
+            control([dict(role='user',content=MARKER+'```[]``` ```[]```')])
+            for writer in writers: writer.join()
+            self.assertEqual(len(logs),1)
+            self.assertTrue(logs[0]['accepted'])
+            self.assertEqual(control.handled_trace_ids,{'delayed'})
 
 
 if __name__ == '__main__':

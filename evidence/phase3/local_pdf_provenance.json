@@ -1,0 +1,23 @@
+{
+  "scope": "Additional local PDFs read for modeling methodology, not Agent Memory workload measurements",
+  "files": [
+    {
+      "path": "/home/abc/jhn/thermal/data/literature/r24/PARBS-ISCA08.pdf",
+      "bytes": 381424,
+      "sha256": "60fffc0f303f7aa7a626abb7a4bb857edd69bf218a3b605742a06de406f7935e",
+      "pages_read": [
+        1,
+        2
+      ]
+    },
+    {
+      "path": "/home/abc/jhn/thermal/data/literature/dram-boundaries-20261003/Sectored-DRAM-v2.pdf",
+      "bytes": 3167396,
+      "sha256": "daa7aab0e9ba8e91ac5c2543d87e6a31c9c78d8bb73ce7fa57ca2d2217f19a7b",
+      "pages_read": [
+        1,
+        2
+      ]
+    }
+  ]
+}
