@@ -1,0 +1,165 @@
+{
+  "source_sha256": "8b2e6c5a7f85f5b87f446621f60c5447297e662add1143d996279e4f0eb88d5a",
+  "graphs": [
+    {
+      "graph": "lightmem_concurrent_queries",
+      "entries": [
+        {
+          "policy": "unified",
+          "design": "HBM3E4_a16_128x128_s128_k2_m8",
+          "active_only": false,
+          "seconds": 72.23103509006143,
+          "energy_j": 9019.606769122112
+        },
+        {
+          "policy": "unified",
+          "design": "HBM3E4_a8_128x128_s32_k2_m8",
+          "active_only": false,
+          "seconds": 111.28520162299306,
+          "energy_j": 11356.155499551454
+        },
+        {
+          "policy": "whole",
+          "design": "private_LPDDR8_HBM1",
+          "active_only": false,
+          "seconds": 232.91662192649878,
+          "energy_j": 26676.35437721742
+        },
+        {
+          "policy": "pd",
+          "design": "private_LPDDR8_HBM1",
+          "active_only": false,
+          "seconds": 235.13223985329867,
+          "energy_j": 26930.56776641467
+        },
+        {
+          "policy": "joint",
+          "design": "private_LPDDR8_HBM1",
+          "active_only": false,
+          "seconds": 233.42854288649878,
+          "energy_j": 26726.266034561097
+        }
+      ]
+    },
+    {
+      "graph": "lightmem_sequential_queries",
+      "entries": [
+        {
+          "policy": "unified",
+          "design": "HBM3E4_a16_128x128_s128_k2_m8",
+          "active_only": false,
+          "seconds": 72.89194735000882,
+          "energy_j": 9111.281793690541
+        },
+        {
+          "policy": "unified",
+          "design": "HBM3E4_a8_128x128_s32_k2_m8",
+          "active_only": false,
+          "seconds": 112.30184769786419,
+          "energy_j": 11463.44315873049
+        },
+        {
+          "policy": "whole",
+          "design": "private_LPDDR8_HBM1",
+          "active_only": false,
+          "seconds": 236.95615504017735,
+          "energy_j": 27138.37500067315
+        },
+        {
+          "policy": "pd",
+          "design": "private_LPDDR8_HBM1",
+          "active_only": false,
+          "seconds": 239.17177296697724,
+          "energy_j": 27392.588389870398
+        },
+        {
+          "policy": "joint",
+          "design": "private_LPDDR8_HBM1",
+          "active_only": false,
+          "seconds": 237.46807600017735,
+          "energy_j": 27188.286658016823
+        }
+      ]
+    },
+    {
+      "graph": "simplemem_concurrent_queries",
+      "entries": [
+        {
+          "policy": "unified",
+          "design": "HBM3E4_a16_128x128_s128_k2_m8",
+          "active_only": false,
+          "seconds": 58.39978217971209,
+          "energy_j": 6411.023722104926
+        },
+        {
+          "policy": "unified",
+          "design": "HBM3E4_a8_128x128_s32_k2_m8",
+          "active_only": false,
+          "seconds": 103.26805830462735,
+          "energy_j": 9234.072613755361
+        },
+        {
+          "policy": "whole",
+          "design": "private_LPDDR8_HBM1",
+          "active_only": false,
+          "seconds": 155.52509805474378,
+          "energy_j": 17713.828069904932
+        },
+        {
+          "policy": "pd",
+          "design": "private_LPDDR8_HBM1",
+          "active_only": false,
+          "seconds": 166.11561781528675,
+          "energy_j": 19031.48647611928
+        },
+        {
+          "policy": "joint",
+          "design": "private_LPDDR8_HBM1",
+          "active_only": false,
+          "seconds": 156.8003642246477,
+          "energy_j": 18244.055371218532
+        }
+      ]
+    },
+    {
+      "graph": "simplemem_sequential_queries",
+      "entries": [
+        {
+          "policy": "unified",
+          "design": "HBM3E4_a16_128x128_s128_k2_m8",
+          "active_only": false,
+          "seconds": 63.160500495589105,
+          "energy_j": 7070.471493766823
+        },
+        {
+          "policy": "unified",
+          "design": "HBM3E4_a8_128x128_s32_k2_m8",
+          "active_only": false,
+          "seconds": 110.56242340272031,
+          "energy_j": 10011.297031620574
+        },
+        {
+          "policy": "whole",
+          "design": "private_LPDDR8_HBM1",
+          "active_only": false,
+          "seconds": 180.30330617667366,
+          "energy_j": 20460.73589256888
+        },
+        {
+          "policy": "pd",
+          "design": "private_LPDDR8_HBM1",
+          "active_only": false,
+          "seconds": 183.45978378151813,
+          "energy_j": 20824.62209289709
+        },
+        {
+          "policy": "joint",
+          "design": "private_LPDDR8_HBM1",
+          "active_only": false,
+          "seconds": 180.81522713667366,
+          "energy_j": 20510.64754991256
+        }
+      ]
+    }
+  ]
+}
