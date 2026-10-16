@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "fresh_blocks": 22528,
+  "tensors": 44,
+  "conditions": 704,
+  "pipeline_ledgers": 5632,
+  "input_sha256": {
+    "supply_blocks.json": "ead922f5aec5f51c0aabe5ffab5e316981a749439109c42cac817e97450126d7",
+    "bank_supply.json.gz": "49e6f142dc3d9256d08fba244bf6f0ac8d38f2b1daa86556036bb7e1c7335de6",
+    "validate_supply_evidence.py": "909241ed61cdb5d5bf9e173c54890dd1fb2823a27de5ca953d4c81d7ae701c9a"
+  },
+  "scope": "No raw weights on this host; reconstruction checked on server. No PPA or hardware validation."
+}

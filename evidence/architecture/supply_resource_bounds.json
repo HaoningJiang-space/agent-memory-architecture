@@ -1,0 +1,442 @@
+{
+  "scope": "Coupled HB-interface/MAC ceilings from local H2-LLM PDF Table 6.\n\nPaper's 40 nm, 1 GHz, 6.76 mm2 PE is a reference, not our synthesized design.\nNo linear technology scaling or mixing with the central 10 nm area model.\nThe largest fitting FPU count excludes our additional decoder/network cost.\n",
+  "source_sha256": "d8886e129fb7dba3b0ec1973325f68877f079536a43da6d26059215e68722428",
+  "input_sha256": {
+    "hetero_projection_shapes.json": "c869524139e507c4fd0e2f736b26bd1b26c407342f1dffd7d318450f0620833f",
+    "hetero_boundary.json": "cfa5d33d94b6568b174b7065db64f82da3f143818aabc34eaba7ed711e7e06a3",
+    "supply_blocks.json": "ead922f5aec5f51c0aabe5ffab5e316981a749439109c42cac817e97450126d7"
+  },
+  "paper": {
+    "pdf_from_jhn": "asy/asymmetric_llm_3d/cooling/deep_review/papers/architecture/h2_llm_isca2025.pdf",
+    "pdf_sha256": "1958e22da94e12eeb225ca5c4694d341416e1567135e2ef53c92f0382217e7f4",
+    "pdf_page": 10,
+    "section": "7.1, Table 6",
+    "frequency_GHz": 1,
+    "technology_nm": 40,
+    "note": "GB/s decimal. 16 MAC/FPU; all area numbers remain in paper technology."
+  },
+  "reference": [
+    {
+      "hb_GB_s": 6.4,
+      "macs": 128,
+      "fpu_area_mm2": 6.16,
+      "controller_area_mm2": 0.31095999999999996,
+      "pe_area_mm2": 6.76,
+      "peak_GFLOPs": 256,
+      "encoded_weight_flop_per_byte": 40.0,
+      "m_limit_raw": 40.0,
+      "m_limit_ratio_08": 32.0,
+      "streams": [
+        {
+          "graph": "simplemem_sequential_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9939172474048883,
+          "eligible_flop_fraction": 0.08941722202356307
+        },
+        {
+          "graph": "simplemem_concurrent_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9946689677493655,
+          "eligible_flop_fraction": 0.08898015678236312
+        },
+        {
+          "graph": "lightmem_sequential_queries",
+          "maintenance_cap": 5,
+          "eligible_weight_fraction": 0.996263451718711,
+          "eligible_flop_fraction": 0.16746522778775105
+        },
+        {
+          "graph": "lightmem_sequential_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.996556808709615,
+          "eligible_flop_fraction": 0.16673905271602302
+        },
+        {
+          "graph": "lightmem_concurrent_queries",
+          "maintenance_cap": 5,
+          "eligible_weight_fraction": 0.9965955167768197,
+          "eligible_flop_fraction": 0.16648601637239943
+        },
+        {
+          "graph": "lightmem_concurrent_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9969060299529365,
+          "eligible_flop_fraction": 0.16576829053185907
+        }
+      ]
+    },
+    {
+      "hb_GB_s": 12.8,
+      "macs": 64,
+      "fpu_area_mm2": 3.08,
+      "controller_area_mm2": 0.72332,
+      "pe_area_mm2": 6.76,
+      "peak_GFLOPs": 128,
+      "encoded_weight_flop_per_byte": 10.0,
+      "m_limit_raw": 10.0,
+      "m_limit_ratio_08": 8.0,
+      "streams": [
+        {
+          "graph": "simplemem_sequential_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9936371064634666,
+          "eligible_flop_fraction": 0.08924118760680701
+        },
+        {
+          "graph": "simplemem_concurrent_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9943282669032333,
+          "eligible_flop_fraction": 0.08880498280974833
+        },
+        {
+          "graph": "lightmem_sequential_queries",
+          "maintenance_cap": 5,
+          "eligible_weight_fraction": 0.9950409668434342,
+          "eligible_flop_fraction": 0.16373566273053755
+        },
+        {
+          "graph": "lightmem_sequential_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9896586256986706,
+          "eligible_flop_fraction": 0.148255259751149
+        },
+        {
+          "graph": "lightmem_concurrent_queries",
+          "maintenance_cap": 5,
+          "eligible_weight_fraction": 0.9953562156125999,
+          "eligible_flop_fraction": 0.16277825902253248
+        },
+        {
+          "graph": "lightmem_concurrent_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9899092523781813,
+          "eligible_flop_fraction": 0.14739211103208477
+        }
+      ]
+    },
+    {
+      "hb_GB_s": 25.6,
+      "macs": 64,
+      "fpu_area_mm2": 3.08,
+      "controller_area_mm2": 1.33172,
+      "pe_area_mm2": 6.76,
+      "peak_GFLOPs": 128,
+      "encoded_weight_flop_per_byte": 5.0,
+      "m_limit_raw": 5.0,
+      "m_limit_ratio_08": 4.0,
+      "streams": [
+        {
+          "graph": "simplemem_sequential_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9936371064634666,
+          "eligible_flop_fraction": 0.08924118760680701
+        },
+        {
+          "graph": "simplemem_concurrent_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9943282669032333,
+          "eligible_flop_fraction": 0.08880498280974833
+        },
+        {
+          "graph": "lightmem_sequential_queries",
+          "maintenance_cap": 5,
+          "eligible_weight_fraction": 0.9908643977272814,
+          "eligible_flop_fraction": 0.1605157731977984
+        },
+        {
+          "graph": "lightmem_sequential_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9886948579031534,
+          "eligible_flop_fraction": 0.1473281438939376
+        },
+        {
+          "graph": "lightmem_concurrent_queries",
+          "maintenance_cap": 5,
+          "eligible_weight_fraction": 0.9911221943393956,
+          "eligible_flop_fraction": 0.15957719699582712
+        },
+        {
+          "graph": "lightmem_concurrent_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9889317096124635,
+          "eligible_flop_fraction": 0.14647039288464717
+        }
+      ]
+    },
+    {
+      "hb_GB_s": 51.2,
+      "macs": 32,
+      "fpu_area_mm2": 1.54,
+      "controller_area_mm2": 2.71752,
+      "pe_area_mm2": 6.76,
+      "peak_GFLOPs": 64,
+      "encoded_weight_flop_per_byte": 1.25,
+      "m_limit_raw": 1.25,
+      "m_limit_ratio_08": 1.0,
+      "streams": [
+        {
+          "graph": "simplemem_sequential_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.5472077346093001,
+          "eligible_flop_fraction": 0.025470616727447215
+        },
+        {
+          "graph": "simplemem_concurrent_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.29543444096338,
+          "eligible_flop_fraction": 0.011251844490836296
+        },
+        {
+          "graph": "lightmem_sequential_queries",
+          "maintenance_cap": 5,
+          "eligible_weight_fraction": 0.9644289948296694,
+          "eligible_flop_fraction": 0.14847589162465816
+        },
+        {
+          "graph": "lightmem_sequential_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9822087989762401,
+          "eligible_flop_fraction": 0.14497749461484422
+        },
+        {
+          "graph": "lightmem_concurrent_queries",
+          "maintenance_cap": 5,
+          "eligible_weight_fraction": 0.9509507892471522,
+          "eligible_flop_fraction": 0.14356992740953609
+        },
+        {
+          "graph": "lightmem_concurrent_queries",
+          "maintenance_cap": null,
+          "eligible_weight_fraction": 0.9684585497609508,
+          "eligible_flop_fraction": 0.14011304797076754
+        }
+      ]
+    }
+  ],
+  "old_requirements": [
+    {
+      "graph": "simplemem_sequential_queries",
+      "maintenance_cap": null,
+      "old_required_GB_s": 3310.785268029168,
+      "old_assumed_near_TFLOPs": 50.351165565208795,
+      "ports": [
+        {
+          "hb_GB_s": 6.4,
+          "minimum_count": 518,
+          "associated_peak_TFLOPs": 132.608,
+          "controller_only_mm2_40nm": 161.07727999999997
+        },
+        {
+          "hb_GB_s": 12.8,
+          "minimum_count": 259,
+          "associated_peak_TFLOPs": 33.152,
+          "controller_only_mm2_40nm": 187.33988
+        },
+        {
+          "hb_GB_s": 25.6,
+          "minimum_count": 130,
+          "associated_peak_TFLOPs": 16.64,
+          "controller_only_mm2_40nm": 173.1236
+        },
+        {
+          "hb_GB_s": 51.2,
+          "minimum_count": 65,
+          "associated_peak_TFLOPs": 4.16,
+          "controller_only_mm2_40nm": 176.6388
+        }
+      ]
+    },
+    {
+      "graph": "simplemem_concurrent_queries",
+      "maintenance_cap": null,
+      "old_required_GB_s": 3332.3939808224886,
+      "old_assumed_near_TFLOPs": 50.351165565208795,
+      "ports": [
+        {
+          "hb_GB_s": 6.4,
+          "minimum_count": 521,
+          "associated_peak_TFLOPs": 133.376,
+          "controller_only_mm2_40nm": 162.01015999999998
+        },
+        {
+          "hb_GB_s": 12.8,
+          "minimum_count": 261,
+          "associated_peak_TFLOPs": 33.408,
+          "controller_only_mm2_40nm": 188.78652
+        },
+        {
+          "hb_GB_s": 25.6,
+          "minimum_count": 131,
+          "associated_peak_TFLOPs": 16.768,
+          "controller_only_mm2_40nm": 174.45532
+        },
+        {
+          "hb_GB_s": 51.2,
+          "minimum_count": 66,
+          "associated_peak_TFLOPs": 4.224,
+          "controller_only_mm2_40nm": 179.35631999999998
+        }
+      ]
+    },
+    {
+      "graph": "lightmem_sequential_queries",
+      "maintenance_cap": 5,
+      "old_required_GB_s": 3244.9515972278837,
+      "old_assumed_near_TFLOPs": 50.351165565208795,
+      "ports": [
+        {
+          "hb_GB_s": 6.4,
+          "minimum_count": 508,
+          "associated_peak_TFLOPs": 130.048,
+          "controller_only_mm2_40nm": 157.96767999999997
+        },
+        {
+          "hb_GB_s": 12.8,
+          "minimum_count": 254,
+          "associated_peak_TFLOPs": 32.512,
+          "controller_only_mm2_40nm": 183.72328
+        },
+        {
+          "hb_GB_s": 25.6,
+          "minimum_count": 127,
+          "associated_peak_TFLOPs": 16.256,
+          "controller_only_mm2_40nm": 169.12844
+        },
+        {
+          "hb_GB_s": 51.2,
+          "minimum_count": 64,
+          "associated_peak_TFLOPs": 4.096,
+          "controller_only_mm2_40nm": 173.92128
+        }
+      ]
+    },
+    {
+      "graph": "lightmem_sequential_queries",
+      "maintenance_cap": null,
+      "old_required_GB_s": 3245.8302601185524,
+      "old_assumed_near_TFLOPs": 50.351165565208795,
+      "ports": [
+        {
+          "hb_GB_s": 6.4,
+          "minimum_count": 508,
+          "associated_peak_TFLOPs": 130.048,
+          "controller_only_mm2_40nm": 157.96767999999997
+        },
+        {
+          "hb_GB_s": 12.8,
+          "minimum_count": 254,
+          "associated_peak_TFLOPs": 32.512,
+          "controller_only_mm2_40nm": 183.72328
+        },
+        {
+          "hb_GB_s": 25.6,
+          "minimum_count": 127,
+          "associated_peak_TFLOPs": 16.256,
+          "controller_only_mm2_40nm": 169.12844
+        },
+        {
+          "hb_GB_s": 51.2,
+          "minimum_count": 64,
+          "associated_peak_TFLOPs": 4.096,
+          "controller_only_mm2_40nm": 173.92128
+        }
+      ]
+    },
+    {
+      "graph": "lightmem_concurrent_queries",
+      "maintenance_cap": 5,
+      "old_required_GB_s": 3245.770543956788,
+      "old_assumed_near_TFLOPs": 50.351165565208795,
+      "ports": [
+        {
+          "hb_GB_s": 6.4,
+          "minimum_count": 508,
+          "associated_peak_TFLOPs": 130.048,
+          "controller_only_mm2_40nm": 157.96767999999997
+        },
+        {
+          "hb_GB_s": 12.8,
+          "minimum_count": 254,
+          "associated_peak_TFLOPs": 32.512,
+          "controller_only_mm2_40nm": 183.72328
+        },
+        {
+          "hb_GB_s": 25.6,
+          "minimum_count": 127,
+          "associated_peak_TFLOPs": 16.256,
+          "controller_only_mm2_40nm": 169.12844
+        },
+        {
+          "hb_GB_s": 51.2,
+          "minimum_count": 64,
+          "associated_peak_TFLOPs": 4.096,
+          "controller_only_mm2_40nm": 173.92128
+        }
+      ]
+    },
+    {
+      "graph": "lightmem_concurrent_queries",
+      "maintenance_cap": null,
+      "old_required_GB_s": 3246.6959818680302,
+      "old_assumed_near_TFLOPs": 50.351165565208795,
+      "ports": [
+        {
+          "hb_GB_s": 6.4,
+          "minimum_count": 508,
+          "associated_peak_TFLOPs": 130.048,
+          "controller_only_mm2_40nm": 157.96767999999997
+        },
+        {
+          "hb_GB_s": 12.8,
+          "minimum_count": 254,
+          "associated_peak_TFLOPs": 32.512,
+          "controller_only_mm2_40nm": 183.72328
+        },
+        {
+          "hb_GB_s": 25.6,
+          "minimum_count": 127,
+          "associated_peak_TFLOPs": 16.256,
+          "controller_only_mm2_40nm": 169.12844
+        },
+        {
+          "hb_GB_s": 51.2,
+          "minimum_count": 64,
+          "associated_peak_TFLOPs": 4.096,
+          "controller_only_mm2_40nm": 173.92128
+        }
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "blocks": 11264,
+      "weights": 2883584,
+      "stored_bytes": 4328896,
+      "raw_bytes": 5767168,
+      "indexed_to_raw_ratio": 0.7664794921875,
+      "min_block_bytes": 384,
+      "max_block_bytes": 448,
+      "bytes_histogram": {
+        "384": 11209,
+        "448": 55
+      },
+      "matrices_with_variable_padded_blocks": 6
+    },
+    {
+      "model": "Qwen/Qwen3-32B",
+      "blocks": 11264,
+      "weights": 2883584,
+      "stored_bytes": 4326336,
+      "raw_bytes": 5767168,
+      "indexed_to_raw_ratio": 0.7660356001420454,
+      "min_block_bytes": 384,
+      "max_block_bytes": 448,
+      "bytes_histogram": {
+        "384": 11249,
+        "448": 15
+      },
+      "matrices_with_variable_padded_blocks": 5
+    }
+  ]
+}
