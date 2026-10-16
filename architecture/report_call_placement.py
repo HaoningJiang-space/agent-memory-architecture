@@ -52,6 +52,14 @@ def main():
             seconds=r['seconds'],energy_j=r['energy_j']) for r in selected]))
     lines += ['', '最快统一点：4 HBM、16 阵列、128 MiB SRAM，成本 739.374、面积 339.374 mm²。更便宜统一点：4 HBM、8 阵列、32 MiB SRAM，成本 **609.687**、面积 209.687 mm²；双域成本 **628.861**。所列统一胜出点都选择常驻，单模型卸载控制未改善该记录的最优值。', '',
         '**所以差异不是统一方案买了更多成本预算。** 更便宜的统一点已经同时更快、更省能、面积更小。这不等于原候选集合是成熟架构的全局最优集合。', '',
+        '| 并发三问场景 | 统一域模型峰值 GB / 96 GB | 双域 C 峰值 GB / 128 GB | 双域 N 峰值 GB / 24 GB |',
+        '|---|---:|---:|---:|']
+    for graph in ('simplemem_concurrent_queries', 'lightmem_concurrent_queries'):
+        rr = [r for r in data['runs'] if r['graph']==graph and r['attention_mode']=='frozen' and not r['free_kv_time']]
+        u = min((r for r in rr if r['policy']=='unified'),key=lambda r:r['seconds'])
+        h = next(r for r in rr if r['policy']=='whole')
+        lines.append(f'| {graph.split("_")[0]} | {u["peak_bytes"]["C"]/1e9:.3f} | {h["peak_bytes"]["C"]/1e9:.3f} | {h["peak_bytes"]["N"]/1e9:.3f} |')
+    lines += ['', '**大模型占空间，不等于当前已经受到容量约束。** 此批记录在统一 HBM 上已能容纳模型、KV 和模型所计 workspace；容量域增加的空间尚未形成有效收益。上表是目标模型计算的各域独立峰值，不能相加成同一时刻驻留，也不是框架实测显存。三问有限记录不足以代表更高并发或更长生命周期。', '',
         '## 4. 从第一性原理解释，而不是按角色分配硬件', '',
         '对于同一调用，整次 C/N 与 C→N 拆分的无排队服务量分别为：', '',
         r'\[T_C=P_C+D_C,\quad T_N=P_N+D_N,\quad T_{PD}=P_C+T_{KV}+D_N.\]', '',
