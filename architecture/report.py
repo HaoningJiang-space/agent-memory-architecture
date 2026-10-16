@@ -99,6 +99,8 @@ def main():
 
 本轮最清楚的发现是：**构建费用的回收点依赖硬件；但当前出现的较大联合选择差异主要由容量可行域解释，而且对 workspace 假设敏感。** 这支持继续研究记忆表示与算存配置的关系，尚不支持提出专用异构引擎。
 
+相对 `455bf8e`，已修复 EmbedRAG `index_finalize` 构建费用被错误键名默认为零的问题。所有 Embedding 阶段现在逐项对账、各有一个账本去向；缺失或未知阶段报错。重算差异见 [修正回执](evidence/architecture/ledger_correction.json)，原版本可由 Git 追溯。
+
 ![第一次架构对照](evidence/architecture/architecture_exploration.png)
 
 ## 证据层次与输入
@@ -134,6 +136,8 @@ HBM3E/LPDDR5X 的容量、带宽、能量和接口参数来自 [MemExplorer v2 T
 
 同成本上限内还枚举了每类调用 40 个可行 P/D 设备对，计两份权重、完整 prompt KV 传输与等待设备静态能量。它们在本轮单请求串行服务口径下没有优于最佳统一配置。**这不是否定 Splitwise 的并发吞吐优势**：本轮没有到达队列或跨请求 pipeline。另给出不受预算约束的阶段最优 oracle，避免把简化 P/D 当论文复现。
 
+搜索空间还有限：最便宜 HBM 设备为 608.768 成本单位，最便宜 LPDDR 设备为 277.568，两者相加 886.336 已超过 850。因此当前可行 P/D 对均为 LPDDR，尚未检验充分缩放执行域的算力侧＋高带宽侧组合。HBM3E 也不等于 Hybrid-Bonded DRAM-on-Logic：本模型没有小容量 HB 域、大容量 DRAM 域及两者之间的放置/搬运/局部计算路径，不能据此排除 HB-on-Logic 架构。
+
 ## 实验二：回收点与容量是两条不同边界
 
 下表固定 16 个 128×128 阵列、32 MiB SRAM；时间列是模型估计。N* 使用 88-write 受控情景、4096-token 假设上限、固定原输出长度，未验证语义质量。
@@ -161,6 +165,8 @@ HBM3E/LPDDR5X 的容量、带宽、能量和接口参数来自 [MemExplorer v2 T
 {controls}
 
 因此，不把最大的比值当论文 speedup。下一项有信息量的实测是**真实有效记忆长度和优化服务下的 workspace/驻留**，而不是继续换 schema。
+
+容量收益本身可以是架构价值。这里的不足在于决定可行边界的 workspace 尚未核实；1× 只反驳大比值的稳健性，不能证明实际 chunked prefill 已消除收益。该控制没有重执行分块 GEMM、attention、权重加载和调度。
 
 ## 边界、验证与下一步
 

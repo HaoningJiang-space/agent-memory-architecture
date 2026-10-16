@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import unittest
 
-from architecture.explore import break_even, lifecycle, scenario_costs, profile
+from architecture.explore import break_even, lifecycle, scenario_costs, profile, embedding_ledger
 from architecture.model import candidates, decoder, gemm, GIB
 from workload_accounting import request_work
 
@@ -84,6 +84,28 @@ class ArchitectureTests(unittest.TestCase):
         self.assertIsNone(break_even(100,-2))
         self.assertEqual(lifecycle(100,1,50),150)
         self.assertEqual(lifecycle(0,3,50),150)
+
+    def test_embedding_stages_conserved_and_required(self):
+        emb = json.loads((ROOT/'evidence/architecture/embedding_shapes.json').read_text())
+        groups = profile(self.h,self.trace,emb)
+        ledger = embedding_ledger(groups)
+        self.assertEqual(sum(r['calls'] for r in ledger),len(emb['calls']))
+        self.assertEqual(len({r['stage'] for r in ledger}),len(ledger))
+        build = groups['embedding_embed_full_01_index_finalize']['total']
+        self.assertGreater(build['seconds'],0)
+        capacity = json.loads((ROOT/'evidence/calibration/model_capacity.json').read_text())
+        weights = {r['model']:r['weight_bytes'] for r in capacity['models']}
+        costs = scenario_costs(self.h,self.trace,groups,weights,None,'online')
+        self.assertEqual(costs['base_embedding_build'],build)
+        self.assertAlmostEqual(costs['raw_write_unit']['seconds']*88,build['seconds'])
+        for stage in [r['stage'] for r in ledger]:
+            broken = dict(groups); del broken[stage]
+            with self.assertRaisesRegex(ValueError,'missing'):
+                embedding_ledger(broken)
+        broken = dict(groups)
+        broken['embedding_accidental_extra_stage'] = groups['embedding_embed_full_01_query']
+        with self.assertRaisesRegex(ValueError,'unassigned'):
+            embedding_ledger(broken)
 
 
 if __name__=='__main__':

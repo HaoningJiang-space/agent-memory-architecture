@@ -77,6 +77,32 @@ def profile(hw, trace, embeddings):
     return groups
 
 
+def embedding_ledger(groups):
+    """Every supplied embedding stage has one explicit accounting destination.
+
+These stage totals are subsequently normalized by writes/queries in scenarios;
+using a stage in alternative policies is not double counting within a policy.
+Unknown or missing phases are evidence errors, never zero-cost operations.
+"""
+    destinations = {
+        'embedding_mem0_full_01_construction': 'memory_write',
+        'embedding_embed_full_01_index_finalize': 'raw_initial_build',
+        'embedding_embed_full_01_query': 'query_embedding',
+    }
+    present = {name for name in groups if name.startswith('embedding_')}
+    if present != set(destinations):
+        raise ValueError(f'Embedding ledger mismatch: missing={set(destinations)-present}, '
+                         f'unassigned={present-set(destinations)}')
+    entries = []
+    for name, destination in destinations.items():
+        stage = groups[name]
+        if stage['calls'] <= 0 or stage['total']['seconds'] <= 0:
+            raise ValueError(f'Invalid required embedding stage: {name}')
+        entries.append(dict(stage=name,destination=destination,calls=stage['calls'],
+                            total=stage['total']))
+    return entries
+
+
 def scenario_costs(hw, trace, groups, weights, length_cap, residency, cache_credit=0,
                    workspace_base_gib=4, workspace_chunk=None):
     """A shape-conditioned scenario; no quality-valid semantic point is implied.
@@ -103,10 +129,11 @@ We never say these nine chunks built the full history used by the 60 QA calls.
         h, ff = config['hidden_size'],config['intermediate_size']
         query_workspace = workspace_base_gib*GIB+2*workspace_chunk*(h+2*ff)
     write = add(groups['mem0_extract_prefix']['mean'],groups['mem0_update_prefix']['mean'])
-    emb_write = groups.get('embedding_mem0_full_01_construction',{}).get('total',add())
+    embedding_ledger(groups)
+    emb_write = groups['embedding_mem0_full_01_construction']['total']
     write = add(write,{k:v/9 for k,v in emb_write.items()})
-    base_embedding = groups.get('embedding_embed_full_01_construction',{}).get('total',add())
-    query_embedding = groups.get('embedding_embed_full_01_query',{}).get('mean',add())
+    base_embedding = groups['embedding_embed_full_01_index_finalize']['total']
+    query_embedding = groups['embedding_embed_full_01_query']['mean']
     query = add(query,query_embedding)
     resident = weights['Qwen/Qwen3-32B']+weights['Qwen/Qwen3-Embedding-0.6B']
     construction_kv = max(r['kv_bytes'] for name in ('mem0_extract_prefix','mem0_update_prefix')
@@ -332,6 +359,7 @@ def run(output):
             workspace_control.append(dict(workspace_base_gib=base,chunk=chunk,reuse=8,active=4,
                 joint=joint,frozen_policy=frozen,penalty=None if not joint or not frozen else frozen['seconds']/joint['seconds']))
     result = dict(scope=__doc__,elapsed_seconds=time.time()-start,input_sha256=receipts,
+        embedding_ledger={h.name:embedding_ledger(profiles[h.name]) for h in hardware},
         hardware=[hardware_dict(h) for h in hardware],rejected=rejected,request_profiles=all_calls,
         crossovers=crossovers,scenarios=scenarios,pd_oracle=pd,budgeted_pd=budgeted_pd,
         sensitivity=sensitivity,cache_oracle=cache,equal_capacity_control=equal_capacity,

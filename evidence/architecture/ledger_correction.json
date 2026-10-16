@@ -1,0 +1,231 @@
+{
+  "reference": "455bf8e",
+  "scope": "Isolated lifecycle embedding-ledger correction; tensor model unchanged.",
+  "crossovers": [
+    {
+      "hardware": "HBM3E4_a8_128x128_s32",
+      "query_saved": 12.249438634666667,
+      "reuse_crossing": 86.02023296506817,
+      "old_crossing": 86.36743744739961,
+      "baseline_build_seconds": 4.253060000000005
+    },
+    {
+      "hardware": "HBM3E4_a8_128x128_s128",
+      "query_saved": 12.249438634666667,
+      "reuse_crossing": 86.02023296506817,
+      "old_crossing": 86.36743744739961,
+      "baseline_build_seconds": 4.253060000000005
+    },
+    {
+      "hardware": "HBM3E4_a8_32x512_s32",
+      "query_saved": 46.05318342933333,
+      "reuse_crossing": 17.655389744788987,
+      "old_crossing": 18.071693514221536,
+      "baseline_build_seconds": 19.17211385600001
+    },
+    {
+      "hardware": "HBM3E4_a8_32x512_s128",
+      "query_saved": 46.05318342933333,
+      "reuse_crossing": 17.643553446864708,
+      "old_crossing": 18.059857216297253,
+      "baseline_build_seconds": 19.17211385600001
+    },
+    {
+      "hardware": "HBM3E4_a16_128x128_s32",
+      "query_saved": 6.181048940544001,
+      "reuse_crossing": 88.06954238667622,
+      "old_crossing": 88.41364515700842,
+      "baseline_build_seconds": 2.1269160640000564
+    },
+    {
+      "hardware": "HBM3E4_a16_128x128_s128",
+      "query_saved": 6.150966570666666,
+      "reuse_crossing": 88.41616747343357,
+      "old_crossing": 88.76195313810344,
+      "baseline_build_seconds": 2.1269160640000564
+    },
+    {
+      "hardware": "HBM3E4_a16_32x512_s32",
+      "query_saved": 23.02659171466667,
+      "reuse_crossing": 25.998087496811266,
+      "old_crossing": 26.41439126624381,
+      "baseline_build_seconds": 9.586056927999948
+    },
+    {
+      "hardware": "HBM3E4_a16_32x512_s128",
+      "query_saved": 23.026591714666665,
+      "reuse_crossing": 25.97441277034006,
+      "old_crossing": 26.390716539772605,
+      "baseline_build_seconds": 9.586056927999948
+    },
+    {
+      "hardware": "LPDDR5X8_a8_128x128_s32",
+      "query_saved": 14.939822439111111,
+      "reuse_crossing": 170.01963027199997,
+      "old_crossing": 170.39099698017955,
+      "baseline_build_seconds": 5.54815267999993
+    },
+    {
+      "hardware": "LPDDR5X8_a8_128x128_s128",
+      "query_saved": 12.572179968,
+      "reuse_crossing": 200.36944790960322,
+      "old_crossing": 200.7263091396699,
+      "baseline_build_seconds": 4.48652360799997
+    },
+    {
+      "hardware": "LPDDR5X8_a8_32x512_s32",
+      "query_saved": 46.19662704444445,
+      "reuse_crossing": 58.79094708122615,
+      "old_crossing": 59.21367961062081,
+      "baseline_build_seconds": 19.52881699999989
+    },
+    {
+      "hardware": "LPDDR5X8_a8_32x512_s128",
+      "query_saved": 46.08993940711111,
+      "reuse_crossing": 58.87084557974279,
+      "old_crossing": 59.286817353683595,
+      "baseline_build_seconds": 19.172113856000124
+    },
+    {
+      "hardware": "LPDDR5X8_a16_128x128_s32",
+      "query_saved": 11.801400081777778,
+      "reuse_crossing": 207.2381423215048,
+      "old_crossing": 207.66558979087657,
+      "baseline_build_seconds": 5.04447859999982
+    },
+    {
+      "hardware": "LPDDR5X8_a16_128x128_s128",
+      "query_saved": 9.417320704,
+      "reuse_crossing": 257.43002196043165,
+      "old_crossing": 257.85960737102675,
+      "baseline_build_seconds": 4.045543581333277
+    },
+    {
+      "hardware": "LPDDR5X8_a16_32x512_s32",
+      "query_saved": 29.336889429333333,
+      "reuse_crossing": 86.95396295326928,
+      "old_crossing": 87.3469543652515,
+      "baseline_build_seconds": 11.529145599999993
+    },
+    {
+      "hardware": "LPDDR5X8_a16_32x512_s128",
+      "query_saved": 27.379576496000002,
+      "reuse_crossing": 92.42102883767647,
+      "old_crossing": 92.82509358042184,
+      "baseline_build_seconds": 11.063121533333288
+    },
+    {
+      "hardware": "LPDDR5X8_a32_128x128_s32",
+      "query_saved": 26.22589609777778,
+      "reuse_crossing": 95.90541171152009,
+      "old_crossing": 96.2514044572463,
+      "baseline_build_seconds": 9.073969800000214
+    },
+    {
+      "hardware": "LPDDR5X8_a32_128x128_s128",
+      "query_saved": 10.185340634666666,
+      "reuse_crossing": 237.2987669445364,
+      "old_crossing": 237.76327067622609,
+      "baseline_build_seconds": 4.7311287333332075
+    },
+    {
+      "hardware": "LPDDR5X8_a32_32x512_s32",
+      "query_saved": 38.85082883271111,
+      "reuse_crossing": 66.02528282970822,
+      "old_crossing": 66.31693884170195,
+      "baseline_build_seconds": 11.331077800000003
+    },
+    {
+      "hardware": "LPDDR5X8_a32_32x512_s128",
+      "query_saved": 17.99900762133333,
+      "reuse_crossing": 135.72571984766495,
+      "old_crossing": 136.11390506766855,
+      "baseline_build_seconds": 6.98694873333352
+    },
+    {
+      "hardware": "LPDDR5X12_a8_128x128_s32",
+      "query_saved": 12.322386346666669,
+      "reuse_crossing": 142.94026631781418,
+      "old_crossing": 143.30332185111817,
+      "baseline_build_seconds": 4.47371054666678
+    },
+    {
+      "hardware": "LPDDR5X12_a8_128x128_s128",
+      "query_saved": 12.322386346666665,
+      "reuse_crossing": 142.6928443078112,
+      "old_crossing": 143.0385990816138,
+      "baseline_build_seconds": 4.2605239039999105
+    },
+    {
+      "hardware": "LPDDR5X12_a8_32x512_s32",
+      "query_saved": 46.05318342933334,
+      "reuse_crossing": 42.42421433521935,
+      "old_crossing": 42.84051810465189,
+      "baseline_build_seconds": 19.172113855999896
+    },
+    {
+      "hardware": "LPDDR5X12_a8_32x512_s128",
+      "query_saved": 46.05318342933334,
+      "reuse_crossing": 42.397865681773204,
+      "old_crossing": 42.81416945120575,
+      "baseline_build_seconds": 19.172113855999896
+    },
+    {
+      "hardware": "LPDDR5X12_a16_128x128_s32",
+      "query_saved": 9.168179285333334,
+      "reuse_crossing": 181.64232845695736,
+      "old_crossing": 182.00985939504926,
+      "baseline_build_seconds": 3.369589533333283
+    },
+    {
+      "hardware": "LPDDR5X12_a16_128x128_s128",
+      "query_saved": 8.884201237333333,
+      "reuse_crossing": 186.88004036739497,
+      "old_crossing": 187.21763880437675,
+      "baseline_build_seconds": 2.9992924515554478
+    },
+    {
+      "hardware": "LPDDR5X12_a16_32x512_s32",
+      "query_saved": 29.336889429333336,
+      "reuse_crossing": 61.02510744819436,
+      "old_crossing": 61.412711894302,
+      "baseline_build_seconds": 11.371108777777863
+    },
+    {
+      "hardware": "LPDDR5X12_a16_32x512_s128",
+      "query_saved": 24.506916629333332,
+      "reuse_crossing": 71.34140163880788,
+      "old_crossing": 71.75324808097277,
+      "baseline_build_seconds": 10.093086422222314
+    },
+    {
+      "hardware": "LPDDR5X12_a32_128x128_s32",
+      "query_saved": 19.203263460740743,
+      "reuse_crossing": 87.54511700334805,
+      "old_crossing": 87.86051676577468,
+      "baseline_build_seconds": 6.05670473333339
+    },
+    {
+      "hardware": "LPDDR5X12_a32_128x128_s128",
+      "query_saved": 7.314990058666666,
+      "reuse_crossing": 220.808653558868,
+      "old_crossing": 221.2407316155079,
+      "baseline_build_seconds": 3.1606466888888463
+    },
+    {
+      "hardware": "LPDDR5X12_a32_32x512_s32",
+      "query_saved": 31.82179090678519,
+      "reuse_crossing": 55.90927911647954,
+      "old_crossing": 56.1893962965416,
+      "baseline_build_seconds": 8.913830333333408
+    },
+    {
+      "hardware": "LPDDR5X12_a32_32x512_s128",
+      "query_saved": 15.144085319111113,
+      "reuse_crossing": 109.58806285004289,
+      "old_crossing": 109.98902222019701,
+      "baseline_build_seconds": 6.072162911111036
+    }
+  ],
+  "joint_strategy_changes": 0
+}
