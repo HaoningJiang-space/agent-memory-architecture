@@ -1,0 +1,2840 @@
+{
+  "status": "complete",
+  "runner_sha256": "10e354e408c83a167e5050f87b0da1b7e5f494952cc15785bffa8f5072b5fdbd",
+  "source_sha256": "1b3dfa987d9e8fc31b5082475794834993745d46b6361a4f6c017a4da1b61340",
+  "source_ids": [
+    "d69d8c1c-72de-450d-ac5b-590e323447e4",
+    "a597819e-29b5-49c5-9bf2-b86e273b1180",
+    "765c0eba-6059-4f1c-98f2-026fb824380d",
+    "4f5c2e56-3a29-4451-b6ee-e52a8ae4b901"
+  ],
+  "input_lengths": [
+    5139,
+    6418,
+    5663,
+    2463
+  ],
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "weight_bytes": 16381470720,
+  "backend": "A800 GPU1, HF eager BF16 SDPA, first-layer linear hooks, eight teacher-forced decode tokens",
+  "torch": "2.8.0+cu128",
+  "transformers": "4.57.6",
+  "shapes": [
+    {
+      "group": [
+        0
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        5139,
+        4096
+      ],
+      "M": 5139,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        5139,
+        4096
+      ],
+      "M": 5139,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        6418,
+        4096
+      ],
+      "M": 6418,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        6418,
+        4096
+      ],
+      "M": 6418,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        5663,
+        4096
+      ],
+      "M": 5663,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        5663,
+        4096
+      ],
+      "M": 5663,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        2463,
+        4096
+      ],
+      "M": 2463,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        2463,
+        4096
+      ],
+      "M": 2463,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        1,
+        1,
+        4096
+      ],
+      "M": 1,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "layer0_q",
+      "input_shape": [
+        4,
+        6418,
+        4096
+      ],
+      "M": 25672,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "layer0_gate",
+      "input_shape": [
+        4,
+        6418,
+        4096
+      ],
+      "M": 25672,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "operation": "lm_head",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 1,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 2,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 3,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 4,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 5,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 6,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 7,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 151936
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "layer0_q",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 4096
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "layer0_gate",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 12288
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 8,
+      "phase": "decode",
+      "operation": "lm_head",
+      "input_shape": [
+        4,
+        1,
+        4096
+      ],
+      "M": 4,
+      "K": 4096,
+      "N": 151936
+    }
+  ],
+  "forwards": [
+    {
+      "group": [
+        0
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "cuda_seconds": 0.5011968078613281,
+      "allocated_bytes": 17150311424,
+      "peak_allocated_bytes": 17700574720,
+      "kv_bytes": 757776384,
+      "padded_context_length": 5139
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 1,
+      "phase": "decode",
+      "cuda_seconds": 0.03773235321044922,
+      "allocated_bytes": 17150417920,
+      "peak_allocated_bytes": 17160676864,
+      "kv_bytes": 757923840,
+      "padded_context_length": 5140
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 2,
+      "phase": "decode",
+      "cuda_seconds": 0.03575091171264649,
+      "allocated_bytes": 17150565376,
+      "peak_allocated_bytes": 17160826368,
+      "kv_bytes": 758071296,
+      "padded_context_length": 5141
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 3,
+      "phase": "decode",
+      "cuda_seconds": 0.033726463317871096,
+      "allocated_bytes": 17150712832,
+      "peak_allocated_bytes": 17160975872,
+      "kv_bytes": 758218752,
+      "padded_context_length": 5142
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 4,
+      "phase": "decode",
+      "cuda_seconds": 0.03368447875976562,
+      "allocated_bytes": 17150860288,
+      "peak_allocated_bytes": 17161125376,
+      "kv_bytes": 758366208,
+      "padded_context_length": 5143
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 5,
+      "phase": "decode",
+      "cuda_seconds": 0.03366912078857422,
+      "allocated_bytes": 17151007744,
+      "peak_allocated_bytes": 17161274880,
+      "kv_bytes": 758513664,
+      "padded_context_length": 5144
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 6,
+      "phase": "decode",
+      "cuda_seconds": 0.03345817565917969,
+      "allocated_bytes": 17151155200,
+      "peak_allocated_bytes": 17161424384,
+      "kv_bytes": 758661120,
+      "padded_context_length": 5145
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 7,
+      "phase": "decode",
+      "cuda_seconds": 0.033686527252197264,
+      "allocated_bytes": 17151302656,
+      "peak_allocated_bytes": 17161573888,
+      "kv_bytes": 758808576,
+      "padded_context_length": 5146
+    },
+    {
+      "group": [
+        0
+      ],
+      "step": 8,
+      "phase": "decode",
+      "cuda_seconds": 0.03366400146484375,
+      "allocated_bytes": 17151450112,
+      "peak_allocated_bytes": 17161723392,
+      "kv_bytes": 758956032,
+      "padded_context_length": 5147
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "cuda_seconds": 0.6109204711914062,
+      "allocated_bytes": 17338938368,
+      "peak_allocated_bytes": 18026414080,
+      "kv_bytes": 946372608,
+      "padded_context_length": 6418
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 1,
+      "phase": "decode",
+      "cuda_seconds": 0.03390156936645508,
+      "allocated_bytes": 17339034624,
+      "peak_allocated_bytes": 17351912960,
+      "kv_bytes": 946520064,
+      "padded_context_length": 6419
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 2,
+      "phase": "decode",
+      "cuda_seconds": 0.03368960189819336,
+      "allocated_bytes": 17339182080,
+      "peak_allocated_bytes": 17352062464,
+      "kv_bytes": 946667520,
+      "padded_context_length": 6420
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 3,
+      "phase": "decode",
+      "cuda_seconds": 0.03359334564208984,
+      "allocated_bytes": 17339329536,
+      "peak_allocated_bytes": 17352211968,
+      "kv_bytes": 946814976,
+      "padded_context_length": 6421
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 4,
+      "phase": "decode",
+      "cuda_seconds": 0.03350425720214844,
+      "allocated_bytes": 17339476992,
+      "peak_allocated_bytes": 17352361472,
+      "kv_bytes": 946962432,
+      "padded_context_length": 6422
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 5,
+      "phase": "decode",
+      "cuda_seconds": 0.03351859283447266,
+      "allocated_bytes": 17339624448,
+      "peak_allocated_bytes": 17352510976,
+      "kv_bytes": 947109888,
+      "padded_context_length": 6423
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 6,
+      "phase": "decode",
+      "cuda_seconds": 0.03366604614257813,
+      "allocated_bytes": 17339771904,
+      "peak_allocated_bytes": 17352660480,
+      "kv_bytes": 947257344,
+      "padded_context_length": 6424
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 7,
+      "phase": "decode",
+      "cuda_seconds": 0.033562625885009766,
+      "allocated_bytes": 17339919360,
+      "peak_allocated_bytes": 17352809984,
+      "kv_bytes": 947404800,
+      "padded_context_length": 6425
+    },
+    {
+      "group": [
+        1
+      ],
+      "step": 8,
+      "phase": "decode",
+      "cuda_seconds": 0.0336732177734375,
+      "allocated_bytes": 17340066816,
+      "peak_allocated_bytes": 17352959488,
+      "kv_bytes": 947552256,
+      "padded_context_length": 6426
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "cuda_seconds": 0.53547314453125,
+      "allocated_bytes": 17227590656,
+      "peak_allocated_bytes": 17833318912,
+      "kv_bytes": 835043328,
+      "padded_context_length": 5663
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 1,
+      "phase": "decode",
+      "cuda_seconds": 0.03390054321289063,
+      "allocated_bytes": 17228545024,
+      "peak_allocated_bytes": 17239877120,
+      "kv_bytes": 835190784,
+      "padded_context_length": 5664
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 2,
+      "phase": "decode",
+      "cuda_seconds": 0.03364659118652344,
+      "allocated_bytes": 17228690432,
+      "peak_allocated_bytes": 17240024576,
+      "kv_bytes": 835338240,
+      "padded_context_length": 5665
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 3,
+      "phase": "decode",
+      "cuda_seconds": 0.03357388687133789,
+      "allocated_bytes": 17228835840,
+      "peak_allocated_bytes": 17240172032,
+      "kv_bytes": 835485696,
+      "padded_context_length": 5666
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 4,
+      "phase": "decode",
+      "cuda_seconds": 0.033587200164794925,
+      "allocated_bytes": 17228981248,
+      "peak_allocated_bytes": 17240319488,
+      "kv_bytes": 835633152,
+      "padded_context_length": 5667
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 5,
+      "phase": "decode",
+      "cuda_seconds": 0.033562625885009766,
+      "allocated_bytes": 17229126656,
+      "peak_allocated_bytes": 17240466944,
+      "kv_bytes": 835780608,
+      "padded_context_length": 5668
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 6,
+      "phase": "decode",
+      "cuda_seconds": 0.0335093765258789,
+      "allocated_bytes": 17229272064,
+      "peak_allocated_bytes": 17240614400,
+      "kv_bytes": 835928064,
+      "padded_context_length": 5669
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 7,
+      "phase": "decode",
+      "cuda_seconds": 0.03357900619506836,
+      "allocated_bytes": 17229417472,
+      "peak_allocated_bytes": 17240761856,
+      "kv_bytes": 836075520,
+      "padded_context_length": 5670
+    },
+    {
+      "group": [
+        2
+      ],
+      "step": 8,
+      "phase": "decode",
+      "cuda_seconds": 0.033552383422851564,
+      "allocated_bytes": 17229562880,
+      "peak_allocated_bytes": 17240909312,
+      "kv_bytes": 836222976,
+      "padded_context_length": 5671
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "cuda_seconds": 0.2245580749511719,
+      "allocated_bytes": 16756514816,
+      "peak_allocated_bytes": 17022020096,
+      "kv_bytes": 363184128,
+      "padded_context_length": 2463
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 1,
+      "phase": "decode",
+      "cuda_seconds": 0.03383295822143555,
+      "allocated_bytes": 16757687296,
+      "peak_allocated_bytes": 16762465792,
+      "kv_bytes": 363331584,
+      "padded_context_length": 2464
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 2,
+      "phase": "decode",
+      "cuda_seconds": 0.03352371215820313,
+      "allocated_bytes": 16757765120,
+      "peak_allocated_bytes": 16762545664,
+      "kv_bytes": 363479040,
+      "padded_context_length": 2465
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 3,
+      "phase": "decode",
+      "cuda_seconds": 0.0335022087097168,
+      "allocated_bytes": 16757810176,
+      "peak_allocated_bytes": 16762598912,
+      "kv_bytes": 363626496,
+      "padded_context_length": 2466
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 4,
+      "phase": "decode",
+      "cuda_seconds": 0.03351347351074219,
+      "allocated_bytes": 16757822464,
+      "peak_allocated_bytes": 16762869248,
+      "kv_bytes": 363773952,
+      "padded_context_length": 2467
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 5,
+      "phase": "decode",
+      "cuda_seconds": 0.036939777374267575,
+      "allocated_bytes": 16757656576,
+      "peak_allocated_bytes": 16762668544,
+      "kv_bytes": 363921408,
+      "padded_context_length": 2468
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 6,
+      "phase": "decode",
+      "cuda_seconds": 0.033655807495117186,
+      "allocated_bytes": 16757896192,
+      "peak_allocated_bytes": 16762695168,
+      "kv_bytes": 364068864,
+      "padded_context_length": 2469
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 7,
+      "phase": "decode",
+      "cuda_seconds": 0.03344998550415039,
+      "allocated_bytes": 16757922816,
+      "peak_allocated_bytes": 16762736128,
+      "kv_bytes": 364216320,
+      "padded_context_length": 2470
+    },
+    {
+      "group": [
+        3
+      ],
+      "step": 8,
+      "phase": "decode",
+      "cuda_seconds": 0.0336363525390625,
+      "allocated_bytes": 16757945344,
+      "peak_allocated_bytes": 16762764800,
+      "kv_bytes": 364363776,
+      "padded_context_length": 2471
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 0,
+      "phase": "prefill",
+      "cuda_seconds": 3.37931982421875,
+      "allocated_bytes": 20183165440,
+      "peak_allocated_bytes": 23097341952,
+      "kv_bytes": 3785490432,
+      "padded_context_length": 6418
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 1,
+      "phase": "decode",
+      "cuda_seconds": 0.10077593231201172,
+      "allocated_bytes": 20184554496,
+      "peak_allocated_bytes": 20604018688,
+      "kv_bytes": 3786080256,
+      "padded_context_length": 6419
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 2,
+      "phase": "decode",
+      "cuda_seconds": 0.07372185516357421,
+      "allocated_bytes": 20184652800,
+      "peak_allocated_bytes": 20604289024,
+      "kv_bytes": 3786670080,
+      "padded_context_length": 6420
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 3,
+      "phase": "decode",
+      "cuda_seconds": 0.07320985412597657,
+      "allocated_bytes": 20184497152,
+      "peak_allocated_bytes": 20604403712,
+      "kv_bytes": 3787259904,
+      "padded_context_length": 6421
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 4,
+      "phase": "decode",
+      "cuda_seconds": 0.07299993896484375,
+      "allocated_bytes": 20183713792,
+      "peak_allocated_bytes": 20604395520,
+      "kv_bytes": 3787849728,
+      "padded_context_length": 6422
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 5,
+      "phase": "decode",
+      "cuda_seconds": 0.07332249450683594,
+      "allocated_bytes": 20184759296,
+      "peak_allocated_bytes": 20604641280,
+      "kv_bytes": 3788439552,
+      "padded_context_length": 6423
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 6,
+      "phase": "decode",
+      "cuda_seconds": 0.07268659210205078,
+      "allocated_bytes": 20185013248,
+      "peak_allocated_bytes": 20604950016,
+      "kv_bytes": 3789029376,
+      "padded_context_length": 6424
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 7,
+      "phase": "decode",
+      "cuda_seconds": 0.07344947052001953,
+      "allocated_bytes": 20185283584,
+      "peak_allocated_bytes": 20605337600,
+      "kv_bytes": 3789619200,
+      "padded_context_length": 6425
+    },
+    {
+      "group": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 8,
+      "phase": "decode",
+      "cuda_seconds": 0.07303372955322265,
+      "allocated_bytes": 20185562112,
+      "peak_allocated_bytes": 20605714432,
+      "kv_bytes": 3790209024,
+      "padded_context_length": 6426
+    }
+  ],
+  "limits": [
+    "Short kernel calibration; not complete native answers or vLLM SLA.",
+    "Same four distinct native extraction inputs; no repeated/averaged fake batch.",
+    "Left padding charges full B*max(L) prefill and allocated cache; packing not assumed.",
+    "Linear hooks sample layer0 and lm_head; they are operator shapes, not GPU DRAM transaction counters."
+  ]
+}

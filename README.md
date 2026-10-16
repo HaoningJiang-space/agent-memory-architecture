@@ -2,7 +2,13 @@
 
 本仓库从真实算法检验架构动机。A800 用于运行与校准；没有预设 Hybrid Bonding、PIM、HBF 或热优化的优势。
 
-最新结果见 [算存联合机制检验](MECHANISM_RESULTS.md)：交叉阵列/带宽控制、有资源代价的 K 分片、96 个条件预算配置，以及输入/输出四组合。更新路径的联合诊断空间达到 3.28×，但初版 K 分片相对连续 K 的强统一基线仅约 1–2%；没有把诊断上界当成可实现加速。
+当前主线：面向神经网络加工的 Agent 语义记忆，联合研究计算、DRAM 供数和 SRAM 缓冲；Mem0 是样本之一。范围固定为已知文本的并行处理与低批量生成，不预设两类必须使用两颗芯片。
+
+最新 [跨算法与合法批处理结果](WORKLOAD_FAMILY_RESULTS.md) 已补 SimpleMem 28 次、LightMem 56 次原生 LLM 调用、292 个 Embedding 模型 batch，以及四条独立请求的 A800 张量形状校准。共同生成/供数需求成立，但合批改变适用范围：四条 SimpleMem 构建请求合法合批后，强基线的条件模型速度提高 1.526×，当前局部供数候选的额外速度比仅 0.997×。没有将独立 B=1 服务量当作完整算法加速。
+
+[有代价的供数模型](SUPPLY_PATH_RESULTS.md) 加入有限 HB 容量、bank、接口、在途窗口、SRAM 端口、控制器面积及冷填充；168 个预算内点中，100-unit HB 成本情景下旧更新/短问答约 1.24×/1.15×，但价格、bank skew 和控制器面积控制可使优势消失。尚未得到稳健物理收益，不进入热优化。
+
+此前 [算存联合机制检验](MECHANISM_RESULTS.md) 保留交叉阵列/带宽控制、有资源代价的 K 分片、96 个条件预算配置，以及输入/输出四组合。更新路径的联合诊断空间达到 3.28×，但初版 K 分片相对连续 K 的强统一基线仅约 1–2%；该映射现冻结为对照，没有把诊断上界当成可实现加速。
 
 [映射与资源合同](K_SHARD_DESIGN.md) 公开归约、广播、buffer、地址发生器、复用器和频率代价。[表示控制](REPRESENTATION_CONTROLS.md) 已完成 7 次小块原文问答及问题 30/39 的审查：普通小块检索也显著减少输入，但时间锚点/支持覆盖存在损失；原有词面命中包含误判，不能当正确率。
 
@@ -34,6 +40,10 @@
 | `architecture/joint_diagnostics.py` / `architecture/report_mechanism.py` | 交叉控制、预算内比较、L/O 归因及报告 |
 | `architecture/representation_controls.py` | 远端 512-token 原文检索对照和两例审查回执 |
 | `architecture/validate_mechanism.py` | 冻结基线、模型输入哈希、预算及新 GPU 控制对账 |
+| `architecture/family_workload.py` / `collect_family.py` | 远端有界原生 SimpleMem/LightMem 执行与纯数值导出 |
+| `architecture/family_kernel_probe.py` | 四条不同真实输入的 B=1/B=4 张量与 CUDA 校准 |
+| `architecture/supply_path.py` / `report_supply.py` | 同预算有限容量/bank/接口/SRAM 供数与敏感性 |
+| `architecture/family_replay.py` / `report_family.py` | 固定硬件跨算法请求核算、合法合批控制和证据对账 |
 | `operations/download_models.py` | 从 HF 镜像下载固定 revision 的三个模型 |
 | `operations/prepare_dataset.py` | 从镜像重建固定 MemoryAgentBench 输入；已有文件不覆盖 |
 | `launch_services.py` | 固定模型服务参数和 PID，隔离缓存 |
@@ -80,6 +90,11 @@ python3 mechanism_unittest.py
 python3 -m architecture.joint_diagnostics
 python3 -m architecture.report_mechanism
 python3 -m architecture.validate_mechanism
+python3 -m unittest family_unittest supply_path_unittest
+python3 -m architecture.supply_path
+python3 -m architecture.report_supply
+python3 -m architecture.family_replay
+python3 -m architecture.report_family
 ```
 
 第一轮收尾核验入口为 `validate_evidence.py`；`audit_power.py` 检查粗粒度设备能量读数；`freeze_receipts.py` 固定远端原始证据哈希。`operations/stop_services.py` 是第一轮专用收尾脚本，不用于 phase2。新运行使用不同 session、trace 路径和证据回执，避免修改旧的冻结文件。

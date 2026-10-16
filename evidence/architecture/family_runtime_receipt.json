@@ -1,0 +1,14 @@
+{
+  "checked_at_unix": 1792136428.8187401,
+  "owned_pids": [
+    517911,
+    517912,
+    517913,
+    519154,
+    523583
+  ],
+  "still_present": [],
+  "shutdown_receipt_sha256": "7d672b2433e051239f1c8e1c58f4a164fcd683318ad70e7f0c0e150dc076f7ff",
+  "probe_log_sha256": "cdc96a4a5ccf2a41847496803ffccfa6a9395a54ae6aaff526c4e5ba1b979e2e",
+  "probe_status": "complete"
+}

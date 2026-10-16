@@ -1,0 +1,20 @@
+{
+  "input_hashes_verified": 9,
+  "accepted_designs": 168,
+  "rejected_designs": 72,
+  "profiles": 504,
+  "requests": {
+    "update": 9,
+    "raw_raw": 7,
+    "mem0_mem0": 7
+  },
+  "budget": {
+    "cost_units": 850,
+    "area_mm2": 450,
+    "shoreline_mm": 50,
+    "power_w": 500
+  },
+  "all_finite": true,
+  "traffic_and_time_conservation": true,
+  "generator_sha256": "49c09e81d34633c3c5118955f3aa330a6e1794bb1f5df3d7f3e806bb2177b7fe"
+}

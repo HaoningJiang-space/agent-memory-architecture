@@ -1,0 +1,103 @@
+{
+  "models": {
+    "Qwen/Qwen3-Embedding-0.6B": {
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3"
+    },
+    "Qwen/Qwen3-8B": {
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218"
+    },
+    "Qwen/Qwen3-32B": {
+      "revision": "9216db5781bf21249d130ec9da846c4624c16137"
+    }
+  },
+  "runs": {
+    "family_02/simplemem": {
+      "history_messages": 48,
+      "source_timestamps_nondecreasing": true,
+      "phase_config": {
+        "window_size": 16,
+        "overlap": 2,
+        "build_workers": 4,
+        "records": 49
+      }
+    },
+    "family_01/lightmem": {
+      "history_messages": 48,
+      "source_timestamps_nondecreasing": true,
+      "phase_config": {
+        "records_before_maintenance": 258,
+        "records": 258,
+        "native_tokens": {
+          "summary": {
+            "total_llm_calls": 53,
+            "total_llm_tokens": 60461,
+            "total_embedding_calls": 258,
+            "total_embedding_tokens": 5612
+          },
+          "llm": {
+            "add_memory": {
+              "calls": 24,
+              "prompt_tokens": 30408,
+              "completion_tokens": 9985,
+              "total_tokens": 40393
+            },
+            "update": {
+              "calls": 29,
+              "prompt_tokens": 18839,
+              "completion_tokens": 1229,
+              "total_tokens": 20068
+            },
+            "summarize": {
+              "calls": 0,
+              "prompt_tokens": 0,
+              "completion_tokens": 0,
+              "total_tokens": 0
+            }
+          },
+          "embedding": {
+            "total_calls": 258,
+            "total_tokens": 5612,
+            "note": "Includes topic segmentation + memory indexing. Local models show None for tokens."
+          }
+        },
+        "pre_compress": false,
+        "topic_segment": false,
+        "messages_use": "hybrid",
+        "metadata_generate": true,
+        "text_summary": true,
+        "update": "offline",
+        "extraction_mode": "flat",
+        "index_strategy": "embedding",
+        "retrieve_strategy": "embedding"
+      },
+      "maintenance_audit": {
+        "actions": {
+          "ignore": 10,
+          "update": 19
+        },
+        "parse_errors": 0,
+        "changed_memory_payloads": 17
+      }
+    }
+  },
+  "downloads": {
+    "external/lightmem-8449d57.tar.gz": {
+      "sha256": "7a6577c1190ee3abfbaf69970060897b2122abf54c4ec6969e7a4a41da623062",
+      "bytes": 9335546
+    },
+    "logs/family-dependencies.log": {
+      "sha256": "8df84cd871b4e64e4890b0404ec2aa756b82ca9e34c5483e61afeb7b87ec0e1c",
+      "bytes": 5072
+    },
+    "logs/family-pylance.log": {
+      "sha256": "ba93ca656adfb42fece10038c1b6c3ab9a1636f67d58e43ee813576e24915005",
+      "bytes": 683
+    }
+  },
+  "scope": "Code/config/shape provenance only; raw text and states remain remote.",
+  "download_routes": {
+    "code": "https://ghfast.top/https://github.com/zjunlp/LightMem/archive/8449d574df6bae1bdf3314a1564da65e2f37e046.tar.gz",
+    "packages": "https://pypi.tuna.tsinghua.edu.cn/simple",
+    "models": "Existing pinned local cache; no model download in this round."
+  }
+}

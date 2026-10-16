@@ -1,0 +1,17 @@
+{
+  "source_hashes_verified": 10,
+  "same_history": true,
+  "llm_calls": {
+    "simplemem": 28,
+    "lightmem": 56
+  },
+  "embedding_kernels": {
+    "simplemem": 31,
+    "lightmem": 261
+  },
+  "checked_traffic_and_time_rows": 674,
+  "kernel_hook_samples": 135,
+  "fixed_hardware": true,
+  "no_raw_text_export": true,
+  "limitation": "Counts/shape/flow checks do not establish semantic memory or answer correctness."
+}
