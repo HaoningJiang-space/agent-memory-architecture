@@ -68,6 +68,12 @@
 
 后台顺序为：8B delta → 8B snapshot → 32B delta，每个都计划 88 个片段 + 60 个问题；结构校验完成后才做词法评分与实际查询 KV 统计。`pipeline_recovery.json` 区分各项成功、失败和采集结束；结束后核对服务 PID 并释放 GPU。这里的“结束”不表示架构 motivation 完成。
 
+最新固定观察 [observation_05.json](evidence/phase3/observation_05.json)：采集器修正后的 8B delta 完成 16 个片段，第 17 个片段连续三次命中 4,096-token 上限，判无效；8B snapshot 当时通过 19/88 个构建片段，尚未开始 QA。前者是该协议配置的生成失败，与之前第 14 个片段的采集器竞态分开记录。
+
+另外已排队 `operations/start_guarded.py`：等待当前 suite 结束并释放服务后，再运行保留原生提示词的 `guarded_native` 控制。它只给操作引用增加条件 schema，去掉 minLength；不强制 ADD 使用某个无用占位符，也不要求 delta 输出。先尝试 8B，只有完整结构有效性失败才以 32B 作有界回退。成功完成后报告词法指标与 KV 容量账；这仍不能代替独立语义质量评价。[排队回执](evidence/phase4/queued_pipeline.json) 仅证明已进入等待，不能当成 phase4 已完成。
+
+缓存元数据口径也已纠正：当前 vLLM API usage 没有提供 cached-token 字段。新快照记录有该字段的调用数，缺失表示未知；早期快照中默认累加的 0 不可解释成 prefix cache 没有命中。
+
 **对架构问题的改变。**
 
 当前不再用输出 token 比例推断硬件瓶颈，不再把索引列为当前规模的主热点，也不把额外 8B 权重单方面当作容量损失。要联合核对：构建费用、查询复用、语义记忆缩短上下文节省的 KV、额外权重及构建 KV、状态可见性与更新频率。完整第一性原理分析和反证条件见 [OVERVIEW_NEXT.md](OVERVIEW_NEXT.md)。尚未进入同预算新硬件胜出、银行级访存或热优化的结论阶段。

@@ -32,6 +32,7 @@
 | `grammar_replay.py` / `grammar_factorial.py` | 相同 JSON token 流的 CPU 约束匹配对照，隔离 schema 规则开销 |
 | `operations/start_phase3.py --recover` | 已审计的采集器修复后，从新状态顺序执行三个完整控制并收尾 |
 | `phase3_snapshot.py` / `capacity_tradeoff.py` | 导出观察前缀；仅在完整合法运行后计算真实成对查询的 KV 容量账 |
+| `operations/start_guarded.py` | 等当前实验释放服务后，运行保留原生提示词的引用约束控制；8B 失败时才回退 32B |
 
 在远端已经准备好的环境中，可用新 run 名复查：
 

@@ -1,0 +1,6 @@
+{
+  "start": 1792124361.655625,
+  "status": "waiting_for_phase3",
+  "jobs": [],
+  "scope": "Wait for phase3 teardown, then try native-prompt ID guards on fresh state.\n\nNo concurrent GPU job is introduced. A complete valid 8B run ends this suite;\n32B is a bounded structural-validity fallback. Quality is reported separately.\n"
+}
