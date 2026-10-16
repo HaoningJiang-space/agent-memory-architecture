@@ -1,0 +1,663 @@
+{
+  "scope": "Remote-only A800 GEMM measurements for trace-derived operator shapes.\n\nSynthetic operands, real M/K/N shapes. Graph and eager timings calibrate the\nexisting GPU implementation only; no NPU speed/area coefficient is fitted here.\n",
+  "start": 1792127278.225268,
+  "status": "complete",
+  "pid": 469587,
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "device": "NVIDIA A800 80GB PCIe",
+  "device_total_bytes": 85095874560,
+  "source_sha256": "75d6c0950006efa81229e3377fb67b63daf5a598f99202b68c9f68c4742a8ff5",
+  "script_sha256": "3054d9eb384c3fdd16c1a0b0687f33547eb1ac54c0a4edf3a7e64a8dcec8d258",
+  "cases": [
+    {
+      "group": "mem0_extract_prefix",
+      "trace_id": "01b7b745-6943-42a5-9bd6-1dbfec15afcb",
+      "model": "Qwen/Qwen3-8B",
+      "op": "Q",
+      "phase": "prefill",
+      "m": 4955,
+      "k": 4096,
+      "n": 4096,
+      "timings": {
+        "eager": {
+          "median_ms": 0.6392831802368164,
+          "samples_ms": [
+            0.6392831802368164,
+            0.6374400138854981,
+            0.6385663986206055,
+            0.6524928092956543,
+            0.652185583114624
+          ]
+        },
+        "graph": {
+          "median_ms": 0.7333888053894043,
+          "samples_ms": [
+            0.6507520198822021,
+            0.7229440212249756,
+            0.7333888053894043,
+            0.7343103885650635,
+            0.7518208026885986
+          ]
+        }
+      },
+      "logical_flops": 166262210560,
+      "compulsory_bytes": 114737152,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 226.70404748231803
+    },
+    {
+      "group": "mem0_extract_prefix",
+      "trace_id": "01b7b745-6943-42a5-9bd6-1dbfec15afcb",
+      "model": "Qwen/Qwen3-8B",
+      "op": "Q",
+      "phase": "decode",
+      "m": 1,
+      "k": 4096,
+      "n": 4096,
+      "timings": {
+        "eager": {
+          "median_ms": 0.023449599742889404,
+          "samples_ms": [
+            0.02682879865169525,
+            0.023756800591945647,
+            0.023449599742889404,
+            0.023347200453281404,
+            0.023244799673557283
+          ]
+        },
+        "graph": {
+          "median_ms": 0.021503999829292297,
+          "samples_ms": [
+            0.02252800017595291,
+            0.021503999829292297,
+            0.021503999829292297,
+            0.021401600539684297,
+            0.021401600539684297
+          ]
+        }
+      },
+      "logical_flops": 33554432,
+      "compulsory_bytes": 33570816,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 1.5603809647679059
+    },
+    {
+      "group": "mem0_extract_prefix",
+      "trace_id": "01b7b745-6943-42a5-9bd6-1dbfec15afcb",
+      "model": "Qwen/Qwen3-8B",
+      "op": "up",
+      "phase": "prefill",
+      "m": 4955,
+      "k": 4096,
+      "n": 12288,
+      "timings": {
+        "eager": {
+          "median_ms": 2.186649513244629,
+          "samples_ms": [
+            1.903411293029785,
+            1.9897344589233399,
+            2.186649513244629,
+            2.2330368041992186,
+            2.230886459350586
+          ]
+        },
+        "graph": {
+          "median_ms": 2.226278305053711,
+          "samples_ms": [
+            2.228223991394043,
+            2.226278305053711,
+            2.226176071166992,
+            2.226278305053711,
+            2.2257663726806642
+          ]
+        }
+      },
+      "logical_flops": 498786631680,
+      "compulsory_bytes": 263028736,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 224.04504888168793
+    },
+    {
+      "group": "mem0_extract_prefix",
+      "trace_id": "01b7b745-6943-42a5-9bd6-1dbfec15afcb",
+      "model": "Qwen/Qwen3-8B",
+      "op": "up",
+      "phase": "decode",
+      "m": 1,
+      "k": 4096,
+      "n": 12288,
+      "timings": {
+        "eager": {
+          "median_ms": 0.06594560146331788,
+          "samples_ms": [
+            0.06809599995613098,
+            0.06574079990386963,
+            0.06594560146331788,
+            0.06594560146331788,
+            0.06533120274543762
+          ]
+        },
+        "graph": {
+          "median_ms": 0.06338559985160827,
+          "samples_ms": [
+            0.06440960168838501,
+            0.06338559985160827,
+            0.06318079829216003,
+            0.06297600269317627,
+            0.06338559985160827
+          ]
+        }
+      },
+      "logical_flops": 100663296,
+      "compulsory_bytes": 100696064,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 1.588109858322117
+    },
+    {
+      "group": "mem0_extract_prefix",
+      "trace_id": "01b7b745-6943-42a5-9bd6-1dbfec15afcb",
+      "model": "Qwen/Qwen3-8B",
+      "op": "down",
+      "phase": "prefill",
+      "m": 4955,
+      "k": 12288,
+      "n": 4096,
+      "timings": {
+        "eager": {
+          "median_ms": 2.1140480041503906,
+          "samples_ms": [
+            1.8407424926757812,
+            1.9314687728881836,
+            2.1140480041503906,
+            2.1718015670776367,
+            2.170163154602051
+          ]
+        },
+        "graph": {
+          "median_ms": 2.1495807647705076,
+          "samples_ms": [
+            2.168012809753418,
+            2.1571584701538087,
+            2.1495807647705076,
+            2.125107192993164,
+            2.12172794342041
+          ]
+        }
+      },
+      "logical_flops": 498786631680,
+      "compulsory_bytes": 263028736,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 232.03902819313288
+    },
+    {
+      "group": "mem0_extract_prefix",
+      "trace_id": "01b7b745-6943-42a5-9bd6-1dbfec15afcb",
+      "model": "Qwen/Qwen3-8B",
+      "op": "down",
+      "phase": "decode",
+      "m": 1,
+      "k": 12288,
+      "n": 4096,
+      "timings": {
+        "eager": {
+          "median_ms": 0.07096319794654846,
+          "samples_ms": [
+            0.07280640006065368,
+            0.07055360078811646,
+            0.07096319794654846,
+            0.07127040028572082,
+            0.07065600156784058
+          ]
+        },
+        "graph": {
+          "median_ms": 0.06922240257263183,
+          "samples_ms": [
+            0.06993920207023621,
+            0.06952959895133973,
+            0.06850559711456299,
+            0.06901760101318359,
+            0.06922240257263183
+          ]
+        }
+      },
+      "logical_flops": 100663296,
+      "compulsory_bytes": 100696064,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 1.4542011293869597
+    },
+    {
+      "group": "mem0_update_prefix",
+      "trace_id": "2bdf676e-da58-420c-b75b-40f8a5202414",
+      "model": "Qwen/Qwen3-8B",
+      "op": "Q",
+      "phase": "prefill",
+      "m": 1814,
+      "k": 4096,
+      "n": 4096,
+      "timings": {
+        "eager": {
+          "median_ms": 0.32194559574127196,
+          "samples_ms": [
+            0.3229696035385132,
+            0.32194559574127196,
+            0.3217407941818237,
+            0.32081921100616456,
+            0.32194559574127196
+          ]
+        },
+        "graph": {
+          "median_ms": 0.31703040599822996,
+          "samples_ms": [
+            0.32071681022644044,
+            0.3167232036590576,
+            0.31692800521850584,
+            0.31703040599822996,
+            0.3171328067779541
+          ]
+        }
+      },
+      "logical_flops": 60867739648,
+      "compulsory_bytes": 63275008,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 191.99338138039616
+    },
+    {
+      "group": "mem0_update_prefix",
+      "trace_id": "2bdf676e-da58-420c-b75b-40f8a5202414",
+      "model": "Qwen/Qwen3-8B",
+      "op": "Q",
+      "phase": "decode",
+      "m": 1,
+      "k": 4096,
+      "n": 4096,
+      "timings": {
+        "eager": {
+          "median_ms": 0.023244799673557283,
+          "samples_ms": [
+            0.026726400852203368,
+            0.023552000522613525,
+            0.023244799673557283,
+            0.023244799673557283,
+            0.02314240038394928
+          ]
+        },
+        "graph": {
+          "median_ms": 0.02170879989862442,
+          "samples_ms": [
+            0.02242559939622879,
+            0.02170879989862442,
+            0.02160640060901642,
+            0.02160640060901642,
+            0.02170879989862442
+          ]
+        }
+      },
+      "logical_flops": 33554432,
+      "compulsory_bytes": 33570816,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 1.545660384576403
+    },
+    {
+      "group": "mem0_update_prefix",
+      "trace_id": "2bdf676e-da58-420c-b75b-40f8a5202414",
+      "model": "Qwen/Qwen3-8B",
+      "op": "up",
+      "phase": "prefill",
+      "m": 1814,
+      "k": 4096,
+      "n": 12288,
+      "timings": {
+        "eager": {
+          "median_ms": 0.7440383911132813,
+          "samples_ms": [
+            0.743833589553833,
+            0.7440383911132813,
+            0.743833589553833,
+            0.7517183780670166,
+            0.8279040336608887
+          ]
+        },
+        "graph": {
+          "median_ms": 0.8676351547241211,
+          "samples_ms": [
+            0.8255488395690918,
+            0.8562687873840332,
+            0.8682496070861816,
+            0.8677375793457032,
+            0.8676351547241211
+          ]
+        }
+      },
+      "logical_flops": 182603218944,
+      "compulsory_bytes": 160104448,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 210.46083477572057
+    },
+    {
+      "group": "mem0_update_prefix",
+      "trace_id": "2bdf676e-da58-420c-b75b-40f8a5202414",
+      "model": "Qwen/Qwen3-8B",
+      "op": "up",
+      "phase": "decode",
+      "m": 1,
+      "k": 4096,
+      "n": 12288,
+      "timings": {
+        "eager": {
+          "median_ms": 0.06533120274543762,
+          "samples_ms": [
+            0.06768640279769897,
+            0.066048002243042,
+            0.06533120274543762,
+            0.06481919884681701,
+            0.06512640118598938
+          ]
+        },
+        "graph": {
+          "median_ms": 0.06359040141105651,
+          "samples_ms": [
+            0.06430720090866089,
+            0.06338559985160827,
+            0.06369280219078063,
+            0.06318079829216003,
+            0.06359040141105651
+          ]
+        }
+      },
+      "logical_flops": 100663296,
+      "compulsory_bytes": 100696064,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 1.5829951339558237
+    },
+    {
+      "group": "mem0_update_prefix",
+      "trace_id": "2bdf676e-da58-420c-b75b-40f8a5202414",
+      "model": "Qwen/Qwen3-8B",
+      "op": "down",
+      "phase": "prefill",
+      "m": 1814,
+      "k": 12288,
+      "n": 4096,
+      "timings": {
+        "eager": {
+          "median_ms": 0.8025088310241699,
+          "samples_ms": [
+            0.8025088310241699,
+            0.7985151767730713,
+            0.7993343830108642,
+            0.8298496246337891,
+            0.8337408065795898
+          ]
+        },
+        "graph": {
+          "median_ms": 0.8856575965881348,
+          "samples_ms": [
+            0.8522751808166504,
+            0.8827903747558594,
+            0.8856575965881348,
+            0.9058303833007812,
+            0.9054207801818848
+          ]
+        }
+      },
+      "logical_flops": 182603218944,
+      "compulsory_bytes": 160104448,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 206.17812080814522
+    },
+    {
+      "group": "mem0_update_prefix",
+      "trace_id": "2bdf676e-da58-420c-b75b-40f8a5202414",
+      "model": "Qwen/Qwen3-8B",
+      "op": "down",
+      "phase": "decode",
+      "m": 1,
+      "k": 12288,
+      "n": 4096,
+      "timings": {
+        "eager": {
+          "median_ms": 0.07086079716682434,
+          "samples_ms": [
+            0.07260159850120544,
+            0.07034879922866821,
+            0.07086079716682434,
+            0.07086079716682434,
+            0.0711679995059967
+          ]
+        },
+        "graph": {
+          "median_ms": 0.0694271981716156,
+          "samples_ms": [
+            0.07014399766921997,
+            0.0694271981716156,
+            0.06881279945373535,
+            0.06973440051078797,
+            0.0694271981716156
+          ]
+        }
+      },
+      "logical_flops": 100663296,
+      "compulsory_bytes": 100696064,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 1.4499115426085978
+    },
+    {
+      "group": "embed_full_01_query",
+      "trace_id": "03d5fb1e-c901-4e9e-a5a9-ac93d0cad649",
+      "model": "Qwen/Qwen3-32B",
+      "op": "Q",
+      "phase": "prefill",
+      "m": 21249,
+      "k": 5120,
+      "n": 8192,
+      "timings": {
+        "eager": {
+          "median_ms": 7.692390441894531,
+          "samples_ms": [
+            7.208550262451172,
+            7.732838439941406,
+            7.73201904296875,
+            7.692390441894531,
+            7.672115325927734
+          ]
+        },
+        "graph": {
+          "median_ms": 7.669862365722656,
+          "samples_ms": [
+            7.674368286132813,
+            7.669760131835938,
+            7.669862365722656,
+            7.670169830322266,
+            7.669760131835938
+          ]
+        }
+      },
+      "logical_flops": 1782495313920,
+      "compulsory_bytes": 649619456,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 232.4025163588516
+    },
+    {
+      "group": "embed_full_01_query",
+      "trace_id": "03d5fb1e-c901-4e9e-a5a9-ac93d0cad649",
+      "model": "Qwen/Qwen3-32B",
+      "op": "Q",
+      "phase": "decode",
+      "m": 1,
+      "k": 5120,
+      "n": 8192,
+      "timings": {
+        "eager": {
+          "median_ms": 0.06164479851722717,
+          "samples_ms": [
+            0.06307839751243591,
+            0.06164479851722717,
+            0.061440002918243405,
+            0.061849600076675414,
+            0.06154239773750305
+          ]
+        },
+        "graph": {
+          "median_ms": 0.06000639796257019,
+          "samples_ms": [
+            0.06154239773750305,
+            0.060108798742294314,
+            0.059596800804138185,
+            0.05990399718284607,
+            0.06000639796257019
+          ]
+        }
+      },
+      "logical_flops": 83886080,
+      "compulsory_bytes": 83912704,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 1.3979522658954648
+    },
+    {
+      "group": "embed_full_01_query",
+      "trace_id": "03d5fb1e-c901-4e9e-a5a9-ac93d0cad649",
+      "model": "Qwen/Qwen3-32B",
+      "op": "up",
+      "phase": "prefill",
+      "m": 21249,
+      "k": 5120,
+      "n": 25600,
+      "timings": {
+        "eager": {
+          "median_ms": 23.906098937988283,
+          "samples_ms": [
+            23.54186248779297,
+            23.906098937988283,
+            23.905792236328125,
+            24.41318359375,
+            24.056729125976563
+          ]
+        },
+        "graph": {
+          "median_ms": 24.03768310546875,
+          "samples_ms": [
+            23.949107360839843,
+            23.902207946777345,
+            24.288050842285156,
+            24.08202209472656,
+            24.03768310546875
+          ]
+        }
+      },
+      "logical_flops": 5570297856000,
+      "compulsory_bytes": 1567682560,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 231.73189494010413
+    },
+    {
+      "group": "embed_full_01_query",
+      "trace_id": "03d5fb1e-c901-4e9e-a5a9-ac93d0cad649",
+      "model": "Qwen/Qwen3-32B",
+      "op": "up",
+      "phase": "decode",
+      "m": 1,
+      "k": 5120,
+      "n": 25600,
+      "timings": {
+        "eager": {
+          "median_ms": 0.16814080476760865,
+          "samples_ms": [
+            0.16977920532226562,
+            0.16824320554733277,
+            0.16814080476760865,
+            0.16773120164871216,
+            0.16803840398788453
+          ]
+        },
+        "graph": {
+          "median_ms": 0.16599040031433104,
+          "samples_ms": [
+            0.16680959463119507,
+            0.1657855987548828,
+            0.16609280109405516,
+            0.1652735948562622,
+            0.16599040031433104
+          ]
+        }
+      },
+      "logical_flops": 262144000,
+      "compulsory_bytes": 262205440,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 1.5792720512968565
+    },
+    {
+      "group": "embed_full_01_query",
+      "trace_id": "03d5fb1e-c901-4e9e-a5a9-ac93d0cad649",
+      "model": "Qwen/Qwen3-32B",
+      "op": "down",
+      "phase": "prefill",
+      "m": 21249,
+      "k": 25600,
+      "n": 5120,
+      "timings": {
+        "eager": {
+          "median_ms": 23.574835205078124,
+          "samples_ms": [
+            23.574835205078124,
+            23.304396057128905,
+            23.130213928222656,
+            23.879679870605468,
+            23.705293273925783
+          ]
+        },
+        "graph": {
+          "median_ms": 23.7591552734375,
+          "samples_ms": [
+            23.190631103515624,
+            23.682662963867188,
+            23.790182495117186,
+            23.821311950683594,
+            23.7591552734375
+          ]
+        }
+      },
+      "logical_flops": 5570297856000,
+      "compulsory_bytes": 1567682560,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 234.44848067589078
+    },
+    {
+      "group": "embed_full_01_query",
+      "trace_id": "03d5fb1e-c901-4e9e-a5a9-ac93d0cad649",
+      "model": "Qwen/Qwen3-32B",
+      "op": "down",
+      "phase": "decode",
+      "m": 1,
+      "k": 25600,
+      "n": 5120,
+      "timings": {
+        "eager": {
+          "median_ms": 0.17817599773406984,
+          "samples_ms": [
+            0.18001919984817505,
+            0.17817599773406984,
+            0.1789952039718628,
+            0.17756160497665405,
+            0.17786879539489747
+          ]
+        },
+        "graph": {
+          "median_ms": 0.17592320442199708,
+          "samples_ms": [
+            0.1768447995185852,
+            0.17592320442199708,
+            0.17582080364227295,
+            0.17623039484024047,
+            0.16926720142364501
+          ]
+        }
+      },
+      "logical_flops": 262144000,
+      "compulsory_bytes": 262205440,
+      "scope": "Operand/answer floor bytes, not measured HBM traffic; output finiteness only, no new kernel implementation.",
+      "graph_tflops": 1.4901047355366501
+    }
+  ],
+  "end": 1792127286.0050848
+}

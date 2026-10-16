@@ -4,6 +4,8 @@
 
 最新结果见 [第一次有物理约束的架构对照](ARCHITECTURE_RESULTS.md)：真实请求驱动的阵列/SRAM/DRAM 模型、32 个配置及记忆策略反事实；探索不再等待完整 Mem0 成功。完整应用质量与最终硬件结论仍单独验收。
 
+另已完成 [18 项 A800 算子微基准](evidence/architecture/operator_calibration.json)：真实请求对应的 GEMM 形状、合成矩阵、独立 CUDA 时间。它们是现有 GPU 的校准点，未外推成新 NPU 性能。
+
 协议调查已冻结为支线，已排队的运行自然结束并释放服务，见 [收尾状态](evidence/architecture/protocol_branch_status.json)。历史结果保留在 [第二、三轮结果与原因](PHASE23_RESULTS.md)，研究方向见 [第一性原理 overview](OVERVIEW_NEXT.md)。
 
 [本地 PDF 阅读](PDF_OVERVIEW.md) 对照 HybridSpec、Splitwise、H²-LLM、FGDRAM、TETRIS 等梳理证据门槛。[早期第一性原理图](evidence/phase2/first_principles_overview.pdf) 的 20K 上下文是明确的容量假设，不能代替实际 Mem0 查询长度；新分析同时核算语义压缩节省的 KV。

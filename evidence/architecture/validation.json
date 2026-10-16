@@ -1,0 +1,24 @@
+{
+  "python": "3.12.3",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "architecture_unittest.py"
+      ],
+      "returncode": 0,
+      "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.096s\n\nOK"
+    },
+    {
+      "command": [
+        "python3",
+        "accounting_unittest.py"
+      ],
+      "returncode": 0,
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.002s\n\nOK"
+    }
+  ],
+  "inputs_match": true,
+  "operator_cases": 18,
+  "scope": "Arithmetic/unit/source checks and completed A800 GEMM microbench; no calibrated NPU or full quality validation."
+}

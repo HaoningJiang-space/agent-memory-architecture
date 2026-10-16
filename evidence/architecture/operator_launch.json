@@ -1,0 +1,14 @@
+{
+  "pid": 469587,
+  "command": [
+    "/data/ziheng/agent-memory-architecture/.venv/bin/python",
+    "-u",
+    "-m",
+    "architecture.profile_a800",
+    "--output",
+    "outputs/architecture/operator_calibration.json"
+  ],
+  "source_commit": "ee8c24d",
+  "launched": 1792127270.998335,
+  "scope": "Isolated background operator calibration; no model or protocol rerun."
+}

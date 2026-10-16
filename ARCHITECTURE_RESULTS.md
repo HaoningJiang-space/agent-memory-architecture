@@ -80,6 +80,17 @@ HBM3E/LPDDR5X 的容量、带宽、能量和接口参数来自 [MemExplorer v2 T
 
 ## 边界、验证与下一步
 
+后台完成 18 项 A800 BF16 GEMM 微基准：从每类真实请求的中位输入长度取 Q/up/down 三个投影，分别测 prefill M=L 和 decode M=1。矩阵内容为固定种子的合成数据；每个 eager/graph 模式记录 5 组、每组 10 次 CUDA event 时间。没有重跑 Mem0。
+
+| 请求来源 | Prefill GEMM TFLOP/s 范围 | B=1 Decode GEMM TFLOP/s 范围 |
+|---|---:|---:|
+| `mem0_extract_prefix` | 224.0–232.0 | 1.45–1.59 |
+| `mem0_update_prefix` | 192.0–210.5 | 1.45–1.58 |
+| `embed_full_01_query` | 231.7–234.4 | 1.40–1.58 |
+
+数据见 [operator_calibration.json](evidence/architecture/operator_calibration.json)，脚本见 [profile_a800.py](architecture/profile_a800.py)。这些是预热、重复相同权重的矩阵微基准，可能受缓存影响；不包含 attention、完整 decoder 或 CPU schema，不是实测 HBM 流量。它们确认不同 M 形状在现有 GPU 上的执行差异，并提供后续计算模型校准点；**尚未把该测量外推成新 NPU 时延，也未据此校准未合成的面积/能量系数**。
+
+
 这版不包含 softmax/normalization/vector kernels、实测 DRAM 计数、数据库 CPU 时间、真实并发队列和热模型。采用最快 tile 映射后报告其能量，未单独穷举最低能量数据流。完整质量、同 SLA serving 和 MemExplorer 原生复现均未完成；KEEP/TokenCake 应在具体涉及 KV 复用或工具暂停时加入对应机制。
 
 协议支线已自然结束并释放其服务，所有结果仍为失败/无完整 QA；状态冻结见 [回执](evidence/architecture/protocol_branch_status.json)。不再续开协议变体。本轮不以“所有软件均无效”为架构研究前提。
