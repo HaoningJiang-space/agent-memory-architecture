@@ -64,8 +64,17 @@ def audit(source, creator):
     history = [dict(x) for x in connection.execute('select * from history order by rowid')]
     connection.close()
     state, excluded = {}, []
-    for row in history:
-        stamp = datetime.fromisoformat(row['updated_at'] or row['created_at']).timestamp()
+    for index,row in enumerate(history):
+        timestamp = row['updated_at'] or row['created_at']
+        if timestamp is None:
+            # Native DELETE history omits both timestamps. Require surrounding
+            # committed SQLite row order to bracket it inside the valid prefix.
+            assert row['event']=='DELETE' and 0 < index < len(history)-1
+            bounds=[history[j]['updated_at'] or history[j]['created_at'] for j in (index-1,index+1)]
+            assert all(t and datetime.fromisoformat(t).timestamp()<cutoff for t in bounds)
+            stamp=datetime.fromisoformat(bounds[1]).timestamp()
+        else:
+            stamp = datetime.fromisoformat(timestamp).timestamp()
         if stamp >= cutoff:
             excluded.append(row)
         elif row['event'] in ('ADD','UPDATE'):
