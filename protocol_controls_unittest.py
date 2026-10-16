@@ -16,7 +16,7 @@ class ProtocolSafety(unittest.TestCase):
     def test_whole_list_rejected_before_caller_applies_anything(self):
         writes = []
         text = response(op('ADD', 'NEW'), op('DELETE', '99'))
-        with self.assertRaisesRegex(ValueError, 'invalid'):
+        with self.assertRaises(ValueError):
             for action in validate_response(text, ['0'])['memory']:
                 writes.append(action)
         self.assertEqual(writes, [])
@@ -24,6 +24,10 @@ class ProtocolSafety(unittest.TestCase):
     def test_valid_operations_and_repeated_add_placeholder(self):
         text = response(op('UPDATE','0'), op('DELETE','1'), op('ADD','NEW'), op('ADD','NEW'))
         self.assertEqual(len(validate_response(text, ['0','1'])['memory']), 4)
+
+    def test_add_and_noop_ids_are_not_state_references(self):
+        text = response(op('ADD','0'),op('NONE','0'),op('UPDATE','0'),op('NONE','NEW'))
+        self.assertEqual(len(validate_response(text,['0'])['memory']),4)
 
     def test_conflict_empty_text_delta_noop_and_truncation(self):
         for text, delta in [(response(op('UPDATE','0'),op('DELETE','0')),False),

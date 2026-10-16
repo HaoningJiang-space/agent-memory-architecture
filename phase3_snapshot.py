@@ -40,7 +40,10 @@ record['grammar'] = {}
 for name in ('grammar_replay','grammar_factorial'):
     manifest = read_json(out/name/'manifest.json')
     manifest.pop('measurements',None)
-    record['grammar'][name] = dict(manifest=manifest,measurements=rows(out/name/'measurements.jsonl'))
+    stop = read_json(out/name/'early_stop.json')
+    record['grammar'][name] = dict(manifest=manifest,measurements=rows(out/name/'measurements.jsonl'),
+                                  external_stop=stop,
+                                  observed_status='early_stopped' if stop else manifest.get('status','not_started'))
 trials = rows(out/'protocol_ablation/raw.jsonl')
 grouped = defaultdict(list)
 for r in trials:

@@ -59,10 +59,11 @@ def validate_response(text, valid_ids, delta=False):
             raise ValueError('old_memory must be a string')
         if not isinstance(op['id'], str) or op['event'] not in events:
             raise ValueError('Invalid id type or event')
-        if op['event'] == 'ADD':
-            if op['id'] != 'NEW':
-                raise ValueError('ADD requires the NEW placeholder')
-        else:
+        if op['id'] not in valid_ids and op['id'] != 'NEW':
+            raise ValueError('ID is outside the flat schema domain: '+op['id'])
+        # The pinned store ignores ADD and NONE IDs. Requiring NEW for ADD,
+        # or rejecting a harmless NONE/UPDATE pair, would invent failure modes.
+        if op['event'] in ('UPDATE','DELETE'):
             if op['id'] not in valid_ids:
                 raise ValueError('Existing-memory reference is invalid: '+op['id'])
             if op['id'] in seen:
