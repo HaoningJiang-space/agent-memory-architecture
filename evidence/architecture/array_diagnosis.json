@@ -13087,5 +13087,5 @@
     "Reshaping keeps the nominal MAC, buffer and port budget; changed wires/clock/area require synthesis.",
     "No HB-on-Logic tier or placement path is modeled."
   ],
-  "diagnostic_sha256": "38a3c31388ddba9708bb858c2a20689ddcc8181adf442925ebccd6c71dd41409"
+  "diagnostic_sha256": "0e7aa95ad071f5318b52b220c42c7b6350165f281572f5df88fbec46d9dd6efd"
 }

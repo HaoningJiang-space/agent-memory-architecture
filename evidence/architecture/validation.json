@@ -7,7 +7,7 @@
         "architecture_unittest.py"
       ],
       "returncode": 0,
-      "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.096s\n\nOK"
+      "output": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.297s\n\nOK\n"
     },
     {
       "command": [
@@ -15,10 +15,13 @@
         "accounting_unittest.py"
       ],
       "returncode": 0,
-      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.002s\n\nOK"
+      "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.002s\n\nOK\n"
     }
   ],
   "inputs_match": true,
-  "operator_cases": 18,
-  "scope": "Arithmetic/unit/source checks and completed A800 GEMM microbench; no calibrated NPU or full quality validation."
+  "array_controls": 76,
+  "finite_queries": 14,
+  "finite_pairs": 7,
+  "live_capacity_accounting": true,
+  "scope": "Arithmetic and source checks; complete finite-prefix pilot with unverified quality equivalence; no calibrated NPU or new mechanism speedup."
 }

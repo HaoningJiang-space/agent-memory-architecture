@@ -103,6 +103,8 @@ def main():
 
 后续 [阵列瓶颈诊断](ARRAY_DIAGNOSIS.md) 保持 baseline 数值不变，拆开低 M padding 与填排空。当前 update 的限制是所选映射的阵列周期；增加带宽无收益，理想阵列上界也仅约 1.38×，不能以低有效利用率的倒数推算加速。
 
+[有限历史配对](FINITE_PREFIX_RESULTS.md) 已补 7 对实际输入/输出及 A800 驻留数据，替代“只有假设长度”的证据空白；其历史范围与下面的 88-write 情景不同，未混接成完整生命周期结果。词面答案指标有差异，尚未证明质量等价。
+
 ![第一次架构对照](evidence/architecture/architecture_exploration.png)
 
 ## 证据层次与输入
@@ -176,7 +178,7 @@ HBM3E/LPDDR5X 的容量、带宽、能量和接口参数来自 [MemExplorer v2 T
 
 这版不包含 softmax/normalization/vector kernels、实测 DRAM 计数、数据库 CPU 时间、真实并发队列和热模型。采用最快 tile 映射后报告其能量，未单独穷举最低能量数据流。完整质量、同 SLA serving 和 MemExplorer 原生复现均未完成；KEEP/TokenCake 应在具体涉及 KV 复用或工具暂停时加入对应机制。
 
-协议支线已自然结束并释放其服务，所有结果仍为失败/无完整 QA；状态冻结见 [回执](evidence/architecture/protocol_branch_status.json)。不再续开协议变体。本轮不以“所有软件均无效”为架构研究前提。
+协议支线已自然结束并释放其服务，历史完整运行仍为失败/无完整 QA；状态冻结见 [回执](evidence/architecture/protocol_branch_status.json)。后续仅恢复其副本做有限前缀配对，没有续开构建协议变体。本轮不以“所有软件均无效”为架构研究前提。
 
 当前可保留的研究问题是：**在质量/服务约束下，语义记忆改变读写工作量和驻留状态，是否改变算存配置的 Pareto 边界？** 现有条件模型已经可算这一问题；尚未发现超出普通容量配置的新硬件机制。
 

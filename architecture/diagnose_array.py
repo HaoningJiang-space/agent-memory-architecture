@@ -67,7 +67,7 @@ GEMM 的原公式是 `waves × (K + ceil(K/tk) × (R+C−2))`。依次计必要 
 |---|---:|---:|
 {controls}
 
-`frozen` 保持每个 GEMM 的原 tile、OS/WS 与流量；`remap` 重新搜索原 tile 集。Attention tile 由 SRAM 决定，在带宽控制中不变。`ideal_array` 仅以有效 MAC / 全部 MAC 替换阵列周期，DRAM/SRAM 服务仍计入。2×–8× 带宽控制不计新增 PHY、功率或成本，因此仅用于瓶颈定位。矩形阵列保持总 MAC、SRAM 和名义端口预算；布线、时钟与真实面积尚未验证，不能加入物理可行方案排名。
+`frozen` 保持每个 GEMM 的原 tile、OS/WS 与流量；`remap` 重新搜索原 tile 集，仍按 M 映射行、N 映射列，**没有穷举 K 维空间并行、归约网络或专门 GEMV 映射**。Attention tile 由 SRAM 决定，在带宽控制中不变。`ideal_array` 仅以有效 MAC / 全部 MAC 替换阵列周期，DRAM/SRAM 服务仍计入。2×–8× 带宽控制不计新增 PHY、功率或成本，因此仅用于瓶颈定位。矩形阵列保持总 MAC、SRAM 和名义端口预算；布线、时钟与真实面积尚未验证，不能加入物理可行方案排名。
 
 最有信息量的结果是：**加带宽无收益；理想阵列也只有约 {base['mean']['seconds']/rows['ideal_array_frozen']['mean']['seconds']:.2f}× 的更新服务加速界**，随后访存成为限制。不能把 0.46% 的倒数当成加速空间。64×256 的模型改善有限，继续变窄反而恶化，说明填排空、列 padding 与 attention 映射共同约束结果。
 

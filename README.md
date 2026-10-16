@@ -6,6 +6,8 @@
 
 复核后的 [阵列瓶颈诊断](ARRAY_DIAGNOSIS.md) 分开有效 MAC、低 M padding、波次和填排空，并比较固定映射带宽、理想阵列与重新映射。生命周期漏计已修复；这些诊断上界不作为可实现新硬件的收益。
 
+[有限历史的真实配对与驻留](FINITE_PREFIX_RESULTS.md) 已完成 7 对 / 14 次 A800 问答：同一 19 段历史，原文和 Mem0 平均输入为 21151 / 240 token，输出为 84 / 50 token。实际 KV、同时分配和峰值均已记录；词面匹配为 4/7 与 2/7，尚未证明质量等价。
+
 另已完成 [18 项 A800 算子微基准](evidence/architecture/operator_calibration.json)：真实请求对应的 GEMM 形状、合成矩阵、独立 CUDA 时间。它们是现有 GPU 的校准点，未外推成新 NPU 性能。
 
 协议调查已冻结为支线，已排队的运行自然结束并释放服务，见 [收尾状态](evidence/architecture/protocol_branch_status.json)。历史结果保留在 [第二、三轮结果与原因](PHASE23_RESULTS.md)，研究方向见 [第一性原理 overview](OVERVIEW_NEXT.md)。
@@ -22,6 +24,8 @@
 |---|---|
 | `architecture/model.py` / `architecture/spec.json` | 显式分块、阵列利用率、SRAM/DRAM 服务与物理参数假设 |
 | `architecture/explore.py` / `architecture/report.py` | 条件性架构比较、生命周期与容量相图、P/D/缓存/等容量控制 |
+| `architecture/diagnose_array.py` | 阵列周期守恒分解、固定映射/重新映射的带宽与周期控制 |
+| `architecture/finite_prefix.py` / `architecture/report_finite_prefix.py` | 远端有限历史配对、同时驻留采样及真实形状的模型对照 |
 | `operations/download_models.py` | 从 HF 镜像下载固定 revision 的三个模型 |
 | `operations/prepare_dataset.py` | 从镜像重建固定 MemoryAgentBench 输入；已有文件不覆盖 |
 | `launch_services.py` | 固定模型服务参数和 PID，隔离缓存 |
@@ -62,6 +66,8 @@ cd /data/ziheng/agent-memory-architecture
 python3 architecture_unittest.py
 python3 -m architecture.explore
 python3 -m architecture.report
+python3 -m architecture.diagnose_array
+python3 -m architecture.report_finite_prefix
 ```
 
 第一轮收尾核验入口为 `validate_evidence.py`；`audit_power.py` 检查粗粒度设备能量读数；`freeze_receipts.py` 固定远端原始证据哈希。`operations/stop_services.py` 是第一轮专用收尾脚本，不用于 phase2。新运行使用不同 session、trace 路径和证据回执，避免修改旧的冻结文件。
