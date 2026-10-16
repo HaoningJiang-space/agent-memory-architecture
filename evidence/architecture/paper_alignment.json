@@ -1,0 +1,146 @@
+{
+  "scope": "Comparison audit, not a paper reproduction or new architecture result.",
+  "source_sha256": {
+    "evidence/architecture/family_summary.json": "9eb78ca98b8f3abbeaf0fc31e0e711b379ec388fd49cb40e72f54d37288a3a79",
+    "evidence/architecture/call_placement.json.gz": "8b2e6c5a7f85f5b87f446621f60c5447297e662add1143d996279e4f0eb88d5a",
+    "architecture/family_workload.py": "2e9e0d49da01ccae527f26c629441636fadb34b0f3d91fb555ec23b236763bf8",
+    "architecture/batch_closure.py": "13abb37d1c81cc5c50a2584caa4891f6aff30981b33838195dbfddf203a83c22",
+    "architecture/paper_alignment.py": "8e4f8ad076af9427b5804a4da6413b8d0966c01f9dfaf4cca55f94acd2e40adf",
+    "evidence/architecture/family_provenance.json": "ff5fc3132f7c2274b07829c08d0f529e056a09280b84c83efb0dd01a21a6232f"
+  },
+  "observed_construction_tokens": {
+    "simplemem": {
+      "llm_prompt": 19683,
+      "llm_output": 7587,
+      "embedding_input": 2473,
+      "output_share_llm_only": 0.27821782178217824,
+      "output_share_all_construction_tokens": 0.2550852301381838,
+      "source_revision": "agent-memory-profiling@30a157b7b49f732ee4b961cb19d7f877cf475f81",
+      "scope": "Observed counts, not elapsed time, FLOPs, or hardware traffic."
+    },
+    "lightmem": {
+      "llm_prompt": 30408,
+      "llm_output": 9985,
+      "embedding_input": 5612,
+      "output_share_llm_only": 0.247196296387988,
+      "output_share_all_construction_tokens": 0.21704162591022716,
+      "source_revision": "8449d574df6bae1bdf3314a1564da65e2f37e046",
+      "scope": "Observed counts, not elapsed time, FLOPs, or hardware traffic."
+    }
+  },
+  "paper_reference": {
+    "url": "https://arxiv.org/html/2606.06448v1",
+    "section": "4.3, Figure 5",
+    "denominator": "LLM prompt + LLM completion + embedding input tokens",
+    "across_system_median_output_share": 0.046,
+    "simplemem_output_share": 0.285,
+    "lightmem_in_this_paper_suite": false,
+    "provenance": "Transcribed published values; different models and history, not reproduced."
+  },
+  "target_graph_barriers": {
+    "simplemem_sequential_queries": {
+      "query_nodes": 80,
+      "build_neural_nodes": 6,
+      "every_query_waits_for_all_build_neural_nodes": true
+    },
+    "simplemem_concurrent_queries": {
+      "query_nodes": 80,
+      "build_neural_nodes": 6,
+      "every_query_waits_for_all_build_neural_nodes": true
+    },
+    "lightmem_sequential_queries": {
+      "query_nodes": 12,
+      "build_neural_nodes": 311,
+      "every_query_waits_for_all_build_neural_nodes": true
+    },
+    "lightmem_concurrent_queries": {
+      "query_nodes": 12,
+      "build_neural_nodes": 311,
+      "every_query_waits_for_all_build_neural_nodes": true
+    }
+  },
+  "target_domain_balance": {
+    "C": {
+      "peak_flops": 519084181084626.75,
+      "effective_dram_bytes_per_second": 491520000000.0,
+      "peak_balance_flop_per_byte": 1056.0794699801163,
+      "bf16_weight_only_balance_M": 1056.0794699801163,
+      "scope": "Peak roofline reference only; excludes attention, tile reloads, activation traffic, utilization and SRAM bottlenecks. Not a measured crossover."
+    },
+    "N": {
+      "peak_flops": 259542090542313.38,
+      "effective_dram_bytes_per_second": 800000000000.0,
+      "peak_balance_flop_per_byte": 324.4276131778917,
+      "bf16_weight_only_balance_M": 324.4276131778917,
+      "scope": "Peak roofline reference only; excludes attention, tile reloads, activation traffic, utilization and SRAM bottlenecks. Not a measured crossover."
+    }
+  },
+  "saved_service_examples": {
+    "simplemem_construction": {
+      "batch": 4,
+      "alternatives": [
+        {
+          "route": "C",
+          "end": 113.51178765832354,
+          "prefill_seconds": 3.271240539964134,
+          "decode_seconds": 104.36410741839883,
+          "kv_bytes": 0,
+          "kv_seconds": 0
+        },
+        {
+          "route": "N",
+          "end": 106.07749788787817,
+          "prefill_seconds": 2.4299525364215997,
+          "decode_seconds": 97.771105651496,
+          "kv_bytes": 0,
+          "kv_seconds": 0
+        },
+        {
+          "route": "PD",
+          "end": 107.0370834674207,
+          "prefill_seconds": 3.271240539964134,
+          "decode_seconds": 97.771105651496,
+          "kv_bytes": 3785490432,
+          "kv_seconds": 0.118297576
+        }
+      ],
+      "scope": "Saved target-model services, not A800 timings."
+    },
+    "lightmem_maintenance": {
+      "batch": 29,
+      "alternatives": [
+        {
+          "route": "C",
+          "end": 224.47558555440597,
+          "prefill_seconds": 2.3962846953124997,
+          "decode_seconds": 3.4212001253650666,
+          "kv_bytes": 0,
+          "kv_seconds": 0
+        },
+        {
+          "route": "N",
+          "end": 222.84534762436462,
+          "prefill_seconds": 1.5202753968394,
+          "decode_seconds": 2.6669714937967997,
+          "kv_bytes": 0,
+          "kv_seconds": 0
+        },
+        {
+          "route": "PD",
+          "end": 223.8151675868377,
+          "prefill_seconds": 2.3962846953124997,
+          "decode_seconds": 2.6669714937967997,
+          "kv_bytes": 3001909248,
+          "kv_seconds": 0.093810664
+        }
+      ],
+      "scope": "Saved target-model services, not A800 timings."
+    }
+  },
+  "lightmem_scope": {
+    "pre_compress": false,
+    "topic_segment": false,
+    "source": "family_provenance.json: family_01/lightmem phase_config",
+    "consequence": "Full LightMem paper pipeline and its work proportions are not represented."
+  }
+}

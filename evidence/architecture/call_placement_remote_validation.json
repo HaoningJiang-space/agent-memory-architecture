@@ -1,0 +1,19 @@
+{
+  "commit": "7baaea7",
+  "remote_python": "3.8.10",
+  "tests_passed": 8,
+  "runs": 552,
+  "byte_identical": false,
+  "exact_json_equal": false,
+  "structure_and_decisions_equal": true,
+  "numeric_tolerance_pass": true,
+  "relative_tolerance": 1e-12,
+  "absolute_tolerance": 1e-12,
+  "float_fields_checked": 161409,
+  "max_scaled_delta": 1.5246125040097785e-15,
+  "differing_numeric_detail_digests": 552,
+  "retained_detail_digests_valid": true,
+  "remote_gzip_sha256": "731b0ef121b1e8c25c658e68ee22413d6f05ccf4ff57dd0a094ca6086ee41f1d",
+  "published_gzip_sha256": "8b2e6c5a7f85f5b87f446621f60c5447297e662add1143d996279e4f0eb88d5a",
+  "scope": "CPU replay only. Cross-Python floating-point last bits and gzip headers differ; no A800 run or physical calibration."
+}
