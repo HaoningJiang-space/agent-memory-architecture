@@ -1,0 +1,170 @@
+{
+  "scope": "Conditional capacity and streaming bounds, not a chip performance simulator.\n\nUse all seven recorded prompt shapes, with a controlled 64-token output horizon.\nThe 16 GiB is KV-only headroom after weights/runtime/workspaces, not total memory.\nNo quality equivalence, arrival process or physical implementation is assumed.\n",
+  "source_sha256": "72ad76cb1aff953d71bb9095a6046e7582a1d9dc90b6a4b19326e24f566ef635",
+  "decoder_shape_source_sha256": "97065c8a30dc7631e2c0695ff1b22610bbc92c1be467958f5015c8385f130136",
+  "input_sha256": {
+    "evidence/architecture/finite_prefix.json": "a798fac2336f33279684e290015aa55c0cb4bccf37a488f2fe204e9cb50172ab",
+    "evidence/architecture/representation_controls.json": "57a6282dfb75fbc868c586552dcebd092d561b6987c1a1368a6eb52abcaad431",
+    "evidence/phase2/workload_accounting.json": "75d6c0950006efa81229e3377fb67b63daf5a598f99202b68c9f68c4742a8ff5"
+  },
+  "controls": {
+    "kv_only_headroom_bytes": 17179869184,
+    "output_horizon_tokens": 64,
+    "sizing": "Maximum of all seven recorded prompt lengths per representation",
+    "ready_counts": "Controlled independent ready requests, not observed arrivals",
+    "prefix_sharing": "Counterfactual exact prefix; actual reusable length unmeasured",
+    "capacity": "Only a necessary constraint, not achievable batch or throughput"
+  },
+  "capacity_rows": [
+    {
+      "strategy": "raw",
+      "input_tokens": [
+        21032,
+        21359,
+        21225,
+        21145,
+        21065,
+        21346,
+        20885
+      ],
+      "max_prompt_tokens": 21359,
+      "controlled_live_tokens": 21422,
+      "kv_bytes_per_sequence": 5615648768,
+      "no_sharing_capacity_batch": 3,
+      "hypothetical_shared_prefix_tokens": 21327,
+      "hypothetical_shared_capacity_batch": 465,
+      "capacity_and_ready_caps": [
+        {
+          "ready": 1,
+          "independent_prefix": 1,
+          "hypothetical_shared_prefix": 1
+        },
+        {
+          "ready": 8,
+          "independent_prefix": 3,
+          "hypothetical_shared_prefix": 8
+        },
+        {
+          "ready": 32,
+          "independent_prefix": 3,
+          "hypothetical_shared_prefix": 32
+        }
+      ]
+    },
+    {
+      "strategy": "raw_512",
+      "input_tokens": [
+        2669,
+        2669,
+        2672,
+        2665,
+        2278,
+        2368,
+        2666
+      ],
+      "max_prompt_tokens": 2672,
+      "controlled_live_tokens": 2735,
+      "kv_bytes_per_sequence": 716963840,
+      "no_sharing_capacity_batch": 23,
+      "hypothetical_shared_prefix_tokens": 2640,
+      "hypothetical_shared_capacity_batch": 662,
+      "capacity_and_ready_caps": [
+        {
+          "ready": 1,
+          "independent_prefix": 1,
+          "hypothetical_shared_prefix": 1
+        },
+        {
+          "ready": 8,
+          "independent_prefix": 8,
+          "hypothetical_shared_prefix": 8
+        },
+        {
+          "ready": 32,
+          "independent_prefix": 23,
+          "hypothetical_shared_prefix": 32
+        }
+      ]
+    },
+    {
+      "strategy": "mem0",
+      "input_tokens": [
+        255,
+        263,
+        247,
+        229,
+        238,
+        221,
+        225
+      ],
+      "max_prompt_tokens": 263,
+      "controlled_live_tokens": 326,
+      "kv_bytes_per_sequence": 85458944,
+      "no_sharing_capacity_batch": 201,
+      "hypothetical_shared_prefix_tokens": 231,
+      "hypothetical_shared_capacity_batch": 687,
+      "capacity_and_ready_caps": [
+        {
+          "ready": 1,
+          "independent_prefix": 1,
+          "hypothetical_shared_prefix": 1
+        },
+        {
+          "ready": 8,
+          "independent_prefix": 8,
+          "hypothetical_shared_prefix": 8
+        },
+        {
+          "ready": 32,
+          "independent_prefix": 32,
+          "hypothetical_shared_prefix": 32
+        }
+      ]
+    }
+  ],
+  "weight_only_bandwidth_requirements": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "weight_stream_bytes": 15136194560,
+      "step_budget_ms": 50,
+      "required_effective_TB_s": 0.3027238912
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "weight_stream_bytes": 15136194560,
+      "step_budget_ms": 100,
+      "required_effective_TB_s": 0.1513619456
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "weight_stream_bytes": 15136194560,
+      "step_budget_ms": 200,
+      "required_effective_TB_s": 0.0756809728
+    },
+    {
+      "model": "Qwen/Qwen3-32B",
+      "weight_stream_bytes": 63967068160,
+      "step_budget_ms": 50,
+      "required_effective_TB_s": 1.2793413632
+    },
+    {
+      "model": "Qwen/Qwen3-32B",
+      "weight_stream_bytes": 63967068160,
+      "step_budget_ms": 100,
+      "required_effective_TB_s": 0.6396706816
+    },
+    {
+      "model": "Qwen/Qwen3-32B",
+      "weight_stream_bytes": 63967068160,
+      "step_budget_ms": 200,
+      "required_effective_TB_s": 0.3198353408
+    }
+  ],
+  "assumptions": [
+    "Dense BF16 autoregressive generation, one model-weight pass per decode step",
+    "Linear streaming weights include output head, exclude input embedding lookup",
+    "No persistent reuse of streamed weights between decode steps",
+    "No speculative multi-token acceptance; bandwidth values are effective, not peak",
+    "No compute, prefill, queue, energy, quality or hardware-cost prediction"
+  ]
+}
